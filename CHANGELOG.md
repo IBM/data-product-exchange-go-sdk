@@ -1,3 +1,10 @@
+## [0.0.6](https://github.com/IBM/data-product-exchange-go-sdk/compare/v0.0.5...v0.0.6) (2024-03-13)
+
+
+### Bug Fixes
+
+* added service url ([#8](https://github.com/IBM/data-product-exchange-go-sdk/issues/8)) ([112970a](https://github.com/IBM/data-product-exchange-go-sdk/commit/112970af057206b02f6d23d6c47ab04b90373f4b))
+
 ## [0.0.5](https://github.com/IBM/data-product-exchange-go-sdk/compare/v0.0.4...v0.0.5) (2024-03-12)
 
 
