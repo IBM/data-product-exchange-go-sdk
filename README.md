@@ -1,5 +1,5 @@
-# Data Product Exchange Go SDK Version 0.0.6
-Go client library to interact with the various Data Product Exchange Service APIs
+# Data Product Hub Go SDK Version 0.0.6
+Go client library to interact with the various Data Product Hub Service APIs
 
 ## Table of Contents
 <!--
@@ -30,11 +30,11 @@ Go client library to interact with the various Data Product Exchange Service API
 
 ## Overview
 
-The IBM Cloud Data Product Exchange Go SDK allows developers to programmatically interact with the following services:
+The IBM Cloud Data Product Hub Go SDK allows developers to programmatically interact with the following services:
 
 Service Name | Package name 
 --- | --- 
-[Data Product Exchange](https://cloud.ibm.com/apidocs/dataproducts) | dpxv1
+[Data Product Hub](https://cloud.ibm.com/apidocs/dataproducts) | dpxv1
 
 
 ## Prerequisites
