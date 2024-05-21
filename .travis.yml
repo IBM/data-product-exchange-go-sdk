@@ -3,7 +3,7 @@ language: go
 dist: focal
 
 
-group: focal
+group: stable
 
 go:
 - 1.19.x
