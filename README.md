@@ -34,7 +34,7 @@ The IBM Cloud Data Product Hub Go SDK allows developers to programmatically inte
 
 Service Name | Package name 
 --- | --- 
-[Data Product Hub](https://cloud.ibm.com/apidocs/dataproducts) | dpxv1
+[Data Product Hub](https://cloud.ibm.com/apidocs/dataproducts) | dataproducthubapiservicev1
 
 
 ## Prerequisites
@@ -55,19 +55,19 @@ Here is an example:
 
 ```go
 import (
-	"github.com/IBM/data-product-exchange-go-sdk/dpxv1"
+	"github.com/IBM/data-product-exchange-go-sdk/dataproducthubapiservicev1"
 )
 ```
 Next, run `go build` or `go mod tidy` to download and install the new dependencies and update your application's
 `go.mod` file.  
 
-In the example above, the `dpxv1` part of the import path is the package name
+In the example above, the `dataproducthubapiservicev1` part of the import path is the package name
 associated with the DPX service..
 
 ### `go get` command  
 Alternatively, you can use the `go get` command to download and install the appropriate packages needed by your application:
 ```
-go get -u github.com/IBM/data-product-exchange-go-sdk/dpxv1
+go get -u github.com/IBM/data-product-exchange-go-sdk/dataproducthubapiservicev1
 ```
 
 ## Using the SDK
@@ -81,7 +81,7 @@ please ask a question at
 
 ## Issues
 If you encounter an issue with the project, you are welcome to submit a
-[bug report](<github-repo-url>/issues).
+[bug report](https://github.com/IBM/data-product-exchange-go-sdk/issues).
 Before that, please search for similar issues. It's possible that someone has already reported the problem.
 
 ## Open source @ IBM
