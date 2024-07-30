@@ -62,7 +62,7 @@ Next, run `go build` or `go mod tidy` to download and install the new dependenci
 `go.mod` file.  
 
 In the example above, the `dataproducthubapiservicev1` part of the import path is the package name
-associated with the DPX service..
+associated with the DPH service..
 
 ### `go get` command  
 Alternatively, you can use the `go get` command to download and install the appropriate packages needed by your application:
