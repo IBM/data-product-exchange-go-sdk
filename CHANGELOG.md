@@ -1,3 +1,13 @@
+# [1.0.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v0.0.6...v1.0.0) (2024-07-30)
+
+
+* Merge pull request #12 from IBM/dph-sdk-updates ([f48f7ff](https://github.com/IBM/data-product-exchange-go-sdk/commit/f48f7ffc5f9187d0fb4e918631d23a1dab1e5844)), closes [#12](https://github.com/IBM/data-product-exchange-go-sdk/issues/12)
+
+
+### BREAKING CHANGES
+
+* DPH Service updated. \n\n feat: drop dph 0.0.6 support
+
 ## [0.0.6](https://github.com/IBM/data-product-exchange-go-sdk/compare/v0.0.5...v0.0.6) (2024-03-13)
 
 
