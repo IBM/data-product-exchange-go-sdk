@@ -38,60 +38,52 @@ import (
  * The integration test will automatically skip tests if the required config file is not available.
  */
 
-var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
-	const externalConfigFile = "../data_product_hub_api_service_v1.env"
+var _ = Describe(`DataProductHubAPIServiceV1 Integration Tests`, func() {
+	const externalConfigFile = "../dph_v1.env"
 
 	var (
 		err                      error
-		dataProductHubApiService *dataproducthubapiservicev1.DataProductHubApiServiceV1
+		dataProductHubAPIService *dataproducthubapiservicev1.DataProductHubAPIServiceV1
 		serviceURL               string
 		config                   map[string]string
 
 		// Variables to hold link values
-		completeADraftByContractTermsIdLink               string
-		completeADraftByDraftIdLink                       string
-		completeContractTermsDocumentByDocumentIdLink     string
-		completeDraftContractTermsByDataProductIdLink     string
-		createAContractTermsDocByContractTermsIdLink      string
-		createAContractTermsDocByDraftIdLink              string
-		createDataProductByCatalogIdLink                  string
-		createDraftByContainerIdLink                      string
-		createNewDraftByDataProductIdLink                 string
-		deleteAContractDocumentByDraftIdLink              string
-		deleteADraftByContractTermsIdLink                 string
-		deleteADraftByDraftIdLink                         string
-		deleteContractDocumentByDataProductIdLink         string
-		deleteContractTermsDocumentByDocumentIdLink       string
-		deleteDraftOfDataProductByDataProductIdLink       string
-		getADraftByContractTermsIdLink                    string
-		getADraftContractDocumentByDraftIdLink            string
-		getADraftOfDataProductByDataProductIdLink         string
-		getAReleaseByReleaseIdLink                        string
-		getAReleaseContractTermsByContractTermsIdLink     string
-		getAReleaseContractTermsByReleaseIdLink           string
-		getAReleaseOfDataProductByDataProductIdLink       string
-		getContractDocumentByDataProductIdLink            string
-		getContractTermsDocumentByIdDocumentIdLink        string
-		getDataProductByDataProductIdLink                 string
-		getDraftByDraftIdLink                             string
-		getListOfDataProductDraftsByDataProductIdLink     string
-		getListOfReleasesOfDataProductByDataProductIdLink string
-		getReleaseContractDocumentByDataProductIdLink     string
-		getReleaseContractDocumentByDocumentIdLink        string
-		getStatusByCatalogIdLink                          string
-		publishADraftByDraftIdLink                        string
-		publishADraftOfDataProductByDataProductIdLink     string
-		retireAReleaseContractTermsByReleaseIdLink        string
-		retireAReleasesOfDataProductByDataProductIdLink   string
-		updateADraftByContractTermsIdLink                 string
-		updateADraftByDraftIdLink                         string
-		updateAReleaseByReleaseIdLink                     string
-		updateContractDocumentByDataProductIdLink         string
-		updateContractDocumentByDraftIdLink               string
-		updateContractTermsDocumentByDocumentIdLink       string
-		updateDraftOfDataProductByDataProductIdLink       string
-		updateReleaseOfDataProductByDataProductIdLink     string
-		uploadContractTermsDocByDataProductIdLink         string
+		completeContractTermsDocumentByDocumentIDLink     string
+		completeDraftContractTermsByDataProductIDLink     string
+		createAContractTermsDocByContractTermsIDLink      string
+		createAContractTermsDocByDraftIDLink              string
+		createDataProductByCatalogIDLink                  string
+		createDraftByContainerIDLink                      string
+		createNewDraftByDataProductIDLink                 string
+		deleteAContractDocumentByDraftIDLink              string
+		deleteADraftByContractTermsIDLink                 string
+		deleteADraftByDraftIDLink                         string
+		deleteContractDocumentByDataProductIDLink         string
+		deleteContractTermsDocumentByDocumentIDLink       string
+		deleteDraftOfDataProductByDataProductIDLink       string
+		getADraftOfDataProductByDataProductIDLink         string
+		getAReleaseByReleaseIDLink                        string
+		getAReleaseContractTermsByContractTermsIDLink     string
+		getAReleaseContractTermsByReleaseIDLink           string
+		getAReleaseOfDataProductByDataProductIDLink       string
+		getContractDocumentByDataProductIDLink            string
+		getContractTermsDocumentByIDDocumentIDLink        string
+		getDataProductByDataProductIDLink                 string
+		getDraftByDraftIDLink                             string
+		getListOfDataProductDraftsByDataProductIDLink     string
+		getListOfReleasesOfDataProductByDataProductIDLink string
+		getReleaseContractDocumentByDataProductIDLink     string
+		getReleaseContractDocumentByDocumentIDLink        string
+		getStatusByCatalogIDLink                          string
+		publishADraftOfDataProductByDataProductIDLink     string
+		retireAReleaseContractTermsByReleaseIDLink        string
+		retireAReleasesOfDataProductByDataProductIDLink   string
+		updateAReleaseByReleaseIDLink                     string
+		updateContractDocumentByDataProductIDLink         string
+		updateContractTermsDocumentByDocumentIDLink       string
+		updateDraftOfDataProductByDataProductIDLink       string
+		updateReleaseOfDataProductByDataProductIDLink     string
+		uploadContractTermsDocByDataProductIDLink         string
 	)
 
 	var shouldSkipTest = func() {
@@ -125,15 +117,15 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			shouldSkipTest()
 		})
 		It("Successfully construct the service client instance", func() {
-			dataProductHubApiServiceServiceOptions := &dataproducthubapiservicev1.DataProductHubApiServiceV1Options{}
+			dataProductHubAPIServiceServiceOptions := &dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{}
 
-			dataProductHubApiService, err = dataproducthubapiservicev1.NewDataProductHubApiServiceV1UsingExternalConfig(dataProductHubApiServiceServiceOptions)
+			dataProductHubAPIService, err = dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(dataProductHubAPIServiceServiceOptions)
 			Expect(err).To(BeNil())
-			Expect(dataProductHubApiService).ToNot(BeNil())
-			Expect(dataProductHubApiService.Service.Options.URL).To(Equal(serviceURL))
+			Expect(dataProductHubAPIService).ToNot(BeNil())
+			Expect(dataProductHubAPIService.Service.Options.URL).To(Equal(serviceURL))
 
 			core.SetLogger(core.NewLogger(core.LevelDebug, log.New(GinkgoWriter, "", log.LstdFlags), log.New(GinkgoWriter, "", log.LstdFlags)))
-			dataProductHubApiService.EnableRetries(4, 30*time.Second)
+			dataProductHubAPIService.EnableRetries(4, 30*time.Second)
 		})
 	})
 
@@ -143,26 +135,69 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`Initialize(initializeOptions *InitializeOptions)`, func() {
 			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID:   core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
+				ID:   core.StringPtr("a7ca67e8-1fac-4061-ae9b-7604e15c4ab3"),
 				Type: core.StringPtr("catalog"),
 			}
 
 			initializeOptions := &dataproducthubapiservicev1.InitializeOptions{
 				Container: containerReferenceModel,
-				Include:   []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"},
+				Include:   []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"},
 			}
 
-			initializeResource, response, err := dataProductHubApiService.Initialize(initializeOptions)
+			initializeResource, response, err := dataProductHubAPIService.Initialize(initializeOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(202))
 			Expect(initializeResource).ToNot(BeNil())
 
-			createDraftByContainerIdLink = *initializeResource.Container.ID
-			fmt.Fprintf(GinkgoWriter, "Saved createDraftByContainerIdLink value: %v\n", createDraftByContainerIdLink)
-			createDataProductByCatalogIdLink = *initializeResource.Container.ID
-			fmt.Fprintf(GinkgoWriter, "Saved createDataProductByCatalogIdLink value: %v\n", createDataProductByCatalogIdLink)
-			getStatusByCatalogIdLink = *initializeResource.Container.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getStatusByCatalogIdLink value: %v\n", getStatusByCatalogIdLink)
+			createDraftByContainerIDLink = *initializeResource.Container.ID
+			fmt.Fprintf(GinkgoWriter, "Saved createDraftByContainerIDLink value: %v\n", createDraftByContainerIDLink)
+			createDataProductByCatalogIDLink = *initializeResource.Container.ID
+			fmt.Fprintf(GinkgoWriter, "Saved createDataProductByCatalogIDLink value: %v\n", createDataProductByCatalogIDLink)
+			getStatusByCatalogIDLink = *initializeResource.Container.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getStatusByCatalogIDLink value: %v\n", getStatusByCatalogIDLink)
+		})
+	})
+
+	Describe(`GetInitializeStatus - Get resource initialization status`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`GetInitializeStatus(getInitializeStatusOptions *GetInitializeStatusOptions)`, func() {
+			getInitializeStatusOptions := &dataproducthubapiservicev1.GetInitializeStatusOptions{
+				ContainerID: &getStatusByCatalogIDLink,
+			}
+
+			initializeResource, response, err := dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(200))
+			Expect(initializeResource).ToNot(BeNil())
+		})
+	})
+
+	Describe(`GetServiceIDCredentials - Get service id credentials`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`GetServiceIDCredentials(getServiceIDCredentialsOptions *GetServiceIDCredentialsOptions)`, func() {
+			getServiceIDCredentialsOptions := &dataproducthubapiservicev1.GetServiceIDCredentialsOptions{}
+
+			serviceIDCredentials, response, err := dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(200))
+			Expect(serviceIDCredentials).ToNot(BeNil())
+		})
+	})
+
+	Describe(`ManageAPIKeys - Rotate credentials for a Data Product Hub instance`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`ManageAPIKeys(manageAPIKeysOptions *ManageAPIKeysOptions)`, func() {
+			manageAPIKeysOptions := &dataproducthubapiservicev1.ManageAPIKeysOptions{}
+
+			response, err := dataProductHubAPIService.ManageAPIKeys(manageAPIKeysOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(204))
 		})
 	})
 
@@ -173,47 +208,26 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		It(`CreateDataProduct(createDataProductOptions *CreateDataProductOptions)`, func() {
 
 			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID:   core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
+				ID:   core.StringPtr(createDataProductByCatalogIDLink),
 				Type: core.StringPtr("catalog"),
 			}
 
-			contractTermsDocumentModel := &dataproducthubapiservicev1.ContractTermsDocument{
-				URL:        core.StringPtr("https://data.un.org/Host.aspx?Content=UNdataUse"),
-				Type:       core.StringPtr("terms_and_conditions"),
-				Name:       core.StringPtr("Contract and Terms"),
-				ID:         core.StringPtr("d343dbcc-db69-4fdd-98f9-e2df58c8b690"),
-				Attachment: nil,
-				UploadURL:  nil,
-			}
-
-			dataProductContractTermsModel := &dataproducthubapiservicev1.DataProductContractTerms{
-				ID:        core.StringPtr("17840b80-78f5-4928-9631-925668c3d530@78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
-				Documents: []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel},
-			}
-
 			containerIdentityModel := &dataproducthubapiservicev1.ContainerIdentity{
-				ID: core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
+				ID: core.StringPtr(createDataProductByCatalogIDLink),
 			}
 
 			assetPrototypeModel := &dataproducthubapiservicev1.AssetPrototype{
-				ID:        core.StringPtr("e69d51ba-e08c-4665-bc89-c24064de08dd"),
 				Container: containerIdentityModel,
 			}
 
-			domainModel := &dataproducthubapiservicev1.Domain{
-				ID:        core.StringPtr("352c8ccc-950d-4881-8139-9dc641fa87cd"),
-				Name:      core.StringPtr("Human Resources"),
-				Container: containerReferenceModel,
-			}
-
 			assetPartReferenceModel := &dataproducthubapiservicev1.AssetPartReference{
-				ID:        core.StringPtr("e69d51ba-e08c-4665-bc89-c24064de08dd"),
+				ID:        core.StringPtr("16a8f683-f947-48d9-a92c-b81758b1a5f5"),
 				Container: containerReferenceModel,
 				Type:      core.StringPtr("data_asset"),
 			}
 
 			deliveryMethodModel := &dataproducthubapiservicev1.DeliveryMethod{
-				ID:        core.StringPtr("09cf5fcc-cb9d-4995-a8e4-16517b25229f"),
+				ID:        core.StringPtr("8848fd43-7384-4435-aff3-6a9f113768c4"),
 				Container: containerReferenceModel,
 			}
 
@@ -222,63 +236,71 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 				DeliveryMethods: []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel},
 			}
 
+			domainModel := &dataproducthubapiservicev1.Domain{
+				ID:        core.StringPtr("3f0688f0-69c3-441e-b49b-7c223daa1804"),
+				Name:      core.StringPtr("Risk Management"),
+				Container: containerReferenceModel,
+			}
+
 			dataProductVersionPrototypeModel := &dataproducthubapiservicev1.DataProductVersionPrototype{
-				Version:       core.StringPtr("1.0.0"),
-				State:         core.StringPtr("draft"),
-				DataProduct:   nil,
-				Name:          core.StringPtr("GoSDK Integration Test Data Product"),
-				Description:   core.StringPtr("GoSDK Integration Test Data Product"),
-				Types:         []string{"data"},
-				ContractTerms: []dataproducthubapiservicev1.DataProductContractTerms{*dataProductContractTermsModel},
-				IsRestricted:  core.BoolPtr(true),
-				Asset:         assetPrototypeModel,
-				Domain:        domainModel,
-				PartsOut:      []dataproducthubapiservicev1.DataProductPart{*dataProductPartModel},
+				Version:      core.StringPtr("1.0.0"),
+				State:        core.StringPtr("draft"),
+				Name:         core.StringPtr("My New Data Product created using Go SDK"),
+				Description:  core.StringPtr("This is a description of My Data Product."),
+				Types:        []string{"data"},
+				IsRestricted: core.BoolPtr(false),
+				Asset:        assetPrototypeModel,
+				Domain:       domainModel,
+				PartsOut:     []dataproducthubapiservicev1.DataProductPart{*dataProductPartModel},
 			}
 
 			createDataProductOptions := &dataproducthubapiservicev1.CreateDataProductOptions{
 				Drafts: []dataproducthubapiservicev1.DataProductVersionPrototype{*dataProductVersionPrototypeModel},
 			}
 
-			dataProduct, response, err := dataProductHubApiService.CreateDataProduct(createDataProductOptions)
+			dataProduct, response, err := dataProductHubAPIService.CreateDataProduct(createDataProductOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(201))
 			Expect(dataProduct).ToNot(BeNil())
 
-			createNewDraftByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved createNewDraftByDataProductIdLink value: %v\n", createNewDraftByDataProductIdLink)
-			getContractDocumentByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getContractDocumentByDataProductIdLink value: %v\n", getContractDocumentByDataProductIdLink)
-			retireAReleasesOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved retireAReleasesOfDataProductByDataProductIdLink value: %v\n", retireAReleasesOfDataProductByDataProductIdLink)
-			getDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getDataProductByDataProductIdLink value: %v\n", getDataProductByDataProductIdLink)
-			updateDraftOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateDraftOfDataProductByDataProductIdLink value: %v\n", updateDraftOfDataProductByDataProductIdLink)
-			updateContractDocumentByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateContractDocumentByDataProductIdLink value: %v\n", updateContractDocumentByDataProductIdLink)
-			deleteDraftOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved deleteDraftOfDataProductByDataProductIdLink value: %v\n", deleteDraftOfDataProductByDataProductIdLink)
-			getAReleaseOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseOfDataProductByDataProductIdLink value: %v\n", getAReleaseOfDataProductByDataProductIdLink)
-			completeDraftContractTermsByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved completeDraftContractTermsByDataProductIdLink value: %v\n", completeDraftContractTermsByDataProductIdLink)
-			deleteContractDocumentByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved deleteContractDocumentByDataProductIdLink value: %v\n", deleteContractDocumentByDataProductIdLink)
-			getListOfDataProductDraftsByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getListOfDataProductDraftsByDataProductIdLink value: %v\n", getListOfDataProductDraftsByDataProductIdLink)
-			getADraftOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getADraftOfDataProductByDataProductIdLink value: %v\n", getADraftOfDataProductByDataProductIdLink)
-			getReleaseContractDocumentByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getReleaseContractDocumentByDataProductIdLink value: %v\n", getReleaseContractDocumentByDataProductIdLink)
-			publishADraftOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved publishADraftOfDataProductByDataProductIdLink value: %v\n", publishADraftOfDataProductByDataProductIdLink)
-			getListOfReleasesOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getListOfReleasesOfDataProductByDataProductIdLink value: %v\n", getListOfReleasesOfDataProductByDataProductIdLink)
-			updateReleaseOfDataProductByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateReleaseOfDataProductByDataProductIdLink value: %v\n", updateReleaseOfDataProductByDataProductIdLink)
-			uploadContractTermsDocByDataProductIdLink = *dataProduct.ID
-			fmt.Fprintf(GinkgoWriter, "Saved uploadContractTermsDocByDataProductIdLink value: %v\n", uploadContractTermsDocByDataProductIdLink)
+			createNewDraftByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved createNewDraftByDataProductIDLink value: %v\n", createNewDraftByDataProductIDLink)
+			getContractDocumentByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getContractDocumentByDataProductIDLink value: %v\n", getContractDocumentByDataProductIDLink)
+			retireAReleasesOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved retireAReleasesOfDataProductByDataProductIDLink value: %v\n", retireAReleasesOfDataProductByDataProductIDLink)
+			getDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getDataProductByDataProductIDLink value: %v\n", getDataProductByDataProductIDLink)
+			updateDraftOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved updateDraftOfDataProductByDataProductIDLink value: %v\n", updateDraftOfDataProductByDataProductIDLink)
+			updateContractDocumentByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved updateContractDocumentByDataProductIDLink value: %v\n", updateContractDocumentByDataProductIDLink)
+			deleteDraftOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved deleteDraftOfDataProductByDataProductIDLink value: %v\n", deleteDraftOfDataProductByDataProductIDLink)
+			getAReleaseOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseOfDataProductByDataProductIDLink value: %v\n", getAReleaseOfDataProductByDataProductIDLink)
+			completeDraftContractTermsByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved completeDraftContractTermsByDataProductIDLink value: %v\n", completeDraftContractTermsByDataProductIDLink)
+			deleteContractDocumentByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved deleteContractDocumentByDataProductIDLink value: %v\n", deleteContractDocumentByDataProductIDLink)
+			getListOfDataProductDraftsByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getListOfDataProductDraftsByDataProductIDLink value: %v\n", getListOfDataProductDraftsByDataProductIDLink)
+			getADraftOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getADraftOfDataProductByDataProductIDLink value: %v\n", getADraftOfDataProductByDataProductIDLink)
+			getReleaseContractDocumentByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getReleaseContractDocumentByDataProductIDLink value: %v\n", getReleaseContractDocumentByDataProductIDLink)
+			publishADraftOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved publishADraftOfDataProductByDataProductIDLink value: %v\n", publishADraftOfDataProductByDataProductIDLink)
+			getListOfReleasesOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getListOfReleasesOfDataProductByDataProductIDLink value: %v\n", getListOfReleasesOfDataProductByDataProductIDLink)
+			updateReleaseOfDataProductByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved updateReleaseOfDataProductByDataProductIDLink value: %v\n", updateReleaseOfDataProductByDataProductIDLink)
+			uploadContractTermsDocByDataProductIDLink = *dataProduct.ID
+			fmt.Fprintf(GinkgoWriter, "Saved uploadContractTermsDocByDataProductIDLink value: %v\n", uploadContractTermsDocByDataProductIDLink)
+			createAContractTermsDocByContractTermsIDLink = *dataProduct.Drafts[0].ContractTerms[0].ID
+			getAReleaseContractTermsByContractTermsIDLink = *dataProduct.Drafts[0].ContractTerms[0].ID
+			createAContractTermsDocByDraftIDLink = *dataProduct.Drafts[0].ID
+			getDraftByDraftIDLink = *dataProduct.Drafts[0].ID
 		})
 	})
 
@@ -288,10 +310,10 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`GetDataProduct(getDataProductOptions *GetDataProductOptions)`, func() {
 			getDataProductOptions := &dataproducthubapiservicev1.GetDataProductOptions{
-				DataProductID: &getDataProductByDataProductIdLink,
+				DataProductID: &getDataProductByDataProductIDLink,
 			}
 
-			dataProduct, response, err := dataProductHubApiService.GetDataProduct(getDataProductOptions)
+			dataProduct, response, err := dataProductHubAPIService.GetDataProduct(getDataProductOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProduct).ToNot(BeNil())
@@ -307,12 +329,9 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 				Limit: core.Int64Ptr(int64(10)),
 			}
 
-			listDataProductsOptions.Start = nil
-			listDataProductsOptions.Limit = core.Int64Ptr(1)
-
 			var allResults []dataproducthubapiservicev1.DataProductSummary
 			for {
-				dataProductSummaryCollection, response, err := dataProductHubApiService.ListDataProducts(listDataProductsOptions)
+				dataProductSummaryCollection, response, err := dataProductHubAPIService.ListDataProducts(listDataProductsOptions)
 				Expect(err).To(BeNil())
 				Expect(response.StatusCode).To(Equal(200))
 				Expect(dataProductSummaryCollection).ToNot(BeNil())
@@ -333,7 +352,7 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			}
 
 			// Test GetNext().
-			pager, err := dataProductHubApiService.NewDataProductsPager(listDataProductsOptions)
+			pager, err := dataProductHubAPIService.NewDataProductsPager(listDataProductsOptions)
 			Expect(err).To(BeNil())
 			Expect(pager).ToNot(BeNil())
 
@@ -346,7 +365,7 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			}
 
 			// Test GetAll().
-			pager, err = dataProductHubApiService.NewDataProductsPager(listDataProductsOptions)
+			pager, err = dataProductHubAPIService.NewDataProductsPager(listDataProductsOptions)
 			Expect(err).To(BeNil())
 			Expect(pager).ToNot(BeNil())
 
@@ -359,128 +378,17 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 	})
 
-	Describe(`CreateDataProductDraft - Create a new draft of an existing data product`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`CreateDataProductDraft(createDataProductDraftOptions *CreateDataProductDraftOptions)`, func() {
-			containerIdentityModel := &dataproducthubapiservicev1.ContainerIdentity{
-				ID: core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
-			}
-
-			assetPrototypeModel := &dataproducthubapiservicev1.AssetPrototype{
-				ID:        core.StringPtr("e69d51ba-e08c-4665-bc89-c24064de08dd"),
-				Container: containerIdentityModel,
-			}
-
-			dataProductIdentityModel := &dataproducthubapiservicev1.DataProductIdentity{
-				ID: &getDataProductByDataProductIdLink,
-			}
-
-			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID:   core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
-				Type: core.StringPtr("catalog"),
-			}
-
-			contractTermsDocumentModel := &dataproducthubapiservicev1.ContractTermsDocument{
-				URL:       core.StringPtr("https://data.un.org/Host.aspx?Content=UNdataUse"),
-				Type:      core.StringPtr("terms_and_conditions"),
-				Name:      core.StringPtr("Contract Terms Documents"),
-				ID:        core.StringPtr("d343dbcc-db69-4fdd-98f9-e2df58c8b690"),
-				UploadURL: nil,
-			}
-
-			dataProductContractTermsModel := &dataproducthubapiservicev1.DataProductContractTerms{
-				ID:        core.StringPtr("5f608558-4976-4a5b-9308-f651bd24725a@78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
-				Documents: []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel},
-			}
-
-			domainModel := &dataproducthubapiservicev1.Domain{
-				ID:        core.StringPtr("352c8ccc-950d-4881-8139-9dc641fa87cd"),
-				Name:      core.StringPtr("Human Resources"),
-				Container: containerReferenceModel,
-			}
-
-			assetPartReferenceModel := &dataproducthubapiservicev1.AssetPartReference{
-				ID:        core.StringPtr("e69d51ba-e08c-4665-bc89-c24064de08dd"),
-				Container: containerReferenceModel,
-				Type:      core.StringPtr("data_asset"),
-			}
-
-			deliveryMethodModel := &dataproducthubapiservicev1.DeliveryMethod{
-				ID:        core.StringPtr("09cf5fcc-cb9d-4995-a8e4-16517b25229f"),
-				Container: containerReferenceModel,
-			}
-
-			dataProductPartModel := &dataproducthubapiservicev1.DataProductPart{
-				Asset:           assetPartReferenceModel,
-				DeliveryMethods: []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel},
-			}
-
-			createDataProductDraftOptions := &dataproducthubapiservicev1.CreateDataProductDraftOptions{
-				DataProductID: &getDataProductByDataProductIdLink,
-				Asset:         assetPrototypeModel,
-				Version:       core.StringPtr("1.2.0"),
-				State:         core.StringPtr("draft"),
-				DataProduct:   dataProductIdentityModel,
-				Name:          core.StringPtr("GoSDK Integration Test "),
-				Description:   core.StringPtr("Integration test Description"),
-				Types:         []string{"data"},
-				ContractTerms: []dataproducthubapiservicev1.DataProductContractTerms{*dataProductContractTermsModel},
-				IsRestricted:  core.BoolPtr(true),
-				Domain:        domainModel,
-				PartsOut:      []dataproducthubapiservicev1.DataProductPart{*dataProductPartModel},
-			}
-
-			dataProductVersion, response, err := dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(201))
-			Expect(dataProductVersion).ToNot(BeNil())
-
-			getADraftContractDocumentByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getADraftContractDocumentByDraftIdLink value: %v\n", getADraftContractDocumentByDraftIdLink)
-			updateADraftByContractTermsIdLink = *dataProductVersion.ContractTerms[0].ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateADraftByContractTermsIdLink value: %v\n", updateADraftByContractTermsIdLink)
-			createAContractTermsDocByContractTermsIdLink = *dataProductVersion.ContractTerms[0].ID
-			fmt.Fprintf(GinkgoWriter, "Saved createAContractTermsDocByContractTermsIdLink value: %v\n", createAContractTermsDocByContractTermsIdLink)
-			updateContractDocumentByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateContractDocumentByDraftIdLink value: %v\n", updateContractDocumentByDraftIdLink)
-			getAReleaseContractTermsByContractTermsIdLink = *dataProductVersion.ContractTerms[0].ID
-			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseContractTermsByContractTermsIdLink value: %v\n", getAReleaseContractTermsByContractTermsIdLink)
-			completeADraftByContractTermsIdLink = *dataProductVersion.ContractTerms[0].ID
-			fmt.Fprintf(GinkgoWriter, "Saved completeADraftByContractTermsIdLink value: %v\n", completeADraftByContractTermsIdLink)
-			getDraftByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getDraftByDraftIdLink value: %v\n", getDraftByDraftIdLink)
-			publishADraftByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved publishADraftByDraftIdLink value: %v\n", publishADraftByDraftIdLink)
-			updateADraftByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateADraftByDraftIdLink value: %v\n", updateADraftByDraftIdLink)
-			createAContractTermsDocByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved createAContractTermsDocByDraftIdLink value: %v\n", createAContractTermsDocByDraftIdLink)
-			deleteAContractDocumentByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved deleteAContractDocumentByDraftIdLink value: %v\n", deleteAContractDocumentByDraftIdLink)
-			deleteADraftByContractTermsIdLink = *dataProductVersion.ContractTerms[0].ID
-			fmt.Fprintf(GinkgoWriter, "Saved deleteADraftByContractTermsIdLink value: %v\n", deleteADraftByContractTermsIdLink)
-			deleteADraftByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved deleteADraftByDraftIdLink value: %v\n", deleteADraftByDraftIdLink)
-			completeADraftByDraftIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved completeADraftByDraftIdLink value: %v\n", completeADraftByDraftIdLink)
-			getADraftByContractTermsIdLink = *dataProductVersion.ContractTerms[0].ID
-			fmt.Fprintf(GinkgoWriter, "Saved getADraftByContractTermsIdLink value: %v\n", getADraftByContractTermsIdLink)
-		})
-	})
-
 	Describe(`GetDataProductDraft - Get a draft of an existing data product`, func() {
 		BeforeEach(func() {
 			shouldSkipTest()
 		})
 		It(`GetDataProductDraft(getDataProductDraftOptions *GetDataProductDraftOptions)`, func() {
 			getDataProductDraftOptions := &dataproducthubapiservicev1.GetDataProductDraftOptions{
-				DataProductID: &getADraftOfDataProductByDataProductIdLink,
-				DraftID:       &getDraftByDraftIdLink,
+				DataProductID: core.StringPtr("-"),
+				DraftID:       &getDraftByDraftIDLink,
 			}
 
-			dataProductVersion, response, err := dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptions)
+			dataProductVersion, response, err := dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductVersion).ToNot(BeNil())
@@ -495,16 +403,16 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
 				Op:    core.StringPtr("replace"),
 				Path:  core.StringPtr("/description"),
-				Value: "Updated Data Product Draft",
+				Value: "Updated the description.",
 			}
 
 			updateDataProductDraftOptions := &dataproducthubapiservicev1.UpdateDataProductDraftOptions{
-				DataProductID:         &updateDraftOfDataProductByDataProductIdLink,
-				DraftID:               &updateADraftByDraftIdLink,
+				DataProductID:         core.StringPtr("-"),
+				DraftID:               &getDraftByDraftIDLink,
 				JSONPatchInstructions: []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel},
 			}
 
-			dataProductVersion, response, err := dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptions)
+			dataProductVersion, response, err := dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductVersion).ToNot(BeNil())
@@ -516,33 +424,30 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			shouldSkipTest()
 		})
 		It(`CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptions *CreateDraftContractTermsDocumentOptions)`, func() {
-
 			createDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions{
-				DataProductID:   &uploadContractTermsDocByDataProductIdLink,
-				DraftID:         &createAContractTermsDocByDraftIdLink,
-				ContractTermsID: &createAContractTermsDocByContractTermsIdLink,
+				DataProductID:   &uploadContractTermsDocByDataProductIDLink,
+				DraftID:         &createAContractTermsDocByDraftIDLink,
+				ContractTermsID: &createAContractTermsDocByContractTermsIDLink,
 				Type:            core.StringPtr("terms_and_conditions"),
 				Name:            core.StringPtr("Terms and conditions document"),
-				ID:              core.StringPtr("cf54ad0c-89d3-4926-8d2d-bb8bca9ee2bf"),
-				URL:             core.StringPtr("https://data.un.org/Host.aspx?Content=UNdataUse"),
-				UploadURL:       core.StringPtr("https://data.un.org/Host.aspx?Content=UNdataUse"),
+				URL:             core.StringPtr("https://www.ibm.com/contract_document"),
 			}
 
-			contractTermsDocument, response, err := dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptions)
+			contractTermsDocument, response, err := dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(201))
 			Expect(contractTermsDocument).ToNot(BeNil())
 
-			getReleaseContractDocumentByDocumentIdLink = *contractTermsDocument.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getReleaseContractDocumentByDocumentIdLink value: %v\n", getReleaseContractDocumentByDocumentIdLink)
-			deleteContractTermsDocumentByDocumentIdLink = *contractTermsDocument.ID
-			fmt.Fprintf(GinkgoWriter, "Saved deleteContractTermsDocumentByDocumentIdLink value: %v\n", deleteContractTermsDocumentByDocumentIdLink)
-			getContractTermsDocumentByIdDocumentIdLink = *contractTermsDocument.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getContractTermsDocumentByIdDocumentIdLink value: %v\n", getContractTermsDocumentByIdDocumentIdLink)
-			updateContractTermsDocumentByDocumentIdLink = *contractTermsDocument.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateContractTermsDocumentByDocumentIdLink value: %v\n", updateContractTermsDocumentByDocumentIdLink)
-			completeContractTermsDocumentByDocumentIdLink = *contractTermsDocument.ID
-			fmt.Fprintf(GinkgoWriter, "Saved completeContractTermsDocumentByDocumentIdLink value: %v\n", completeContractTermsDocumentByDocumentIdLink)
+			getReleaseContractDocumentByDocumentIDLink = *contractTermsDocument.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getReleaseContractDocumentByDocumentIDLink value: %v\n", getReleaseContractDocumentByDocumentIDLink)
+			deleteContractTermsDocumentByDocumentIDLink = *contractTermsDocument.ID
+			fmt.Fprintf(GinkgoWriter, "Saved deleteContractTermsDocumentByDocumentIDLink value: %v\n", deleteContractTermsDocumentByDocumentIDLink)
+			getContractTermsDocumentByIDDocumentIDLink = *contractTermsDocument.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getContractTermsDocumentByIDDocumentIDLink value: %v\n", getContractTermsDocumentByIDDocumentIDLink)
+			updateContractTermsDocumentByDocumentIDLink = *contractTermsDocument.ID
+			fmt.Fprintf(GinkgoWriter, "Saved updateContractTermsDocumentByDocumentIDLink value: %v\n", updateContractTermsDocumentByDocumentIDLink)
+			completeContractTermsDocumentByDocumentIDLink = *contractTermsDocument.ID
+			fmt.Fprintf(GinkgoWriter, "Saved completeContractTermsDocumentByDocumentIDLink value: %v\n", completeContractTermsDocumentByDocumentIDLink)
 		})
 	})
 
@@ -552,13 +457,13 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`GetDraftContractTermsDocument(getDraftContractTermsDocumentOptions *GetDraftContractTermsDocumentOptions)`, func() {
 			getDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.GetDraftContractTermsDocumentOptions{
-				DataProductID:   &getContractDocumentByDataProductIdLink,
-				DraftID:         &getADraftContractDocumentByDraftIdLink,
-				ContractTermsID: &getADraftByContractTermsIdLink,
-				DocumentID:      &getContractTermsDocumentByIdDocumentIdLink,
+				DataProductID:   &getContractDocumentByDataProductIDLink,
+				DraftID:         &createAContractTermsDocByDraftIDLink,
+				ContractTermsID: &createAContractTermsDocByContractTermsIDLink,
+				DocumentID:      &getContractTermsDocumentByIDDocumentIDLink,
 			}
 
-			contractTermsDocument, response, err := dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptions)
+			contractTermsDocument, response, err := dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(contractTermsDocument).ToNot(BeNil())
@@ -571,58 +476,23 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptions *UpdateDraftContractTermsDocumentOptions)`, func() {
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op:    core.StringPtr("replace"),
-				Path:  core.StringPtr("/type"),
-				Value: "terms_and_conditions",
+				Op:    core.StringPtr("add"),
+				Path:  core.StringPtr("/name"),
+				Value: "updated Terms and Conditions",
 			}
 
 			updateDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.UpdateDraftContractTermsDocumentOptions{
-				DataProductID:         &updateContractDocumentByDataProductIdLink,
-				DraftID:               &updateContractDocumentByDraftIdLink,
-				ContractTermsID:       &updateADraftByContractTermsIdLink,
-				DocumentID:            &updateContractTermsDocumentByDocumentIdLink,
+				DataProductID:         &getContractDocumentByDataProductIDLink,
+				DraftID:               &createAContractTermsDocByDraftIDLink,
+				ContractTermsID:       &createAContractTermsDocByContractTermsIDLink,
+				DocumentID:            &getContractTermsDocumentByIDDocumentIDLink,
 				JSONPatchInstructions: []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel},
 			}
 
-			contractTermsDocument, response, err := dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptions)
+			contractTermsDocument, response, err := dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(contractTermsDocument).ToNot(BeNil())
-		})
-	})
-
-	Describe(`CompleteDraftContractTermsDocument - Complete a contract document upload operation`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptions *CompleteDraftContractTermsDocumentOptions)`, func() {
-			completeDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.CompleteDraftContractTermsDocumentOptions{
-				DataProductID:   &completeDraftContractTermsByDataProductIdLink,
-				DraftID:         &completeADraftByDraftIdLink,
-				ContractTermsID: &completeADraftByContractTermsIdLink,
-				DocumentID:      &completeContractTermsDocumentByDocumentIdLink,
-			}
-
-			contractTermsDocument, response, err := dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(200))
-			Expect(contractTermsDocument).ToNot(BeNil())
-		})
-	})
-
-	Describe(`DeleteDataProductDraft - Delete a data product draft identified by ID`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`DeleteDataProductDraft(deleteDataProductDraftOptions *DeleteDataProductDraftOptions)`, func() {
-			deleteDataProductDraftOptions := &dataproducthubapiservicev1.DeleteDataProductDraftOptions{
-				DataProductID: &deleteDraftOfDataProductByDataProductIdLink,
-				DraftID:       &deleteADraftByDraftIdLink,
-			}
-
-			response, err := dataProductHubApiService.DeleteDataProductDraft(deleteDataProductDraftOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(204))
 		})
 	})
 
@@ -632,133 +502,23 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`PublishDataProductDraft(publishDataProductDraftOptions *PublishDataProductDraftOptions)`, func() {
 			publishDataProductDraftOptions := &dataproducthubapiservicev1.PublishDataProductDraftOptions{
-				DataProductID: &publishADraftOfDataProductByDataProductIdLink,
-				DraftID:       &publishADraftByDraftIdLink,
+				DataProductID: &publishADraftOfDataProductByDataProductIDLink,
+				DraftID:       &getDraftByDraftIDLink,
 			}
 
-			dataProductVersion, response, err := dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptions)
+			dataProductVersion, response, err := dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductVersion).ToNot(BeNil())
 
-			updateAReleaseByReleaseIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved updateAReleaseByReleaseIdLink value: %v\n", updateAReleaseByReleaseIdLink)
-			getAReleaseContractTermsByReleaseIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseContractTermsByReleaseIdLink value: %v\n", getAReleaseContractTermsByReleaseIdLink)
-			retireAReleaseContractTermsByReleaseIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved retireAReleaseContractTermsByReleaseIdLink value: %v\n", retireAReleaseContractTermsByReleaseIdLink)
-			getAReleaseByReleaseIdLink = *dataProductVersion.ID
-			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseByReleaseIdLink value: %v\n", getAReleaseByReleaseIdLink)
-		})
-	})
-
-	Describe(`ListDataProductDrafts - Retrieve a list of data product drafts`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`ListDataProductDrafts(listDataProductDraftsOptions *ListDataProductDraftsOptions) with pagination`, func() {
-			listDataProductDraftsOptions := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
-				DataProductID:    &getListOfDataProductDraftsByDataProductIdLink,
-				AssetContainerID: core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
-				Version:          core.StringPtr("1.3.0"),
-				Limit:            core.Int64Ptr(int64(10)),
-			}
-
-			listDataProductDraftsOptions.Start = nil
-			listDataProductDraftsOptions.Limit = core.Int64Ptr(1)
-
-			var allResults []dataproducthubapiservicev1.DataProductVersionSummary
-			for {
-				dataProductDraftCollection, response, err := dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptions)
-				Expect(err).To(BeNil())
-				Expect(response.StatusCode).To(Equal(200))
-				Expect(dataProductDraftCollection).ToNot(BeNil())
-				allResults = append(allResults, dataProductDraftCollection.Drafts...)
-
-				listDataProductDraftsOptions.Start, err = dataProductDraftCollection.GetNextStart()
-				Expect(err).To(BeNil())
-
-				if listDataProductDraftsOptions.Start == nil {
-					break
-				}
-			}
-			fmt.Fprintf(GinkgoWriter, "Retrieved a total of %d item(s) with pagination.\n", len(allResults))
-		})
-		It(`ListDataProductDrafts(listDataProductDraftsOptions *ListDataProductDraftsOptions) using DataProductDraftsPager`, func() {
-			listDataProductDraftsOptions := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
-				DataProductID:    &getListOfDataProductDraftsByDataProductIdLink,
-				AssetContainerID: core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
-				Version:          core.StringPtr("1.0.0"),
-				Limit:            core.Int64Ptr(int64(10)),
-			}
-
-			// Test GetNext().
-			pager, err := dataProductHubApiService.NewDataProductDraftsPager(listDataProductDraftsOptions)
-			Expect(err).To(BeNil())
-			Expect(pager).ToNot(BeNil())
-
-			var allResults []dataproducthubapiservicev1.DataProductVersionSummary
-			for pager.HasNext() {
-				nextPage, err := pager.GetNext()
-				Expect(err).To(BeNil())
-				Expect(nextPage).ToNot(BeNil())
-				allResults = append(allResults, nextPage...)
-			}
-
-			// Test GetAll().
-			pager, err = dataProductHubApiService.NewDataProductDraftsPager(listDataProductDraftsOptions)
-			Expect(err).To(BeNil())
-			Expect(pager).ToNot(BeNil())
-
-			allItems, err := pager.GetAll()
-			Expect(err).To(BeNil())
-			Expect(allItems).ToNot(BeNil())
-
-			Expect(len(allItems)).To(Equal(len(allResults)))
-			fmt.Fprintf(GinkgoWriter, "ListDataProductDrafts() returned a total of %d item(s) using DataProductDraftsPager.\n", len(allResults))
-		})
-	})
-
-	Describe(`GetInitializeStatus - Get resource initialization status`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`GetInitializeStatus(getInitializeStatusOptions *GetInitializeStatusOptions)`, func() {
-			getInitializeStatusOptions := &dataproducthubapiservicev1.GetInitializeStatusOptions{
-				ContainerID: &getStatusByCatalogIdLink,
-			}
-
-			initializeResource, response, err := dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(200))
-			Expect(initializeResource).ToNot(BeNil())
-		})
-	})
-
-	Describe(`GetServiceIdCredentials - Get service id credentials`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`GetServiceIdCredentials(getServiceIdCredentialsOptions *GetServiceIdCredentialsOptions)`, func() {
-			getServiceIdCredentialsOptions := &dataproducthubapiservicev1.GetServiceIdCredentialsOptions{}
-
-			serviceIdCredentials, response, err := dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(200))
-			Expect(serviceIdCredentials).ToNot(BeNil())
-		})
-	})
-
-	Describe(`ManageApiKeys - Rotate credentials for a Data Product Hub instance`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`ManageApiKeys(manageApiKeysOptions *ManageApiKeysOptions)`, func() {
-			manageApiKeysOptions := &dataproducthubapiservicev1.ManageApiKeysOptions{}
-
-			response, err := dataProductHubApiService.ManageApiKeys(manageApiKeysOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(204))
+			updateAReleaseByReleaseIDLink = *dataProductVersion.ID
+			fmt.Fprintf(GinkgoWriter, "Saved updateAReleaseByReleaseIDLink value: %v\n", updateAReleaseByReleaseIDLink)
+			getAReleaseContractTermsByReleaseIDLink = *dataProductVersion.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseContractTermsByReleaseIDLink value: %v\n", getAReleaseContractTermsByReleaseIDLink)
+			retireAReleaseContractTermsByReleaseIDLink = *dataProductVersion.ID
+			fmt.Fprintf(GinkgoWriter, "Saved retireAReleaseContractTermsByReleaseIDLink value: %v\n", retireAReleaseContractTermsByReleaseIDLink)
+			getAReleaseByReleaseIDLink = *dataProductVersion.ID
+			fmt.Fprintf(GinkgoWriter, "Saved getAReleaseByReleaseIDLink value: %v\n", getAReleaseByReleaseIDLink)
 		})
 	})
 
@@ -768,11 +528,12 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`GetDataProductRelease(getDataProductReleaseOptions *GetDataProductReleaseOptions)`, func() {
 			getDataProductReleaseOptions := &dataproducthubapiservicev1.GetDataProductReleaseOptions{
-				DataProductID: &getAReleaseOfDataProductByDataProductIdLink,
-				ReleaseID:     &getAReleaseByReleaseIdLink,
+				DataProductID:       &getAReleaseOfDataProductByDataProductIDLink,
+				ReleaseID:           &getAReleaseByReleaseIDLink,
+				CheckCallerApproval: core.BoolPtr(false),
 			}
 
-			dataProductVersion, response, err := dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptions)
+			dataProductVersion, response, err := dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductVersion).ToNot(BeNil())
@@ -787,16 +548,16 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
 				Op:    core.StringPtr("replace"),
 				Path:  core.StringPtr("/description"),
-				Value: "Updated Data Product Release",
+				Value: "New description for my data product",
 			}
 
 			updateDataProductReleaseOptions := &dataproducthubapiservicev1.UpdateDataProductReleaseOptions{
-				DataProductID:         &updateReleaseOfDataProductByDataProductIdLink,
-				ReleaseID:             &getAReleaseByReleaseIdLink,
+				DataProductID:         &updateReleaseOfDataProductByDataProductIDLink,
+				ReleaseID:             &getAReleaseByReleaseIDLink,
 				JSONPatchInstructions: []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel},
 			}
 
-			dataProductVersion, response, err := dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptions)
+			dataProductVersion, response, err := dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductVersion).ToNot(BeNil())
@@ -809,34 +570,16 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptions *GetReleaseContractTermsDocumentOptions)`, func() {
 			getReleaseContractTermsDocumentOptions := &dataproducthubapiservicev1.GetReleaseContractTermsDocumentOptions{
-				DataProductID:   &getReleaseContractDocumentByDataProductIdLink,
-				ReleaseID:       &getAReleaseContractTermsByReleaseIdLink,
-				ContractTermsID: &getAReleaseContractTermsByContractTermsIdLink,
-				DocumentID:      &getReleaseContractDocumentByDocumentIdLink,
+				DataProductID:   &getReleaseContractDocumentByDataProductIDLink,
+				ReleaseID:       &getAReleaseContractTermsByReleaseIDLink,
+				ContractTermsID: &getAReleaseContractTermsByContractTermsIDLink,
+				DocumentID:      &getReleaseContractDocumentByDocumentIDLink,
 			}
 
-			contractTermsDocument, response, err := dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptions)
+			contractTermsDocument, response, err := dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(contractTermsDocument).ToNot(BeNil())
-		})
-	})
-
-	Describe(`DeleteDraftContractTermsDocument - Delete a contract document`, func() {
-		BeforeEach(func() {
-			shouldSkipTest()
-		})
-		It(`DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptions *DeleteDraftContractTermsDocumentOptions)`, func() {
-			deleteDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.DeleteDraftContractTermsDocumentOptions{
-				DataProductID:   &deleteContractDocumentByDataProductIdLink,
-				DraftID:         &deleteAContractDocumentByDraftIdLink,
-				ContractTermsID: &deleteADraftByContractTermsIdLink,
-				DocumentID:      &deleteContractTermsDocumentByDocumentIdLink,
-			}
-
-			response, err := dataProductHubApiService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptions)
-			Expect(err).To(BeNil())
-			Expect(response.StatusCode).To(Equal(204))
 		})
 	})
 
@@ -846,10 +589,9 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`ListDataProductReleases(listDataProductReleasesOptions *ListDataProductReleasesOptions) with pagination`, func() {
 			listDataProductReleasesOptions := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
-				DataProductID:    &getListOfReleasesOfDataProductByDataProductIdLink,
-				AssetContainerID: core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
+				DataProductID:    &getListOfReleasesOfDataProductByDataProductIDLink,
+				AssetContainerID: &createDataProductByCatalogIDLink,
 				State:            []string{"available"},
-				Version:          core.StringPtr("1.3.0"),
 				Limit:            core.Int64Ptr(int64(10)),
 			}
 
@@ -858,7 +600,7 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 
 			var allResults []dataproducthubapiservicev1.DataProductVersionSummary
 			for {
-				dataProductReleaseCollection, response, err := dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptions)
+				dataProductReleaseCollection, response, err := dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptions)
 				Expect(err).To(BeNil())
 				Expect(response.StatusCode).To(Equal(200))
 				Expect(dataProductReleaseCollection).ToNot(BeNil())
@@ -875,15 +617,14 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`ListDataProductReleases(listDataProductReleasesOptions *ListDataProductReleasesOptions) using DataProductReleasesPager`, func() {
 			listDataProductReleasesOptions := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
-				DataProductID:    &getListOfReleasesOfDataProductByDataProductIdLink,
-				AssetContainerID: core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"),
+				DataProductID:    &getListOfReleasesOfDataProductByDataProductIDLink,
+				AssetContainerID: &createDataProductByCatalogIDLink,
 				State:            []string{"available"},
-				Version:          core.StringPtr("1.3.0"),
 				Limit:            core.Int64Ptr(int64(10)),
 			}
 
 			// Test GetNext().
-			pager, err := dataProductHubApiService.NewDataProductReleasesPager(listDataProductReleasesOptions)
+			pager, err := dataProductHubAPIService.NewDataProductReleasesPager(listDataProductReleasesOptions)
 			Expect(err).To(BeNil())
 			Expect(pager).ToNot(BeNil())
 
@@ -896,7 +637,7 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 			}
 
 			// Test GetAll().
-			pager, err = dataProductHubApiService.NewDataProductReleasesPager(listDataProductReleasesOptions)
+			pager, err = dataProductHubAPIService.NewDataProductReleasesPager(listDataProductReleasesOptions)
 			Expect(err).To(BeNil())
 			Expect(pager).ToNot(BeNil())
 
@@ -915,14 +656,176 @@ var _ = Describe(`DataProductHubApiServiceV1 Integration Tests`, func() {
 		})
 		It(`RetireDataProductRelease(retireDataProductReleaseOptions *RetireDataProductReleaseOptions)`, func() {
 			retireDataProductReleaseOptions := &dataproducthubapiservicev1.RetireDataProductReleaseOptions{
-				DataProductID: &retireAReleasesOfDataProductByDataProductIdLink,
-				ReleaseID:     &retireAReleaseContractTermsByReleaseIdLink,
+				DataProductID: &retireAReleasesOfDataProductByDataProductIDLink,
+				ReleaseID:     &retireAReleaseContractTermsByReleaseIDLink,
 			}
 
-			dataProductVersion, response, err := dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptions)
+			dataProductVersion, response, err := dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptions)
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductVersion).ToNot(BeNil())
+		})
+	})
+
+	Describe(`CreateDataProductDraftForDeleteOp - Create a new data product draft`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`CreateDataProduct(createDataProductOptions *CreateDataProductOptions)`, func() {
+
+			containerIdentityModel := &dataproducthubapiservicev1.ContainerIdentity{
+				ID: core.StringPtr(createDataProductByCatalogIDLink),
+			}
+
+			assetPrototypeModel := &dataproducthubapiservicev1.AssetPrototype{
+				Container: containerIdentityModel,
+			}
+
+			dataProductVersionPrototypeModel := &dataproducthubapiservicev1.DataProductVersionPrototype{
+				Version:     core.StringPtr("1.0.0"),
+				State:       core.StringPtr("draft"),
+				Name:        core.StringPtr("New Delete Draft DP created from IntegrationTest Go SDK"),
+				Description: core.StringPtr("This is a description of My Data Product which will get deleted."),
+				Types:       []string{"data"},
+				Asset:       assetPrototypeModel,
+			}
+
+			createDataProductOptions := &dataproducthubapiservicev1.CreateDataProductOptions{
+				Drafts: []dataproducthubapiservicev1.DataProductVersionPrototype{*dataProductVersionPrototypeModel},
+			}
+
+			dataProduct, response, err := dataProductHubAPIService.CreateDataProduct(createDataProductOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(201))
+			Expect(dataProduct).ToNot(BeNil())
+
+			deleteAContractDocumentByDraftIDLink = *dataProduct.Drafts[0].ID
+			deleteADraftByContractTermsIDLink = *dataProduct.Drafts[0].ContractTerms[0].ID
+			createAContractTermsDocByContractTermsIDLink = *dataProduct.Drafts[0].ContractTerms[0].ID
+			deleteADraftByDraftIDLink = *dataProduct.Drafts[0].ID
+			createAContractTermsDocByDraftIDLink = *dataProduct.Drafts[0].ID
+		})
+	})
+
+	Describe(`ListDataProductDrafts - Retrieve a list of data product drafts`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`ListDataProductDrafts(listDataProductDraftsOptions *ListDataProductDraftsOptions) with pagination`, func() {
+			listDataProductDraftsOptions := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
+				DataProductID:    core.StringPtr("-"),
+				AssetContainerID: &createDataProductByCatalogIDLink,
+				Limit:            core.Int64Ptr(int64(10)),
+			}
+
+			listDataProductDraftsOptions.Limit = core.Int64Ptr(1)
+
+			var allResults []dataproducthubapiservicev1.DataProductVersionSummary
+			for {
+				dataProductDraftCollection, response, err := dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptions)
+				Expect(err).To(BeNil())
+				Expect(response.StatusCode).To(Equal(200))
+				Expect(dataProductDraftCollection).ToNot(BeNil())
+				allResults = append(allResults, dataProductDraftCollection.Drafts...)
+
+				listDataProductDraftsOptions.Start, err = dataProductDraftCollection.GetNextStart()
+				Expect(err).To(BeNil())
+
+				if listDataProductDraftsOptions.Start == nil {
+					break
+				}
+			}
+			fmt.Fprintf(GinkgoWriter, "Retrieved a total of %d item(s) with pagination.\n", len(allResults))
+		})
+		It(`ListDataProductDrafts(listDataProductDraftsOptions *ListDataProductDraftsOptions) using DataProductDraftsPager`, func() {
+			listDataProductDraftsOptions := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
+				DataProductID:    core.StringPtr("-"),
+				AssetContainerID: &createDataProductByCatalogIDLink,
+				Limit:            core.Int64Ptr(int64(10)),
+			}
+
+			// Test GetNext().
+			pager, err := dataProductHubAPIService.NewDataProductDraftsPager(listDataProductDraftsOptions)
+			Expect(err).To(BeNil())
+			Expect(pager).ToNot(BeNil())
+
+			var allResults []dataproducthubapiservicev1.DataProductVersionSummary
+			for pager.HasNext() {
+				nextPage, err := pager.GetNext()
+				Expect(err).To(BeNil())
+				Expect(nextPage).ToNot(BeNil())
+				allResults = append(allResults, nextPage...)
+			}
+
+			// Test GetAll().
+			pager, err = dataProductHubAPIService.NewDataProductDraftsPager(listDataProductDraftsOptions)
+			Expect(err).To(BeNil())
+			Expect(pager).ToNot(BeNil())
+
+			allItems, err := pager.GetAll()
+			Expect(err).To(BeNil())
+			Expect(allItems).ToNot(BeNil())
+
+			Expect(len(allItems)).To(Equal(len(allResults)))
+			fmt.Fprintf(GinkgoWriter, "ListDataProductDrafts() returned a total of %d item(s) using DataProductDraftsPager.\n", len(allResults))
+		})
+	})
+
+	Describe(`CreateDraftContractTermsDocumentForDeleteOp - Create a contract document for Delete Option`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptions *CreateDraftContractTermsDocumentOptions)`, func() {
+			createDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions{
+				DataProductID:   core.StringPtr("-"),
+				DraftID:         &createAContractTermsDocByDraftIDLink,
+				ContractTermsID: &createAContractTermsDocByContractTermsIDLink,
+				Type:            core.StringPtr("terms_and_conditions"),
+				Name:            core.StringPtr("Terms and conditions document"),
+				URL:             core.StringPtr("https://data.un.org/Host.aspx?Content=UNdataUse"),
+			}
+
+			contractTermsDocument, response, err := dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(201))
+			Expect(contractTermsDocument).ToNot(BeNil())
+
+			deleteContractTermsDocumentByDocumentIDLink = *contractTermsDocument.ID
+			fmt.Fprintf(GinkgoWriter, "Saved deleteContractTermsDocumentByDocumentIDLink value: %v\n", deleteContractTermsDocumentByDocumentIDLink)
+		})
+	})
+
+	Describe(`DeleteDraftContractTermsDocument - Delete a contract document`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptions *DeleteDraftContractTermsDocumentOptions)`, func() {
+			deleteDraftContractTermsDocumentOptions := &dataproducthubapiservicev1.DeleteDraftContractTermsDocumentOptions{
+				DataProductID:   core.StringPtr("-"),
+				DraftID:         &deleteAContractDocumentByDraftIDLink,
+				ContractTermsID: &deleteADraftByContractTermsIDLink,
+				DocumentID:      &deleteContractTermsDocumentByDocumentIDLink,
+			}
+
+			response, err := dataProductHubAPIService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(204))
+		})
+	})
+
+	Describe(`DeleteDataProductDraft - Delete a data product draft identified by ID`, func() {
+		BeforeEach(func() {
+			shouldSkipTest()
+		})
+		It(`DeleteDataProductDraft(deleteDataProductDraftOptions *DeleteDataProductDraftOptions)`, func() {
+			deleteDataProductDraftOptions := &dataproducthubapiservicev1.DeleteDataProductDraftOptions{
+				DataProductID: core.StringPtr("-"),
+				DraftID:       &deleteADraftByDraftIDLink,
+			}
+
+			response, err := dataProductHubAPIService.DeleteDataProductDraft(deleteDataProductDraftOptions)
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(204))
 		})
 	})
 

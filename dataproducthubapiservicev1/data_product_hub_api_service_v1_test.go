@@ -36,32 +36,32 @@ import (
 	. "github.com/onsi/gomega/gstruct"
 )
 
-var _ = Describe(`DataProductHubApiServiceV1`, func() {
+var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 	var testServer *httptest.Server
 	Describe(`Service constructor tests`, func() {
 		It(`Instantiate service client`, func() {
-			dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 				Authenticator: &core.NoAuthAuthenticator{},
 			})
-			Expect(dataProductHubApiService).ToNot(BeNil())
+			Expect(dataProductHubAPIService).ToNot(BeNil())
 			Expect(serviceErr).To(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid URL`, func() {
-			dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 				URL: "{BAD_URL_STRING",
 			})
-			Expect(dataProductHubApiService).To(BeNil())
+			Expect(dataProductHubAPIService).To(BeNil())
 			Expect(serviceErr).ToNot(BeNil())
 		})
 		It(`Instantiate service client with error: Invalid Auth`, func() {
-			dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 				URL: "https://dataproducthubapiservicev1/api",
 				Authenticator: &core.BasicAuthenticator{
 					Username: "",
 					Password: "",
 				},
 			})
-			Expect(dataProductHubApiService).To(BeNil())
+			Expect(dataProductHubAPIService).To(BeNil())
 			Expect(serviceErr).ToNot(BeNil())
 		})
 	})
@@ -75,48 +75,48 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 
 			It(`Create service client using external config successfully`, func() {
 				SetTestEnvironment(testEnvironment)
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{})
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{})
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 				Expect(serviceErr).To(BeNil())
 				ClearTestEnvironment(testEnvironment)
 
-				clone := dataProductHubApiService.Clone()
+				clone := dataProductHubAPIService.Clone()
 				Expect(clone).ToNot(BeNil())
-				Expect(clone.Service != dataProductHubApiService.Service).To(BeTrue())
-				Expect(clone.GetServiceURL()).To(Equal(dataProductHubApiService.GetServiceURL()))
-				Expect(clone.Service.Options.Authenticator).To(Equal(dataProductHubApiService.Service.Options.Authenticator))
+				Expect(clone.Service != dataProductHubAPIService.Service).To(BeTrue())
+				Expect(clone.GetServiceURL()).To(Equal(dataProductHubAPIService.GetServiceURL()))
+				Expect(clone.Service.Options.Authenticator).To(Equal(dataProductHubAPIService.Service.Options.Authenticator))
 			})
 			It(`Create service client using external config and set url from constructor successfully`, func() {
 				SetTestEnvironment(testEnvironment)
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL: "https://testService/api",
 				})
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService.Service.GetServiceURL()).To(Equal("https://testService/api"))
+				Expect(dataProductHubAPIService.Service.GetServiceURL()).To(Equal("https://testService/api"))
 				ClearTestEnvironment(testEnvironment)
 
-				clone := dataProductHubApiService.Clone()
+				clone := dataProductHubAPIService.Clone()
 				Expect(clone).ToNot(BeNil())
-				Expect(clone.Service != dataProductHubApiService.Service).To(BeTrue())
-				Expect(clone.GetServiceURL()).To(Equal(dataProductHubApiService.GetServiceURL()))
-				Expect(clone.Service.Options.Authenticator).To(Equal(dataProductHubApiService.Service.Options.Authenticator))
+				Expect(clone.Service != dataProductHubAPIService.Service).To(BeTrue())
+				Expect(clone.GetServiceURL()).To(Equal(dataProductHubAPIService.GetServiceURL()))
+				Expect(clone.Service.Options.Authenticator).To(Equal(dataProductHubAPIService.Service.Options.Authenticator))
 			})
 			It(`Create service client using external config and set url programatically successfully`, func() {
 				SetTestEnvironment(testEnvironment)
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{})
-				err := dataProductHubApiService.SetServiceURL("https://testService/api")
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{})
+				err := dataProductHubAPIService.SetServiceURL("https://testService/api")
 				Expect(err).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService.Service.GetServiceURL()).To(Equal("https://testService/api"))
+				Expect(dataProductHubAPIService.Service.GetServiceURL()).To(Equal("https://testService/api"))
 				ClearTestEnvironment(testEnvironment)
 
-				clone := dataProductHubApiService.Clone()
+				clone := dataProductHubAPIService.Clone()
 				Expect(clone).ToNot(BeNil())
-				Expect(clone.Service != dataProductHubApiService.Service).To(BeTrue())
-				Expect(clone.GetServiceURL()).To(Equal(dataProductHubApiService.GetServiceURL()))
-				Expect(clone.Service.Options.Authenticator).To(Equal(dataProductHubApiService.Service.Options.Authenticator))
+				Expect(clone.Service != dataProductHubAPIService.Service).To(BeTrue())
+				Expect(clone.GetServiceURL()).To(Equal(dataProductHubAPIService.GetServiceURL()))
+				Expect(clone.Service.Options.Authenticator).To(Equal(dataProductHubAPIService.Service.Options.Authenticator))
 			})
 		})
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
@@ -127,10 +127,10 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			}
 
 			SetTestEnvironment(testEnvironment)
-			dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{})
+			dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{})
 
 			It(`Instantiate service client with error`, func() {
-				Expect(dataProductHubApiService).To(BeNil())
+				Expect(dataProductHubAPIService).To(BeNil())
 				Expect(serviceErr).ToNot(BeNil())
 				ClearTestEnvironment(testEnvironment)
 			})
@@ -142,12 +142,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			}
 
 			SetTestEnvironment(testEnvironment)
-			dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 				URL: "{BAD_URL_STRING",
 			})
 
 			It(`Instantiate service client with error`, func() {
-				Expect(dataProductHubApiService).To(BeNil())
+				Expect(dataProductHubAPIService).To(BeNil())
 				Expect(serviceErr).ToNot(BeNil())
 				ClearTestEnvironment(testEnvironment)
 			})
@@ -173,33 +173,33 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Verify the contents of the request
 					Expect(req.URL.EscapedPath()).To(Equal(getInitializeStatusPath))
 					Expect(req.Method).To(Equal("GET"))
-					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"}))
+					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
 				}))
 			})
 			It(`Invoke GetInitializeStatus with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetInitializeStatusOptions model
 				getInitializeStatusOptionsModel := new(dataproducthubapiservicev1.GetInitializeStatusOptions)
-				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b")
+				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("testString")
 				getInitializeStatusOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -220,40 +220,40 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(getInitializeStatusPath))
 					Expect(req.Method).To(Equal("GET"))
 
-					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"}))
+					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=d29c42eb-7100-4b7a-8257-c196dbcca1cd", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}], "workflows": {"data_access": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}, "request_new_product": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}}`)
 				}))
 			})
 			It(`Invoke GetInitializeStatus successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the GetInitializeStatusOptions model
 				getInitializeStatusOptionsModel := new(dataproducthubapiservicev1.GetInitializeStatusOptions)
-				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b")
+				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("testString")
 				getInitializeStatusOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetInitializeStatusWithContext(ctx, getInitializeStatusOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetInitializeStatusWithContext(ctx, getInitializeStatusOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -261,7 +261,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetInitializeStatusWithContext(ctx, getInitializeStatusOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetInitializeStatusWithContext(ctx, getInitializeStatusOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -278,55 +278,55 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(getInitializeStatusPath))
 					Expect(req.Method).To(Equal("GET"))
 
-					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b"}))
+					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=d29c42eb-7100-4b7a-8257-c196dbcca1cd", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}], "workflows": {"data_access": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}, "request_new_product": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}}`)
 				}))
 			})
 			It(`Invoke GetInitializeStatus successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetInitializeStatus(nil)
+				result, response, operationErr := dataProductHubAPIService.GetInitializeStatus(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
 
 				// Construct an instance of the GetInitializeStatusOptions model
 				getInitializeStatusOptionsModel := new(dataproducthubapiservicev1.GetInitializeStatusOptions)
-				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b")
+				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("testString")
 				getInitializeStatusOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke GetInitializeStatus with error: Operation request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetInitializeStatusOptions model
 				getInitializeStatusOptionsModel := new(dataproducthubapiservicev1.GetInitializeStatusOptions)
-				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b")
+				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("testString")
 				getInitializeStatusOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -346,20 +346,20 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetInitializeStatus successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetInitializeStatusOptions model
 				getInitializeStatusOptionsModel := new(dataproducthubapiservicev1.GetInitializeStatusOptions)
-				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b")
+				getInitializeStatusOptionsModel.ContainerID = core.StringPtr("testString")
 				getInitializeStatusOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetInitializeStatus(getInitializeStatusOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetInitializeStatus(getInitializeStatusOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -371,41 +371,41 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			})
 		})
 	})
-	Describe(`GetServiceIdCredentials(getServiceIdCredentialsOptions *GetServiceIdCredentialsOptions) - Operation response error`, func() {
-		getServiceIdCredentialsPath := "/data_product_exchange/v1/configuration/credentials"
+	Describe(`GetServiceIDCredentials(getServiceIDCredentialsOptions *GetServiceIDCredentialsOptions) - Operation response error`, func() {
+		getServiceIDCredentialsPath := "/data_product_exchange/v1/configuration/credentials"
 		Context(`Using mock server endpoint with invalid JSON response`, func() {
 			BeforeEach(func() {
 				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 					defer GinkgoRecover()
 
 					// Verify the contents of the request
-					Expect(req.URL.EscapedPath()).To(Equal(getServiceIdCredentialsPath))
+					Expect(req.URL.EscapedPath()).To(Equal(getServiceIDCredentialsPath))
 					Expect(req.Method).To(Equal("GET"))
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
 				}))
 			})
-			It(`Invoke GetServiceIdCredentials with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke GetServiceIDCredentials with error: Operation response processing error`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
-				// Construct an instance of the GetServiceIdCredentialsOptions model
-				getServiceIdCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIdCredentialsOptions)
-				getServiceIdCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the GetServiceIDCredentialsOptions model
+				getServiceIDCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIDCredentialsOptions)
+				getServiceIDCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -415,15 +415,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			})
 		})
 	})
-	Describe(`GetServiceIdCredentials(getServiceIdCredentialsOptions *GetServiceIdCredentialsOptions)`, func() {
-		getServiceIdCredentialsPath := "/data_product_exchange/v1/configuration/credentials"
+	Describe(`GetServiceIDCredentials(getServiceIDCredentialsOptions *GetServiceIDCredentialsOptions)`, func() {
+		getServiceIDCredentialsPath := "/data_product_exchange/v1/configuration/credentials"
 		Context(`Using mock server endpoint with timeout`, func() {
 			BeforeEach(func() {
 				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 					defer GinkgoRecover()
 
 					// Verify the contents of the request
-					Expect(req.URL.EscapedPath()).To(Equal(getServiceIdCredentialsPath))
+					Expect(req.URL.EscapedPath()).To(Equal(getServiceIDCredentialsPath))
 					Expect(req.Method).To(Equal("GET"))
 
 					// Sleep a short time to support a timeout test
@@ -435,29 +435,29 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					fmt.Fprintf(res, "%s", `{"name": "data-product-admin-service-id-API-key", "created_at": "2024-03-15T04:07+0000"}`)
 				}))
 			})
-			It(`Invoke GetServiceIdCredentials successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke GetServiceIDCredentials successfully with retries`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
-				// Construct an instance of the GetServiceIdCredentialsOptions model
-				getServiceIdCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIdCredentialsOptions)
-				getServiceIdCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the GetServiceIDCredentialsOptions model
+				getServiceIDCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIDCredentialsOptions)
+				getServiceIDCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetServiceIdCredentialsWithContext(ctx, getServiceIdCredentialsOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetServiceIDCredentialsWithContext(ctx, getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -465,7 +465,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetServiceIdCredentialsWithContext(ctx, getServiceIdCredentialsOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetServiceIDCredentialsWithContext(ctx, getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -479,7 +479,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					defer GinkgoRecover()
 
 					// Verify the contents of the request
-					Expect(req.URL.EscapedPath()).To(Equal(getServiceIdCredentialsPath))
+					Expect(req.URL.EscapedPath()).To(Equal(getServiceIDCredentialsPath))
 					Expect(req.Method).To(Equal("GET"))
 
 					// Set mock response
@@ -488,46 +488,46 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					fmt.Fprintf(res, "%s", `{"name": "data-product-admin-service-id-API-key", "created_at": "2024-03-15T04:07+0000"}`)
 				}))
 			})
-			It(`Invoke GetServiceIdCredentials successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke GetServiceIDCredentials successfully`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetServiceIdCredentials(nil)
+				result, response, operationErr := dataProductHubAPIService.GetServiceIDCredentials(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
 
-				// Construct an instance of the GetServiceIdCredentialsOptions model
-				getServiceIdCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIdCredentialsOptions)
-				getServiceIdCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the GetServiceIDCredentialsOptions model
+				getServiceIDCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIDCredentialsOptions)
+				getServiceIDCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
-			It(`Invoke GetServiceIdCredentials with error: Operation request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke GetServiceIDCredentials with error: Operation request error`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
-				// Construct an instance of the GetServiceIdCredentialsOptions model
-				getServiceIdCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIdCredentialsOptions)
-				getServiceIdCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the GetServiceIDCredentialsOptions model
+				getServiceIDCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIDCredentialsOptions)
+				getServiceIDCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -546,20 +546,20 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					res.WriteHeader(200)
 				}))
 			})
-			It(`Invoke GetServiceIdCredentials successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke GetServiceIDCredentials successfully`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
-				// Construct an instance of the GetServiceIdCredentialsOptions model
-				getServiceIdCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIdCredentialsOptions)
-				getServiceIdCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the GetServiceIDCredentialsOptions model
+				getServiceIDCredentialsOptionsModel := new(dataproducthubapiservicev1.GetServiceIDCredentialsOptions)
+				getServiceIDCredentialsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetServiceIdCredentials(getServiceIdCredentialsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetServiceIDCredentials(getServiceIDCredentialsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -587,32 +587,32 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke Initialize with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-d6ed-46c0-8dee-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the InitializeOptions model
 				initializeOptionsModel := new(dataproducthubapiservicev1.InitializeOptions)
 				initializeOptionsModel.Container = containerReferenceModel
-				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"}
+				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"}
 				initializeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.Initialize(initializeOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.Initialize(initializeOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.Initialize(initializeOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.Initialize(initializeOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -655,39 +655,39 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(202)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=d29c42eb-7100-4b7a-8257-c196dbcca1cd", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}], "workflows": {"data_access": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}, "request_new_product": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}}`)
 				}))
 			})
 			It(`Invoke Initialize successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the InitializeOptions model
 				initializeOptionsModel := new(dataproducthubapiservicev1.InitializeOptions)
 				initializeOptionsModel.Container = containerReferenceModel
-				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"}
+				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"}
 				initializeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.InitializeWithContext(ctx, initializeOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.InitializeWithContext(ctx, initializeOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.Initialize(initializeOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.Initialize(initializeOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -695,7 +695,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.InitializeWithContext(ctx, initializeOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.InitializeWithContext(ctx, initializeOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -731,63 +731,63 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(202)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "href": "https://api.example.com/configuration/initialize/status?catalog_id=d29c42eb-7100-4b7a-8257-c196dbcca1cd", "status": "not_started", "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"anyKey": "anyValue"}, "more_info": "MoreInfo"}], "last_started_at": "2023-08-21T15:24:06.021Z", "last_finished_at": "2023-08-21T20:24:34.450Z", "initialized_options": [{"name": "Name", "version": 1}], "workflows": {"data_access": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}, "request_new_product": {"definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}}`)
 				}))
 			})
 			It(`Invoke Initialize successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.Initialize(nil)
+				result, response, operationErr := dataProductHubAPIService.Initialize(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the InitializeOptions model
 				initializeOptionsModel := new(dataproducthubapiservicev1.InitializeOptions)
 				initializeOptionsModel.Container = containerReferenceModel
-				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"}
+				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"}
 				initializeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.Initialize(initializeOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.Initialize(initializeOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke Initialize with error: Operation request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the InitializeOptions model
 				initializeOptionsModel := new(dataproducthubapiservicev1.InitializeOptions)
 				initializeOptionsModel.Container = containerReferenceModel
-				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"}
+				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"}
 				initializeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.Initialize(initializeOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.Initialize(initializeOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -807,26 +807,26 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke Initialize successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the InitializeOptions model
 				initializeOptionsModel := new(dataproducthubapiservicev1.InitializeOptions)
 				initializeOptionsModel.Container = containerReferenceModel
-				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"}
+				initializeOptionsModel.Include = []string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"}
 				initializeOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.Initialize(initializeOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.Initialize(initializeOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -838,57 +838,57 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			})
 		})
 	})
-	Describe(`ManageApiKeys(manageApiKeysOptions *ManageApiKeysOptions)`, func() {
-		manageApiKeysPath := "/data_product_exchange/v1/configuration/rotate_credentials"
+	Describe(`ManageAPIKeys(manageAPIKeysOptions *ManageAPIKeysOptions)`, func() {
+		manageAPIKeysPath := "/data_product_exchange/v1/configuration/rotate_credentials"
 		Context(`Using mock server endpoint`, func() {
 			BeforeEach(func() {
 				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 					defer GinkgoRecover()
 
 					// Verify the contents of the request
-					Expect(req.URL.EscapedPath()).To(Equal(manageApiKeysPath))
+					Expect(req.URL.EscapedPath()).To(Equal(manageAPIKeysPath))
 					Expect(req.Method).To(Equal("POST"))
 
 					res.WriteHeader(204)
 				}))
 			})
-			It(`Invoke ManageApiKeys successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke ManageAPIKeys successfully`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				response, operationErr := dataProductHubApiService.ManageApiKeys(nil)
+				response, operationErr := dataProductHubAPIService.ManageAPIKeys(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 
-				// Construct an instance of the ManageApiKeysOptions model
-				manageApiKeysOptionsModel := new(dataproducthubapiservicev1.ManageApiKeysOptions)
-				manageApiKeysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the ManageAPIKeysOptions model
+				manageAPIKeysOptionsModel := new(dataproducthubapiservicev1.ManageAPIKeysOptions)
+				manageAPIKeysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				response, operationErr = dataProductHubApiService.ManageApiKeys(manageApiKeysOptionsModel)
+				response, operationErr = dataProductHubAPIService.ManageAPIKeys(manageAPIKeysOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 			})
-			It(`Invoke ManageApiKeys with error: Operation request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			It(`Invoke ManageAPIKeys with error: Operation request error`, func() {
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
-				// Construct an instance of the ManageApiKeysOptions model
-				manageApiKeysOptionsModel := new(dataproducthubapiservicev1.ManageApiKeysOptions)
-				manageApiKeysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Construct an instance of the ManageAPIKeysOptions model
+				manageAPIKeysOptionsModel := new(dataproducthubapiservicev1.ManageAPIKeysOptions)
+				manageAPIKeysOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				response, operationErr := dataProductHubApiService.ManageApiKeys(manageApiKeysOptionsModel)
+				response, operationErr := dataProductHubAPIService.ManageAPIKeys(manageAPIKeysOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -909,33 +909,34 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(listDataProductsPath))
 					Expect(req.Method).To(Equal("GET"))
 					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(10))}))
+					Expect(req.URL.Query()["start"]).To(Equal([]string{"testString"}))
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
 				}))
 			})
 			It(`Invoke ListDataProducts with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductsOptions model
 				listDataProductsOptionsModel := new(dataproducthubapiservicev1.ListDataProductsOptions)
 				listDataProductsOptionsModel.Limit = core.Int64Ptr(int64(10))
-				////listDataProductsOptionsModel.Start = core.StringPtr("testString")
+				listDataProductsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.ListDataProducts(listDataProductsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProducts(listDataProductsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.ListDataProducts(listDataProductsOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.ListDataProducts(listDataProductsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -957,40 +958,41 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 
 					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(10))}))
-
+					Expect(req.URL.Query()["start"]).To(Equal([]string{"testString"}))
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "data_products": [{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "data_products": [{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProducts successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the ListDataProductsOptions model
 				listDataProductsOptionsModel := new(dataproducthubapiservicev1.ListDataProductsOptions)
 				listDataProductsOptionsModel.Limit = core.Int64Ptr(int64(10))
+				listDataProductsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.ListDataProductsWithContext(ctx, listDataProductsOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.ListDataProductsWithContext(ctx, listDataProductsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.ListDataProducts(listDataProductsOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.ListDataProducts(listDataProductsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -998,7 +1000,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.ListDataProductsWithContext(ctx, listDataProductsOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.ListDataProductsWithContext(ctx, listDataProductsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -1016,23 +1018,23 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 
 					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(10))}))
-
+					Expect(req.URL.Query()["start"]).To(Equal([]string{"testString"}))
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "data_products": [{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "data_products": [{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProducts successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.ListDataProducts(nil)
+				result, response, operationErr := dataProductHubAPIService.ListDataProducts(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -1040,31 +1042,33 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct an instance of the ListDataProductsOptions model
 				listDataProductsOptionsModel := new(dataproducthubapiservicev1.ListDataProductsOptions)
 				listDataProductsOptionsModel.Limit = core.Int64Ptr(int64(10))
+				listDataProductsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.ListDataProducts(listDataProductsOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.ListDataProducts(listDataProductsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke ListDataProducts with error: Operation request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductsOptions model
 				listDataProductsOptionsModel := new(dataproducthubapiservicev1.ListDataProductsOptions)
 				listDataProductsOptionsModel.Limit = core.Int64Ptr(int64(10))
+				listDataProductsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.ListDataProducts(listDataProductsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProducts(listDataProductsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -1084,20 +1088,21 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke ListDataProducts successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductsOptions model
 				listDataProductsOptionsModel := new(dataproducthubapiservicev1.ListDataProductsOptions)
 				listDataProductsOptionsModel.Limit = core.Int64Ptr(int64(10))
+				listDataProductsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.ListDataProducts(listDataProductsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProducts(listDataProductsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -1142,27 +1147,27 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					res.WriteHeader(200)
 					requestNumber++
 					if requestNumber == 1 {
-						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"data_products":[{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}]}`)
+						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"data_products":[{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}]}`)
 					} else if requestNumber == 2 {
-						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"data_products":[{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}]}`)
+						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"data_products":[{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}]}`)
 					} else {
 						res.WriteHeader(400)
 					}
 				}))
 			})
 			It(`Use DataProductsPager.GetNext successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				listDataProductsOptionsModel := &dataproducthubapiservicev1.ListDataProductsOptions{
 					Limit: core.Int64Ptr(int64(10)),
 				}
 
-				pager, err := dataProductHubApiService.NewDataProductsPager(listDataProductsOptionsModel)
+				pager, err := dataProductHubAPIService.NewDataProductsPager(listDataProductsOptionsModel)
 				Expect(err).To(BeNil())
 				Expect(pager).ToNot(BeNil())
 
@@ -1176,18 +1181,18 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(len(allResults)).To(Equal(2))
 			})
 			It(`Use DataProductsPager.GetAll successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				listDataProductsOptionsModel := &dataproducthubapiservicev1.ListDataProductsOptions{
 					Limit: core.Int64Ptr(int64(10)),
 				}
 
-				pager, err := dataProductHubApiService.NewDataProductsPager(listDataProductsOptionsModel)
+				pager, err := dataProductHubAPIService.NewDataProductsPager(listDataProductsOptionsModel)
 				Expect(err).To(BeNil())
 				Expect(pager).ToNot(BeNil())
 
@@ -1214,20 +1219,25 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDataProduct with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
 
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -1259,10 +1269,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -1291,9 +1302,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -1321,14 +1338,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductOptionsModel.Drafts = []dataproducthubapiservicev1.DataProductVersionPrototype{*dataProductVersionPrototypeModel}
 				createDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.CreateDataProduct(createDataProductOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.CreateDataProduct(createDataProductOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -1371,25 +1388,30 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke CreateDataProduct successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
+
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
 
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -1421,10 +1443,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -1453,9 +1476,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -1486,13 +1515,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.CreateDataProductWithContext(ctx, createDataProductOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.CreateDataProductWithContext(ctx, createDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.CreateDataProduct(createDataProductOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -1500,7 +1529,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.CreateDataProductWithContext(ctx, createDataProductOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.CreateDataProductWithContext(ctx, createDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -1536,30 +1565,35 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke CreateDataProduct successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.CreateDataProduct(nil)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProduct(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -1591,10 +1625,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -1623,9 +1658,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -1654,27 +1695,32 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.CreateDataProduct(createDataProductOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke CreateDataProduct with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
 
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -1706,10 +1752,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -1738,9 +1785,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -1768,9 +1821,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductOptionsModel.Drafts = []dataproducthubapiservicev1.DataProductVersionPrototype{*dataProductVersionPrototypeModel}
 				createDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.CreateDataProduct(createDataProductOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -1778,7 +1831,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the CreateDataProductOptions model with no property values
 				createDataProductOptionsModelNew := new(dataproducthubapiservicev1.CreateDataProductOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.CreateDataProduct(createDataProductOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -1797,20 +1850,25 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDataProduct successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
 
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -1842,10 +1900,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -1874,9 +1933,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -1905,7 +1970,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.CreateDataProduct(createDataProductOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProduct(createDataProductOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -1933,26 +1998,26 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDataProduct with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductOptions model
 				getDataProductOptionsModel := new(dataproducthubapiservicev1.GetDataProductOptions)
 				getDataProductOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetDataProduct(getDataProductOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProduct(getDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetDataProduct(getDataProductOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetDataProduct(getDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -1979,17 +2044,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProduct successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the GetDataProductOptions model
 				getDataProductOptionsModel := new(dataproducthubapiservicev1.GetDataProductOptions)
@@ -1999,13 +2064,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetDataProductWithContext(ctx, getDataProductOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetDataProductWithContext(ctx, getDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetDataProduct(getDataProductOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetDataProduct(getDataProductOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -2013,7 +2078,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetDataProductWithContext(ctx, getDataProductOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetDataProductWithContext(ctx, getDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -2033,19 +2098,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProduct successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetDataProduct(nil)
+				result, response, operationErr := dataProductHubAPIService.GetDataProduct(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -2056,28 +2121,28 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetDataProduct(getDataProductOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetDataProduct(getDataProductOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke GetDataProduct with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductOptions model
 				getDataProductOptionsModel := new(dataproducthubapiservicev1.GetDataProductOptions)
 				getDataProductOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetDataProduct(getDataProductOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProduct(getDataProductOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -2085,7 +2150,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the GetDataProductOptions model with no property values
 				getDataProductOptionsModelNew := new(dataproducthubapiservicev1.GetDataProductOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.GetDataProduct(getDataProductOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.GetDataProduct(getDataProductOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -2104,12 +2169,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDataProduct successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductOptions model
 				getDataProductOptionsModel := new(dataproducthubapiservicev1.GetDataProductOptions)
@@ -2117,7 +2182,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetDataProduct(getDataProductOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProduct(getDataProductOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -2145,12 +2210,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CompleteDraftContractTermsDocument with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the CompleteDraftContractTermsDocumentOptions model
 				completeDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CompleteDraftContractTermsDocumentOptions)
@@ -2160,14 +2225,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				completeDraftContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				completeDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -2198,13 +2263,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CompleteDraftContractTermsDocument successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the CompleteDraftContractTermsDocumentOptions model
 				completeDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CompleteDraftContractTermsDocumentOptions)
@@ -2217,13 +2282,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.CompleteDraftContractTermsDocumentWithContext(ctx, completeDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.CompleteDraftContractTermsDocumentWithContext(ctx, completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -2231,7 +2296,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.CompleteDraftContractTermsDocumentWithContext(ctx, completeDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.CompleteDraftContractTermsDocumentWithContext(ctx, completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -2255,15 +2320,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CompleteDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.CompleteDraftContractTermsDocument(nil)
+				result, response, operationErr := dataProductHubAPIService.CompleteDraftContractTermsDocument(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -2277,19 +2342,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				completeDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke CompleteDraftContractTermsDocument with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the CompleteDraftContractTermsDocumentOptions model
 				completeDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CompleteDraftContractTermsDocumentOptions)
@@ -2299,9 +2364,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				completeDraftContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				completeDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -2309,7 +2374,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the CompleteDraftContractTermsDocumentOptions model with no property values
 				completeDraftContractTermsDocumentOptionsModelNew := new(dataproducthubapiservicev1.CompleteDraftContractTermsDocumentOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -2328,12 +2393,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CompleteDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the CompleteDraftContractTermsDocumentOptions model
 				completeDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CompleteDraftContractTermsDocumentOptions)
@@ -2344,7 +2409,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				completeDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CompleteDraftContractTermsDocument(completeDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -2376,12 +2441,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke ListDataProductDrafts with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductDraftsOptions model
 				listDataProductDraftsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDraftsOptions)
@@ -2392,14 +2457,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductDraftsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductDraftsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -2430,17 +2495,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductDrafts successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the ListDataProductDraftsOptions model
 				listDataProductDraftsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDraftsOptions)
@@ -2454,13 +2519,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.ListDataProductDraftsWithContext(ctx, listDataProductDraftsOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.ListDataProductDraftsWithContext(ctx, listDataProductDraftsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -2468,7 +2533,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.ListDataProductDraftsWithContext(ctx, listDataProductDraftsOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.ListDataProductDraftsWithContext(ctx, listDataProductDraftsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -2492,19 +2557,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductDrafts successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.ListDataProductDrafts(nil)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductDrafts(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -2519,19 +2584,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductDraftsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke ListDataProductDrafts with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductDraftsOptions model
 				listDataProductDraftsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDraftsOptions)
@@ -2542,9 +2607,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductDraftsOptionsModel.Start = core.StringPtr("testString")
 				listDataProductDraftsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -2552,7 +2617,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the ListDataProductDraftsOptions model with no property values
 				listDataProductDraftsOptionsModelNew := new(dataproducthubapiservicev1.ListDataProductDraftsOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -2571,12 +2636,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke ListDataProductDrafts successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductDraftsOptions model
 				listDataProductDraftsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDraftsOptions)
@@ -2588,7 +2653,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductDraftsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductDrafts(listDataProductDraftsOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -2633,21 +2698,21 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					res.WriteHeader(200)
 					requestNumber++
 					if requestNumber == 1 {
-						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}]}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg"}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else if requestNumber == 2 {
-						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}]}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg"}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else {
 						res.WriteHeader(400)
 					}
 				}))
 			})
 			It(`Use DataProductDraftsPager.GetNext successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				listDataProductDraftsOptionsModel := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
 					DataProductID:    core.StringPtr("testString"),
@@ -2656,7 +2721,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Limit:            core.Int64Ptr(int64(10)),
 				}
 
-				pager, err := dataProductHubApiService.NewDataProductDraftsPager(listDataProductDraftsOptionsModel)
+				pager, err := dataProductHubAPIService.NewDataProductDraftsPager(listDataProductDraftsOptionsModel)
 				Expect(err).To(BeNil())
 				Expect(pager).ToNot(BeNil())
 
@@ -2670,12 +2735,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(len(allResults)).To(Equal(2))
 			})
 			It(`Use DataProductDraftsPager.GetAll successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				listDataProductDraftsOptionsModel := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
 					DataProductID:    core.StringPtr("testString"),
@@ -2684,7 +2749,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Limit:            core.Int64Ptr(int64(10)),
 				}
 
-				pager, err := dataProductHubApiService.NewDataProductDraftsPager(listDataProductDraftsOptionsModel)
+				pager, err := dataProductHubAPIService.NewDataProductDraftsPager(listDataProductDraftsOptionsModel)
 				Expect(err).To(BeNil())
 				Expect(pager).ToNot(BeNil())
 
@@ -2711,29 +2776,34 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDataProductDraft with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
 				assetPrototypeModel.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				assetPrototypeModel.Container = containerIdentityModel
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -2765,6 +2835,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -2788,9 +2859,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -2815,14 +2892,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductDraftOptionsModel.Workflows = dataProductWorkflowsModel
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -2865,34 +2942,39 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke CreateDataProductDraft successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
 				assetPrototypeModel.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				assetPrototypeModel.Container = containerIdentityModel
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -2924,6 +3006,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -2947,9 +3030,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -2977,13 +3066,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.CreateDataProductDraftWithContext(ctx, createDataProductDraftOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.CreateDataProductDraftWithContext(ctx, createDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -2991,7 +3080,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.CreateDataProductDraftWithContext(ctx, createDataProductDraftOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.CreateDataProductDraftWithContext(ctx, createDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -3027,39 +3116,44 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke CreateDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.CreateDataProductDraft(nil)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProductDraft(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
 				assetPrototypeModel.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				assetPrototypeModel.Container = containerIdentityModel
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -3091,6 +3185,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -3114,9 +3209,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -3142,36 +3243,41 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke CreateDataProductDraft with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
 				assetPrototypeModel.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				assetPrototypeModel.Container = containerIdentityModel
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -3203,6 +3309,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -3226,9 +3333,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -3253,9 +3366,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductDraftOptionsModel.Workflows = dataProductWorkflowsModel
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -3263,7 +3376,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the CreateDataProductDraftOptions model with no property values
 				createDataProductDraftOptionsModelNew := new(dataproducthubapiservicev1.CreateDataProductDraftOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -3282,29 +3395,34 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
 				assetPrototypeModel.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				assetPrototypeModel.Container = containerIdentityModel
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the UseCase model
@@ -3336,6 +3454,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -3359,9 +3478,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -3387,7 +3512,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.CreateDataProductDraft(createDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDataProductDraft(createDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -3415,16 +3540,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDraftContractTermsDocument with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-
-				// Construct an instance of the ContractTermsDocumentAttachment model
-				contractTermsDocumentAttachmentModel := new(dataproducthubapiservicev1.ContractTermsDocumentAttachment)
-				contractTermsDocumentAttachmentModel.ID = core.StringPtr("testString")
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the CreateDraftContractTermsDocumentOptions model
 				createDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions)
@@ -3433,20 +3554,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDraftContractTermsDocumentOptionsModel.ContractTermsID = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Type = core.StringPtr("terms_and_conditions")
 				createDraftContractTermsDocumentOptionsModel.Name = core.StringPtr("Terms and conditions document")
-				createDraftContractTermsDocumentOptionsModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
 				createDraftContractTermsDocumentOptionsModel.URL = core.StringPtr("testString")
-				createDraftContractTermsDocumentOptionsModel.Attachment = contractTermsDocumentAttachmentModel
-				createDraftContractTermsDocumentOptionsModel.UploadURL = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -3493,17 +3611,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDraftContractTermsDocument successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
-
-				// Construct an instance of the ContractTermsDocumentAttachment model
-				contractTermsDocumentAttachmentModel := new(dataproducthubapiservicev1.ContractTermsDocumentAttachment)
-				contractTermsDocumentAttachmentModel.ID = core.StringPtr("testString")
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the CreateDraftContractTermsDocumentOptions model
 				createDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions)
@@ -3512,22 +3626,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDraftContractTermsDocumentOptionsModel.ContractTermsID = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Type = core.StringPtr("terms_and_conditions")
 				createDraftContractTermsDocumentOptionsModel.Name = core.StringPtr("Terms and conditions document")
-				createDraftContractTermsDocumentOptionsModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
 				createDraftContractTermsDocumentOptionsModel.URL = core.StringPtr("testString")
-				createDraftContractTermsDocumentOptionsModel.Attachment = contractTermsDocumentAttachmentModel
-				createDraftContractTermsDocumentOptionsModel.UploadURL = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.CreateDraftContractTermsDocumentWithContext(ctx, createDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.CreateDraftContractTermsDocumentWithContext(ctx, createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -3535,7 +3646,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.CreateDraftContractTermsDocumentWithContext(ctx, createDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.CreateDraftContractTermsDocumentWithContext(ctx, createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -3575,22 +3686,18 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.CreateDraftContractTermsDocument(nil)
+				result, response, operationErr := dataProductHubAPIService.CreateDraftContractTermsDocument(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
-
-				// Construct an instance of the ContractTermsDocumentAttachment model
-				contractTermsDocumentAttachmentModel := new(dataproducthubapiservicev1.ContractTermsDocumentAttachment)
-				contractTermsDocumentAttachmentModel.ID = core.StringPtr("testString")
 
 				// Construct an instance of the CreateDraftContractTermsDocumentOptions model
 				createDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions)
@@ -3599,30 +3706,23 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDraftContractTermsDocumentOptionsModel.ContractTermsID = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Type = core.StringPtr("terms_and_conditions")
 				createDraftContractTermsDocumentOptionsModel.Name = core.StringPtr("Terms and conditions document")
-				createDraftContractTermsDocumentOptionsModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
 				createDraftContractTermsDocumentOptionsModel.URL = core.StringPtr("testString")
-				createDraftContractTermsDocumentOptionsModel.Attachment = contractTermsDocumentAttachmentModel
-				createDraftContractTermsDocumentOptionsModel.UploadURL = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke CreateDraftContractTermsDocument with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-
-				// Construct an instance of the ContractTermsDocumentAttachment model
-				contractTermsDocumentAttachmentModel := new(dataproducthubapiservicev1.ContractTermsDocumentAttachment)
-				contractTermsDocumentAttachmentModel.ID = core.StringPtr("testString")
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the CreateDraftContractTermsDocumentOptions model
 				createDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions)
@@ -3631,15 +3731,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDraftContractTermsDocumentOptionsModel.ContractTermsID = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Type = core.StringPtr("terms_and_conditions")
 				createDraftContractTermsDocumentOptionsModel.Name = core.StringPtr("Terms and conditions document")
-				createDraftContractTermsDocumentOptionsModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
 				createDraftContractTermsDocumentOptionsModel.URL = core.StringPtr("testString")
-				createDraftContractTermsDocumentOptionsModel.Attachment = contractTermsDocumentAttachmentModel
-				createDraftContractTermsDocumentOptionsModel.UploadURL = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -3647,7 +3744,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the CreateDraftContractTermsDocumentOptions model with no property values
 				createDraftContractTermsDocumentOptionsModelNew := new(dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -3666,16 +3763,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke CreateDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-
-				// Construct an instance of the ContractTermsDocumentAttachment model
-				contractTermsDocumentAttachmentModel := new(dataproducthubapiservicev1.ContractTermsDocumentAttachment)
-				contractTermsDocumentAttachmentModel.ID = core.StringPtr("testString")
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the CreateDraftContractTermsDocumentOptions model
 				createDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.CreateDraftContractTermsDocumentOptions)
@@ -3684,14 +3777,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				createDraftContractTermsDocumentOptionsModel.ContractTermsID = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Type = core.StringPtr("terms_and_conditions")
 				createDraftContractTermsDocumentOptionsModel.Name = core.StringPtr("Terms and conditions document")
-				createDraftContractTermsDocumentOptionsModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
 				createDraftContractTermsDocumentOptionsModel.URL = core.StringPtr("testString")
-				createDraftContractTermsDocumentOptionsModel.Attachment = contractTermsDocumentAttachmentModel
-				createDraftContractTermsDocumentOptionsModel.UploadURL = core.StringPtr("testString")
 				createDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.CreateDraftContractTermsDocument(createDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -3719,12 +3809,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDataProductDraft with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductDraftOptions model
 				getDataProductDraftOptionsModel := new(dataproducthubapiservicev1.GetDataProductDraftOptions)
@@ -3732,14 +3822,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductDraftOptionsModel.DraftID = core.StringPtr("testString")
 				getDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -3766,17 +3856,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke GetDataProductDraft successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the GetDataProductDraftOptions model
 				getDataProductDraftOptionsModel := new(dataproducthubapiservicev1.GetDataProductDraftOptions)
@@ -3787,13 +3877,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetDataProductDraftWithContext(ctx, getDataProductDraftOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetDataProductDraftWithContext(ctx, getDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -3801,7 +3891,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetDataProductDraftWithContext(ctx, getDataProductDraftOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetDataProductDraftWithContext(ctx, getDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -3821,19 +3911,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke GetDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetDataProductDraft(nil)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductDraft(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -3845,19 +3935,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke GetDataProductDraft with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductDraftOptions model
 				getDataProductDraftOptionsModel := new(dataproducthubapiservicev1.GetDataProductDraftOptions)
@@ -3865,9 +3955,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductDraftOptionsModel.DraftID = core.StringPtr("testString")
 				getDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -3875,7 +3965,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the GetDataProductDraftOptions model with no property values
 				getDataProductDraftOptionsModelNew := new(dataproducthubapiservicev1.GetDataProductDraftOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -3894,12 +3984,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductDraftOptions model
 				getDataProductDraftOptionsModel := new(dataproducthubapiservicev1.GetDataProductDraftOptions)
@@ -3908,7 +3998,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetDataProductDraft(getDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductDraft(getDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -3935,15 +4025,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke DeleteDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				response, operationErr := dataProductHubApiService.DeleteDataProductDraft(nil)
+				response, operationErr := dataProductHubAPIService.DeleteDataProductDraft(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 
@@ -3954,17 +4044,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				deleteDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				response, operationErr = dataProductHubApiService.DeleteDataProductDraft(deleteDataProductDraftOptionsModel)
+				response, operationErr = dataProductHubAPIService.DeleteDataProductDraft(deleteDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 			})
 			It(`Invoke DeleteDataProductDraft with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the DeleteDataProductDraftOptions model
 				deleteDataProductDraftOptionsModel := new(dataproducthubapiservicev1.DeleteDataProductDraftOptions)
@@ -3972,16 +4062,16 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				deleteDataProductDraftOptionsModel.DraftID = core.StringPtr("testString")
 				deleteDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				response, operationErr := dataProductHubApiService.DeleteDataProductDraft(deleteDataProductDraftOptionsModel)
+				response, operationErr := dataProductHubAPIService.DeleteDataProductDraft(deleteDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
 				// Construct a second instance of the DeleteDataProductDraftOptions model with no property values
 				deleteDataProductDraftOptionsModelNew := new(dataproducthubapiservicev1.DeleteDataProductDraftOptions)
 				// Invoke operation with invalid model (negative test)
-				response, operationErr = dataProductHubApiService.DeleteDataProductDraft(deleteDataProductDraftOptionsModelNew)
+				response, operationErr = dataProductHubAPIService.DeleteDataProductDraft(deleteDataProductDraftOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 			})
@@ -4006,12 +4096,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDataProductDraft with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4027,14 +4117,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductDraftOptionsModel.JSONPatchInstructions = []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel}
 				updateDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -4077,17 +4167,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDraft successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4106,13 +4196,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.UpdateDataProductDraftWithContext(ctx, updateDataProductDraftOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.UpdateDataProductDraftWithContext(ctx, updateDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -4120,7 +4210,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.UpdateDataProductDraftWithContext(ctx, updateDataProductDraftOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.UpdateDataProductDraftWithContext(ctx, updateDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -4156,19 +4246,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductDraft(nil)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductDraft(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -4188,19 +4278,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke UpdateDataProductDraft with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4216,9 +4306,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductDraftOptionsModel.JSONPatchInstructions = []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel}
 				updateDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -4226,7 +4316,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the UpdateDataProductDraftOptions model with no property values
 				updateDataProductDraftOptionsModelNew := new(dataproducthubapiservicev1.UpdateDataProductDraftOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -4245,12 +4335,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4267,7 +4357,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductDraft(updateDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -4295,12 +4385,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDraftContractTermsDocument with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDraftContractTermsDocumentOptions model
 				getDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetDraftContractTermsDocumentOptions)
@@ -4310,14 +4400,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDraftContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				getDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -4348,13 +4438,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDraftContractTermsDocument successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the GetDraftContractTermsDocumentOptions model
 				getDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetDraftContractTermsDocumentOptions)
@@ -4367,13 +4457,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetDraftContractTermsDocumentWithContext(ctx, getDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetDraftContractTermsDocumentWithContext(ctx, getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -4381,7 +4471,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetDraftContractTermsDocumentWithContext(ctx, getDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetDraftContractTermsDocumentWithContext(ctx, getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -4405,15 +4495,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetDraftContractTermsDocument(nil)
+				result, response, operationErr := dataProductHubAPIService.GetDraftContractTermsDocument(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -4427,19 +4517,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke GetDraftContractTermsDocument with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDraftContractTermsDocumentOptions model
 				getDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetDraftContractTermsDocumentOptions)
@@ -4449,9 +4539,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDraftContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				getDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -4459,7 +4549,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the GetDraftContractTermsDocumentOptions model with no property values
 				getDraftContractTermsDocumentOptionsModelNew := new(dataproducthubapiservicev1.GetDraftContractTermsDocumentOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -4478,12 +4568,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDraftContractTermsDocumentOptions model
 				getDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetDraftContractTermsDocumentOptions)
@@ -4494,7 +4584,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDraftContractTermsDocument(getDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -4521,15 +4611,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke DeleteDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				response, operationErr := dataProductHubApiService.DeleteDraftContractTermsDocument(nil)
+				response, operationErr := dataProductHubAPIService.DeleteDraftContractTermsDocument(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 
@@ -4542,17 +4632,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				deleteDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				response, operationErr = dataProductHubApiService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptionsModel)
+				response, operationErr = dataProductHubAPIService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 			})
 			It(`Invoke DeleteDraftContractTermsDocument with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the DeleteDraftContractTermsDocumentOptions model
 				deleteDraftContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.DeleteDraftContractTermsDocumentOptions)
@@ -4562,16 +4652,16 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				deleteDraftContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				deleteDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				response, operationErr := dataProductHubApiService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptionsModel)
+				response, operationErr := dataProductHubAPIService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
 				// Construct a second instance of the DeleteDraftContractTermsDocumentOptions model with no property values
 				deleteDraftContractTermsDocumentOptionsModelNew := new(dataproducthubapiservicev1.DeleteDraftContractTermsDocumentOptions)
 				// Invoke operation with invalid model (negative test)
-				response, operationErr = dataProductHubApiService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptionsModelNew)
+				response, operationErr = dataProductHubAPIService.DeleteDraftContractTermsDocument(deleteDraftContractTermsDocumentOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 			})
@@ -4596,12 +4686,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDraftContractTermsDocument with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4619,14 +4709,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDraftContractTermsDocumentOptionsModel.JSONPatchInstructions = []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel}
 				updateDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -4673,13 +4763,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDraftContractTermsDocument successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4700,13 +4790,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.UpdateDraftContractTermsDocumentWithContext(ctx, updateDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.UpdateDraftContractTermsDocumentWithContext(ctx, updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -4714,7 +4804,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.UpdateDraftContractTermsDocumentWithContext(ctx, updateDraftContractTermsDocumentOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.UpdateDraftContractTermsDocumentWithContext(ctx, updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -4754,15 +4844,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.UpdateDraftContractTermsDocument(nil)
+				result, response, operationErr := dataProductHubAPIService.UpdateDraftContractTermsDocument(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -4784,19 +4874,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke UpdateDraftContractTermsDocument with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4814,9 +4904,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDraftContractTermsDocumentOptionsModel.JSONPatchInstructions = []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel}
 				updateDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -4824,7 +4914,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the UpdateDraftContractTermsDocumentOptions model with no property values
 				updateDraftContractTermsDocumentOptionsModelNew := new(dataproducthubapiservicev1.UpdateDraftContractTermsDocumentOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -4843,12 +4933,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDraftContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -4867,7 +4957,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDraftContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDraftContractTermsDocument(updateDraftContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -4895,12 +4985,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke PublishDataProductDraft with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the PublishDataProductDraftOptions model
 				publishDataProductDraftOptionsModel := new(dataproducthubapiservicev1.PublishDataProductDraftOptions)
@@ -4908,14 +4998,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				publishDataProductDraftOptionsModel.DraftID = core.StringPtr("testString")
 				publishDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -4942,17 +5032,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke PublishDataProductDraft successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the PublishDataProductDraftOptions model
 				publishDataProductDraftOptionsModel := new(dataproducthubapiservicev1.PublishDataProductDraftOptions)
@@ -4963,13 +5053,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.PublishDataProductDraftWithContext(ctx, publishDataProductDraftOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.PublishDataProductDraftWithContext(ctx, publishDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -4977,7 +5067,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.PublishDataProductDraftWithContext(ctx, publishDataProductDraftOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.PublishDataProductDraftWithContext(ctx, publishDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -4997,19 +5087,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke PublishDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.PublishDataProductDraft(nil)
+				result, response, operationErr := dataProductHubAPIService.PublishDataProductDraft(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5021,19 +5111,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				publishDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke PublishDataProductDraft with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the PublishDataProductDraftOptions model
 				publishDataProductDraftOptionsModel := new(dataproducthubapiservicev1.PublishDataProductDraftOptions)
@@ -5041,9 +5131,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				publishDataProductDraftOptionsModel.DraftID = core.StringPtr("testString")
 				publishDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -5051,7 +5141,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the PublishDataProductDraftOptions model with no property values
 				publishDataProductDraftOptionsModelNew := new(dataproducthubapiservicev1.PublishDataProductDraftOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5070,12 +5160,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke PublishDataProductDraft successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the PublishDataProductDraftOptions model
 				publishDataProductDraftOptionsModel := new(dataproducthubapiservicev1.PublishDataProductDraftOptions)
@@ -5084,7 +5174,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				publishDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.PublishDataProductDraft(publishDataProductDraftOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -5106,33 +5196,35 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Verify the contents of the request
 					Expect(req.URL.EscapedPath()).To(Equal(getDataProductReleasePath))
 					Expect(req.Method).To(Equal("GET"))
+					// TODO: Add check for check_caller_approval query parameter
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
 				}))
 			})
 			It(`Invoke GetDataProductRelease with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductReleaseOptions model
 				getDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.GetDataProductReleaseOptions)
 				getDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
+				getDataProductReleaseOptionsModel.CheckCallerApproval = core.BoolPtr(false)
 				getDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -5153,40 +5245,42 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(getDataProductReleasePath))
 					Expect(req.Method).To(Equal("GET"))
 
+					// TODO: Add check for check_caller_approval query parameter
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke GetDataProductRelease successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the GetDataProductReleaseOptions model
 				getDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.GetDataProductReleaseOptions)
 				getDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
+				getDataProductReleaseOptionsModel.CheckCallerApproval = core.BoolPtr(false)
 				getDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetDataProductReleaseWithContext(ctx, getDataProductReleaseOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetDataProductReleaseWithContext(ctx, getDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -5194,7 +5288,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetDataProductReleaseWithContext(ctx, getDataProductReleaseOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetDataProductReleaseWithContext(ctx, getDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -5211,22 +5305,23 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(getDataProductReleasePath))
 					Expect(req.Method).To(Equal("GET"))
 
+					// TODO: Add check for check_caller_approval query parameter
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke GetDataProductRelease successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetDataProductRelease(nil)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductRelease(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5235,32 +5330,34 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.GetDataProductReleaseOptions)
 				getDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
+				getDataProductReleaseOptionsModel.CheckCallerApproval = core.BoolPtr(false)
 				getDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke GetDataProductRelease with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductReleaseOptions model
 				getDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.GetDataProductReleaseOptions)
 				getDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
+				getDataProductReleaseOptionsModel.CheckCallerApproval = core.BoolPtr(false)
 				getDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -5268,7 +5365,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the GetDataProductReleaseOptions model with no property values
 				getDataProductReleaseOptionsModelNew := new(dataproducthubapiservicev1.GetDataProductReleaseOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5287,21 +5384,22 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetDataProductRelease successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetDataProductReleaseOptions model
 				getDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.GetDataProductReleaseOptions)
 				getDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
+				getDataProductReleaseOptionsModel.CheckCallerApproval = core.BoolPtr(false)
 				getDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetDataProductRelease(getDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetDataProductRelease(getDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -5329,12 +5427,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDataProductRelease with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -5350,14 +5448,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductReleaseOptionsModel.JSONPatchInstructions = []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel}
 				updateDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -5400,17 +5498,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductRelease successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -5429,13 +5527,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.UpdateDataProductReleaseWithContext(ctx, updateDataProductReleaseOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.UpdateDataProductReleaseWithContext(ctx, updateDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -5443,7 +5541,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.UpdateDataProductReleaseWithContext(ctx, updateDataProductReleaseOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.UpdateDataProductReleaseWithContext(ctx, updateDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -5479,19 +5577,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductRelease successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductRelease(nil)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductRelease(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5511,19 +5609,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke UpdateDataProductRelease with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -5539,9 +5637,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductReleaseOptionsModel.JSONPatchInstructions = []dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel}
 				updateDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -5549,7 +5647,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the UpdateDataProductReleaseOptions model with no property values
 				updateDataProductReleaseOptionsModelNew := new(dataproducthubapiservicev1.UpdateDataProductReleaseOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5568,12 +5666,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke UpdateDataProductRelease successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the JSONPatchOperation model
 				jsonPatchOperationModel := new(dataproducthubapiservicev1.JSONPatchOperation)
@@ -5590,7 +5688,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				updateDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.UpdateDataProductRelease(updateDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -5618,12 +5716,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetReleaseContractTermsDocument with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetReleaseContractTermsDocumentOptions model
 				getReleaseContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetReleaseContractTermsDocumentOptions)
@@ -5633,14 +5731,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getReleaseContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				getReleaseContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -5671,13 +5769,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetReleaseContractTermsDocument successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the GetReleaseContractTermsDocumentOptions model
 				getReleaseContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetReleaseContractTermsDocumentOptions)
@@ -5690,13 +5788,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.GetReleaseContractTermsDocumentWithContext(ctx, getReleaseContractTermsDocumentOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.GetReleaseContractTermsDocumentWithContext(ctx, getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -5704,7 +5802,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.GetReleaseContractTermsDocumentWithContext(ctx, getReleaseContractTermsDocumentOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.GetReleaseContractTermsDocumentWithContext(ctx, getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -5728,15 +5826,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetReleaseContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.GetReleaseContractTermsDocument(nil)
+				result, response, operationErr := dataProductHubAPIService.GetReleaseContractTermsDocument(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5750,19 +5848,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getReleaseContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke GetReleaseContractTermsDocument with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetReleaseContractTermsDocumentOptions model
 				getReleaseContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetReleaseContractTermsDocumentOptions)
@@ -5772,9 +5870,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getReleaseContractTermsDocumentOptionsModel.DocumentID = core.StringPtr("testString")
 				getReleaseContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -5782,7 +5880,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the GetReleaseContractTermsDocumentOptions model with no property values
 				getReleaseContractTermsDocumentOptionsModelNew := new(dataproducthubapiservicev1.GetReleaseContractTermsDocumentOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5801,12 +5899,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke GetReleaseContractTermsDocument successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the GetReleaseContractTermsDocumentOptions model
 				getReleaseContractTermsDocumentOptionsModel := new(dataproducthubapiservicev1.GetReleaseContractTermsDocumentOptions)
@@ -5817,7 +5915,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				getReleaseContractTermsDocumentOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.GetReleaseContractTermsDocument(getReleaseContractTermsDocumentOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -5849,12 +5947,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke ListDataProductReleases with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductReleasesOptions model
 				listDataProductReleasesOptionsModel := new(dataproducthubapiservicev1.ListDataProductReleasesOptions)
@@ -5866,14 +5964,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductReleasesOptionsModel.Start = core.StringPtr("testString")
 				listDataProductReleasesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -5904,17 +6002,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductReleases successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the ListDataProductReleasesOptions model
 				listDataProductReleasesOptionsModel := new(dataproducthubapiservicev1.ListDataProductReleasesOptions)
@@ -5929,13 +6027,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.ListDataProductReleasesWithContext(ctx, listDataProductReleasesOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.ListDataProductReleasesWithContext(ctx, listDataProductReleasesOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -5943,7 +6041,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.ListDataProductReleasesWithContext(ctx, listDataProductReleasesOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.ListDataProductReleasesWithContext(ctx, listDataProductReleasesOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -5967,19 +6065,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductReleases successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.ListDataProductReleases(nil)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductReleases(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -5995,19 +6093,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductReleasesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke ListDataProductReleases with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductReleasesOptions model
 				listDataProductReleasesOptionsModel := new(dataproducthubapiservicev1.ListDataProductReleasesOptions)
@@ -6019,9 +6117,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductReleasesOptionsModel.Start = core.StringPtr("testString")
 				listDataProductReleasesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -6029,7 +6127,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the ListDataProductReleasesOptions model with no property values
 				listDataProductReleasesOptionsModelNew := new(dataproducthubapiservicev1.ListDataProductReleasesOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -6048,12 +6146,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke ListDataProductReleases successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the ListDataProductReleasesOptions model
 				listDataProductReleasesOptionsModel := new(dataproducthubapiservicev1.ListDataProductReleasesOptions)
@@ -6066,7 +6164,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				listDataProductReleasesOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.ListDataProductReleases(listDataProductReleasesOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.ListDataProductReleases(listDataProductReleasesOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -6111,21 +6209,21 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					res.WriteHeader(200)
 					requestNumber++
 					if requestNumber == 1 {
-						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}]}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg"}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else if requestNumber == 2 {
-						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}]}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg"}],"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else {
 						res.WriteHeader(400)
 					}
 				}))
 			})
 			It(`Use DataProductReleasesPager.GetNext successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				listDataProductReleasesOptionsModel := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
 					DataProductID:    core.StringPtr("testString"),
@@ -6135,7 +6233,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Limit:            core.Int64Ptr(int64(10)),
 				}
 
-				pager, err := dataProductHubApiService.NewDataProductReleasesPager(listDataProductReleasesOptionsModel)
+				pager, err := dataProductHubAPIService.NewDataProductReleasesPager(listDataProductReleasesOptionsModel)
 				Expect(err).To(BeNil())
 				Expect(pager).ToNot(BeNil())
 
@@ -6149,12 +6247,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(len(allResults)).To(Equal(2))
 			})
 			It(`Use DataProductReleasesPager.GetAll successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				listDataProductReleasesOptionsModel := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
 					DataProductID:    core.StringPtr("testString"),
@@ -6164,7 +6262,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					Limit:            core.Int64Ptr(int64(10)),
 				}
 
-				pager, err := dataProductHubApiService.NewDataProductReleasesPager(listDataProductReleasesOptionsModel)
+				pager, err := dataProductHubAPIService.NewDataProductReleasesPager(listDataProductReleasesOptionsModel)
 				Expect(err).To(BeNil())
 				Expect(pager).ToNot(BeNil())
 
@@ -6191,12 +6289,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke RetireDataProductRelease with error: Operation response processing error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the RetireDataProductReleaseOptions model
 				retireDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.RetireDataProductReleaseOptions)
@@ -6204,14 +6302,14 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
-				result, response, operationErr := dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
 
 				// Enable retries and test again
-				dataProductHubApiService.EnableRetries(0, 0)
-				result, response, operationErr = dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				dataProductHubAPIService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).To(BeNil())
@@ -6238,17 +6336,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke RetireDataProductRelease successfully with retries`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
-				dataProductHubApiService.EnableRetries(0, 0)
+				Expect(dataProductHubAPIService).ToNot(BeNil())
+				dataProductHubAPIService.EnableRetries(0, 0)
 
 				// Construct an instance of the RetireDataProductReleaseOptions model
 				retireDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.RetireDataProductReleaseOptions)
@@ -6259,13 +6357,13 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Invoke operation with a Context to test a timeout error
 				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc()
-				_, _, operationErr := dataProductHubApiService.RetireDataProductReleaseWithContext(ctx, retireDataProductReleaseOptionsModel)
+				_, _, operationErr := dataProductHubAPIService.RetireDataProductReleaseWithContext(ctx, retireDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 
 				// Disable retries and test again
-				dataProductHubApiService.DisableRetries()
-				result, response, operationErr := dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				dataProductHubAPIService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
@@ -6273,7 +6371,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Re-test the timeout error with retries disabled
 				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
 				defer cancelFunc2()
-				_, _, operationErr = dataProductHubApiService.RetireDataProductReleaseWithContext(ctx, retireDataProductReleaseOptionsModel)
+				_, _, operationErr = dataProductHubAPIService.RetireDataProductReleaseWithContext(ctx, retireDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
 			})
@@ -6293,19 +6391,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}]}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"]}}}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg"}], "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}]}], "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "properties": {"anyKey": "anyValue"}}`)
 				}))
 			})
 			It(`Invoke RetireDataProductRelease successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Invoke operation with nil options model (negative test)
-				result, response, operationErr := dataProductHubApiService.RetireDataProductRelease(nil)
+				result, response, operationErr := dataProductHubAPIService.RetireDataProductRelease(nil)
 				Expect(operationErr).NotTo(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -6317,19 +6415,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
-				result, response, operationErr = dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				result, response, operationErr = dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 				Expect(result).ToNot(BeNil())
 
 			})
 			It(`Invoke RetireDataProductRelease with error: Operation validation and request error`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the RetireDataProductReleaseOptions model
 				retireDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.RetireDataProductReleaseOptions)
@@ -6337,9 +6435,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
-				err := dataProductHubApiService.SetServiceURL("")
+				err := dataProductHubAPIService.SetServiceURL("")
 				Expect(err).To(BeNil())
-				result, response, operationErr := dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
 				Expect(response).To(BeNil())
@@ -6347,7 +6445,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct a second instance of the RetireDataProductReleaseOptions model with no property values
 				retireDataProductReleaseOptionsModelNew := new(dataproducthubapiservicev1.RetireDataProductReleaseOptions)
 				// Invoke operation with invalid model (negative test)
-				result, response, operationErr = dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModelNew)
+				result, response, operationErr = dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModelNew)
 				Expect(operationErr).ToNot(BeNil())
 				Expect(response).To(BeNil())
 				Expect(result).To(BeNil())
@@ -6366,12 +6464,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}))
 			})
 			It(`Invoke RetireDataProductRelease successfully`, func() {
-				dataProductHubApiService, serviceErr := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+				dataProductHubAPIService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 					URL:           testServer.URL,
 					Authenticator: &core.NoAuthAuthenticator{},
 				})
 				Expect(serviceErr).To(BeNil())
-				Expect(dataProductHubApiService).ToNot(BeNil())
+				Expect(dataProductHubAPIService).ToNot(BeNil())
 
 				// Construct an instance of the RetireDataProductReleaseOptions model
 				retireDataProductReleaseOptionsModel := new(dataproducthubapiservicev1.RetireDataProductReleaseOptions)
@@ -6380,7 +6478,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
-				result, response, operationErr := dataProductHubApiService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				result, response, operationErr := dataProductHubAPIService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -6394,23 +6492,23 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 	})
 	Describe(`Model constructor tests`, func() {
 		Context(`Using a service client instance`, func() {
-			dataProductHubApiService, _ := dataproducthubapiservicev1.NewDataProductHubApiServiceV1(&dataproducthubapiservicev1.DataProductHubApiServiceV1Options{
+			dataProductHubAPIService, _ := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
 				URL:           "http://dataproducthubapiservicev1modelgenerator.com",
 				Authenticator: &core.NoAuthAuthenticator{},
 			})
 			It(`Invoke NewAssetPartReference successfully`, func() {
 				var container *dataproducthubapiservicev1.ContainerReference = nil
-				_, err := dataProductHubApiService.NewAssetPartReference(container)
+				_, err := dataProductHubAPIService.NewAssetPartReference(container)
 				Expect(err).ToNot(BeNil())
 			})
 			It(`Invoke NewAssetPrototype successfully`, func() {
 				var container *dataproducthubapiservicev1.ContainerIdentity = nil
-				_, err := dataProductHubApiService.NewAssetPrototype(container)
+				_, err := dataProductHubAPIService.NewAssetPrototype(container)
 				Expect(err).ToNot(BeNil())
 			})
 			It(`Invoke NewAssetReference successfully`, func() {
 				var container *dataproducthubapiservicev1.ContainerReference = nil
-				_, err := dataProductHubApiService.NewAssetReference(container)
+				_, err := dataProductHubAPIService.NewAssetReference(container)
 				Expect(err).ToNot(BeNil())
 			})
 			It(`Invoke NewCompleteDraftContractTermsDocumentOptions successfully`, func() {
@@ -6419,7 +6517,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				draftID := "testString"
 				contractTermsID := "testString"
 				documentID := "testString"
-				completeDraftContractTermsDocumentOptionsModel := dataProductHubApiService.NewCompleteDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID)
+				completeDraftContractTermsDocumentOptionsModel := dataProductHubAPIService.NewCompleteDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID)
 				completeDraftContractTermsDocumentOptionsModel.SetDataProductID("testString")
 				completeDraftContractTermsDocumentOptionsModel.SetDraftID("testString")
 				completeDraftContractTermsDocumentOptionsModel.SetContractTermsID("testString")
@@ -6433,15 +6531,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(completeDraftContractTermsDocumentOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewContainerIdentity successfully`, func() {
-				id := "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b"
-				_model, err := dataProductHubApiService.NewContainerIdentity(id)
+				id := "d29c42eb-7100-4b7a-8257-c196dbcca1cd"
+				_model, err := dataProductHubAPIService.NewContainerIdentity(id)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
 			It(`Invoke NewContainerReference successfully`, func() {
-				id := "78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b"
+				id := "d29c42eb-7100-4b7a-8257-c196dbcca1cd"
 				typeVar := "catalog"
-				_model, err := dataProductHubApiService.NewContainerReference(id, typeVar)
+				_model, err := dataProductHubAPIService.NewContainerReference(id, typeVar)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
@@ -6449,7 +6547,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				typeVar := "terms_and_conditions"
 				name := "testString"
 				id := "2b0bf220-079c-11ee-be56-0242ac120002"
-				_model, err := dataProductHubApiService.NewContractTermsDocument(typeVar, name, id)
+				_model, err := dataProductHubAPIService.NewContractTermsDocument(typeVar, name, id)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
@@ -6467,7 +6565,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				contractTermsDocument.Attachment = contractTermsDocumentAttachmentModel
 				contractTermsDocument.UploadURL = core.StringPtr("testString")
 
-				contractTermsDocumentPatch := dataProductHubApiService.NewContractTermsDocumentPatch(contractTermsDocument)
+				contractTermsDocumentPatch := dataProductHubAPIService.NewContractTermsDocumentPatch(contractTermsDocument)
 				Expect(contractTermsDocumentPatch).ToNot(BeNil())
 
 				_path := func(op interface{}) string {
@@ -6475,37 +6573,37 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}
 				Expect(contractTermsDocumentPatch).To(MatchAllElements(_path, Elements{
 					"/url": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/url")),
 						"From":  BeNil(),
 						"Value": Equal(contractTermsDocument.URL),
 					}),
 					"/type": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/type")),
 						"From":  BeNil(),
 						"Value": Equal(contractTermsDocument.Type),
 					}),
 					"/name": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/name")),
 						"From":  BeNil(),
 						"Value": Equal(contractTermsDocument.Name),
 					}),
 					"/id": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/id")),
 						"From":  BeNil(),
 						"Value": Equal(contractTermsDocument.ID),
 					}),
 					"/attachment": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/attachment")),
 						"From":  BeNil(),
 						"Value": Equal(contractTermsDocument.Attachment),
 					}),
 					"/upload_url": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/upload_url")),
 						"From":  BeNil(),
 						"Value": Equal(contractTermsDocument.UploadURL),
@@ -6516,8 +6614,8 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
 				Expect(containerIdentityModel).ToNot(BeNil())
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
-				Expect(containerIdentityModel.ID).To(Equal(core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")))
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+				Expect(containerIdentityModel.ID).To(Equal(core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")))
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -6527,18 +6625,26 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(assetPrototypeModel.ID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
 				Expect(assetPrototypeModel.Container).To(Equal(containerIdentityModel))
 
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				Expect(dataProductDraftVersionReleaseModel).ToNot(BeNil())
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")
+				Expect(dataProductDraftVersionReleaseModel.ID).To(Equal(core.StringPtr("8bf83660-11fe-4427-a72a-8d8359af24e3")))
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				Expect(dataProductIdentityModel).ToNot(BeNil())
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 				Expect(dataProductIdentityModel.ID).To(Equal(core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")))
+				Expect(dataProductIdentityModel.Release).To(Equal(dataProductDraftVersionReleaseModel))
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
 				Expect(containerReferenceModel).ToNot(BeNil())
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
-				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")))
+				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")))
 				Expect(containerReferenceModel.Type).To(Equal(core.StringPtr("catalog")))
 
 				// Construct an instance of the UseCase model
@@ -6587,9 +6693,11 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 				Expect(dataProductContractTermsModel.Asset).To(Equal(assetReferenceModel))
 				Expect(dataProductContractTermsModel.ID).To(Equal(core.StringPtr("testString")))
 				Expect(dataProductContractTermsModel.Documents).To(Equal([]dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}))
+				Expect(dataProductContractTermsModel.ErrorMsg).To(Equal(core.StringPtr("testString")))
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -6627,11 +6735,21 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(dataProductPartModel.Asset).To(Equal(assetPartReferenceModel))
 				Expect(dataProductPartModel.DeliveryMethods).To(Equal([]dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}))
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				Expect(dataProductCustomWorkflowDefinitionModel).ToNot(BeNil())
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+				Expect(dataProductCustomWorkflowDefinitionModel.ID).To(Equal(core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")))
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				Expect(dataProductOrderAccessRequestModel).ToNot(BeNil())
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 				Expect(dataProductOrderAccessRequestModel.TaskAssigneeUsers).To(Equal([]string{"testString"}))
+				Expect(dataProductOrderAccessRequestModel.PreApprovedUsers).To(Equal([]string{"testString"}))
+				Expect(dataProductOrderAccessRequestModel.CustomWorkflowDefinition).To(Equal(dataProductCustomWorkflowDefinitionModel))
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -6642,7 +6760,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct an instance of the CreateDataProductDraftOptions model
 				dataProductID := "testString"
 				var createDataProductDraftOptionsAsset *dataproducthubapiservicev1.AssetPrototype = nil
-				createDataProductDraftOptionsModel := dataProductHubApiService.NewCreateDataProductDraftOptions(dataProductID, createDataProductDraftOptionsAsset)
+				createDataProductDraftOptionsModel := dataProductHubAPIService.NewCreateDataProductDraftOptions(dataProductID, createDataProductDraftOptionsAsset)
 				createDataProductDraftOptionsModel.SetDataProductID("testString")
 				createDataProductDraftOptionsModel.SetAsset(assetPrototypeModel)
 				createDataProductDraftOptionsModel.SetVersion("1.2.0")
@@ -6678,18 +6796,26 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(createDataProductDraftOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewCreateDataProductOptions successfully`, func() {
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				Expect(dataProductDraftVersionReleaseModel).ToNot(BeNil())
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+				Expect(dataProductDraftVersionReleaseModel.ID).To(Equal(core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")))
+
 				// Construct an instance of the DataProductIdentity model
 				dataProductIdentityModel := new(dataproducthubapiservicev1.DataProductIdentity)
 				Expect(dataProductIdentityModel).ToNot(BeNil())
 				dataProductIdentityModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductIdentityModel.Release = dataProductDraftVersionReleaseModel
 				Expect(dataProductIdentityModel.ID).To(Equal(core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")))
+				Expect(dataProductIdentityModel.Release).To(Equal(dataProductDraftVersionReleaseModel))
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
 				Expect(containerReferenceModel).ToNot(BeNil())
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
-				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")))
+				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")))
 				Expect(containerReferenceModel.Type).To(Equal(core.StringPtr("catalog")))
 
 				// Construct an instance of the UseCase model
@@ -6738,15 +6864,17 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 				Expect(dataProductContractTermsModel.Asset).To(Equal(assetReferenceModel))
 				Expect(dataProductContractTermsModel.ID).To(Equal(core.StringPtr("testString")))
 				Expect(dataProductContractTermsModel.Documents).To(Equal([]dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}))
+				Expect(dataProductContractTermsModel.ErrorMsg).To(Equal(core.StringPtr("testString")))
 
 				// Construct an instance of the ContainerIdentity model
 				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
 				Expect(containerIdentityModel).ToNot(BeNil())
-				containerIdentityModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
-				Expect(containerIdentityModel.ID).To(Equal(core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")))
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+				Expect(containerIdentityModel.ID).To(Equal(core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")))
 
 				// Construct an instance of the AssetPrototype model
 				assetPrototypeModel := new(dataproducthubapiservicev1.AssetPrototype)
@@ -6792,11 +6920,21 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(dataProductPartModel.Asset).To(Equal(assetPartReferenceModel))
 				Expect(dataProductPartModel.DeliveryMethods).To(Equal([]dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}))
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				Expect(dataProductCustomWorkflowDefinitionModel).ToNot(BeNil())
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+				Expect(dataProductCustomWorkflowDefinitionModel.ID).To(Equal(core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")))
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				Expect(dataProductOrderAccessRequestModel).ToNot(BeNil())
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 				Expect(dataProductOrderAccessRequestModel.TaskAssigneeUsers).To(Equal([]string{"testString"}))
+				Expect(dataProductOrderAccessRequestModel.PreApprovedUsers).To(Equal([]string{"testString"}))
+				Expect(dataProductOrderAccessRequestModel.CustomWorkflowDefinition).To(Equal(dataProductCustomWorkflowDefinitionModel))
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -6838,7 +6976,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 
 				// Construct an instance of the CreateDataProductOptions model
 				createDataProductOptionsDrafts := []dataproducthubapiservicev1.DataProductVersionPrototype{}
-				createDataProductOptionsModel := dataProductHubApiService.NewCreateDataProductOptions(createDataProductOptionsDrafts)
+				createDataProductOptionsModel := dataProductHubAPIService.NewCreateDataProductOptions(createDataProductOptionsDrafts)
 				createDataProductOptionsModel.SetDrafts([]dataproducthubapiservicev1.DataProductVersionPrototype{*dataProductVersionPrototypeModel})
 				createDataProductOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(createDataProductOptionsModel).ToNot(BeNil())
@@ -6846,29 +6984,19 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(createDataProductOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewCreateDraftContractTermsDocumentOptions successfully`, func() {
-				// Construct an instance of the ContractTermsDocumentAttachment model
-				contractTermsDocumentAttachmentModel := new(dataproducthubapiservicev1.ContractTermsDocumentAttachment)
-				Expect(contractTermsDocumentAttachmentModel).ToNot(BeNil())
-				contractTermsDocumentAttachmentModel.ID = core.StringPtr("testString")
-				Expect(contractTermsDocumentAttachmentModel.ID).To(Equal(core.StringPtr("testString")))
-
 				// Construct an instance of the CreateDraftContractTermsDocumentOptions model
 				dataProductID := "testString"
 				draftID := "testString"
 				contractTermsID := "testString"
 				createDraftContractTermsDocumentOptionsType := "terms_and_conditions"
 				createDraftContractTermsDocumentOptionsName := "Terms and conditions document"
-				createDraftContractTermsDocumentOptionsID := "b38df608-d34b-4d58-8136-ed25e6c6684e"
-				createDraftContractTermsDocumentOptionsModel := dataProductHubApiService.NewCreateDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, createDraftContractTermsDocumentOptionsType, createDraftContractTermsDocumentOptionsName, createDraftContractTermsDocumentOptionsID)
+				createDraftContractTermsDocumentOptionsModel := dataProductHubAPIService.NewCreateDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, createDraftContractTermsDocumentOptionsType, createDraftContractTermsDocumentOptionsName)
 				createDraftContractTermsDocumentOptionsModel.SetDataProductID("testString")
 				createDraftContractTermsDocumentOptionsModel.SetDraftID("testString")
 				createDraftContractTermsDocumentOptionsModel.SetContractTermsID("testString")
 				createDraftContractTermsDocumentOptionsModel.SetType("terms_and_conditions")
 				createDraftContractTermsDocumentOptionsModel.SetName("Terms and conditions document")
-				createDraftContractTermsDocumentOptionsModel.SetID("b38df608-d34b-4d58-8136-ed25e6c6684e")
 				createDraftContractTermsDocumentOptionsModel.SetURL("testString")
-				createDraftContractTermsDocumentOptionsModel.SetAttachment(contractTermsDocumentAttachmentModel)
-				createDraftContractTermsDocumentOptionsModel.SetUploadURL("testString")
 				createDraftContractTermsDocumentOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(createDraftContractTermsDocumentOptionsModel).ToNot(BeNil())
 				Expect(createDraftContractTermsDocumentOptionsModel.DataProductID).To(Equal(core.StringPtr("testString")))
@@ -6876,32 +7004,34 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(createDraftContractTermsDocumentOptionsModel.ContractTermsID).To(Equal(core.StringPtr("testString")))
 				Expect(createDraftContractTermsDocumentOptionsModel.Type).To(Equal(core.StringPtr("terms_and_conditions")))
 				Expect(createDraftContractTermsDocumentOptionsModel.Name).To(Equal(core.StringPtr("Terms and conditions document")))
-				Expect(createDraftContractTermsDocumentOptionsModel.ID).To(Equal(core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")))
 				Expect(createDraftContractTermsDocumentOptionsModel.URL).To(Equal(core.StringPtr("testString")))
-				Expect(createDraftContractTermsDocumentOptionsModel.Attachment).To(Equal(contractTermsDocumentAttachmentModel))
-				Expect(createDraftContractTermsDocumentOptionsModel.UploadURL).To(Equal(core.StringPtr("testString")))
 				Expect(createDraftContractTermsDocumentOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewDataProductIdentity successfully`, func() {
 				id := "b38df608-d34b-4d58-8136-ed25e6c6684e"
-				_model, err := dataProductHubApiService.NewDataProductIdentity(id)
+				_model, err := dataProductHubAPIService.NewDataProductIdentity(id)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
 			It(`Invoke NewDataProductPart successfully`, func() {
 				var asset *dataproducthubapiservicev1.AssetPartReference = nil
-				_, err := dataProductHubApiService.NewDataProductPart(asset)
+				_, err := dataProductHubAPIService.NewDataProductPart(asset)
 				Expect(err).ToNot(BeNil())
 			})
 			It(`Invoke NewDataProductVersionPatch successfully`, func() {
+				// Construct an instance of the DataProductDraftVersionRelease model
+				dataProductDraftVersionReleaseModel := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+				dataProductDraftVersionReleaseModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the DataProductVersionDataProduct model
 				dataProductVersionDataProductModel := new(dataproducthubapiservicev1.DataProductVersionDataProduct)
 				dataProductVersionDataProductModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+				dataProductVersionDataProductModel.Release = dataProductDraftVersionReleaseModel
 				dataProductVersionDataProductModel.Container = containerReferenceModel
 
 				// Construct an instance of the UseCase model
@@ -6933,6 +7063,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductContractTermsModel.Asset = assetReferenceModel
 				dataProductContractTermsModel.ID = core.StringPtr("testString")
 				dataProductContractTermsModel.Documents = []dataproducthubapiservicev1.ContractTermsDocument{*contractTermsDocumentModel}
+				dataProductContractTermsModel.ErrorMsg = core.StringPtr("testString")
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
@@ -6956,9 +7087,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductPartModel.Asset = assetPartReferenceModel
 				dataProductPartModel.DeliveryMethods = []dataproducthubapiservicev1.DeliveryMethod{*deliveryMethodModel}
 
+				// Construct an instance of the DataProductCustomWorkflowDefinition model
+				dataProductCustomWorkflowDefinitionModel := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+				dataProductCustomWorkflowDefinitionModel.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
 				// Construct an instance of the DataProductOrderAccessRequest model
 				dataProductOrderAccessRequestModel := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 				dataProductOrderAccessRequestModel.TaskAssigneeUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.PreApprovedUsers = []string{"testString"}
+				dataProductOrderAccessRequestModel.CustomWorkflowDefinition = dataProductCustomWorkflowDefinitionModel
 
 				// Construct an instance of the DataProductWorkflows model
 				dataProductWorkflowsModel := new(dataproducthubapiservicev1.DataProductWorkflows)
@@ -6976,7 +7113,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductVersion.Types = []string{"data"}
 				dataProductVersion.ContractTerms = []dataproducthubapiservicev1.DataProductContractTerms{*dataProductContractTermsModel}
 				dataProductVersion.IsRestricted = core.BoolPtr(true)
-				dataProductVersion.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002@78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				dataProductVersion.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				dataProductVersion.Asset = assetReferenceModel
 				dataProductVersion.Domain = domainModel
 				dataProductVersion.PartsOut = []dataproducthubapiservicev1.DataProductPart{*dataProductPartModel}
@@ -6985,8 +7122,9 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductVersion.CreatedBy = core.StringPtr("testString")
 				dataProductVersion.CreatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
 				dataProductVersion.Workflows = dataProductWorkflowsModel
+				dataProductVersion.Properties = map[string]interface{}{"anyKey": "anyValue"}
 
-				dataProductVersionPatch := dataProductHubApiService.NewDataProductVersionPatch(dataProductVersion)
+				dataProductVersionPatch := dataProductHubAPIService.NewDataProductVersionPatch(dataProductVersion)
 				Expect(dataProductVersionPatch).ToNot(BeNil())
 
 				_path := func(op interface{}) string {
@@ -6994,131 +7132,137 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				}
 				Expect(dataProductVersionPatch).To(MatchAllElements(_path, Elements{
 					"/version": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/version")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Version),
 					}),
 					"/state": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/state")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.State),
 					}),
 					"/data_product": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/data_product")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.DataProduct),
 					}),
 					"/name": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/name")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Name),
 					}),
 					"/description": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/description")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Description),
 					}),
 					"/tags": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/tags")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Tags),
 					}),
 					"/use_cases": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/use_cases")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.UseCases),
 					}),
 					"/types": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/types")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Types),
 					}),
 					"/contract_terms": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/contract_terms")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.ContractTerms),
 					}),
 					"/is_restricted": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/is_restricted")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.IsRestricted),
 					}),
 					"/id": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/id")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.ID),
 					}),
 					"/asset": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/asset")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Asset),
 					}),
 					"/domain": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/domain")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Domain),
 					}),
 					"/parts_out": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/parts_out")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.PartsOut),
 					}),
 					"/published_by": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/published_by")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.PublishedBy),
 					}),
 					"/published_at": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/published_at")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.PublishedAt),
 					}),
 					"/created_by": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/created_by")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.CreatedBy),
 					}),
 					"/created_at": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/created_at")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.CreatedAt),
 					}),
 					"/workflows": MatchAllFields(Fields{
-						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperation_Op_Add)),
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
 						"Path":  PointTo(Equal("/workflows")),
 						"From":  BeNil(),
 						"Value": Equal(dataProductVersion.Workflows),
+					}),
+					"/properties": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/properties")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductVersion.Properties),
 					}),
 				}))
 			})
 			It(`Invoke NewDataProductVersionPrototype successfully`, func() {
 				var asset *dataproducthubapiservicev1.AssetPrototype = nil
-				_, err := dataProductHubApiService.NewDataProductVersionPrototype(asset)
+				_, err := dataProductHubAPIService.NewDataProductVersionPrototype(asset)
 				Expect(err).ToNot(BeNil())
 			})
 			It(`Invoke NewDeleteDataProductDraftOptions successfully`, func() {
 				// Construct an instance of the DeleteDataProductDraftOptions model
 				dataProductID := "testString"
 				draftID := "testString"
-				deleteDataProductDraftOptionsModel := dataProductHubApiService.NewDeleteDataProductDraftOptions(dataProductID, draftID)
+				deleteDataProductDraftOptionsModel := dataProductHubAPIService.NewDeleteDataProductDraftOptions(dataProductID, draftID)
 				deleteDataProductDraftOptionsModel.SetDataProductID("testString")
 				deleteDataProductDraftOptionsModel.SetDraftID("testString")
 				deleteDataProductDraftOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
@@ -7133,7 +7277,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				draftID := "testString"
 				contractTermsID := "testString"
 				documentID := "testString"
-				deleteDraftContractTermsDocumentOptionsModel := dataProductHubApiService.NewDeleteDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID)
+				deleteDraftContractTermsDocumentOptionsModel := dataProductHubAPIService.NewDeleteDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID)
 				deleteDraftContractTermsDocumentOptionsModel.SetDataProductID("testString")
 				deleteDraftContractTermsDocumentOptionsModel.SetDraftID("testString")
 				deleteDraftContractTermsDocumentOptionsModel.SetContractTermsID("testString")
@@ -7149,12 +7293,12 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			It(`Invoke NewDeliveryMethod successfully`, func() {
 				id := "09cf5fcc-cb9d-4995-a8e4-16517b25229f"
 				var container *dataproducthubapiservicev1.ContainerReference = nil
-				_, err := dataProductHubApiService.NewDeliveryMethod(id, container)
+				_, err := dataProductHubAPIService.NewDeliveryMethod(id, container)
 				Expect(err).ToNot(BeNil())
 			})
 			It(`Invoke NewDomain successfully`, func() {
 				id := "testString"
-				_model, err := dataProductHubApiService.NewDomain(id)
+				_model, err := dataProductHubAPIService.NewDomain(id)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
@@ -7162,7 +7306,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct an instance of the GetDataProductDraftOptions model
 				dataProductID := "testString"
 				draftID := "testString"
-				getDataProductDraftOptionsModel := dataProductHubApiService.NewGetDataProductDraftOptions(dataProductID, draftID)
+				getDataProductDraftOptionsModel := dataProductHubAPIService.NewGetDataProductDraftOptions(dataProductID, draftID)
 				getDataProductDraftOptionsModel.SetDataProductID("testString")
 				getDataProductDraftOptionsModel.SetDraftID("testString")
 				getDataProductDraftOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
@@ -7174,7 +7318,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			It(`Invoke NewGetDataProductOptions successfully`, func() {
 				// Construct an instance of the GetDataProductOptions model
 				dataProductID := "testString"
-				getDataProductOptionsModel := dataProductHubApiService.NewGetDataProductOptions(dataProductID)
+				getDataProductOptionsModel := dataProductHubAPIService.NewGetDataProductOptions(dataProductID)
 				getDataProductOptionsModel.SetDataProductID("testString")
 				getDataProductOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(getDataProductOptionsModel).ToNot(BeNil())
@@ -7185,13 +7329,15 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct an instance of the GetDataProductReleaseOptions model
 				dataProductID := "testString"
 				releaseID := "testString"
-				getDataProductReleaseOptionsModel := dataProductHubApiService.NewGetDataProductReleaseOptions(dataProductID, releaseID)
+				getDataProductReleaseOptionsModel := dataProductHubAPIService.NewGetDataProductReleaseOptions(dataProductID, releaseID)
 				getDataProductReleaseOptionsModel.SetDataProductID("testString")
 				getDataProductReleaseOptionsModel.SetReleaseID("testString")
+				getDataProductReleaseOptionsModel.SetCheckCallerApproval(false)
 				getDataProductReleaseOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(getDataProductReleaseOptionsModel).ToNot(BeNil())
 				Expect(getDataProductReleaseOptionsModel.DataProductID).To(Equal(core.StringPtr("testString")))
 				Expect(getDataProductReleaseOptionsModel.ReleaseID).To(Equal(core.StringPtr("testString")))
+				Expect(getDataProductReleaseOptionsModel.CheckCallerApproval).To(Equal(core.BoolPtr(false)))
 				Expect(getDataProductReleaseOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewGetDraftContractTermsDocumentOptions successfully`, func() {
@@ -7200,7 +7346,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				draftID := "testString"
 				contractTermsID := "testString"
 				documentID := "testString"
-				getDraftContractTermsDocumentOptionsModel := dataProductHubApiService.NewGetDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID)
+				getDraftContractTermsDocumentOptionsModel := dataProductHubAPIService.NewGetDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID)
 				getDraftContractTermsDocumentOptionsModel.SetDataProductID("testString")
 				getDraftContractTermsDocumentOptionsModel.SetDraftID("testString")
 				getDraftContractTermsDocumentOptionsModel.SetContractTermsID("testString")
@@ -7215,7 +7361,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			})
 			It(`Invoke NewGetInitializeStatusOptions successfully`, func() {
 				// Construct an instance of the GetInitializeStatusOptions model
-				getInitializeStatusOptionsModel := dataProductHubApiService.NewGetInitializeStatusOptions()
+				getInitializeStatusOptionsModel := dataProductHubAPIService.NewGetInitializeStatusOptions()
 				getInitializeStatusOptionsModel.SetContainerID("testString")
 				getInitializeStatusOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(getInitializeStatusOptionsModel).ToNot(BeNil())
@@ -7228,7 +7374,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				releaseID := "testString"
 				contractTermsID := "testString"
 				documentID := "testString"
-				getReleaseContractTermsDocumentOptionsModel := dataProductHubApiService.NewGetReleaseContractTermsDocumentOptions(dataProductID, releaseID, contractTermsID, documentID)
+				getReleaseContractTermsDocumentOptionsModel := dataProductHubAPIService.NewGetReleaseContractTermsDocumentOptions(dataProductID, releaseID, contractTermsID, documentID)
 				getReleaseContractTermsDocumentOptionsModel.SetDataProductID("testString")
 				getReleaseContractTermsDocumentOptionsModel.SetReleaseID("testString")
 				getReleaseContractTermsDocumentOptionsModel.SetContractTermsID("testString")
@@ -7241,43 +7387,43 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(getReleaseContractTermsDocumentOptionsModel.DocumentID).To(Equal(core.StringPtr("testString")))
 				Expect(getReleaseContractTermsDocumentOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
-			It(`Invoke NewGetServiceIdCredentialsOptions successfully`, func() {
-				// Construct an instance of the GetServiceIdCredentialsOptions model
-				getServiceIdCredentialsOptionsModel := dataProductHubApiService.NewGetServiceIdCredentialsOptions()
-				getServiceIdCredentialsOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
-				Expect(getServiceIdCredentialsOptionsModel).ToNot(BeNil())
-				Expect(getServiceIdCredentialsOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
+			It(`Invoke NewGetServiceIDCredentialsOptions successfully`, func() {
+				// Construct an instance of the GetServiceIDCredentialsOptions model
+				getServiceIDCredentialsOptionsModel := dataProductHubAPIService.NewGetServiceIDCredentialsOptions()
+				getServiceIDCredentialsOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
+				Expect(getServiceIDCredentialsOptionsModel).ToNot(BeNil())
+				Expect(getServiceIDCredentialsOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewInitializeOptions successfully`, func() {
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
 				Expect(containerReferenceModel).ToNot(BeNil())
-				containerReferenceModel.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+				containerReferenceModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				containerReferenceModel.Type = core.StringPtr("catalog")
-				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")))
+				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")))
 				Expect(containerReferenceModel.Type).To(Equal(core.StringPtr("catalog")))
 
 				// Construct an instance of the InitializeOptions model
-				initializeOptionsModel := dataProductHubApiService.NewInitializeOptions()
+				initializeOptionsModel := dataProductHubAPIService.NewInitializeOptions()
 				initializeOptionsModel.SetContainer(containerReferenceModel)
-				initializeOptionsModel.SetInclude([]string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"})
+				initializeOptionsModel.SetInclude([]string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"})
 				initializeOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(initializeOptionsModel).ToNot(BeNil())
 				Expect(initializeOptionsModel.Container).To(Equal(containerReferenceModel))
-				Expect(initializeOptionsModel.Include).To(Equal([]string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project"}))
+				Expect(initializeOptionsModel.Include).To(Equal([]string{"delivery_methods", "domains_multi_industry", "data_product_samples", "workflows", "project", "catalog_configurations"}))
 				Expect(initializeOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewJSONPatchOperation successfully`, func() {
 				op := "add"
 				path := "testString"
-				_model, err := dataProductHubApiService.NewJSONPatchOperation(op, path)
+				_model, err := dataProductHubAPIService.NewJSONPatchOperation(op, path)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
 			It(`Invoke NewListDataProductDraftsOptions successfully`, func() {
 				// Construct an instance of the ListDataProductDraftsOptions model
 				dataProductID := "testString"
-				listDataProductDraftsOptionsModel := dataProductHubApiService.NewListDataProductDraftsOptions(dataProductID)
+				listDataProductDraftsOptionsModel := dataProductHubAPIService.NewListDataProductDraftsOptions(dataProductID)
 				listDataProductDraftsOptionsModel.SetDataProductID("testString")
 				listDataProductDraftsOptionsModel.SetAssetContainerID("testString")
 				listDataProductDraftsOptionsModel.SetVersion("testString")
@@ -7295,7 +7441,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			It(`Invoke NewListDataProductReleasesOptions successfully`, func() {
 				// Construct an instance of the ListDataProductReleasesOptions model
 				dataProductID := "testString"
-				listDataProductReleasesOptionsModel := dataProductHubApiService.NewListDataProductReleasesOptions(dataProductID)
+				listDataProductReleasesOptionsModel := dataProductHubAPIService.NewListDataProductReleasesOptions(dataProductID)
 				listDataProductReleasesOptionsModel.SetDataProductID("testString")
 				listDataProductReleasesOptionsModel.SetAssetContainerID("testString")
 				listDataProductReleasesOptionsModel.SetState([]string{"available"})
@@ -7314,7 +7460,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			})
 			It(`Invoke NewListDataProductsOptions successfully`, func() {
 				// Construct an instance of the ListDataProductsOptions model
-				listDataProductsOptionsModel := dataProductHubApiService.NewListDataProductsOptions()
+				listDataProductsOptionsModel := dataProductHubAPIService.NewListDataProductsOptions()
 				listDataProductsOptionsModel.SetLimit(int64(10))
 				listDataProductsOptionsModel.SetStart("testString")
 				listDataProductsOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
@@ -7323,18 +7469,18 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				Expect(listDataProductsOptionsModel.Start).To(Equal(core.StringPtr("testString")))
 				Expect(listDataProductsOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
-			It(`Invoke NewManageApiKeysOptions successfully`, func() {
-				// Construct an instance of the ManageApiKeysOptions model
-				manageApiKeysOptionsModel := dataProductHubApiService.NewManageApiKeysOptions()
-				manageApiKeysOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
-				Expect(manageApiKeysOptionsModel).ToNot(BeNil())
-				Expect(manageApiKeysOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
+			It(`Invoke NewManageAPIKeysOptions successfully`, func() {
+				// Construct an instance of the ManageAPIKeysOptions model
+				manageAPIKeysOptionsModel := dataProductHubAPIService.NewManageAPIKeysOptions()
+				manageAPIKeysOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
+				Expect(manageAPIKeysOptionsModel).ToNot(BeNil())
+				Expect(manageAPIKeysOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewPublishDataProductDraftOptions successfully`, func() {
 				// Construct an instance of the PublishDataProductDraftOptions model
 				dataProductID := "testString"
 				draftID := "testString"
-				publishDataProductDraftOptionsModel := dataProductHubApiService.NewPublishDataProductDraftOptions(dataProductID, draftID)
+				publishDataProductDraftOptionsModel := dataProductHubAPIService.NewPublishDataProductDraftOptions(dataProductID, draftID)
 				publishDataProductDraftOptionsModel.SetDataProductID("testString")
 				publishDataProductDraftOptionsModel.SetDraftID("testString")
 				publishDataProductDraftOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
@@ -7347,7 +7493,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				// Construct an instance of the RetireDataProductReleaseOptions model
 				dataProductID := "testString"
 				releaseID := "testString"
-				retireDataProductReleaseOptionsModel := dataProductHubApiService.NewRetireDataProductReleaseOptions(dataProductID, releaseID)
+				retireDataProductReleaseOptionsModel := dataProductHubAPIService.NewRetireDataProductReleaseOptions(dataProductID, releaseID)
 				retireDataProductReleaseOptionsModel.SetDataProductID("testString")
 				retireDataProductReleaseOptionsModel.SetReleaseID("testString")
 				retireDataProductReleaseOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
@@ -7373,7 +7519,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductID := "testString"
 				draftID := "testString"
 				jsonPatchInstructions := []dataproducthubapiservicev1.JSONPatchOperation{}
-				updateDataProductDraftOptionsModel := dataProductHubApiService.NewUpdateDataProductDraftOptions(dataProductID, draftID, jsonPatchInstructions)
+				updateDataProductDraftOptionsModel := dataProductHubAPIService.NewUpdateDataProductDraftOptions(dataProductID, draftID, jsonPatchInstructions)
 				updateDataProductDraftOptionsModel.SetDataProductID("testString")
 				updateDataProductDraftOptionsModel.SetDraftID("testString")
 				updateDataProductDraftOptionsModel.SetJSONPatchInstructions([]dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel})
@@ -7401,7 +7547,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				dataProductID := "testString"
 				releaseID := "testString"
 				jsonPatchInstructions := []dataproducthubapiservicev1.JSONPatchOperation{}
-				updateDataProductReleaseOptionsModel := dataProductHubApiService.NewUpdateDataProductReleaseOptions(dataProductID, releaseID, jsonPatchInstructions)
+				updateDataProductReleaseOptionsModel := dataProductHubAPIService.NewUpdateDataProductReleaseOptions(dataProductID, releaseID, jsonPatchInstructions)
 				updateDataProductReleaseOptionsModel.SetDataProductID("testString")
 				updateDataProductReleaseOptionsModel.SetReleaseID("testString")
 				updateDataProductReleaseOptionsModel.SetJSONPatchInstructions([]dataproducthubapiservicev1.JSONPatchOperation{*jsonPatchOperationModel})
@@ -7431,7 +7577,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 				contractTermsID := "testString"
 				documentID := "testString"
 				jsonPatchInstructions := []dataproducthubapiservicev1.JSONPatchOperation{}
-				updateDraftContractTermsDocumentOptionsModel := dataProductHubApiService.NewUpdateDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID, jsonPatchInstructions)
+				updateDraftContractTermsDocumentOptionsModel := dataProductHubAPIService.NewUpdateDraftContractTermsDocumentOptions(dataProductID, draftID, contractTermsID, documentID, jsonPatchInstructions)
 				updateDraftContractTermsDocumentOptionsModel.SetDataProductID("testString")
 				updateDraftContractTermsDocumentOptionsModel.SetDraftID("testString")
 				updateDraftContractTermsDocumentOptionsModel.SetContractTermsID("testString")
@@ -7448,7 +7594,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			})
 			It(`Invoke NewUseCase successfully`, func() {
 				id := "testString"
-				_model, err := dataProductHubApiService.NewUseCase(id)
+				_model, err := dataProductHubAPIService.NewUseCase(id)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
@@ -7492,6 +7638,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			err = dataproducthubapiservicev1.UnmarshalAssetPrototype(raw, &result)
 			Expect(err).To(BeNil())
 			Expect(result).ToNot(BeNil())
+			Expect(result).To(Equal(model))
 		})
 		It(`Invoke UnmarshalAssetReference successfully`, func() {
 			// Construct an instance of the model.
@@ -7515,7 +7662,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 		It(`Invoke UnmarshalContainerIdentity successfully`, func() {
 			// Construct an instance of the model.
 			model := new(dataproducthubapiservicev1.ContainerIdentity)
-			model.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+			model.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
@@ -7533,7 +7680,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 		It(`Invoke UnmarshalContainerReference successfully`, func() {
 			// Construct an instance of the model.
 			model := new(dataproducthubapiservicev1.ContainerReference)
-			model.ID = core.StringPtr("78c6e2f0-D6ED-46c0-8DEE-2c2bd578d58b")
+			model.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 			model.Type = core.StringPtr("catalog")
 
 			b, err := json.Marshal(model)
@@ -7596,6 +7743,7 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			model.Asset = nil
 			model.ID = core.StringPtr("testString")
 			model.Documents = nil
+			model.ErrorMsg = core.StringPtr("testString")
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
@@ -7610,10 +7758,47 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			Expect(result).ToNot(BeNil())
 			Expect(result).To(Equal(model))
 		})
+		It(`Invoke UnmarshalDataProductCustomWorkflowDefinition successfully`, func() {
+			// Construct an instance of the model.
+			model := new(dataproducthubapiservicev1.DataProductCustomWorkflowDefinition)
+			model.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
+			b, err := json.Marshal(model)
+			Expect(err).To(BeNil())
+
+			var raw map[string]json.RawMessage
+			err = json.Unmarshal(b, &raw)
+			Expect(err).To(BeNil())
+
+			var result *dataproducthubapiservicev1.DataProductCustomWorkflowDefinition
+			err = dataproducthubapiservicev1.UnmarshalDataProductCustomWorkflowDefinition(raw, &result)
+			Expect(err).To(BeNil())
+			Expect(result).ToNot(BeNil())
+			Expect(result).To(Equal(model))
+		})
+		It(`Invoke UnmarshalDataProductDraftVersionRelease successfully`, func() {
+			// Construct an instance of the model.
+			model := new(dataproducthubapiservicev1.DataProductDraftVersionRelease)
+			model.ID = core.StringPtr("18bdbde1-918e-4ecf-aa23-6727bf319e14")
+
+			b, err := json.Marshal(model)
+			Expect(err).To(BeNil())
+
+			var raw map[string]json.RawMessage
+			err = json.Unmarshal(b, &raw)
+			Expect(err).To(BeNil())
+
+			var result *dataproducthubapiservicev1.DataProductDraftVersionRelease
+			err = dataproducthubapiservicev1.UnmarshalDataProductDraftVersionRelease(raw, &result)
+			Expect(err).To(BeNil())
+			Expect(result).ToNot(BeNil())
+			Expect(result).To(Equal(model))
+		})
 		It(`Invoke UnmarshalDataProductIdentity successfully`, func() {
 			// Construct an instance of the model.
 			model := new(dataproducthubapiservicev1.DataProductIdentity)
 			model.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
+			model.Release = nil
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
@@ -7632,6 +7817,8 @@ var _ = Describe(`DataProductHubApiServiceV1`, func() {
 			// Construct an instance of the model.
 			model := new(dataproducthubapiservicev1.DataProductOrderAccessRequest)
 			model.TaskAssigneeUsers = []string{"testString"}
+			model.PreApprovedUsers = []string{"testString"}
+			model.CustomWorkflowDefinition = nil
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())

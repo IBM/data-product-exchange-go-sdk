@@ -23,7 +23,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestDataProductHubApiServiceV1(t *testing.T) {
+func TestDataProductHubAPIServiceV1(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "DataProductHubApiServiceV1 Suite")
+	RunSpecs(t, "DataProductHubAPIServiceV1 Suite")
 }
