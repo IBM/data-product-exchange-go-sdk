@@ -19,10 +19,11 @@ package common
 import (
 	"fmt"
 	"runtime"
+	"github.com/IBM/go-sdk-core/v5/core"
 )
 
 const (
-	sdkName = "data-product-exchange-go-sdk"
+	sdkName             = "data-product-go-sdk"
 	headerNameUserAgent = "User-Agent"
 )
 
@@ -79,4 +80,13 @@ var systemInfo = fmt.Sprintf("(lang=go; arch=%s; os=%s; go.version=%s)", runtime
 
 func GetSystemInfo() string {
 	return systemInfo
+}
+
+var component = &core.ProblemComponent{
+	Name:    "Data Product Hub API Services",
+	Version: "1.0.0",
+}
+
+func GetComponentInfo() *core.ProblemComponent {
+	return component
 }
