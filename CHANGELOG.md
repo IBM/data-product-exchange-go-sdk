@@ -1,3 +1,13 @@
+# [3.0.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v2.0.0...v3.0.0) (2025-01-21)
+
+
+* Merge pull request #17 from IBM/net-version-security-update ([f5dc25e](https://github.com/IBM/data-product-exchange-go-sdk/commit/f5dc25eddd3bc745000186e17c66f71ec5b0e9bb)), closes [#17](https://github.com/IBM/data-product-exchange-go-sdk/issues/17)
+
+
+### BREAKING CHANGES
+
+* Update golang net version to patch sec vuln \n\n feat: golang net ver v0.31.0 → v0.34.0
+
 # [2.0.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v1.0.0...v2.0.0) (2024-12-10)
 
 
