@@ -1,6 +1,6 @@
 module github.com/IBM/data-product-exchange-go-sdk
 
-go 1.23
+go 1.23.0
 
 toolchain go1.23.5
 
