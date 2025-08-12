@@ -36,6 +36,7 @@ before_script:
 script:
   - make tidy
   - make test-cov
+  - golangci-lint run --fix --build-tags=integration,examples || true
   - make lint
   - make scan-gosec
 
