@@ -1,9 +1,10 @@
 language: go
 
-dist: focal
-
+# Use Ubuntu 22.04 to avoid apt repo issues (focal is breaking)
+dist: jammy
 group: stable
 
+# Test against multiple Go versions
 go:
   - 1.19.x
   - 1.20.x
@@ -20,9 +21,9 @@ env:
 before_install:
   - sudo apt-get update
   - pyenv global 3.8
-  - export PATH=$PATH:$(go env GOPATH)/bin # Add Go binaries to PATH
-  - go mod tidy # Ensure Go modules are tidy
-  - go mod verify # Verify Go modules
+  - export PATH=$PATH:$(go env GOPATH)/bin
+  - go mod tidy
+  - go mod verify
 
 install:
   - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
@@ -40,7 +41,7 @@ script:
 
 cache:
   directories:
-    - $GOPATH/pkg/mod # Cache Go modules for faster builds
+    - $GOPATH/pkg/mod
 
 before_deploy:
   - nvm install 18
