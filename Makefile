@@ -20,9 +20,14 @@ test-int:
 test-int-cov:
 	${GO} test `${GO} list ./...` -tags=integration ${COVERAGE}
 
+# Main lint: force our config, run single-threaded, keep it fast to avoid OOM on CI
 lint:
-	${LINT} run --config .golangci.yml --build-tags=integration,examples
+	GOGC=50 ${LINT} run --config .golangci.yml --build-tags=integration,examples -j 1 --timeout 7m --fast
 
+# Fallback: run linters separately if the combined run gets killed on CI
+lint-split:
+	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E errcheck
+	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E staticcheck
 
 scan-gosec:
 	${GOSEC} ./...

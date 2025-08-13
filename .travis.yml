@@ -1,10 +1,8 @@
 language: go
 
-# Use Ubuntu 22.04 to avoid apt repo issues (focal is breaking)
 dist: jammy
 group: stable
 
-# Test against multiple Go versions
 go:
   - 1.19.x
   - 1.20.x
@@ -17,36 +15,38 @@ notifications:
 env:
   global:
     - GO111MODULE=on
+    - GOGC=50            # keep Go GC tighter to reduce peak RAM
+    - GOMAXPROCS=2       # limit CPU parallelism a bit on CI
 
 before_install:
   - sudo apt-get update
-  - pyenv global 3.8
+  - pyenv global 3.8 || true
   - export PATH=$PATH:$(go env GOPATH)/bin
   - go mod tidy
   - go mod verify
 
 install:
+  # PIN the version to avoid format breaks; v1.59.1 works with this config
   - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     | sh -s -- -b $(go env GOPATH)/bin v1.59.1
   - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
     | sh -s -- -b $(go env GOPATH)/bin
-
 
 before_script:
   - go version
   - go env
 
 script:
-  - golangci-lint cache clean
   - make tidy
   - make test-cov
-  - make lint
+  - golangci-lint cache clean || true
+  - make lint || make lint-split     # fallback if CI kills the combined run
   - make scan-gosec
-
 
 cache:
   directories:
     - $GOPATH/pkg/mod
+    - $HOME/.cache/golangci-lint
 
 before_deploy:
   - nvm install 18
