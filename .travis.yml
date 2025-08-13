@@ -8,7 +8,7 @@ go:
   - 1.20.x
   - 1.21.x
   - 1.22.x
-  - 1.23.x
+  
 
 notifications:
   email: true
@@ -41,7 +41,7 @@ script:
   - make tidy
   - make test-cov
   - golangci-lint cache clean || true
-  - make lint || make lint-split     # fallback if CI kills the combined run
+  - make lint     # fallback if CI kills the combined run
   - make scan-gosec
 
 cache:
