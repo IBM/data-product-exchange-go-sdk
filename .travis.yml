@@ -26,7 +26,7 @@ jobs:
           | sh -s -- -b $(go env GOPATH)/bin
       script:
         - golangci-lint cache clean || true
-        - make lint LINT_FLAGS="--disable=typecheck" || make lint-split LINT_FLAGS="--disable=typecheck"
+        - make lint LINT_FLAGS="--disable=typecheck" || make lint-split
       cache:
         directories:
           - $GOPATH/pkg/mod

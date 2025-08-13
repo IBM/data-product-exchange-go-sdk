@@ -28,8 +28,8 @@ lint:
 
 # Fallback: run linters separately if the combined run gets killed on CI
 lint-split:
-	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E errcheck $(LINT_FLAGS)
-	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E staticcheck $(LINT_FLAGS)
+	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E errcheck
+	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E staticcheck
 
 scan-gosec:
 	${GOSEC} ./...
