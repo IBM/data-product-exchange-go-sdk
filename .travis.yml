@@ -3,63 +3,47 @@ language: go
 dist: jammy
 group: stable
 
-go:
-  - 1.19.x
-  - 1.20.x
-  - 1.21.x
-  - 1.22.x
-  
-
-notifications:
-  email: true
-
 env:
   global:
     - GO111MODULE=on
-    - GOGC=50            # keep Go GC tighter to reduce peak RAM
-    - GOMAXPROCS=2       # limit CPU parallelism a bit on CI
+    - GOGC=50
+    - GOMAXPROCS=2
 
-before_install:
-  - sudo apt-get update
-  - pyenv global 3.8 || true
-  - export PATH=$PATH:$(go env GOPATH)/bin
-  - go mod tidy
-  - go mod verify
+# Define separate jobs
+jobs:
+  include:
+    - name: "Lint (Go 1.22)"
+      go: 1.22.x
+      before_install:
+        - sudo apt-get update
+        - pyenv global 3.8 || true
+        - export PATH=$PATH:$(go env GOPATH)/bin
+        - go mod tidy
+        - go mod verify
+        - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin v1.59.1
+        - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin
+      script:
+        - golangci-lint cache clean || true
+        - make lint || make lint-split
+      cache:
+        directories:
+          - $GOPATH/pkg/mod
+          - $HOME/.cache/golangci-lint
 
-install:
-  # Pin to a pre-Go 1.23 toolchain build to avoid `iter` issues
-  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-    | sh -s -- -b $(go env GOPATH)/bin v1.58.2
-  - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
-    | sh -s -- -b $(go env GOPATH)/bin
-
-before_script:
-  - go version
-  - go env
-
-script:
-  - make tidy
-  - make test-cov
-  - golangci-lint cache clean || true
-  - make lint     # fallback if CI kills the combined run
-  - make scan-gosec
-
-cache:
-  directories:
-    - $GOPATH/pkg/mod
-    - $HOME/.cache/golangci-lint
-
-before_deploy:
-  - nvm install 18
-  - node --version
-  - npm --version
-  - npm install
-  - pip install --user bump2version
-
-deploy:
-  - provider: script
-    script: npm run semantic-release
-    skip_cleanup: true
-    on:
-      go: "1.19.x"
-      branch: main
+    - name: "Build & Test (Go 1.23)"
+      go: 1.23.x
+      before_install:
+        - sudo apt-get update
+        - pyenv global 3.8 || true
+        - export PATH=$PATH:$(go env GOPATH)/bin
+        - go mod tidy
+        - go mod verify
+      script:
+        - make tidy
+        - make test-cov
+        - make scan-gosec
+      cache:
+        directories:
+          - $GOPATH/pkg/mod
