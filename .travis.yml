@@ -1,13 +1,17 @@
 language: go
-
 dist: jammy
 group: stable
 
-go:
-  - 1.19.x
-  - 1.20.x
-  - 1.21.x
-  - 1.22.x
+jobs:
+  include:
+    - go: 1.19.x
+      env: GOLANGCI_LINT_VER=v1.52.2
+    - go: 1.20.x
+      env: GOLANGCI_LINT_VER=v1.54.2
+    - go: 1.21.x
+      env: GOLANGCI_LINT_VER=v1.56.2
+    - go: 1.22.x
+      env: GOLANGCI_LINT_VER=v1.58.2
 
 notifications:
   email: true
@@ -15,13 +19,8 @@ notifications:
 env:
   global:
     - GO111MODULE=on
-    - GOGC=50            # keep Go GC tighter to reduce peak RAM
-    - GOMAXPROCS=2       # limit CPU parallelism a bit on CI
-  matrix:
-    - GOLANGCI_LINT_VER=v1.52.2  # for Go 1.19.x
-    - GOLANGCI_LINT_VER=v1.54.2  # for Go 1.20.x
-    - GOLANGCI_LINT_VER=v1.56.2  # for Go 1.21.x
-    - GOLANGCI_LINT_VER=v1.58.2  # for Go 1.22.x
+    - GOGC=50
+    - GOMAXPROCS=2
 
 before_install:
   - sudo apt-get update
@@ -31,7 +30,6 @@ before_install:
   - go mod verify
 
 install:
-  # Use the per-job GOLANGCI_LINT_VER
   - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     | sh -s -- -b $(go env GOPATH)/bin ${GOLANGCI_LINT_VER}
   - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
