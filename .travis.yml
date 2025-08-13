@@ -8,6 +8,7 @@ go:
   - 1.20.x
   - 1.21.x
   - 1.22.x
+  - 1.23.x
 
 notifications:
   email: true
@@ -15,8 +16,8 @@ notifications:
 env:
   global:
     - GO111MODULE=on
-    - GOGC=50            # keep Go GC tighter to reduce peak RAM
-    - GOMAXPROCS=2       # limit CPU parallelism a bit on CI
+    - GOGC=50
+    - GOMAXPROCS=2
 
 before_install:
   - sudo apt-get update
@@ -26,9 +27,11 @@ before_install:
   - go mod verify
 
 install:
-  # Pin to a pre-Go 1.23 toolchain build to avoid `iter` issues
-  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-    | sh -s -- -b $(go env GOPATH)/bin v1.58.2
+  - |
+    if [[ $(go version) == *"1.23"* ]]; then
+      curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+        | sh -s -- -b $(go env GOPATH)/bin v1.59.1
+    fi
   - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
     | sh -s -- -b $(go env GOPATH)/bin
 
@@ -39,8 +42,11 @@ before_script:
 script:
   - make tidy
   - make test-cov
-  - golangci-lint cache clean || true
-  - make lint || make lint-split     # fallback if CI kills the combined run
+  - |
+    if [[ $(go version) == *"1.23"* ]]; then
+      golangci-lint cache clean || true
+      make lint || make lint-split
+    fi
   - make scan-gosec
 
 cache:
