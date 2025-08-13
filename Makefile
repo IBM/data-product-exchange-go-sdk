@@ -21,7 +21,8 @@ test-int-cov:
 	${GO} test `${GO} list ./...` -tags=integration ${COVERAGE}
 
 lint:
-	${LINT} run --build-tags=integration,examples
+	${LINT} run --config .golangci.yml --build-tags=integration,examples
+
 
 scan-gosec:
 	${GOSEC} ./...

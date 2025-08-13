@@ -12,12 +12,13 @@ linters:
 
 linters-settings:
   errcheck:
-    exclude:
+    exclude-functions:
       - os.Setenv
       - os.Unsetenv
       - fmt.Fprint
       - fmt.Fprintf
       - io.Closer.Close
+
 
 issues:
   exclude-rules:
