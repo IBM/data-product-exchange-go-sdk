@@ -5,6 +5,8 @@ GOSEC=gosec
 
 COVERAGE = -coverprofile=coverage.txt -covermode=atomic
 
+LINT_FLAGS ?=
+
 all: tidy test lint
 travis-ci: tidy test-cov lint scan-gosec
 
@@ -22,12 +24,12 @@ test-int-cov:
 
 # Main lint: force our config, run single-threaded, keep it fast to avoid OOM on CI
 lint:
-	GOGC=50 ${LINT} run --config .golangci.yml --build-tags=integration,examples -j 1 --timeout 7m --fast
+	GOGC=50 ${LINT} run --config .golangci.yml --build-tags=integration,examples -j 1 --timeout 7m --fast $(LINT_FLAGS)
 
 # Fallback: run linters separately if the combined run gets killed on CI
 lint-split:
-	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E errcheck
-	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E staticcheck
+	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E errcheck $(LINT_FLAGS)
+	GOGC=50 ${LINT} run --config .golangci.yml -j 1 --timeout 7m --fast --disable-all -E staticcheck $(LINT_FLAGS)
 
 scan-gosec:
 	${GOSEC} ./...
