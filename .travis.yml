@@ -95,8 +95,15 @@ jobs:
           | sh -s -- -b $(go env GOPATH)/bin
       script:
         - make tidy
-        # Run tests excluding incompatible packages (Go 1.21+ features)
-        - go test $(go list ./... | grep -vE 'dataproducthubapiservicev1|common') -coverprofile=coverage.txt -covermode=atomic
+        # Run tests excluding incompatible packages and skip if none remain
+        - |
+          PKGS=$(go list ./... | grep -vE 'dataproducthubapiservicev1|common')
+          if [ -n "$PKGS" ]; then
+            go test $PKGS -coverprofile=coverage.txt -covermode=atomic
+          else
+            echo "No compatible packages to test for Go 1.19"
+            touch coverage.txt
+          fi
         - make scan-gosec
       cache:
         directories:
