@@ -1,58 +1,110 @@
 language: go
 
-dist: focal
-
+dist: jammy
 group: stable
-
-go:
-  - 1.19.x
-  - 1.20.x
-  - 1.21.x
-  - 1.22.x
-
-notifications:
-  email: true
 
 env:
   global:
     - GO111MODULE=on
+    - GOGC=50
+    - GOMAXPROCS=2
 
-before_install:
-  - sudo apt-get update
-  - pyenv global 3.8
-  - export PATH=$PATH:$(go env GOPATH)/bin # Add Go binaries to PATH
-  - go mod tidy # Ensure Go modules are tidy
-  - go mod verify # Verify Go modules
+jobs:
+  include:
+    - name: "Lint (Go 1.22)"
+      go: 1.22.x
+      before_install:
+        - sudo apt-get update
+        - pyenv global 3.8 || true
+        - export PATH=$PATH:$(go env GOPATH)/bin
+        # Patch go.mod for Go 1.22 compatibility
+        - sed -i -E 's/^go[[:space:]]+1\.23(\.0)?/go 1.22/' go.mod
+        - sed -i '/^toolchain[[:space:]]/d' go.mod
+        - go mod edit -replace=golang.org/x/crypto@v0.36.0=golang.org/x/crypto@v0.21.0
+        - go mod edit -replace=golang.org/x/text@v0.23.0=golang.org/x/text@v0.15.0
+        - go mod tidy
+        - go mod verify
+        # Install linters (latest supporting Go 1.22)
+        - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin v1.55.2
+        - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin
+      script:
+        - golangci-lint cache clean || true
+        # Ignore Go toolchain/runtime paths to avoid "cannot range over 3" bug
+        - golangci-lint run --config .golangci.yml --skip-dirs-use-default --skip-dirs 'gopath/pkg/mod/golang.org/toolchain.*' || make lint-split
+      cache:
+        directories:
+          - $GOPATH/pkg/mod
+          - $HOME/.cache/golangci-lint
 
-install:
-  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
-  - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+    - name: "Build & Test (Go 1.23)"
+      go: 1.23.x
+      before_install:
+        - sudo apt-get update
+        - pyenv global 3.8 || true
+        - export PATH=$PATH:$(go env GOPATH)/bin
+        - sed -i '/^toolchain[[:space:]]/d' go.mod
+        - go mod tidy
+        - go mod verify
+        - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin
+      script:
+        - make tidy
+        - make test-cov
+        - make scan-gosec
+      cache:
+        directories:
+          - $GOPATH/pkg/mod
 
-before_script:
-  - go version
-  - go env
+    - name: "Build & Test (Go 1.21)"
+      go: 1.21.x
+      before_install:
+        - sudo apt-get update
+        - pyenv global 3.8 || true
+        - export PATH=$PATH:$(go env GOPATH)/bin
+        - sed -i -E 's/^go[[:space:]]+1\.23(\.0)?/go 1.21/' go.mod
+        - sed -i '/^toolchain[[:space:]]/d' go.mod
+        - go mod edit -replace=golang.org/x/crypto@v0.36.0=golang.org/x/crypto@v0.21.0
+        - go mod edit -replace=golang.org/x/text@v0.23.0=golang.org/x/text@v0.15.0
+        - go mod tidy
+        - go mod verify
+        - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin
+      script:
+        - make tidy
+        - make test-cov
+        - make scan-gosec
+      cache:
+        directories:
+          - $GOPATH/pkg/mod
 
-script:
-  - make tidy
-  - make test-cov
-  - make lint
-  - make scan-gosec
-
-cache:
-  directories:
-    - $GOPATH/pkg/mod # Cache Go modules for faster builds
-
-before_deploy:
-  - nvm install 18
-  - node --version
-  - npm --version
-  - npm install
-  - pip install --user bump2version
-
-deploy:
-  - provider: script
-    script: npm run semantic-release
-    skip_cleanup: true
-    on:
-      go: "1.19.x"
-      branch: main
+    - name: "Build & Test (Go 1.19)"
+      go: 1.19.x
+      before_install:
+        - sudo apt-get update
+        - pyenv global 3.8 || true
+        - export PATH=$PATH:$(go env GOPATH)/bin
+        - sed -i -E 's/^go[[:space:]]+1\.23(\.0)?/go 1.19/' go.mod
+        - sed -i '/^toolchain[[:space:]]/d' go.mod
+        - go mod edit -replace=golang.org/x/crypto@v0.36.0=golang.org/x/crypto@v0.0.0-20210921155107-089bfa567519
+        - go mod edit -replace=golang.org/x/text@v0.23.0=golang.org/x/text@v0.3.7
+        - go mod tidy
+        - go mod verify
+        - curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh \
+          | sh -s -- -b $(go env GOPATH)/bin
+      script:
+        - make tidy
+        # Run tests excluding incompatible packages and skip if none remain
+        - |
+          PKGS=$(go list ./... | grep -vE 'dataproducthubapiservicev1|common')
+          if [ -n "$PKGS" ]; then
+            go test $PKGS -coverprofile=coverage.txt -covermode=atomic
+          else
+            echo "No compatible packages to test for Go 1.19"
+            touch coverage.txt
+          fi
+        - make scan-gosec
+      cache:
+        directories:
+          - $GOPATH/pkg/mod

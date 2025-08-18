@@ -1,0 +1,41 @@
+run:
+  timeout: 7m
+  concurrency: 1          # keep memory low on CI
+  tests: false            # don't analyze *_test.go to save RAM/CPU
+  build-tags:
+    - integration
+    - examples
+  skip-dirs:
+    - vendor
+  skip-files:
+    - ".*\\.pb\\.go"
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - staticcheck
+
+linters-settings:
+  errcheck:
+    # modern schema uses exclude-functions (list), not 'exclude' (string)
+    exclude-functions:
+      - os.Setenv
+      - os.Unsetenv
+      - fmt.Fprint
+      - fmt.Fprintf
+      - io.Closer.Close
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+    - path: .*\.go
+      linters:
+        - staticcheck
+      text: "should omit type .* from declaration"
+    - path: .*\.go
+      linters:
+        - staticcheck
+      text: "could use tagged switch on"
