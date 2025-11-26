@@ -2,8 +2,6 @@ module github.com/IBM/data-product-exchange-go-sdk
 
 go 1.24.0
 
-toolchain go1.24.10
-
 require (
 	github.com/IBM/go-sdk-core/v5 v5.17.4
 	github.com/go-openapi/strfmt v0.22.1
