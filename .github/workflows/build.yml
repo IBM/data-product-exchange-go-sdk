@@ -5,11 +5,11 @@
 
 name: build
 
-on: 
+on:
   push:
-    branches: ['**']
+    branches: ["**"]
   pull_request:
-    branches: ['**']
+    branches: ["**"]
   workflow_dispatch:
     # Allow workflow to be triggered manually.
 
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: ['1.21', '1.23']
+        go-version: ["1.24", "1.25"]
 
     steps:
       - name: Checkout repository
