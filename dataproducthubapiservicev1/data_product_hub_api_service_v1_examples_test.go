@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/IBM/data-product-exchange-go-sdk/dataproducthubapiservicev1"
+	"github.com/IBM/data-product-exchange-go-sdk/v4/dataproducthubapiservicev1"
 	"github.com/IBM/go-sdk-core/v5/core"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

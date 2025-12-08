@@ -30,7 +30,7 @@ import (
 	"strings"
 	"time"
 
-	common "github.com/IBM/data-product-exchange-go-sdk/common"
+	common "github.com/IBM/data-product-exchange-go-sdk/v4/common"
 	"github.com/IBM/go-sdk-core/v5/core"
 	"github.com/go-openapi/strfmt"
 	"io"
