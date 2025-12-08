@@ -1,4 +1,4 @@
-module github.com/IBM/data-product-exchange-go-sdk
+module github.com/IBM/data-product-exchange-go-sdk/v4
 
 go 1.24.0
 
