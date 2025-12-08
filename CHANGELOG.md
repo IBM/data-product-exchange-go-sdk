@@ -1,3 +1,25 @@
+# [4.0.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v3.0.0...v4.0.0) (2025-12-08)
+
+
+### Bug Fixes
+
+* install bump2version ([189ee50](https://github.com/IBM/data-product-exchange-go-sdk/commit/189ee50c73d12bc786420fdc13b4bba33072a8c3))
+* update go mod version for pkg publish ([4036ed5](https://github.com/IBM/data-product-exchange-go-sdk/commit/4036ed5c51e90ba4e0569fbc146c3412a0535750))
+
+
+* Merge pull request #24 from null-machine/go-crypto-update ([464417f](https://github.com/IBM/data-product-exchange-go-sdk/commit/464417f044ff31227dc0fc51371a188993a00e35)), closes [#24](https://github.com/IBM/data-product-exchange-go-sdk/issues/24)
+* Merge pull request #22 from IBM/sdk-5.2-update ([eece397](https://github.com/IBM/data-product-exchange-go-sdk/commit/eece3978a9e93f9bc4ab2e39c2f490934b225275)), closes [#22](https://github.com/IBM/data-product-exchange-go-sdk/issues/22)
+* Merge pull request #19 from IBM/go-net-security-update ([9353155](https://github.com/IBM/data-product-exchange-go-sdk/commit/93531557dfb82649a12a299272e7927f0a4a7532)), closes [#19](https://github.com/IBM/data-product-exchange-go-sdk/issues/19)
+* Merge pull request #18 from IBM/crypto-version-security-update ([6cceabf](https://github.com/IBM/data-product-exchange-go-sdk/commit/6cceabf97134ddeba836e69e6900e44688e77b58)), closes [#18](https://github.com/IBM/data-product-exchange-go-sdk/issues/18)
+
+
+### BREAKING CHANGES
+
+* Update golang crypto version \n\n feat : golang crypto 36 → 45
+* DPH Service updated. \n\n feat : drop dph 3.0.0 support
+* Update golang net ver to patch sec vuln \n\n feat: go…
+* Update golang crypto version to patch sec vuln \n\n f…
+
 # [4.0.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v3.0.0...v4.0.0) (2025-12-04)
 
 
