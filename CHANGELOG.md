@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v4.0.0...v4.1.0) (2025-12-11)
+
+
+### Features
+
+* 5.3.0 feature updates ([73c6e05](https://github.com/IBM/data-product-exchange-go-sdk/commit/73c6e05d92fbe2f898604c362aa496bc189256f7))
+
 # [4.0.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v3.0.0...v4.0.0) (2025-12-08)
 
 
