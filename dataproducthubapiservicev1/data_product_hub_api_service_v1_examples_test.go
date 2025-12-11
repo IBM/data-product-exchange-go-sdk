@@ -21,16 +21,15 @@ package dataproducthubapiservicev1_test
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 
 	"github.com/IBM/data-product-exchange-go-sdk/v4/dataproducthubapiservicev1"
 	"github.com/IBM/go-sdk-core/v5/core"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"io"
 )
 
-//
 // This file provides an example of how to use the Data Product Hub API Service service.
 //
 // The following configuration properties are assumed to be defined:
@@ -42,60 +41,59 @@ import (
 // These configuration properties can be exported as environment variables, or stored
 // in a configuration file and then:
 // export IBM_CREDENTIALS_FILE=<name of configuration file>
-//
 var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 
 	const externalConfigFile = "../dph_v1.env"
 
 	var (
 		dataProductHubAPIServiceService *dataproducthubapiservicev1.DataProductHubAPIServiceV1
-		config       map[string]string
+		config                          map[string]string
 
 		// Variables to hold link values
-		completeADraftByContractTermsIDLink string
-		completeADraftByDraftIDLink string
-		completeContractTermsDocumentByDocumentIDLink string
-		completeDraftContractTermsByDataProductIDLink string
-		createAContractTermsDocByContractTermsIDLink string
-		createAContractTermsDocByDraftIDLink string
-		createDataProductByCatalogIDLink string
-		createDraftByContainerIDLink string
-		createNewDraftByDataProductIDLink string
-		deleteAContractDocumentByDraftIDLink string
-		deleteADraftByContractTermsIDLink string
-		deleteADraftByDraftIDLink string
-		deleteContractDocumentByDataProductIDLink string
-		deleteContractTermsDocumentByDocumentIDLink string
-		deleteDraftOfDataProductByDataProductIDLink string
-		getADraftByContractTermsIDLink string
-		getADraftContractDocumentByDraftIDLink string
-		getADraftOfDataProductByDataProductIDLink string
-		getAReleaseByReleaseIDLink string
-		getAReleaseContractTermsByContractTermsIDLink string
-		getAReleaseContractTermsByReleaseIDLink string
-		getAReleaseOfDataProductByDataProductIDLink string
-		getContractDocumentByDataProductIDLink string
-		getContractTermsDocumentByIDDocumentIDLink string
-		getDataProductByDataProductIDLink string
-		getDraftByDraftIDLink string
-		getListOfDataProductDraftsByDataProductIDLink string
+		completeADraftByContractTermsIDLink               string
+		completeADraftByDraftIDLink                       string
+		completeContractTermsDocumentByDocumentIDLink     string
+		completeDraftContractTermsByDataProductIDLink     string
+		createAContractTermsDocByContractTermsIDLink      string
+		createAContractTermsDocByDraftIDLink              string
+		createDataProductByCatalogIDLink                  string
+		createDraftByContainerIDLink                      string
+		createNewDraftByDataProductIDLink                 string
+		deleteAContractDocumentByDraftIDLink              string
+		deleteADraftByContractTermsIDLink                 string
+		deleteADraftByDraftIDLink                         string
+		deleteContractDocumentByDataProductIDLink         string
+		deleteContractTermsDocumentByDocumentIDLink       string
+		deleteDraftOfDataProductByDataProductIDLink       string
+		getADraftByContractTermsIDLink                    string
+		getADraftContractDocumentByDraftIDLink            string
+		getADraftOfDataProductByDataProductIDLink         string
+		getAReleaseByReleaseIDLink                        string
+		getAReleaseContractTermsByContractTermsIDLink     string
+		getAReleaseContractTermsByReleaseIDLink           string
+		getAReleaseOfDataProductByDataProductIDLink       string
+		getContractDocumentByDataProductIDLink            string
+		getContractTermsDocumentByIDDocumentIDLink        string
+		getDataProductByDataProductIDLink                 string
+		getDraftByDraftIDLink                             string
+		getListOfDataProductDraftsByDataProductIDLink     string
 		getListOfReleasesOfDataProductByDataProductIDLink string
-		getReleaseContractDocumentByDataProductIDLink string
-		getReleaseContractDocumentByDocumentIDLink string
-		getStatusByCatalogIDLink string
-		publishADraftByDraftIDLink string
-		publishADraftOfDataProductByDataProductIDLink string
-		retireAReleaseContractTermsByReleaseIDLink string
-		retireAReleasesOfDataProductByDataProductIDLink string
-		updateADraftByContractTermsIDLink string
-		updateADraftByDraftIDLink string
-		updateAReleaseByReleaseIDLink string
-		updateContractDocumentByDataProductIDLink string
-		updateContractDocumentByDraftIDLink string
-		updateContractTermsDocumentByDocumentIDLink string
-		updateDraftOfDataProductByDataProductIDLink string
-		updateReleaseOfDataProductByDataProductIDLink string
-		uploadContractTermsDocByDataProductIDLink string
+		getReleaseContractDocumentByDataProductIDLink     string
+		getReleaseContractDocumentByDocumentIDLink        string
+		getStatusByCatalogIDLink                          string
+		publishADraftByDraftIDLink                        string
+		publishADraftOfDataProductByDataProductIDLink     string
+		retireAReleaseContractTermsByReleaseIDLink        string
+		retireAReleasesOfDataProductByDataProductIDLink   string
+		updateADraftByContractTermsIDLink                 string
+		updateADraftByDraftIDLink                         string
+		updateAReleaseByReleaseIDLink                     string
+		updateContractDocumentByDataProductIDLink         string
+		updateContractDocumentByDraftIDLink               string
+		updateContractTermsDocumentByDocumentIDLink       string
+		updateDraftOfDataProductByDataProductIDLink       string
+		updateReleaseOfDataProductByDataProductIDLink     string
+		uploadContractTermsDocByDataProductIDLink         string
 	)
 
 	var shouldSkipTest = func() {
@@ -189,7 +187,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			}
 
 			dataProductDraftPrototypeModel := &dataproducthubapiservicev1.DataProductDraftPrototype{
-				Name: core.StringPtr("My New Data Product"),
+				Name:  core.StringPtr("My New Data Product"),
 				Asset: assetPrototypeModel,
 			}
 
@@ -262,7 +260,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			}
 
 			dataProductIdentityModel := &dataproducthubapiservicev1.DataProductIdentity{
-				ID: core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
+				ID:      core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
 				Release: dataProductDraftVersionReleaseModel,
 			}
 
@@ -445,17 +443,17 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-create_data_asset_visualization
 
 			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID: core.StringPtr("2be8f727-c5d2-4cb0-9216-f9888f428048"),
+				ID:   core.StringPtr("2be8f727-c5d2-4cb0-9216-f9888f428048"),
 				Type: core.StringPtr("catalog"),
 			}
 
 			assetReferenceModel := &dataproducthubapiservicev1.AssetReference{
-				ID: core.StringPtr("caeee3f3-756e-47d5-846d-da4600809e22"),
+				ID:        core.StringPtr("caeee3f3-756e-47d5-846d-da4600809e22"),
 				Container: containerReferenceModel,
 			}
 
 			dataAssetRelationshipModel := &dataproducthubapiservicev1.DataAssetRelationship{
-				Asset: assetReferenceModel,
+				Asset:        assetReferenceModel,
 				RelatedAsset: assetReferenceModel,
 			}
 
@@ -480,17 +478,17 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-reinitiate_data_asset_visualization
 
 			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID: core.StringPtr("2be8f727-c5d2-4cb0-9216-f9888f428048"),
+				ID:   core.StringPtr("2be8f727-c5d2-4cb0-9216-f9888f428048"),
 				Type: core.StringPtr("catalog"),
 			}
 
 			assetReferenceModel := &dataproducthubapiservicev1.AssetReference{
-				ID: core.StringPtr("caeee3f3-756e-47d5-846d-da4600809e22"),
+				ID:        core.StringPtr("caeee3f3-756e-47d5-846d-da4600809e22"),
 				Container: containerReferenceModel,
 			}
 
 			dataAssetRelationshipModel := &dataproducthubapiservicev1.DataAssetRelationship{
-				Asset: assetReferenceModel,
+				Asset:        assetReferenceModel,
 				RelatedAsset: assetReferenceModel,
 			}
 
@@ -583,10 +581,10 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			fmt.Println("\nListDataProductDrafts() result:")
 			// begin-list_data_product_drafts
 			listDataProductDraftsOptions := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
-				DataProductID: &getListOfDataProductDraftsByDataProductIDLink,
+				DataProductID:    &getListOfDataProductDraftsByDataProductIDLink,
 				AssetContainerID: core.StringPtr("testString"),
-				Version: core.StringPtr("testString"),
-				Limit: core.Int64Ptr(int64(10)),
+				Version:          core.StringPtr("testString"),
+				Limit:            core.Int64Ptr(int64(10)),
 			}
 
 			pager, err := dataProductHubAPIServiceService.NewDataProductDraftsPager(listDataProductDraftsOptions)
@@ -633,7 +631,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-update_data_product_draft
 
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op: core.StringPtr("add"),
+				Op:   core.StringPtr("add"),
 				Path: core.StringPtr("testString"),
 			}
 
@@ -685,7 +683,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-update_draft_contract_terms_document
 
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op: core.StringPtr("add"),
+				Op:   core.StringPtr("add"),
 				Path: core.StringPtr("testString"),
 			}
 
@@ -720,66 +718,60 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 				"testString",
 			)
 
-			result, response, err := dataProductHubAPIServiceService.GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptions)
+			contractTerms, response, err := dataProductHubAPIServiceService.GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptions)
 			if err != nil {
 				panic(err)
 			}
-			if result != nil {
-				defer result.Close()
-				outFile, err := os.Create("result.out")
-				if err != nil { panic(err) }
-				defer outFile.Close()
-				_, err = io.Copy(outFile, result)
-				if err != nil { panic(err) }
-			}
+			b, _ := json.MarshalIndent(contractTerms, "", "  ")
+			fmt.Println(string(b))
 
 			// end-get_data_product_draft_contract_terms
 
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
-			Expect(result).ToNot(BeNil())
+			Expect(contractTerms).ToNot(BeNil())
 		})
 		It(`ReplaceDataProductDraftContractTerms request example`, func() {
 			fmt.Println("\nReplaceDataProductDraftContractTerms() result:")
 			// begin-replace_data_product_draft_contract_terms
 
 			contractTermsDocumentModel := &dataproducthubapiservicev1.ContractTermsDocument{
-				URL: core.StringPtr("https://ibm.com/document"),
+				URL:  core.StringPtr("https://ibm.com/document"),
 				Type: core.StringPtr("terms_and_conditions"),
 				Name: core.StringPtr("Terms and Conditions"),
-				ID: core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
+				ID:   core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
 			}
 
 			domainModel := &dataproducthubapiservicev1.Domain{
-				ID: core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
+				ID:   core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
 				Name: core.StringPtr("domain_name"),
 			}
 
 			overviewModel := &dataproducthubapiservicev1.Overview{
 				APIVersion: core.StringPtr("v3.0.1"),
-				Kind: core.StringPtr("DataContract"),
-				Name: core.StringPtr("Sample Data Contract"),
-				Version: core.StringPtr("v0.0"),
-				Domain: domainModel,
-				MoreInfo: core.StringPtr("List of links to sources that provide more details on the data contract."),
+				Kind:       core.StringPtr("DataContract"),
+				Name:       core.StringPtr("Sample Data Contract"),
+				Version:    core.StringPtr("v0.0"),
+				Domain:     domainModel,
+				MoreInfo:   core.StringPtr("List of links to sources that provide more details on the data contract."),
 			}
 
 			contractTermsMoreInfoModel := &dataproducthubapiservicev1.ContractTermsMoreInfo{
 				Type: core.StringPtr("privacy-statement"),
-				URL: core.StringPtr("https://www.moreinfo.example.coms"),
+				URL:  core.StringPtr("https://www.moreinfo.example.coms"),
 			}
 
 			descriptionModel := &dataproducthubapiservicev1.Description{
-				Purpose: core.StringPtr("Intended purpose for the provided data."),
-				Limitations: core.StringPtr("Technical, compliance, and legal limitations for data use."),
-				Usage: core.StringPtr("Recommended usage of the data."),
-				MoreInfo: []dataproducthubapiservicev1.ContractTermsMoreInfo{*contractTermsMoreInfoModel},
+				Purpose:          core.StringPtr("Intended purpose for the provided data."),
+				Limitations:      core.StringPtr("Technical, compliance, and legal limitations for data use."),
+				Usage:            core.StringPtr("Recommended usage of the data."),
+				MoreInfo:         []dataproducthubapiservicev1.ContractTermsMoreInfo{*contractTermsMoreInfoModel},
 				CustomProperties: core.StringPtr("Custom properties that are not part of the standard."),
 			}
 
 			contractTemplateOrganizationModel := &dataproducthubapiservicev1.ContractTemplateOrganization{
 				UserID: core.StringPtr("IBMid-691000IN4G"),
-				Role: core.StringPtr("owner"),
+				Role:   core.StringPtr("owner"),
 			}
 
 			rolesModel := &dataproducthubapiservicev1.Roles{
@@ -787,29 +779,85 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			}
 
 			pricingModel := &dataproducthubapiservicev1.Pricing{
-				Amount: core.StringPtr("Amount"),
+				Amount:   core.StringPtr("Amount"),
 				Currency: core.StringPtr("Currency"),
-				Unit: core.StringPtr("Unit"),
+				Unit:     core.StringPtr("Unit"),
 			}
 
 			contractTemplateSLAPropertyModel := &dataproducthubapiservicev1.ContractTemplateSLAProperty{
 				Property: core.StringPtr("slaproperty"),
-				Value: core.StringPtr("slavalue"),
+				Value:    core.StringPtr("slavalue"),
 			}
 
 			contractTemplateSLAModel := &dataproducthubapiservicev1.ContractTemplateSLA{
 				DefaultElement: core.StringPtr("sladefaultelement"),
-				Properties: []dataproducthubapiservicev1.ContractTemplateSLAProperty{*contractTemplateSLAPropertyModel},
+				Properties:     []dataproducthubapiservicev1.ContractTemplateSLAProperty{*contractTemplateSLAPropertyModel},
 			}
 
 			contractTemplateSupportAndCommunicationModel := &dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{
 				Channel: core.StringPtr("channel"),
-				URL: core.StringPtr("https://www.example.coms"),
+				URL:     core.StringPtr("https://www.example.coms"),
 			}
 
 			contractTemplateCustomPropertyModel := &dataproducthubapiservicev1.ContractTemplateCustomProperty{
-				Key: core.StringPtr("The name of the key."),
+				Key:   core.StringPtr("The name of the key."),
 				Value: core.StringPtr("The value of the key."),
+			}
+
+			contractAssetModel := &dataproducthubapiservicev1.ContractAsset{
+				ID:   core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857"),
+				Name: core.StringPtr("PAYMENT_TRANSACTIONS1"),
+			}
+
+			contractServerModel := &dataproducthubapiservicev1.ContractServer{
+				Server:           core.StringPtr("snowflake-server-01"),
+				Asset:            contractAssetModel,
+				ConnectionID:     core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def"),
+				Type:             core.StringPtr("snowflake"),
+				Description:      core.StringPtr("Snowflake analytics server"),
+				Environment:      core.StringPtr("dev"),
+				Account:          core.StringPtr("acc-456"),
+				Catalog:          core.StringPtr("analytics_cat"),
+				Database:         core.StringPtr("analytics_db"),
+				Dataset:          core.StringPtr("customer_data"),
+				Delimiter:        core.StringPtr(","),
+				EndpointURL:      core.StringPtr("https://xy12345.snowflakecomputing.com"),
+				Format:           core.StringPtr("parquet"),
+				Host:             core.StringPtr("xy12345.snowflakecomputing.com"),
+				Location:         core.StringPtr("Mumbai"),
+				Path:             core.StringPtr("/analytics/data"),
+				Port:             core.StringPtr("443"),
+				Project:          core.StringPtr("projectY"),
+				Region:           core.StringPtr("ap-south-1"),
+				RegionName:       core.StringPtr("Asia South 1"),
+				Schema:           core.StringPtr("PAYMENT_TRANSACTIONS1"),
+				ServiceName:      core.StringPtr("snowflake"),
+				StagingDir:       core.StringPtr("/snowflake/staging"),
+				Stream:           core.StringPtr("stream_analytics"),
+				Warehouse:        core.StringPtr("wh_xlarge"),
+				CustomProperties: []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel},
+			}
+
+			contractSchemaPropertyTypeModel := &dataproducthubapiservicev1.ContractSchemaPropertyType{
+				Type:     core.StringPtr("varchar"),
+				Length:   core.StringPtr("1024"),
+				Scale:    core.StringPtr("0"),
+				Nullable: core.StringPtr("true"),
+				Signed:   core.StringPtr("false"),
+			}
+
+			contractSchemaPropertyModel := &dataproducthubapiservicev1.ContractSchemaProperty{
+				Name: core.StringPtr("product_brand_code"),
+				Type: contractSchemaPropertyTypeModel,
+			}
+
+			contractSchemaModel := &dataproducthubapiservicev1.ContractSchema{
+				AssetID:        core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1"),
+				ConnectionID:   core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b"),
+				Name:           core.StringPtr("000000_0-2025-06-20-20-28-52.csv"),
+				ConnectionPath: core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv"),
+				PhysicalType:   core.StringPtr("text/csv"),
+				Properties:     []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel},
 			}
 
 			replaceDataProductDraftContractTermsOptions := dataProductHubAPIServiceService.NewReplaceDataProductDraftContractTermsOptions(
@@ -826,6 +874,8 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			replaceDataProductDraftContractTermsOptions.SetSLA([]dataproducthubapiservicev1.ContractTemplateSLA{*contractTemplateSLAModel})
 			replaceDataProductDraftContractTermsOptions.SetSupportAndCommunication([]dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel})
 			replaceDataProductDraftContractTermsOptions.SetCustomProperties([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel})
+			replaceDataProductDraftContractTermsOptions.SetServers([]dataproducthubapiservicev1.ContractServer{*contractServerModel})
+			replaceDataProductDraftContractTermsOptions.SetSchema([]dataproducthubapiservicev1.ContractSchema{*contractSchemaModel})
 
 			contractTerms, response, err := dataProductHubAPIServiceService.ReplaceDataProductDraftContractTerms(replaceDataProductDraftContractTermsOptions)
 			if err != nil {
@@ -845,7 +895,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-update_data_product_draft_contract_terms
 
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op: core.StringPtr("add"),
+				Op:   core.StringPtr("add"),
 				Path: core.StringPtr("testString"),
 			}
 
@@ -868,6 +918,41 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(contractTerms).ToNot(BeNil())
+		})
+		It(`GetContractTermsInSpecifiedFormat request example`, func() {
+			fmt.Println("\nGetContractTermsInSpecifiedFormat() result:")
+			// begin-get_contract_terms_in_specified_format
+
+			getContractTermsInSpecifiedFormatOptions := dataProductHubAPIServiceService.NewGetContractTermsInSpecifiedFormatOptions(
+				"testString",
+				"testString",
+				"testString",
+				"testString",
+				"testString",
+			)
+
+			result, response, err := dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptions)
+			if err != nil {
+				panic(err)
+			}
+			if result != nil {
+				defer result.Close()
+				outFile, err := os.Create("result.out")
+				if err != nil {
+					panic(err)
+				}
+				defer outFile.Close()
+				_, err = io.Copy(outFile, result)
+				if err != nil {
+					panic(err)
+				}
+			}
+
+			// end-get_contract_terms_in_specified_format
+
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(200))
+			Expect(result).ToNot(BeNil())
 		})
 		It(`GetDataProductRelease request example`, func() {
 			fmt.Println("\nGetDataProductRelease() result:")
@@ -896,7 +981,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-update_data_product_release
 
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op: core.StringPtr("add"),
+				Op:   core.StringPtr("add"),
 				Path: core.StringPtr("testString"),
 			}
 
@@ -960,10 +1045,14 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			if result != nil {
 				defer result.Close()
 				outFile, err := os.Create("result.out")
-				if err != nil { panic(err) }
+				if err != nil {
+					panic(err)
+				}
 				defer outFile.Close()
 				_, err = io.Copy(outFile, result)
-				if err != nil { panic(err) }
+				if err != nil {
+					panic(err)
+				}
 			}
 
 			// end-get_published_data_product_draft_contract_terms
@@ -976,11 +1065,11 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			fmt.Println("\nListDataProductReleases() result:")
 			// begin-list_data_product_releases
 			listDataProductReleasesOptions := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
-				DataProductID: &getListOfReleasesOfDataProductByDataProductIDLink,
+				DataProductID:    &getListOfReleasesOfDataProductByDataProductIDLink,
 				AssetContainerID: core.StringPtr("testString"),
-				State: []string{"available"},
-				Version: core.StringPtr("testString"),
-				Limit: core.Int64Ptr(int64(10)),
+				State:            []string{"available"},
+				Version:          core.StringPtr("testString"),
+				Limit:            core.Int64Ptr(int64(10)),
 			}
 
 			pager, err := dataProductHubAPIServiceService.NewDataProductReleasesPager(listDataProductReleasesOptions)
@@ -1022,6 +1111,28 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(dataProductRelease).ToNot(BeNil())
 		})
+		It(`CreateRevokeAccessProcess request example`, func() {
+			fmt.Println("\nCreateRevokeAccessProcess() result:")
+			// begin-create_revoke_access_process
+
+			createRevokeAccessProcessOptions := dataProductHubAPIServiceService.NewCreateRevokeAccessProcessOptions(
+				"testString",
+				"testString",
+			)
+
+			revokeAccessResponse, response, err := dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptions)
+			if err != nil {
+				panic(err)
+			}
+			b, _ := json.MarshalIndent(revokeAccessResponse, "", "  ")
+			fmt.Println(string(b))
+
+			// end-create_revoke_access_process
+
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(202))
+			Expect(revokeAccessResponse).ToNot(BeNil())
+		})
 		It(`ListDataProductContractTemplate request example`, func() {
 			fmt.Println("\nListDataProductContractTemplate() result:")
 			// begin-list_data_product_contract_template
@@ -1046,38 +1157,38 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-create_contract_template
 
 			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID: core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86"),
+				ID:   core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86"),
 				Type: core.StringPtr("catalog"),
 			}
 
 			domainModel := &dataproducthubapiservicev1.Domain{
-				ID: core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e"),
-				Name: core.StringPtr("domain_name"),
+				ID:   core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea"),
+				Name: core.StringPtr("Test Domain New"),
 			}
 
 			overviewModel := &dataproducthubapiservicev1.Overview{
-				Name: core.StringPtr("Sample Data Contract"),
-				Version: core.StringPtr("0.0.0"),
-				Domain: domainModel,
+				Name:     core.StringPtr("Sample Data Contract"),
+				Version:  core.StringPtr("0.0.0"),
+				Domain:   domainModel,
 				MoreInfo: core.StringPtr("List of links to sources that provide more details on the data contract."),
 			}
 
 			contractTermsMoreInfoModel := &dataproducthubapiservicev1.ContractTermsMoreInfo{
 				Type: core.StringPtr("privacy-statement"),
-				URL: core.StringPtr("https://www.moreinfo.example.coms"),
+				URL:  core.StringPtr("https://www.moreinfo.example.coms"),
 			}
 
 			descriptionModel := &dataproducthubapiservicev1.Description{
-				Purpose: core.StringPtr("Intended purpose for the provided data."),
-				Limitations: core.StringPtr("Technical, compliance, and legal limitations for data use."),
-				Usage: core.StringPtr("Recommended usage of the data."),
-				MoreInfo: []dataproducthubapiservicev1.ContractTermsMoreInfo{*contractTermsMoreInfoModel},
+				Purpose:          core.StringPtr("Intended purpose for the provided data."),
+				Limitations:      core.StringPtr("Technical, compliance, and legal limitations for data use."),
+				Usage:            core.StringPtr("Recommended usage of the data."),
+				MoreInfo:         []dataproducthubapiservicev1.ContractTermsMoreInfo{*contractTermsMoreInfoModel},
 				CustomProperties: core.StringPtr("Custom properties that are not part of the standard."),
 			}
 
 			contractTemplateOrganizationModel := &dataproducthubapiservicev1.ContractTemplateOrganization{
 				UserID: core.StringPtr("IBMid-691000IN4G"),
-				Role: core.StringPtr("owner"),
+				Role:   core.StringPtr("owner"),
 			}
 
 			rolesModel := &dataproducthubapiservicev1.Roles{
@@ -1085,40 +1196,40 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			}
 
 			pricingModel := &dataproducthubapiservicev1.Pricing{
-				Amount: core.StringPtr("100.00"),
+				Amount:   core.StringPtr("100.00"),
 				Currency: core.StringPtr("USD"),
-				Unit: core.StringPtr("megabyte"),
+				Unit:     core.StringPtr("megabyte"),
 			}
 
 			contractTemplateSLAPropertyModel := &dataproducthubapiservicev1.ContractTemplateSLAProperty{
 				Property: core.StringPtr("slaproperty"),
-				Value: core.StringPtr("slavalue"),
+				Value:    core.StringPtr("slavalue"),
 			}
 
 			contractTemplateSLAModel := &dataproducthubapiservicev1.ContractTemplateSLA{
 				DefaultElement: core.StringPtr("sladefaultelement"),
-				Properties: []dataproducthubapiservicev1.ContractTemplateSLAProperty{*contractTemplateSLAPropertyModel},
+				Properties:     []dataproducthubapiservicev1.ContractTemplateSLAProperty{*contractTemplateSLAPropertyModel},
 			}
 
 			contractTemplateSupportAndCommunicationModel := &dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{
 				Channel: core.StringPtr("channel"),
-				URL: core.StringPtr("https://www.example.coms"),
+				URL:     core.StringPtr("https://www.example.coms"),
 			}
 
 			contractTemplateCustomPropertyModel := &dataproducthubapiservicev1.ContractTemplateCustomProperty{
-				Key: core.StringPtr("propertykey"),
+				Key:   core.StringPtr("propertykey"),
 				Value: core.StringPtr("propertyvalue"),
 			}
 
 			contractTermsModel := &dataproducthubapiservicev1.ContractTerms{
-				Overview: overviewModel,
-				Description: descriptionModel,
-				Organization: []dataproducthubapiservicev1.ContractTemplateOrganization{*contractTemplateOrganizationModel},
-				Roles: []dataproducthubapiservicev1.Roles{*rolesModel},
-				Price: pricingModel,
-				SLA: []dataproducthubapiservicev1.ContractTemplateSLA{*contractTemplateSLAModel},
+				Overview:                overviewModel,
+				Description:             descriptionModel,
+				Organization:            []dataproducthubapiservicev1.ContractTemplateOrganization{*contractTemplateOrganizationModel},
+				Roles:                   []dataproducthubapiservicev1.Roles{*rolesModel},
+				Price:                   pricingModel,
+				SLA:                     []dataproducthubapiservicev1.ContractTemplateSLA{*contractTemplateSLAModel},
 				SupportAndCommunication: []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel},
-				CustomProperties: []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel},
+				CustomProperties:        []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel},
 			}
 
 			createContractTemplateOptions := dataProductHubAPIServiceService.NewCreateContractTemplateOptions(
@@ -1167,7 +1278,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-update_data_product_contract_template
 
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op: core.StringPtr("add"),
+				Op:   core.StringPtr("add"),
 				Path: core.StringPtr("testString"),
 			}
 
@@ -1214,12 +1325,12 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-create_data_product_domain
 
 			containerReferenceModel := &dataproducthubapiservicev1.ContainerReference{
-				ID: core.StringPtr("ed580171-a6e4-4b93-973f-ae2f2f62991b"),
+				ID:   core.StringPtr("ed580171-a6e4-4b93-973f-ae2f2f62991b"),
 				Type: core.StringPtr("catalog"),
 			}
 
 			initializeSubDomainModel := &dataproducthubapiservicev1.InitializeSubDomain{
-				Name: core.StringPtr("Sub domain 1"),
+				Name:        core.StringPtr("Sub domain 1"),
 				Description: core.StringPtr("New sub domain 1"),
 			}
 
@@ -1293,7 +1404,7 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			// begin-update_data_product_domain
 
 			jsonPatchOperationModel := &dataproducthubapiservicev1.JSONPatchOperation{
-				Op: core.StringPtr("add"),
+				Op:   core.StringPtr("add"),
 				Path: core.StringPtr("testString"),
 			}
 
@@ -1379,6 +1490,27 @@ var _ = Describe(`DataProductHubAPIServiceV1 Examples Tests`, func() {
 			Expect(err).To(BeNil())
 			Expect(response.StatusCode).To(Equal(200))
 			Expect(bucketValidationResponse).ToNot(BeNil())
+		})
+		It(`GetRevokeAccessProcessState request example`, func() {
+			fmt.Println("\nGetRevokeAccessProcessState() result:")
+			// begin-get_revoke_access_process_state
+
+			getRevokeAccessProcessStateOptions := dataProductHubAPIServiceService.NewGetRevokeAccessProcessStateOptions(
+				"testString",
+			)
+
+			revokeAccessStateResponse, response, err := dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptions)
+			if err != nil {
+				panic(err)
+			}
+			b, _ := json.MarshalIndent(revokeAccessStateResponse, "", "  ")
+			fmt.Println(string(b))
+
+			// end-get_revoke_access_process_state
+
+			Expect(err).To(BeNil())
+			Expect(response.StatusCode).To(Equal(200))
+			Expect(revokeAccessStateResponse).ToNot(BeNil())
 		})
 		It(`DeleteDraftContractTermsDocument request example`, func() {
 			// begin-delete_draft_contract_terms_document
