@@ -15,7 +15,7 @@
  */
 
 /*
- * IBM OpenAPI SDK Code Generator Version: 3.105.1-067d600b-20250616-154447
+ * IBM OpenAPI SDK Code Generator Version: 3.96.0-d6dec9d7-20241008-212902
  */
 
 // Package dataproducthubapiservicev1 : Operations and models for the DataProductHubAPIServiceV1 service
@@ -25,6 +25,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"reflect"
 	"strings"
@@ -33,8 +34,6 @@ import (
 	common "github.com/IBM/data-product-exchange-go-sdk/v4/common"
 	"github.com/IBM/go-sdk-core/v5/core"
 	"github.com/go-openapi/strfmt"
-	"io"
-
 )
 
 // DataProductHubAPIServiceV1 : Data Product Hub API Service
@@ -199,12 +198,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetInitializeStatusW
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetInitializeStatus")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getInitializeStatusOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getInitializeStatusOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetInitializeStatus")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -263,12 +262,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetServiceIDCredenti
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetServiceIDCredentials")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getServiceIDCredentialsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getServiceIDCredentialsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetServiceIDCredentials")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -341,12 +340,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) InitializeWithContex
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "Initialize")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range initializeOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range initializeOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "Initialize")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -415,12 +414,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ManageAPIKeysWithCon
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ManageAPIKeys")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range manageAPIKeysOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range manageAPIKeysOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ManageAPIKeys")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 
@@ -472,12 +471,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataAssetVisua
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataAssetVisualization")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createDataAssetVisualizationOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createDataAssetVisualizationOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataAssetVisualization")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -550,12 +549,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ReinitiateDataAssetV
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ReinitiateDataAssetVisualization")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range reinitiateDataAssetVisualizationOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range reinitiateDataAssetVisualizationOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ReinitiateDataAssetVisualization")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -621,12 +620,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ListDataProductsWith
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProducts")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range listDataProductsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range listDataProductsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProducts")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -695,12 +694,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductWit
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProduct")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createDataProductOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createDataProductOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProduct")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -782,12 +781,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductWithCo
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProduct")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getDataProductOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getDataProductOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProduct")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -845,10 +844,10 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CompleteDraftContrac
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *completeDraftContractTermsDocumentOptions.DataProductID,
-		"draft_id": *completeDraftContractTermsDocumentOptions.DraftID,
+		"data_product_id":   *completeDraftContractTermsDocumentOptions.DataProductID,
+		"draft_id":          *completeDraftContractTermsDocumentOptions.DraftID,
 		"contract_terms_id": *completeDraftContractTermsDocumentOptions.ContractTermsID,
-		"document_id": *completeDraftContractTermsDocumentOptions.DocumentID,
+		"document_id":       *completeDraftContractTermsDocumentOptions.DocumentID,
 	}
 
 	builder := core.NewRequestBuilder(core.POST)
@@ -860,12 +859,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CompleteDraftContrac
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CompleteDraftContractTermsDocument")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range completeDraftContractTermsDocumentOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range completeDraftContractTermsDocumentOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CompleteDraftContractTermsDocument")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -930,12 +929,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ListDataProductDraft
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductDrafts")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range listDataProductDraftsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range listDataProductDraftsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductDrafts")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1012,12 +1011,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductDra
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProductDraft")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createDataProductDraftOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createDataProductDraftOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProductDraft")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1074,6 +1073,9 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductDra
 	}
 	if createDataProductDraftOptions.LastUpdatedAt != nil {
 		body["last_updated_at"] = createDataProductDraftOptions.LastUpdatedAt
+	}
+	if createDataProductDraftOptions.SubContainer != nil {
+		body["sub_container"] = createDataProductDraftOptions.SubContainer
 	}
 	if createDataProductDraftOptions.IsRestricted != nil {
 		body["is_restricted"] = createDataProductDraftOptions.IsRestricted
@@ -1139,8 +1141,8 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDraftContractT
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *createDraftContractTermsDocumentOptions.DataProductID,
-		"draft_id": *createDraftContractTermsDocumentOptions.DraftID,
+		"data_product_id":   *createDraftContractTermsDocumentOptions.DataProductID,
+		"draft_id":          *createDraftContractTermsDocumentOptions.DraftID,
 		"contract_terms_id": *createDraftContractTermsDocumentOptions.ContractTermsID,
 	}
 
@@ -1153,12 +1155,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDraftContractT
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDraftContractTermsDocument")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createDraftContractTermsDocumentOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createDraftContractTermsDocumentOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDraftContractTermsDocument")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1229,7 +1231,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftW
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *getDataProductDraftOptions.DataProductID,
-		"draft_id": *getDataProductDraftOptions.DraftID,
+		"draft_id":        *getDataProductDraftOptions.DraftID,
 	}
 
 	builder := core.NewRequestBuilder(core.GET)
@@ -1241,12 +1243,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftW
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductDraft")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getDataProductDraftOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getDataProductDraftOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductDraft")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1300,7 +1302,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) DeleteDataProductDra
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *deleteDataProductDraftOptions.DataProductID,
-		"draft_id": *deleteDataProductDraftOptions.DraftID,
+		"draft_id":        *deleteDataProductDraftOptions.DraftID,
 	}
 
 	builder := core.NewRequestBuilder(core.DELETE)
@@ -1312,12 +1314,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) DeleteDataProductDra
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDataProductDraft")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range deleteDataProductDraftOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range deleteDataProductDraftOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDataProductDraft")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 
@@ -1364,7 +1366,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductDra
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *updateDataProductDraftOptions.DataProductID,
-		"draft_id": *updateDataProductDraftOptions.DraftID,
+		"draft_id":        *updateDataProductDraftOptions.DraftID,
 	}
 
 	builder := core.NewRequestBuilder(core.PATCH)
@@ -1376,12 +1378,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductDra
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductDraft")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range updateDataProductDraftOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range updateDataProductDraftOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductDraft")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1444,10 +1446,10 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDraftContractTerm
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *getDraftContractTermsDocumentOptions.DataProductID,
-		"draft_id": *getDraftContractTermsDocumentOptions.DraftID,
+		"data_product_id":   *getDraftContractTermsDocumentOptions.DataProductID,
+		"draft_id":          *getDraftContractTermsDocumentOptions.DraftID,
 		"contract_terms_id": *getDraftContractTermsDocumentOptions.ContractTermsID,
-		"document_id": *getDraftContractTermsDocumentOptions.DocumentID,
+		"document_id":       *getDraftContractTermsDocumentOptions.DocumentID,
 	}
 
 	builder := core.NewRequestBuilder(core.GET)
@@ -1459,12 +1461,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDraftContractTerm
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDraftContractTermsDocument")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getDraftContractTermsDocumentOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getDraftContractTermsDocumentOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDraftContractTermsDocument")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1519,10 +1521,10 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) DeleteDraftContractT
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *deleteDraftContractTermsDocumentOptions.DataProductID,
-		"draft_id": *deleteDraftContractTermsDocumentOptions.DraftID,
+		"data_product_id":   *deleteDraftContractTermsDocumentOptions.DataProductID,
+		"draft_id":          *deleteDraftContractTermsDocumentOptions.DraftID,
 		"contract_terms_id": *deleteDraftContractTermsDocumentOptions.ContractTermsID,
-		"document_id": *deleteDraftContractTermsDocumentOptions.DocumentID,
+		"document_id":       *deleteDraftContractTermsDocumentOptions.DocumentID,
 	}
 
 	builder := core.NewRequestBuilder(core.DELETE)
@@ -1534,12 +1536,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) DeleteDraftContractT
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDraftContractTermsDocument")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range deleteDraftContractTermsDocumentOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range deleteDraftContractTermsDocumentOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDraftContractTermsDocument")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 
@@ -1589,10 +1591,10 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDraftContractT
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *updateDraftContractTermsDocumentOptions.DataProductID,
-		"draft_id": *updateDraftContractTermsDocumentOptions.DraftID,
+		"data_product_id":   *updateDraftContractTermsDocumentOptions.DataProductID,
+		"draft_id":          *updateDraftContractTermsDocumentOptions.DraftID,
 		"contract_terms_id": *updateDraftContractTermsDocumentOptions.ContractTermsID,
-		"document_id": *updateDraftContractTermsDocumentOptions.DocumentID,
+		"document_id":       *updateDraftContractTermsDocumentOptions.DocumentID,
 	}
 
 	builder := core.NewRequestBuilder(core.PATCH)
@@ -1604,12 +1606,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDraftContractT
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDraftContractTermsDocument")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range updateDraftContractTermsDocumentOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range updateDraftContractTermsDocumentOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDraftContractTermsDocument")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1648,14 +1650,14 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDraftContractT
 
 // GetDataProductDraftContractTerms : Retrieve a data product contract terms identified by id
 // Retrieve a data product contract terms identified by id.
-func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptions *GetDataProductDraftContractTermsOptions) (result io.ReadCloser, response *core.DetailedResponse, err error) {
+func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptions *GetDataProductDraftContractTermsOptions) (result *ContractTerms, response *core.DetailedResponse, err error) {
 	result, response, err = dataProductHubApiService.GetDataProductDraftContractTermsWithContext(context.Background(), getDataProductDraftContractTermsOptions)
 	err = core.RepurposeSDKProblem(err, "")
 	return
 }
 
 // GetDataProductDraftContractTermsWithContext is an alternate form of the GetDataProductDraftContractTerms method which supports a Context parameter
-func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftContractTermsWithContext(ctx context.Context, getDataProductDraftContractTermsOptions *GetDataProductDraftContractTermsOptions) (result io.ReadCloser, response *core.DetailedResponse, err error) {
+func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftContractTermsWithContext(ctx context.Context, getDataProductDraftContractTermsOptions *GetDataProductDraftContractTermsOptions) (result *ContractTerms, response *core.DetailedResponse, err error) {
 	err = core.ValidateNotNil(getDataProductDraftContractTermsOptions, "getDataProductDraftContractTermsOptions cannot be nil")
 	if err != nil {
 		err = core.SDKErrorf(err, "", "unexpected-nil-param", common.GetComponentInfo())
@@ -1668,8 +1670,8 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftC
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *getDataProductDraftContractTermsOptions.DataProductID,
-		"draft_id": *getDataProductDraftContractTermsOptions.DraftID,
+		"data_product_id":   *getDataProductDraftContractTermsOptions.DataProductID,
+		"draft_id":          *getDataProductDraftContractTermsOptions.DraftID,
 		"contract_terms_id": *getDataProductDraftContractTermsOptions.ContractTermsID,
 	}
 
@@ -1682,21 +1684,27 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftC
 		return
 	}
 
+	for headerName, headerValue := range getDataProductDraftContractTermsOptions.Headers {
+		builder.AddHeader(headerName, headerValue)
+	}
+
 	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductDraftContractTerms")
 	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
-
-	for headerName, headerValue := range getDataProductDraftContractTermsOptions.Headers {
-		builder.AddHeader(headerName, headerValue)
-	}
-	builder.AddHeader("Accept", "application/odcs+yaml")
+	builder.AddHeader("Accept", "application/json")
 	if getDataProductDraftContractTermsOptions.Accept != nil {
 		builder.AddHeader("Accept", fmt.Sprint(*getDataProductDraftContractTermsOptions.Accept))
 	}
 
 	if getDataProductDraftContractTermsOptions.IncludeContractDocuments != nil {
 		builder.AddQuery("include_contract_documents", fmt.Sprint(*getDataProductDraftContractTermsOptions.IncludeContractDocuments))
+	}
+	if getDataProductDraftContractTermsOptions.AutopopulateServerInformation != nil {
+		builder.AddQuery("autopopulate_server_information", fmt.Sprint(*getDataProductDraftContractTermsOptions.AutopopulateServerInformation))
+	}
+	if getDataProductDraftContractTermsOptions.ServerAssetID != nil {
+		builder.AddQuery("server_asset_id", fmt.Sprint(*getDataProductDraftContractTermsOptions.ServerAssetID))
 	}
 
 	request, err := builder.Build()
@@ -1705,11 +1713,20 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductDraftC
 		return
 	}
 
-	response, err = dataProductHubApiService.Service.Request(request, &result)
+	var rawResponse map[string]json.RawMessage
+	response, err = dataProductHubApiService.Service.Request(request, &rawResponse)
 	if err != nil {
 		core.EnrichHTTPProblem(err, "get_data_product_draft_contract_terms", getServiceComponentInfo())
 		err = core.SDKErrorf(err, "", "http-request-err", common.GetComponentInfo())
 		return
+	}
+	if rawResponse != nil {
+		err = core.UnmarshalModel(rawResponse, "", &result, UnmarshalContractTerms)
+		if err != nil {
+			err = core.SDKErrorf(err, "", "unmarshal-resp-error", common.GetComponentInfo())
+			return
+		}
+		response.Result = result
 	}
 
 	return
@@ -1737,8 +1754,8 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ReplaceDataProductDr
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *replaceDataProductDraftContractTermsOptions.DataProductID,
-		"draft_id": *replaceDataProductDraftContractTermsOptions.DraftID,
+		"data_product_id":   *replaceDataProductDraftContractTermsOptions.DataProductID,
+		"draft_id":          *replaceDataProductDraftContractTermsOptions.DraftID,
 		"contract_terms_id": *replaceDataProductDraftContractTermsOptions.ContractTermsID,
 	}
 
@@ -1751,12 +1768,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ReplaceDataProductDr
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ReplaceDataProductDraftContractTerms")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range replaceDataProductDraftContractTermsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range replaceDataProductDraftContractTermsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ReplaceDataProductDraftContractTerms")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1801,6 +1818,9 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ReplaceDataProductDr
 	}
 	if replaceDataProductDraftContractTermsOptions.ContractTest != nil {
 		body["contract_test"] = replaceDataProductDraftContractTermsOptions.ContractTest
+	}
+	if replaceDataProductDraftContractTermsOptions.Servers != nil {
+		body["servers"] = replaceDataProductDraftContractTermsOptions.Servers
 	}
 	if replaceDataProductDraftContractTermsOptions.Schema != nil {
 		body["schema"] = replaceDataProductDraftContractTermsOptions.Schema
@@ -1864,8 +1884,8 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductDra
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *updateDataProductDraftContractTermsOptions.DataProductID,
-		"draft_id": *updateDataProductDraftContractTermsOptions.DraftID,
+		"data_product_id":   *updateDataProductDraftContractTermsOptions.DataProductID,
+		"draft_id":          *updateDataProductDraftContractTermsOptions.DraftID,
 		"contract_terms_id": *updateDataProductDraftContractTermsOptions.ContractTermsID,
 	}
 
@@ -1878,12 +1898,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductDra
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductDraftContractTerms")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range updateDataProductDraftContractTermsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range updateDataProductDraftContractTermsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductDraftContractTerms")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -1920,6 +1940,74 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductDra
 	return
 }
 
+// GetContractTermsInSpecifiedFormat : Retrieve a data product contract terms identified by id in specified format
+// Retrieve a data product contract terms identified by id in specified format.
+func (dataProductHubApiService *DataProductHubAPIServiceV1) GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptions *GetContractTermsInSpecifiedFormatOptions) (result io.ReadCloser, response *core.DetailedResponse, err error) {
+	result, response, err = dataProductHubApiService.GetContractTermsInSpecifiedFormatWithContext(context.Background(), getContractTermsInSpecifiedFormatOptions)
+	err = core.RepurposeSDKProblem(err, "")
+	return
+}
+
+// GetContractTermsInSpecifiedFormatWithContext is an alternate form of the GetContractTermsInSpecifiedFormat method which supports a Context parameter
+func (dataProductHubApiService *DataProductHubAPIServiceV1) GetContractTermsInSpecifiedFormatWithContext(ctx context.Context, getContractTermsInSpecifiedFormatOptions *GetContractTermsInSpecifiedFormatOptions) (result io.ReadCloser, response *core.DetailedResponse, err error) {
+	err = core.ValidateNotNil(getContractTermsInSpecifiedFormatOptions, "getContractTermsInSpecifiedFormatOptions cannot be nil")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "unexpected-nil-param", common.GetComponentInfo())
+		return
+	}
+	err = core.ValidateStruct(getContractTermsInSpecifiedFormatOptions, "getContractTermsInSpecifiedFormatOptions")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "struct-validation-error", common.GetComponentInfo())
+		return
+	}
+
+	pathParamsMap := map[string]string{
+		"data_product_id":   *getContractTermsInSpecifiedFormatOptions.DataProductID,
+		"draft_id":          *getContractTermsInSpecifiedFormatOptions.DraftID,
+		"contract_terms_id": *getContractTermsInSpecifiedFormatOptions.ContractTermsID,
+	}
+
+	builder := core.NewRequestBuilder(core.GET)
+	builder = builder.WithContext(ctx)
+	builder.EnableGzipCompression = dataProductHubApiService.GetEnableGzipCompression()
+	_, err = builder.ResolveRequestURL(dataProductHubApiService.Service.Options.URL, `/data_product_exchange/v1/data_products/{data_product_id}/drafts/{draft_id}/contract_terms/{contract_terms_id}/format`, pathParamsMap)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "url-resolve-error", common.GetComponentInfo())
+		return
+	}
+
+	for headerName, headerValue := range getContractTermsInSpecifiedFormatOptions.Headers {
+		builder.AddHeader(headerName, headerValue)
+	}
+
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetContractTermsInSpecifiedFormat")
+	for headerName, headerValue := range sdkHeaders {
+		builder.AddHeader(headerName, headerValue)
+	}
+	builder.AddHeader("Accept", "application/odcs+yaml")
+	if getContractTermsInSpecifiedFormatOptions.Accept != nil {
+		builder.AddHeader("Accept", fmt.Sprint(*getContractTermsInSpecifiedFormatOptions.Accept))
+	}
+
+	builder.AddQuery("format", fmt.Sprint(*getContractTermsInSpecifiedFormatOptions.Format))
+	builder.AddQuery("format_version", fmt.Sprint(*getContractTermsInSpecifiedFormatOptions.FormatVersion))
+
+	request, err := builder.Build()
+	if err != nil {
+		err = core.SDKErrorf(err, "", "build-error", common.GetComponentInfo())
+		return
+	}
+
+	response, err = dataProductHubApiService.Service.Request(request, &result)
+	if err != nil {
+		core.EnrichHTTPProblem(err, "get_contract_terms_in_specified_format", getServiceComponentInfo())
+		err = core.SDKErrorf(err, "", "http-request-err", common.GetComponentInfo())
+		return
+	}
+
+	return
+}
+
 // PublishDataProductDraft : Publish a draft of an existing data product
 // Publish a draft of an existing data product. Use '-' for the `data_product_id` to skip specifying the data product ID
 // explicitly.
@@ -1944,7 +2032,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) PublishDataProductDr
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *publishDataProductDraftOptions.DataProductID,
-		"draft_id": *publishDataProductDraftOptions.DraftID,
+		"draft_id":        *publishDataProductDraftOptions.DraftID,
 	}
 
 	builder := core.NewRequestBuilder(core.POST)
@@ -1956,12 +2044,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) PublishDataProductDr
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "PublishDataProductDraft")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range publishDataProductDraftOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range publishDataProductDraftOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "PublishDataProductDraft")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2015,7 +2103,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductReleas
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *getDataProductReleaseOptions.DataProductID,
-		"release_id": *getDataProductReleaseOptions.ReleaseID,
+		"release_id":      *getDataProductReleaseOptions.ReleaseID,
 	}
 
 	builder := core.NewRequestBuilder(core.GET)
@@ -2027,12 +2115,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductReleas
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductRelease")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getDataProductReleaseOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getDataProductReleaseOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductRelease")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2093,7 +2181,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductRel
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *updateDataProductReleaseOptions.DataProductID,
-		"release_id": *updateDataProductReleaseOptions.ReleaseID,
+		"release_id":      *updateDataProductReleaseOptions.ReleaseID,
 	}
 
 	builder := core.NewRequestBuilder(core.PATCH)
@@ -2105,12 +2193,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductRel
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductRelease")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range updateDataProductReleaseOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range updateDataProductReleaseOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductRelease")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2173,10 +2261,10 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetReleaseContractTe
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *getReleaseContractTermsDocumentOptions.DataProductID,
-		"release_id": *getReleaseContractTermsDocumentOptions.ReleaseID,
+		"data_product_id":   *getReleaseContractTermsDocumentOptions.DataProductID,
+		"release_id":        *getReleaseContractTermsDocumentOptions.ReleaseID,
 		"contract_terms_id": *getReleaseContractTermsDocumentOptions.ContractTermsID,
-		"document_id": *getReleaseContractTermsDocumentOptions.DocumentID,
+		"document_id":       *getReleaseContractTermsDocumentOptions.DocumentID,
 	}
 
 	builder := core.NewRequestBuilder(core.GET)
@@ -2188,12 +2276,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetReleaseContractTe
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetReleaseContractTermsDocument")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getReleaseContractTermsDocumentOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getReleaseContractTermsDocumentOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetReleaseContractTermsDocument")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2245,8 +2333,8 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetPublishedDataProd
 	}
 
 	pathParamsMap := map[string]string{
-		"data_product_id": *getPublishedDataProductDraftContractTermsOptions.DataProductID,
-		"release_id": *getPublishedDataProductDraftContractTermsOptions.ReleaseID,
+		"data_product_id":   *getPublishedDataProductDraftContractTermsOptions.DataProductID,
+		"release_id":        *getPublishedDataProductDraftContractTermsOptions.ReleaseID,
 		"contract_terms_id": *getPublishedDataProductDraftContractTermsOptions.ContractTermsID,
 	}
 
@@ -2259,12 +2347,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetPublishedDataProd
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetPublishedDataProductDraftContractTerms")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getPublishedDataProductDraftContractTermsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getPublishedDataProductDraftContractTermsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetPublishedDataProductDraftContractTerms")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/odcs+yaml")
@@ -2327,12 +2415,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ListDataProductRelea
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductReleases")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range listDataProductReleasesOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range listDataProductReleasesOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductReleases")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2402,7 +2490,7 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) RetireDataProductRel
 
 	pathParamsMap := map[string]string{
 		"data_product_id": *retireDataProductReleaseOptions.DataProductID,
-		"release_id": *retireDataProductReleaseOptions.ReleaseID,
+		"release_id":      *retireDataProductReleaseOptions.ReleaseID,
 	}
 
 	builder := core.NewRequestBuilder(core.POST)
@@ -2414,18 +2502,21 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) RetireDataProductRel
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "RetireDataProductRelease")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range retireDataProductReleaseOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range retireDataProductReleaseOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "RetireDataProductRelease")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
 
 	if retireDataProductReleaseOptions.RevokeAccess != nil {
 		builder.AddQuery("revoke_access", fmt.Sprint(*retireDataProductReleaseOptions.RevokeAccess))
+	}
+	if retireDataProductReleaseOptions.StartAt != nil {
+		builder.AddQuery("start_at", fmt.Sprint(*retireDataProductReleaseOptions.StartAt))
 	}
 
 	request, err := builder.Build()
@@ -2443,6 +2534,87 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) RetireDataProductRel
 	}
 	if rawResponse != nil {
 		err = core.UnmarshalModel(rawResponse, "", &result, UnmarshalDataProductRelease)
+		if err != nil {
+			err = core.SDKErrorf(err, "", "unmarshal-resp-error", common.GetComponentInfo())
+			return
+		}
+		response.Result = result
+	}
+
+	return
+}
+
+// CreateRevokeAccessProcess : Revoke access from Data Product subscriptions
+// Revoke's access from Subscriptions of the data product id passed in the path parameter. Optionally specify a future
+// date-time when the revoke access operation should start using the start_at field in ISO 8601 format (e.g.,
+// 2025-09-24T06:55:29Z). If start_at is not provided, the revoke access operation starts immediately.
+func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateRevokeAccessProcess(createRevokeAccessProcessOptions *CreateRevokeAccessProcessOptions) (result *RevokeAccessResponse, response *core.DetailedResponse, err error) {
+	result, response, err = dataProductHubApiService.CreateRevokeAccessProcessWithContext(context.Background(), createRevokeAccessProcessOptions)
+	err = core.RepurposeSDKProblem(err, "")
+	return
+}
+
+// CreateRevokeAccessProcessWithContext is an alternate form of the CreateRevokeAccessProcess method which supports a Context parameter
+func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateRevokeAccessProcessWithContext(ctx context.Context, createRevokeAccessProcessOptions *CreateRevokeAccessProcessOptions) (result *RevokeAccessResponse, response *core.DetailedResponse, err error) {
+	err = core.ValidateNotNil(createRevokeAccessProcessOptions, "createRevokeAccessProcessOptions cannot be nil")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "unexpected-nil-param", common.GetComponentInfo())
+		return
+	}
+	err = core.ValidateStruct(createRevokeAccessProcessOptions, "createRevokeAccessProcessOptions")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "struct-validation-error", common.GetComponentInfo())
+		return
+	}
+
+	pathParamsMap := map[string]string{
+		"data_product_id": *createRevokeAccessProcessOptions.DataProductID,
+		"release_id":      *createRevokeAccessProcessOptions.ReleaseID,
+	}
+
+	builder := core.NewRequestBuilder(core.POST)
+	builder = builder.WithContext(ctx)
+	builder.EnableGzipCompression = dataProductHubApiService.GetEnableGzipCompression()
+	_, err = builder.ResolveRequestURL(dataProductHubApiService.Service.Options.URL, `/data_product_exchange/v1/data_products/{data_product_id}/releases/{release_id}/revoke_access`, pathParamsMap)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "url-resolve-error", common.GetComponentInfo())
+		return
+	}
+
+	for headerName, headerValue := range createRevokeAccessProcessOptions.Headers {
+		builder.AddHeader(headerName, headerValue)
+	}
+
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateRevokeAccessProcess")
+	for headerName, headerValue := range sdkHeaders {
+		builder.AddHeader(headerName, headerValue)
+	}
+	builder.AddHeader("Accept", "application/json")
+	if createRevokeAccessProcessOptions.ContentType != nil {
+		builder.AddHeader("Content-Type", fmt.Sprint(*createRevokeAccessProcessOptions.ContentType))
+	}
+
+	_, err = builder.SetBodyContent(core.StringNilMapper(createRevokeAccessProcessOptions.ContentType), nil, nil, createRevokeAccessProcessOptions.Body)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "set-body-content-error", common.GetComponentInfo())
+		return
+	}
+
+	request, err := builder.Build()
+	if err != nil {
+		err = core.SDKErrorf(err, "", "build-error", common.GetComponentInfo())
+		return
+	}
+
+	var rawResponse map[string]json.RawMessage
+	response, err = dataProductHubApiService.Service.Request(request, &rawResponse)
+	if err != nil {
+		core.EnrichHTTPProblem(err, "create_revoke_access_process", getServiceComponentInfo())
+		err = core.SDKErrorf(err, "", "http-request-err", common.GetComponentInfo())
+		return
+	}
+	if rawResponse != nil {
+		err = core.UnmarshalModel(rawResponse, "", &result, UnmarshalRevokeAccessResponse)
 		if err != nil {
 			err = core.SDKErrorf(err, "", "unmarshal-resp-error", common.GetComponentInfo())
 			return
@@ -2478,12 +2650,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ListDataProductContr
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductContractTemplate")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range listDataProductContractTemplateOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range listDataProductContractTemplateOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductContractTemplate")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2493,6 +2665,9 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ListDataProductContr
 	}
 	if listDataProductContractTemplateOptions.ContractTemplateName != nil {
 		builder.AddQuery("contract_template.name", fmt.Sprint(*listDataProductContractTemplateOptions.ContractTemplateName))
+	}
+	if listDataProductContractTemplateOptions.DomainIds != nil {
+		builder.AddQuery("domain.ids", fmt.Sprint(*listDataProductContractTemplateOptions.DomainIds))
 	}
 
 	request, err := builder.Build()
@@ -2550,12 +2725,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateContractTempla
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateContractTemplate")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createContractTemplateOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createContractTemplateOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateContractTemplate")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2567,6 +2742,9 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateContractTempla
 	if createContractTemplateOptions.ContractTemplateName != nil {
 		builder.AddQuery("contract_template.name", fmt.Sprint(*createContractTemplateOptions.ContractTemplateName))
 	}
+	if createContractTemplateOptions.DomainIds != nil {
+		builder.AddQuery("domain.ids", fmt.Sprint(*createContractTemplateOptions.DomainIds))
+	}
 
 	body := make(map[string]interface{})
 	if createContractTemplateOptions.Container != nil {
@@ -2574,6 +2752,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateContractTempla
 	}
 	if createContractTemplateOptions.ID != nil {
 		body["id"] = createContractTemplateOptions.ID
+	}
+	if createContractTemplateOptions.CreatorID != nil {
+		body["creator_id"] = createContractTemplateOptions.CreatorID
+	}
+	if createContractTemplateOptions.CreatedAt != nil {
+		body["created_at"] = createContractTemplateOptions.CreatedAt
 	}
 	if createContractTemplateOptions.Name != nil {
 		body["name"] = createContractTemplateOptions.Name
@@ -2649,12 +2833,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetContractTemplateW
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetContractTemplate")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getContractTemplateOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getContractTemplateOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetContractTemplate")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2720,12 +2904,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) DeleteDataProductCon
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDataProductContractTemplate")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range deleteDataProductContractTemplateOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range deleteDataProductContractTemplateOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDataProductContractTemplate")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 
@@ -2784,12 +2968,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductCon
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductContractTemplate")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range updateDataProductContractTemplateOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range updateDataProductContractTemplateOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductContractTemplate")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -2853,18 +3037,21 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) ListDataProductDomai
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductDomains")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range listDataProductDomainsOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range listDataProductDomainsOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "ListDataProductDomains")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
 
 	if listDataProductDomainsOptions.ContainerID != nil {
 		builder.AddQuery("container.id", fmt.Sprint(*listDataProductDomainsOptions.ContainerID))
+	}
+	if listDataProductDomainsOptions.IncludeSubdomains != nil {
+		builder.AddQuery("include_subdomains", fmt.Sprint(*listDataProductDomainsOptions.IncludeSubdomains))
 	}
 
 	request, err := builder.Build()
@@ -2922,19 +3109,19 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductDom
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProductDomain")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createDataProductDomainOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createDataProductDomainOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProductDomain")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
 	builder.AddHeader("Content-Type", "application/json")
 
-	if createDataProductDomainOptions.ContainerID != nil {
-		builder.AddQuery("container.id", fmt.Sprint(*createDataProductDomainOptions.ContainerID))
+	if createDataProductDomainOptions.LinkToSubcontainers != nil {
+		builder.AddQuery("link_to_subcontainers", fmt.Sprint(*createDataProductDomainOptions.LinkToSubcontainers))
 	}
 
 	body := make(map[string]interface{})
@@ -2956,6 +3143,9 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductDom
 	if createDataProductDomainOptions.ID != nil {
 		body["id"] = createDataProductDomainOptions.ID
 	}
+	if createDataProductDomainOptions.CreatedBy != nil {
+		body["created_by"] = createDataProductDomainOptions.CreatedBy
+	}
 	if createDataProductDomainOptions.MemberRoles != nil {
 		body["member_roles"] = createDataProductDomainOptions.MemberRoles
 	}
@@ -2964,6 +3154,9 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductDom
 	}
 	if createDataProductDomainOptions.SubDomains != nil {
 		body["sub_domains"] = createDataProductDomainOptions.SubDomains
+	}
+	if createDataProductDomainOptions.SubContainer != nil {
+		body["sub_container"] = createDataProductDomainOptions.SubContainer
 	}
 	_, err = builder.SetBodyContentJSON(body)
 	if err != nil {
@@ -3030,12 +3223,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateDataProductSub
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProductSubdomain")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createDataProductSubdomainOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createDataProductSubdomainOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateDataProductSubdomain")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -3118,12 +3311,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDomainWithContext
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDomain")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getDomainOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getDomainOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDomain")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -3187,12 +3380,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) DeleteDomainWithCont
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDomain")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range deleteDomainOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range deleteDomainOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "DeleteDomain")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 
@@ -3249,12 +3442,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) UpdateDataProductDom
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductDomain")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range updateDataProductDomainOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range updateDataProductDomainOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "UpdateDataProductDomain")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -3327,12 +3520,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetDataProductByDoma
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductByDomain")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getDataProductByDomainOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getDataProductByDomainOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetDataProductByDomain")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -3394,12 +3587,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) CreateS3BucketWithCo
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateS3Bucket")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range createS3BucketOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range createS3BucketOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "CreateS3Bucket")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -3465,12 +3658,12 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetS3BucketValidatio
 		return
 	}
 
-	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetS3BucketValidation")
-	for headerName, headerValue := range sdkHeaders {
+	for headerName, headerValue := range getS3BucketValidationOptions.Headers {
 		builder.AddHeader(headerName, headerValue)
 	}
 
-	for headerName, headerValue := range getS3BucketValidationOptions.Headers {
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetS3BucketValidation")
+	for headerName, headerValue := range sdkHeaders {
 		builder.AddHeader(headerName, headerValue)
 	}
 	builder.AddHeader("Accept", "application/json")
@@ -3499,8 +3692,105 @@ func (dataProductHubApiService *DataProductHubAPIServiceV1) GetS3BucketValidatio
 
 	return
 }
+
+// GetRevokeAccessProcessState : Access revoke status of the subscriptions against the data product release id
+// Retrieves the status of revoke access requests.
+func (dataProductHubApiService *DataProductHubAPIServiceV1) GetRevokeAccessProcessState(getRevokeAccessProcessStateOptions *GetRevokeAccessProcessStateOptions) (result *RevokeAccessStateResponse, response *core.DetailedResponse, err error) {
+	result, response, err = dataProductHubApiService.GetRevokeAccessProcessStateWithContext(context.Background(), getRevokeAccessProcessStateOptions)
+	err = core.RepurposeSDKProblem(err, "")
+	return
+}
+
+// GetRevokeAccessProcessStateWithContext is an alternate form of the GetRevokeAccessProcessState method which supports a Context parameter
+func (dataProductHubApiService *DataProductHubAPIServiceV1) GetRevokeAccessProcessStateWithContext(ctx context.Context, getRevokeAccessProcessStateOptions *GetRevokeAccessProcessStateOptions) (result *RevokeAccessStateResponse, response *core.DetailedResponse, err error) {
+	err = core.ValidateNotNil(getRevokeAccessProcessStateOptions, "getRevokeAccessProcessStateOptions cannot be nil")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "unexpected-nil-param", common.GetComponentInfo())
+		return
+	}
+	err = core.ValidateStruct(getRevokeAccessProcessStateOptions, "getRevokeAccessProcessStateOptions")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "struct-validation-error", common.GetComponentInfo())
+		return
+	}
+
+	builder := core.NewRequestBuilder(core.GET)
+	builder = builder.WithContext(ctx)
+	builder.EnableGzipCompression = dataProductHubApiService.GetEnableGzipCompression()
+	_, err = builder.ResolveRequestURL(dataProductHubApiService.Service.Options.URL, `/data_product_exchange/v1/data_product_revoke_access/job_runs`, nil)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "url-resolve-error", common.GetComponentInfo())
+		return
+	}
+
+	for headerName, headerValue := range getRevokeAccessProcessStateOptions.Headers {
+		builder.AddHeader(headerName, headerValue)
+	}
+
+	sdkHeaders := common.GetSdkHeaders("data_product_hub_api_service", "V1", "GetRevokeAccessProcessState")
+	for headerName, headerValue := range sdkHeaders {
+		builder.AddHeader(headerName, headerValue)
+	}
+	builder.AddHeader("Accept", "application/json")
+
+	builder.AddQuery("release_id", fmt.Sprint(*getRevokeAccessProcessStateOptions.ReleaseID))
+	if getRevokeAccessProcessStateOptions.Limit != nil {
+		builder.AddQuery("limit", fmt.Sprint(*getRevokeAccessProcessStateOptions.Limit))
+	}
+	if getRevokeAccessProcessStateOptions.Start != nil {
+		builder.AddQuery("start", fmt.Sprint(*getRevokeAccessProcessStateOptions.Start))
+	}
+
+	request, err := builder.Build()
+	if err != nil {
+		err = core.SDKErrorf(err, "", "build-error", common.GetComponentInfo())
+		return
+	}
+
+	var rawResponse map[string]json.RawMessage
+	response, err = dataProductHubApiService.Service.Request(request, &rawResponse)
+	if err != nil {
+		core.EnrichHTTPProblem(err, "get_revoke_access_process_state", getServiceComponentInfo())
+		err = core.SDKErrorf(err, "", "http-request-err", common.GetComponentInfo())
+		return
+	}
+	if rawResponse != nil {
+		err = core.UnmarshalModel(rawResponse, "", &result, UnmarshalRevokeAccessStateResponse)
+		if err != nil {
+			err = core.SDKErrorf(err, "", "unmarshal-resp-error", common.GetComponentInfo())
+			return
+		}
+		response.Result = result
+	}
+
+	return
+}
 func getServiceComponentInfo() *core.ProblemComponent {
 	return core.NewProblemComponent(DefaultServiceName, "1")
+}
+
+// Asset : Asset struct
+type Asset struct {
+	Metadata map[string]interface{} `json:"metadata,omitempty"`
+
+	Entity map[string]interface{} `json:"entity,omitempty"`
+}
+
+// UnmarshalAsset unmarshals an instance of Asset from the specified map of raw messages.
+func UnmarshalAsset(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(Asset)
+	err = core.UnmarshalPrimitive(m, "metadata", &obj.Metadata)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "metadata-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "entity", &obj.Entity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "entity-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
 }
 
 // AssetListAccessControl : Access control object.
@@ -3748,10 +4038,10 @@ type CompleteDraftContractTermsDocumentOptions struct {
 // NewCompleteDraftContractTermsDocumentOptions : Instantiate CompleteDraftContractTermsDocumentOptions
 func (*DataProductHubAPIServiceV1) NewCompleteDraftContractTermsDocumentOptions(dataProductID string, draftID string, contractTermsID string, documentID string) *CompleteDraftContractTermsDocumentOptions {
 	return &CompleteDraftContractTermsDocumentOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
 		ContractTermsID: core.StringPtr(contractTermsID),
-		DocumentID: core.StringPtr(documentID),
+		DocumentID:      core.StringPtr(documentID),
 	}
 }
 
@@ -3834,7 +4124,7 @@ const (
 // NewContainerReference : Instantiate ContainerReference (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewContainerReference(id string, typeVar string) (_model *ContainerReference, err error) {
 	_model = &ContainerReference{
-		ID: core.StringPtr(id),
+		ID:   core.StringPtr(id),
 		Type: core.StringPtr(typeVar),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -3861,24 +4151,236 @@ func UnmarshalContainerReference(m map[string]json.RawMessage, result interface{
 	return
 }
 
+// ContractAsset : Defines a data asset name and id.
+type ContractAsset struct {
+	// ID of the data asset.
+	ID *string `json:"id,omitempty"`
+
+	// Name of the data asset.
+	Name *string `json:"name,omitempty"`
+}
+
+// UnmarshalContractAsset unmarshals an instance of ContractAsset from the specified map of raw messages.
+func UnmarshalContractAsset(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(ContractAsset)
+	err = core.UnmarshalPrimitive(m, "id", &obj.ID)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "id-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "name", &obj.Name)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "name-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
+}
+
+// ContractQualityRule : Defines a quality rule for validating data assets.
+type ContractQualityRule struct {
+	// The type of the quality rule: 'text', 'library', or 'sql'.
+	Type *string `json:"type" validate:"required"`
+
+	// A descriptive explanation of the quality rule.
+	Description *string `json:"description,omitempty"`
+
+	// The name or identifier of the library-based quality rule to be applied.
+	Rule *string `json:"rule,omitempty"`
+
+	// A text (non-parsed) block of code required for the third-party DQ engine to run.
+	Implementation *string `json:"implementation,omitempty"`
+
+	// Required for custom DQ rule: name of the third-party engine being used. Common values include soda,
+	// greatExpectations, montecarlo, etc.
+	Engine *string `json:"engine,omitempty"`
+
+	// The threshold value that the quality check result must be less than.
+	MustBeLessThan *string `json:"must_be_less_than,omitempty"`
+
+	// The threshold value that the quality check result must be less than or equal to.
+	MustBeLessOrEqualTo *string `json:"must_be_less_or_equal_to,omitempty"`
+
+	// The threshold value that the quality check result must be greater than.
+	MustBeGreaterThan *string `json:"must_be_greater_than,omitempty"`
+
+	// The threshold value that the quality check result must be greater than or equal to.
+	MustBeGreaterOrEqualTo *string `json:"must_be_greater_or_equal_to,omitempty"`
+
+	// Inclusive range (min and max) for the quality check result.
+	MustBeBetween []string `json:"must_be_between,omitempty"`
+
+	// Inclusive range (min and max) the quality check must not fall within.
+	MustNotBeBetween []string `json:"must_not_be_between,omitempty"`
+
+	// The exact value(s) the quality check result must match.
+	MustBe *string `json:"must_be,omitempty"`
+
+	// The exact value(s) the quality check result must not match.
+	MustNotBe *string `json:"must_not_be,omitempty"`
+
+	// User-friendly name for the quality rule.
+	Name *string `json:"name,omitempty"`
+
+	// Unit used for evaluating the quality rule (e.g., rows, records).
+	Unit *string `json:"unit,omitempty"`
+
+	// The SQL query to execute for validating quality in case of a 'sql' rule type.
+	Query *string `json:"query,omitempty"`
+}
+
+// NewContractQualityRule : Instantiate ContractQualityRule (Generic Model Constructor)
+func (*DataProductHubAPIServiceV1) NewContractQualityRule(typeVar string) (_model *ContractQualityRule, err error) {
+	_model = &ContractQualityRule{
+		Type: core.StringPtr(typeVar),
+	}
+	err = core.ValidateStruct(_model, "required parameters")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "model-missing-required", common.GetComponentInfo())
+	}
+	return
+}
+
+// UnmarshalContractQualityRule unmarshals an instance of ContractQualityRule from the specified map of raw messages.
+func UnmarshalContractQualityRule(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(ContractQualityRule)
+	err = core.UnmarshalPrimitive(m, "type", &obj.Type)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "type-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "description", &obj.Description)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "description-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "rule", &obj.Rule)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "rule-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "implementation", &obj.Implementation)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "implementation-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "engine", &obj.Engine)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "engine-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_be_less_than", &obj.MustBeLessThan)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_be_less_than-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_be_less_or_equal_to", &obj.MustBeLessOrEqualTo)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_be_less_or_equal_to-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_be_greater_than", &obj.MustBeGreaterThan)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_be_greater_than-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_be_greater_or_equal_to", &obj.MustBeGreaterOrEqualTo)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_be_greater_or_equal_to-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_be_between", &obj.MustBeBetween)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_be_between-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_not_be_between", &obj.MustNotBeBetween)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_not_be_between-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_be", &obj.MustBe)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_be-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "must_not_be", &obj.MustNotBe)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "must_not_be-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "name", &obj.Name)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "name-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "unit", &obj.Unit)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "unit-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "query", &obj.Query)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "query-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
+}
+
 // ContractSchema : Schema definition of the data asset.
 type ContractSchema struct {
+	// Id of the data asset whose schema information is stored.
+	AssetID *string `json:"asset_id" validate:"required"`
+
+	// Connection Id of the data asset whose schema information is stored.
+	ConnectionID *string `json:"connection_id" validate:"required"`
+
 	// Name of the schema or data asset part.
 	Name *string `json:"name,omitempty"`
 
 	// Description of the schema.
 	Description *string `json:"description,omitempty"`
 
+	// Connection path of the asset.
+	ConnectionPath *string `json:"connection_path,omitempty"`
+
 	// MIME type or physical type.
 	PhysicalType *string `json:"physical_type,omitempty"`
 
 	// List of properties.
 	Properties []ContractSchemaProperty `json:"properties,omitempty"`
+
+	// List of quality rules defined for the asset.
+	Quality []ContractQualityRule `json:"quality,omitempty"`
+}
+
+// NewContractSchema : Instantiate ContractSchema (Generic Model Constructor)
+func (*DataProductHubAPIServiceV1) NewContractSchema(assetID string, connectionID string) (_model *ContractSchema, err error) {
+	_model = &ContractSchema{
+		AssetID:      core.StringPtr(assetID),
+		ConnectionID: core.StringPtr(connectionID),
+	}
+	err = core.ValidateStruct(_model, "required parameters")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "model-missing-required", common.GetComponentInfo())
+	}
+	return
 }
 
 // UnmarshalContractSchema unmarshals an instance of ContractSchema from the specified map of raw messages.
 func UnmarshalContractSchema(m map[string]json.RawMessage, result interface{}) (err error) {
 	obj := new(ContractSchema)
+	err = core.UnmarshalPrimitive(m, "asset_id", &obj.AssetID)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "asset_id-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "connection_id", &obj.ConnectionID)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "connection_id-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "name", &obj.Name)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "name-error", common.GetComponentInfo())
@@ -3889,6 +4391,11 @@ func UnmarshalContractSchema(m map[string]json.RawMessage, result interface{}) (
 		err = core.SDKErrorf(err, "", "description-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalPrimitive(m, "connection_path", &obj.ConnectionPath)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "connection_path-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "physical_type", &obj.PhysicalType)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "physical_type-error", common.GetComponentInfo())
@@ -3897,6 +4404,11 @@ func UnmarshalContractSchema(m map[string]json.RawMessage, result interface{}) (
 	err = core.UnmarshalModel(m, "properties", &obj.Properties, UnmarshalContractSchemaProperty)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "properties-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "quality", &obj.Quality, UnmarshalContractQualityRule)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "quality-error", common.GetComponentInfo())
 		return
 	}
 	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
@@ -3910,6 +4422,9 @@ type ContractSchemaProperty struct {
 
 	// Detailed type definition of a schema property.
 	Type *ContractSchemaPropertyType `json:"type,omitempty"`
+
+	// List of quality rules defined for the column.
+	Quality []ContractQualityRule `json:"quality,omitempty"`
 }
 
 // NewContractSchemaProperty : Instantiate ContractSchemaProperty (Generic Model Constructor)
@@ -3935,6 +4450,11 @@ func UnmarshalContractSchemaProperty(m map[string]json.RawMessage, result interf
 	err = core.UnmarshalModel(m, "type", &obj.Type, UnmarshalContractSchemaPropertyType)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "type-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "quality", &obj.Quality, UnmarshalContractQualityRule)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "quality-error", common.GetComponentInfo())
 		return
 	}
 	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
@@ -3999,6 +4519,244 @@ func UnmarshalContractSchemaPropertyType(m map[string]json.RawMessage, result in
 	return
 }
 
+// ContractServer : Schema definition of a server configuration for the asset.
+type ContractServer struct {
+	// Name of the server.
+	Server *string `json:"server" validate:"required"`
+
+	// Defines a data asset name and id.
+	Asset *ContractAsset `json:"asset,omitempty"`
+
+	// ID of the data source associated with data asset.
+	ConnectionID *string `json:"connection_id,omitempty"`
+
+	// Type of the server.
+	Type *string `json:"type,omitempty"`
+
+	// Description of the server.
+	Description *string `json:"description,omitempty"`
+
+	// Environment in which the server operates.
+	Environment *string `json:"environment,omitempty"`
+
+	// Account used by the server.
+	Account *string `json:"account,omitempty"`
+
+	// Catalog name.
+	Catalog *string `json:"catalog,omitempty"`
+
+	// Database name.
+	Database *string `json:"database,omitempty"`
+
+	// Dataset name.
+	Dataset *string `json:"dataset,omitempty"`
+
+	// Delimiter.
+	Delimiter *string `json:"delimiter,omitempty"`
+
+	// Server endpoint URL.
+	EndpointURL *string `json:"endpoint_url,omitempty"`
+
+	// File format.
+	Format *string `json:"format,omitempty"`
+
+	// Host name or IP address.
+	Host *string `json:"host,omitempty"`
+
+	// Location URL.
+	Location *string `json:"location,omitempty"`
+
+	// Relative or absolute path to the data.
+	Path *string `json:"path,omitempty"`
+
+	// Port to the server.
+	Port *string `json:"port,omitempty"`
+
+	// Project name.
+	Project *string `json:"project,omitempty"`
+
+	// Cloud region.
+	Region *string `json:"region,omitempty"`
+
+	// Region name.
+	RegionName *string `json:"region_name,omitempty"`
+
+	// Schema name.
+	Schema *string `json:"schema,omitempty"`
+
+	// Service name.
+	ServiceName *string `json:"service_name,omitempty"`
+
+	// Staging directory.
+	StagingDir *string `json:"staging_dir,omitempty"`
+
+	// Data stream name.
+	Stream *string `json:"stream,omitempty"`
+
+	// Warehouse or cluster name.
+	Warehouse *string `json:"warehouse,omitempty"`
+
+	// List of roles for the server.
+	Roles []string `json:"roles,omitempty"`
+
+	// List of custom properties for the server.
+	CustomProperties []ContractTemplateCustomProperty `json:"custom_properties,omitempty"`
+}
+
+// NewContractServer : Instantiate ContractServer (Generic Model Constructor)
+func (*DataProductHubAPIServiceV1) NewContractServer(server string) (_model *ContractServer, err error) {
+	_model = &ContractServer{
+		Server: core.StringPtr(server),
+	}
+	err = core.ValidateStruct(_model, "required parameters")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "model-missing-required", common.GetComponentInfo())
+	}
+	return
+}
+
+// UnmarshalContractServer unmarshals an instance of ContractServer from the specified map of raw messages.
+func UnmarshalContractServer(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(ContractServer)
+	err = core.UnmarshalPrimitive(m, "server", &obj.Server)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "server-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "asset", &obj.Asset, UnmarshalContractAsset)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "asset-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "connection_id", &obj.ConnectionID)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "connection_id-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "type", &obj.Type)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "type-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "description", &obj.Description)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "description-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "environment", &obj.Environment)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "environment-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "account", &obj.Account)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "account-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "catalog", &obj.Catalog)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "catalog-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "database", &obj.Database)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "database-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "dataset", &obj.Dataset)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "dataset-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "delimiter", &obj.Delimiter)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "delimiter-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "endpoint_url", &obj.EndpointURL)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "endpoint_url-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "format", &obj.Format)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "format-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "host", &obj.Host)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "host-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "location", &obj.Location)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "location-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "path", &obj.Path)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "path-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "port", &obj.Port)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "port-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "project", &obj.Project)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "project-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "region", &obj.Region)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "region-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "region_name", &obj.RegionName)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "region_name-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "schema", &obj.Schema)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "schema-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "service_name", &obj.ServiceName)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "service_name-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "staging_dir", &obj.StagingDir)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "staging_dir-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "stream", &obj.Stream)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "stream-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "warehouse", &obj.Warehouse)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "warehouse-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "roles", &obj.Roles)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "roles-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "custom_properties", &obj.CustomProperties, UnmarshalContractTemplateCustomProperty)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "custom_properties-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
+}
+
 // ContractTemplateCustomProperty : Represents a custom property within the contract.
 type ContractTemplateCustomProperty struct {
 	// The name of the key. Names should be in camel case–the same as if they were permanent properties in the contract.
@@ -4011,7 +4769,7 @@ type ContractTemplateCustomProperty struct {
 // NewContractTemplateCustomProperty : Instantiate ContractTemplateCustomProperty (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewContractTemplateCustomProperty(key string, value string) (_model *ContractTemplateCustomProperty, err error) {
 	_model = &ContractTemplateCustomProperty{
-		Key: core.StringPtr(key),
+		Key:   core.StringPtr(key),
 		Value: core.StringPtr(value),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -4051,7 +4809,7 @@ type ContractTemplateOrganization struct {
 func (*DataProductHubAPIServiceV1) NewContractTemplateOrganization(userID string, role string) (_model *ContractTemplateOrganization, err error) {
 	_model = &ContractTemplateOrganization{
 		UserID: core.StringPtr(userID),
-		Role: core.StringPtr(role),
+		Role:   core.StringPtr(role),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
 	if err != nil {
@@ -4116,7 +4874,7 @@ type ContractTemplateSLAProperty struct {
 func (*DataProductHubAPIServiceV1) NewContractTemplateSLAProperty(property string, value string) (_model *ContractTemplateSLAProperty, err error) {
 	_model = &ContractTemplateSLAProperty{
 		Property: core.StringPtr(property),
-		Value: core.StringPtr(value),
+		Value:    core.StringPtr(value),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
 	if err != nil {
@@ -4155,7 +4913,7 @@ type ContractTemplateSupportAndCommunication struct {
 func (*DataProductHubAPIServiceV1) NewContractTemplateSupportAndCommunication(channel string, url string) (_model *ContractTemplateSupportAndCommunication, err error) {
 	_model = &ContractTemplateSupportAndCommunication{
 		Channel: core.StringPtr(channel),
-		URL: core.StringPtr(url),
+		URL:     core.StringPtr(url),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
 	if err != nil {
@@ -4221,6 +4979,9 @@ type ContractTerms struct {
 
 	// Contains the contract test status and related metadata.
 	ContractTest *ContractTest `json:"contract_test,omitempty"`
+
+	// List of server definitions.
+	Servers []ContractServer `json:"servers,omitempty"`
 
 	// Schema details of the data asset.
 	Schema []ContractSchema `json:"schema,omitempty"`
@@ -4294,6 +5055,11 @@ func UnmarshalContractTerms(m map[string]json.RawMessage, result interface{}) (e
 		err = core.SDKErrorf(err, "", "contract_test-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalModel(m, "servers", &obj.Servers, UnmarshalContractServer)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "servers-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalModel(m, "schema", &obj.Schema, UnmarshalContractSchema)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "schema-error", common.GetComponentInfo())
@@ -4304,101 +5070,108 @@ func UnmarshalContractTerms(m map[string]json.RawMessage, result interface{}) (e
 }
 
 func (*DataProductHubAPIServiceV1) NewContractTermsPatch(contractTerms *ContractTerms) (_patch []JSONPatchOperation) {
-	if (contractTerms.Asset != nil) {
+	if contractTerms.Asset != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/asset"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/asset"),
 			Value: contractTerms.Asset,
 		})
 	}
-	if (contractTerms.ID != nil) {
+	if contractTerms.ID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/id"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/id"),
 			Value: contractTerms.ID,
 		})
 	}
-	if (contractTerms.Documents != nil) {
+	if contractTerms.Documents != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/documents"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/documents"),
 			Value: contractTerms.Documents,
 		})
 	}
-	if (contractTerms.ErrorMsg != nil) {
+	if contractTerms.ErrorMsg != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/error_msg"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/error_msg"),
 			Value: contractTerms.ErrorMsg,
 		})
 	}
-	if (contractTerms.Overview != nil) {
+	if contractTerms.Overview != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/overview"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/overview"),
 			Value: contractTerms.Overview,
 		})
 	}
-	if (contractTerms.Description != nil) {
+	if contractTerms.Description != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/description"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/description"),
 			Value: contractTerms.Description,
 		})
 	}
-	if (contractTerms.Organization != nil) {
+	if contractTerms.Organization != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/organization"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/organization"),
 			Value: contractTerms.Organization,
 		})
 	}
-	if (contractTerms.Roles != nil) {
+	if contractTerms.Roles != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/roles"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/roles"),
 			Value: contractTerms.Roles,
 		})
 	}
-	if (contractTerms.Price != nil) {
+	if contractTerms.Price != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/price"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/price"),
 			Value: contractTerms.Price,
 		})
 	}
-	if (contractTerms.SLA != nil) {
+	if contractTerms.SLA != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/sla"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/sla"),
 			Value: contractTerms.SLA,
 		})
 	}
-	if (contractTerms.SupportAndCommunication != nil) {
+	if contractTerms.SupportAndCommunication != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/support_and_communication"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/support_and_communication"),
 			Value: contractTerms.SupportAndCommunication,
 		})
 	}
-	if (contractTerms.CustomProperties != nil) {
+	if contractTerms.CustomProperties != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/custom_properties"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/custom_properties"),
 			Value: contractTerms.CustomProperties,
 		})
 	}
-	if (contractTerms.ContractTest != nil) {
+	if contractTerms.ContractTest != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/contract_test"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/contract_test"),
 			Value: contractTerms.ContractTest,
 		})
 	}
-	if (contractTerms.Schema != nil) {
+	if contractTerms.Servers != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/schema"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/servers"),
+			Value: contractTerms.Servers,
+		})
+	}
+	if contractTerms.Schema != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/schema"),
 			Value: contractTerms.Schema,
 		})
 	}
@@ -4429,7 +5202,7 @@ type ContractTermsDocument struct {
 // Constants associated with the ContractTermsDocument.Type property.
 // Type of the contract document.
 const (
-	ContractTermsDocumentTypeSLAConst = "sla"
+	ContractTermsDocumentTypeSLAConst                = "sla"
 	ContractTermsDocumentTypeTermsAndConditionsConst = "terms_and_conditions"
 )
 
@@ -4438,7 +5211,7 @@ func (*DataProductHubAPIServiceV1) NewContractTermsDocument(typeVar string, name
 	_model = &ContractTermsDocument{
 		Type: core.StringPtr(typeVar),
 		Name: core.StringPtr(name),
-		ID: core.StringPtr(id),
+		ID:   core.StringPtr(id),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
 	if err != nil {
@@ -4485,45 +5258,45 @@ func UnmarshalContractTermsDocument(m map[string]json.RawMessage, result interfa
 }
 
 func (*DataProductHubAPIServiceV1) NewContractTermsDocumentPatch(contractTermsDocument *ContractTermsDocument) (_patch []JSONPatchOperation) {
-	if (contractTermsDocument.URL != nil) {
+	if contractTermsDocument.URL != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/url"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/url"),
 			Value: contractTermsDocument.URL,
 		})
 	}
-	if (contractTermsDocument.Type != nil) {
+	if contractTermsDocument.Type != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/type"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/type"),
 			Value: contractTermsDocument.Type,
 		})
 	}
-	if (contractTermsDocument.Name != nil) {
+	if contractTermsDocument.Name != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/name"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/name"),
 			Value: contractTermsDocument.Name,
 		})
 	}
-	if (contractTermsDocument.ID != nil) {
+	if contractTermsDocument.ID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/id"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/id"),
 			Value: contractTermsDocument.ID,
 		})
 	}
-	if (contractTermsDocument.Attachment != nil) {
+	if contractTermsDocument.Attachment != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/attachment"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/attachment"),
 			Value: contractTermsDocument.Attachment,
 		})
 	}
-	if (contractTermsDocument.UploadURL != nil) {
+	if contractTermsDocument.UploadURL != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/upload_url"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/upload_url"),
 			Value: contractTermsDocument.UploadURL,
 		})
 	}
@@ -4561,7 +5334,7 @@ type ContractTermsMoreInfo struct {
 func (*DataProductHubAPIServiceV1) NewContractTermsMoreInfo(typeVar string, url string) (_model *ContractTermsMoreInfo, err error) {
 	_model = &ContractTermsMoreInfo{
 		Type: core.StringPtr(typeVar),
-		URL: core.StringPtr(url),
+		URL:  core.StringPtr(url),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
 	if err != nil {
@@ -4609,7 +5382,7 @@ const (
 // NewContractTest : Instantiate ContractTest (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewContractTest(status string, lastTestedTime string) (_model *ContractTest, err error) {
 	_model = &ContractTest{
-		Status: core.StringPtr(status),
+		Status:         core.StringPtr(status),
 		LastTestedTime: core.StringPtr(lastTestedTime),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -4649,6 +5422,12 @@ type CreateContractTemplateOptions struct {
 	// The identifier of the data product contract template.
 	ID *string `json:"id,omitempty"`
 
+	// The identifier of the user who created the data product contract template.
+	CreatorID *string `json:"creator_id,omitempty"`
+
+	// The timestamp when the data product contract template was created.
+	CreatedAt *string `json:"created_at,omitempty"`
+
 	// The name of the contract template.
 	Name *string `json:"name,omitempty"`
 
@@ -4665,6 +5444,10 @@ type CreateContractTemplateOptions struct {
 	// Name of the data product contract template. If not supplied, the data product templates within the catalog will
 	// returned.
 	ContractTemplateName *string `json:"contract_template.name,omitempty"`
+
+	// Comma-separated domain IDs to filter data product contract templates. If not supplied, the data product templates
+	// within the catalog will returned.
+	DomainIds *string `json:"domain.ids,omitempty"`
 
 	// Allows users to set headers on API requests.
 	Headers map[string]string
@@ -4686,6 +5469,18 @@ func (_options *CreateContractTemplateOptions) SetContainer(container *Container
 // SetID : Allow user to set ID
 func (_options *CreateContractTemplateOptions) SetID(id string) *CreateContractTemplateOptions {
 	_options.ID = core.StringPtr(id)
+	return _options
+}
+
+// SetCreatorID : Allow user to set CreatorID
+func (_options *CreateContractTemplateOptions) SetCreatorID(creatorID string) *CreateContractTemplateOptions {
+	_options.CreatorID = core.StringPtr(creatorID)
+	return _options
+}
+
+// SetCreatedAt : Allow user to set CreatedAt
+func (_options *CreateContractTemplateOptions) SetCreatedAt(createdAt string) *CreateContractTemplateOptions {
+	_options.CreatedAt = core.StringPtr(createdAt)
 	return _options
 }
 
@@ -4716,6 +5511,12 @@ func (_options *CreateContractTemplateOptions) SetContainerID(containerID string
 // SetContractTemplateName : Allow user to set ContractTemplateName
 func (_options *CreateContractTemplateOptions) SetContractTemplateName(contractTemplateName string) *CreateContractTemplateOptions {
 	_options.ContractTemplateName = core.StringPtr(contractTemplateName)
+	return _options
+}
+
+// SetDomainIds : Allow user to set DomainIds
+func (_options *CreateContractTemplateOptions) SetDomainIds(domainIds string) *CreateContractTemplateOptions {
+	_options.DomainIds = core.StringPtr(domainIds)
 	return _options
 }
 
@@ -4771,6 +5572,9 @@ type CreateDataProductDomainOptions struct {
 	// The identifier of the data product domain.
 	ID *string `json:"id,omitempty"`
 
+	// The identifier of the creator of the data product domain.
+	CreatedBy *string `json:"created_by,omitempty"`
+
 	// Member roles of a corresponding asset.
 	MemberRoles *MemberRolesSchema `json:"member_roles,omitempty"`
 
@@ -4780,9 +5584,11 @@ type CreateDataProductDomainOptions struct {
 	// List of sub domains to be added within a domain.
 	SubDomains []InitializeSubDomain `json:"sub_domains,omitempty"`
 
-	// Container ID of the data product catalog. If not supplied, the data product catalog is looked up by using the uid of
-	// the default data product catalog.
-	ContainerID *string `json:"container.id,omitempty"`
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
+	// Link domains to subcontainers.
+	LinkToSubcontainers *bool `json:"link_to_subcontainers,omitempty"`
 
 	// Allows users to set headers on API requests.
 	Headers map[string]string
@@ -4831,6 +5637,12 @@ func (_options *CreateDataProductDomainOptions) SetID(id string) *CreateDataProd
 	return _options
 }
 
+// SetCreatedBy : Allow user to set CreatedBy
+func (_options *CreateDataProductDomainOptions) SetCreatedBy(createdBy string) *CreateDataProductDomainOptions {
+	_options.CreatedBy = core.StringPtr(createdBy)
+	return _options
+}
+
 // SetMemberRoles : Allow user to set MemberRoles
 func (_options *CreateDataProductDomainOptions) SetMemberRoles(memberRoles *MemberRolesSchema) *CreateDataProductDomainOptions {
 	_options.MemberRoles = memberRoles
@@ -4849,9 +5661,15 @@ func (_options *CreateDataProductDomainOptions) SetSubDomains(subDomains []Initi
 	return _options
 }
 
-// SetContainerID : Allow user to set ContainerID
-func (_options *CreateDataProductDomainOptions) SetContainerID(containerID string) *CreateDataProductDomainOptions {
-	_options.ContainerID = core.StringPtr(containerID)
+// SetSubContainer : Allow user to set SubContainer
+func (_options *CreateDataProductDomainOptions) SetSubContainer(subContainer *ContainerIdentity) *CreateDataProductDomainOptions {
+	_options.SubContainer = subContainer
+	return _options
+}
+
+// SetLinkToSubcontainers : Allow user to set LinkToSubcontainers
+func (_options *CreateDataProductDomainOptions) SetLinkToSubcontainers(linkToSubcontainers bool) *CreateDataProductDomainOptions {
+	_options.LinkToSubcontainers = core.BoolPtr(linkToSubcontainers)
 	return _options
 }
 
@@ -4925,6 +5743,9 @@ type CreateDataProductDraftOptions struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted,omitempty"`
@@ -4937,8 +5758,8 @@ type CreateDataProductDraftOptions struct {
 // The state of the data product version. If not specified, the data product version will be created in `draft` state.
 const (
 	CreateDataProductDraftOptionsStateAvailableConst = "available"
-	CreateDataProductDraftOptionsStateDraftConst = "draft"
-	CreateDataProductDraftOptionsStateRetiredConst = "retired"
+	CreateDataProductDraftOptionsStateDraftConst     = "draft"
+	CreateDataProductDraftOptionsStateRetiredConst   = "retired"
 )
 
 // Constants associated with the CreateDataProductDraftOptions.Types property.
@@ -4951,7 +5772,7 @@ const (
 func (*DataProductHubAPIServiceV1) NewCreateDataProductDraftOptions(dataProductID string, asset *AssetPrototype) *CreateDataProductDraftOptions {
 	return &CreateDataProductDraftOptions{
 		DataProductID: core.StringPtr(dataProductID),
-		Asset: asset,
+		Asset:         asset,
 	}
 }
 
@@ -5063,6 +5884,12 @@ func (_options *CreateDataProductDraftOptions) SetLastUpdatedAt(lastUpdatedAt *s
 	return _options
 }
 
+// SetSubContainer : Allow user to set SubContainer
+func (_options *CreateDataProductDraftOptions) SetSubContainer(subContainer *ContainerIdentity) *CreateDataProductDraftOptions {
+	_options.SubContainer = subContainer
+	return _options
+}
+
 // SetIsRestricted : Allow user to set IsRestricted
 func (_options *CreateDataProductDraftOptions) SetIsRestricted(isRestricted bool) *CreateDataProductDraftOptions {
 	_options.IsRestricted = core.BoolPtr(isRestricted)
@@ -5145,7 +5972,7 @@ type CreateDataProductSubdomainOptions struct {
 // NewCreateDataProductSubdomainOptions : Instantiate CreateDataProductSubdomainOptions
 func (*DataProductHubAPIServiceV1) NewCreateDataProductSubdomainOptions(domainID string, containerID string) *CreateDataProductSubdomainOptions {
 	return &CreateDataProductSubdomainOptions{
-		DomainID: core.StringPtr(domainID),
+		DomainID:    core.StringPtr(domainID),
 		ContainerID: core.StringPtr(containerID),
 	}
 }
@@ -5213,18 +6040,18 @@ type CreateDraftContractTermsDocumentOptions struct {
 // Constants associated with the CreateDraftContractTermsDocumentOptions.Type property.
 // Type of the contract document.
 const (
-	CreateDraftContractTermsDocumentOptionsTypeSLAConst = "sla"
+	CreateDraftContractTermsDocumentOptionsTypeSLAConst                = "sla"
 	CreateDraftContractTermsDocumentOptionsTypeTermsAndConditionsConst = "terms_and_conditions"
 )
 
 // NewCreateDraftContractTermsDocumentOptions : Instantiate CreateDraftContractTermsDocumentOptions
 func (*DataProductHubAPIServiceV1) NewCreateDraftContractTermsDocumentOptions(dataProductID string, draftID string, contractTermsID string, typeVar string, name string) *CreateDraftContractTermsDocumentOptions {
 	return &CreateDraftContractTermsDocumentOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
 		ContractTermsID: core.StringPtr(contractTermsID),
-		Type: core.StringPtr(typeVar),
-		Name: core.StringPtr(name),
+		Type:            core.StringPtr(typeVar),
+		Name:            core.StringPtr(name),
 	}
 }
 
@@ -5266,6 +6093,63 @@ func (_options *CreateDraftContractTermsDocumentOptions) SetURL(url string) *Cre
 
 // SetHeaders : Allow user to set Headers
 func (options *CreateDraftContractTermsDocumentOptions) SetHeaders(param map[string]string) *CreateDraftContractTermsDocumentOptions {
+	options.Headers = param
+	return options
+}
+
+// CreateRevokeAccessProcessOptions : The CreateRevokeAccessProcess options.
+type CreateRevokeAccessProcessOptions struct {
+	// Data product ID. Use '-' to skip specifying the data product ID explicitly.
+	DataProductID *string `json:"data_product_id" validate:"required,ne="`
+
+	// The unique identifier of the data product release.
+	ReleaseID *string `json:"release_id" validate:"required,ne="`
+
+	// Request parameters to handle revoke access from subscriptions. The start_at field can be used to schedule the revoke
+	// access operation for a future date-time.
+	Body io.ReadCloser `json:"body,omitempty"`
+
+	// The type of the input.
+	ContentType *string `json:"Content-Type,omitempty"`
+
+	// Allows users to set headers on API requests.
+	Headers map[string]string
+}
+
+// NewCreateRevokeAccessProcessOptions : Instantiate CreateRevokeAccessProcessOptions
+func (*DataProductHubAPIServiceV1) NewCreateRevokeAccessProcessOptions(dataProductID string, releaseID string) *CreateRevokeAccessProcessOptions {
+	return &CreateRevokeAccessProcessOptions{
+		DataProductID: core.StringPtr(dataProductID),
+		ReleaseID:     core.StringPtr(releaseID),
+	}
+}
+
+// SetDataProductID : Allow user to set DataProductID
+func (_options *CreateRevokeAccessProcessOptions) SetDataProductID(dataProductID string) *CreateRevokeAccessProcessOptions {
+	_options.DataProductID = core.StringPtr(dataProductID)
+	return _options
+}
+
+// SetReleaseID : Allow user to set ReleaseID
+func (_options *CreateRevokeAccessProcessOptions) SetReleaseID(releaseID string) *CreateRevokeAccessProcessOptions {
+	_options.ReleaseID = core.StringPtr(releaseID)
+	return _options
+}
+
+// SetBody : Allow user to set Body
+func (_options *CreateRevokeAccessProcessOptions) SetBody(body io.ReadCloser) *CreateRevokeAccessProcessOptions {
+	_options.Body = body
+	return _options
+}
+
+// SetContentType : Allow user to set ContentType
+func (_options *CreateRevokeAccessProcessOptions) SetContentType(contentType string) *CreateRevokeAccessProcessOptions {
+	_options.ContentType = core.StringPtr(contentType)
+	return _options
+}
+
+// SetHeaders : Allow user to set Headers
+func (options *CreateRevokeAccessProcessOptions) SetHeaders(param map[string]string) *CreateRevokeAccessProcessOptions {
 	options.Headers = param
 	return options
 }
@@ -5316,7 +6200,7 @@ type DataAssetRelationship struct {
 // NewDataAssetRelationship : Instantiate DataAssetRelationship (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewDataAssetRelationship(asset *AssetReference, relatedAsset *AssetReference) (_model *DataAssetRelationship, err error) {
 	_model = &DataAssetRelationship{
-		Asset: asset,
+		Asset:        asset,
 		RelatedAsset: relatedAsset,
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -5495,6 +6379,12 @@ type DataProductContractTemplate struct {
 	// The identifier of the data product contract template.
 	ID *string `json:"id,omitempty"`
 
+	// The identifier of the user who created the data product contract template.
+	CreatorID *string `json:"creator_id,omitempty"`
+
+	// The timestamp when the data product contract template was created.
+	CreatedAt *string `json:"created_at,omitempty"`
+
 	// The name of the contract template.
 	Name *string `json:"name,omitempty"`
 
@@ -5530,6 +6420,16 @@ func UnmarshalDataProductContractTemplate(m map[string]json.RawMessage, result i
 		err = core.SDKErrorf(err, "", "id-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalPrimitive(m, "creator_id", &obj.CreatorID)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "creator_id-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "created_at", &obj.CreatedAt)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "created_at-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "name", &obj.Name)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "name-error", common.GetComponentInfo())
@@ -5550,38 +6450,52 @@ func UnmarshalDataProductContractTemplate(m map[string]json.RawMessage, result i
 }
 
 func (*DataProductHubAPIServiceV1) NewDataProductContractTemplatePatch(dataProductContractTemplate *DataProductContractTemplate) (_patch []JSONPatchOperation) {
-	if (dataProductContractTemplate.Container != nil) {
+	if dataProductContractTemplate.Container != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/container"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/container"),
 			Value: dataProductContractTemplate.Container,
 		})
 	}
-	if (dataProductContractTemplate.ID != nil) {
+	if dataProductContractTemplate.ID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/id"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/id"),
 			Value: dataProductContractTemplate.ID,
 		})
 	}
-	if (dataProductContractTemplate.Name != nil) {
+	if dataProductContractTemplate.CreatorID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/name"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/creator_id"),
+			Value: dataProductContractTemplate.CreatorID,
+		})
+	}
+	if dataProductContractTemplate.CreatedAt != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/created_at"),
+			Value: dataProductContractTemplate.CreatedAt,
+		})
+	}
+	if dataProductContractTemplate.Name != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/name"),
 			Value: dataProductContractTemplate.Name,
 		})
 	}
-	if (dataProductContractTemplate.Error != nil) {
+	if dataProductContractTemplate.Error != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/error"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/error"),
 			Value: dataProductContractTemplate.Error,
 		})
 	}
-	if (dataProductContractTemplate.ContractTerms != nil) {
+	if dataProductContractTemplate.ContractTerms != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/contract_terms"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/contract_terms"),
 			Value: dataProductContractTemplate.ContractTerms,
 		})
 	}
@@ -5644,6 +6558,9 @@ type DataProductDomain struct {
 	// The identifier of the data product domain.
 	ID *string `json:"id,omitempty"`
 
+	// The identifier of the creator of the data product domain.
+	CreatedBy *string `json:"created_by,omitempty"`
+
 	// Member roles of a corresponding asset.
 	MemberRoles *MemberRolesSchema `json:"member_roles,omitempty"`
 
@@ -5652,6 +6569,9 @@ type DataProductDomain struct {
 
 	// List of sub domains to be added within a domain.
 	SubDomains []InitializeSubDomain `json:"sub_domains,omitempty"`
+
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
 }
 
 // NewDataProductDomain : Instantiate DataProductDomain (Generic Model Constructor)
@@ -5699,6 +6619,11 @@ func UnmarshalDataProductDomain(m map[string]json.RawMessage, result interface{}
 		err = core.SDKErrorf(err, "", "id-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalPrimitive(m, "created_by", &obj.CreatedBy)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "created_by-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalModel(m, "member_roles", &obj.MemberRoles, UnmarshalMemberRolesSchema)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "member_roles-error", common.GetComponentInfo())
@@ -5714,72 +6639,91 @@ func UnmarshalDataProductDomain(m map[string]json.RawMessage, result interface{}
 		err = core.SDKErrorf(err, "", "sub_domains-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
+		return
+	}
 	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
 	return
 }
 
 func (*DataProductHubAPIServiceV1) NewDataProductDomainPatch(dataProductDomain *DataProductDomain) (_patch []JSONPatchOperation) {
-	if (dataProductDomain.Container != nil) {
+	if dataProductDomain.Container != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/container"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/container"),
 			Value: dataProductDomain.Container,
 		})
 	}
-	if (dataProductDomain.Trace != nil) {
+	if dataProductDomain.Trace != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/trace"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/trace"),
 			Value: dataProductDomain.Trace,
 		})
 	}
-	if (dataProductDomain.Errors != nil) {
+	if dataProductDomain.Errors != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/errors"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/errors"),
 			Value: dataProductDomain.Errors,
 		})
 	}
-	if (dataProductDomain.Name != nil) {
+	if dataProductDomain.Name != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/name"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/name"),
 			Value: dataProductDomain.Name,
 		})
 	}
-	if (dataProductDomain.Description != nil) {
+	if dataProductDomain.Description != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/description"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/description"),
 			Value: dataProductDomain.Description,
 		})
 	}
-	if (dataProductDomain.ID != nil) {
+	if dataProductDomain.ID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/id"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/id"),
 			Value: dataProductDomain.ID,
 		})
 	}
-	if (dataProductDomain.MemberRoles != nil) {
+	if dataProductDomain.CreatedBy != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/member_roles"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/created_by"),
+			Value: dataProductDomain.CreatedBy,
+		})
+	}
+	if dataProductDomain.MemberRoles != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/member_roles"),
 			Value: dataProductDomain.MemberRoles,
 		})
 	}
-	if (dataProductDomain.Properties != nil) {
+	if dataProductDomain.Properties != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/properties"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/properties"),
 			Value: dataProductDomain.Properties,
 		})
 	}
-	if (dataProductDomain.SubDomains != nil) {
+	if dataProductDomain.SubDomains != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/sub_domains"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/sub_domains"),
 			Value: dataProductDomain.SubDomains,
+		})
+	}
+	if dataProductDomain.SubContainer != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/sub_container"),
+			Value: dataProductDomain.SubContainer,
 		})
 	}
 	return
@@ -5858,6 +6802,9 @@ type DataProductDraft struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted" validate:"required"`
@@ -5891,8 +6838,8 @@ type DataProductDraft struct {
 // The state of the data product version.
 const (
 	DataProductDraftStateAvailableConst = "available"
-	DataProductDraftStateDraftConst = "draft"
-	DataProductDraftStateRetiredConst = "retired"
+	DataProductDraftStateDraftConst     = "draft"
+	DataProductDraftStateRetiredConst   = "retired"
 )
 
 // Constants associated with the DataProductDraft.Types property.
@@ -5984,6 +6931,11 @@ func UnmarshalDataProductDraft(m map[string]json.RawMessage, result interface{})
 		err = core.SDKErrorf(err, "", "last_updated_at-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "is_restricted", &obj.IsRestricted)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "is_restricted-error", common.GetComponentInfo())
@@ -6034,178 +6986,185 @@ func UnmarshalDataProductDraft(m map[string]json.RawMessage, result interface{})
 }
 
 func (*DataProductHubAPIServiceV1) NewDataProductDraftPatch(dataProductDraft *DataProductDraft) (_patch []JSONPatchOperation) {
-	if (dataProductDraft.Version != nil) {
+	if dataProductDraft.Version != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/version"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/version"),
 			Value: dataProductDraft.Version,
 		})
 	}
-	if (dataProductDraft.State != nil) {
+	if dataProductDraft.State != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/state"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/state"),
 			Value: dataProductDraft.State,
 		})
 	}
-	if (dataProductDraft.DataProduct != nil) {
+	if dataProductDraft.DataProduct != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/data_product"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/data_product"),
 			Value: dataProductDraft.DataProduct,
 		})
 	}
-	if (dataProductDraft.Name != nil) {
+	if dataProductDraft.Name != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/name"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/name"),
 			Value: dataProductDraft.Name,
 		})
 	}
-	if (dataProductDraft.Description != nil) {
+	if dataProductDraft.Description != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/description"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/description"),
 			Value: dataProductDraft.Description,
 		})
 	}
-	if (dataProductDraft.Tags != nil) {
+	if dataProductDraft.Tags != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/tags"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/tags"),
 			Value: dataProductDraft.Tags,
 		})
 	}
-	if (dataProductDraft.UseCases != nil) {
+	if dataProductDraft.UseCases != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/use_cases"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/use_cases"),
 			Value: dataProductDraft.UseCases,
 		})
 	}
-	if (dataProductDraft.Types != nil) {
+	if dataProductDraft.Types != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/types"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/types"),
 			Value: dataProductDraft.Types,
 		})
 	}
-	if (dataProductDraft.ContractTerms != nil) {
+	if dataProductDraft.ContractTerms != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/contract_terms"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/contract_terms"),
 			Value: dataProductDraft.ContractTerms,
 		})
 	}
-	if (dataProductDraft.Domain != nil) {
+	if dataProductDraft.Domain != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/domain"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/domain"),
 			Value: dataProductDraft.Domain,
 		})
 	}
-	if (dataProductDraft.PartsOut != nil) {
+	if dataProductDraft.PartsOut != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/parts_out"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/parts_out"),
 			Value: dataProductDraft.PartsOut,
 		})
 	}
-	if (dataProductDraft.Workflows != nil) {
+	if dataProductDraft.Workflows != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/workflows"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/workflows"),
 			Value: dataProductDraft.Workflows,
 		})
 	}
-	if (dataProductDraft.DataviewEnabled != nil) {
+	if dataProductDraft.DataviewEnabled != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/dataview_enabled"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/dataview_enabled"),
 			Value: dataProductDraft.DataviewEnabled,
 		})
 	}
-	if (dataProductDraft.Comments != nil) {
+	if dataProductDraft.Comments != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/comments"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/comments"),
 			Value: dataProductDraft.Comments,
 		})
 	}
-	if (dataProductDraft.AccessControl != nil) {
+	if dataProductDraft.AccessControl != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/access_control"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/access_control"),
 			Value: dataProductDraft.AccessControl,
 		})
 	}
-	if (dataProductDraft.LastUpdatedAt != nil) {
+	if dataProductDraft.LastUpdatedAt != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/last_updated_at"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/last_updated_at"),
 			Value: dataProductDraft.LastUpdatedAt,
 		})
 	}
-	if (dataProductDraft.IsRestricted != nil) {
+	if dataProductDraft.SubContainer != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/is_restricted"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/sub_container"),
+			Value: dataProductDraft.SubContainer,
+		})
+	}
+	if dataProductDraft.IsRestricted != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/is_restricted"),
 			Value: dataProductDraft.IsRestricted,
 		})
 	}
-	if (dataProductDraft.ID != nil) {
+	if dataProductDraft.ID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/id"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/id"),
 			Value: dataProductDraft.ID,
 		})
 	}
-	if (dataProductDraft.Asset != nil) {
+	if dataProductDraft.Asset != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/asset"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/asset"),
 			Value: dataProductDraft.Asset,
 		})
 	}
-	if (dataProductDraft.PublishedBy != nil) {
+	if dataProductDraft.PublishedBy != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/published_by"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/published_by"),
 			Value: dataProductDraft.PublishedBy,
 		})
 	}
-	if (dataProductDraft.PublishedAt != nil) {
+	if dataProductDraft.PublishedAt != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/published_at"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/published_at"),
 			Value: dataProductDraft.PublishedAt,
 		})
 	}
-	if (dataProductDraft.CreatedBy != nil) {
+	if dataProductDraft.CreatedBy != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/created_by"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/created_by"),
 			Value: dataProductDraft.CreatedBy,
 		})
 	}
-	if (dataProductDraft.CreatedAt != nil) {
+	if dataProductDraft.CreatedAt != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/created_at"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/created_at"),
 			Value: dataProductDraft.CreatedAt,
 		})
 	}
-	if (dataProductDraft.Properties != nil) {
+	if dataProductDraft.Properties != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/properties"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/properties"),
 			Value: dataProductDraft.Properties,
 		})
 	}
-	if (dataProductDraft.VisualizationErrors != nil) {
+	if dataProductDraft.VisualizationErrors != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/visualization_errors"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/visualization_errors"),
 			Value: dataProductDraft.VisualizationErrors,
 		})
 	}
@@ -6362,6 +7321,9 @@ type DataProductDraftPrototype struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted,omitempty"`
@@ -6374,8 +7336,8 @@ type DataProductDraftPrototype struct {
 // The state of the data product version. If not specified, the data product version will be created in `draft` state.
 const (
 	DataProductDraftPrototypeStateAvailableConst = "available"
-	DataProductDraftPrototypeStateDraftConst = "draft"
-	DataProductDraftPrototypeStateRetiredConst = "retired"
+	DataProductDraftPrototypeStateDraftConst     = "draft"
+	DataProductDraftPrototypeStateRetiredConst   = "retired"
 )
 
 // Constants associated with the DataProductDraftPrototype.Types property.
@@ -6479,6 +7441,11 @@ func UnmarshalDataProductDraftPrototype(m map[string]json.RawMessage, result int
 		err = core.SDKErrorf(err, "", "last_updated_at-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "is_restricted", &obj.IsRestricted)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "is_restricted-error", common.GetComponentInfo())
@@ -6548,6 +7515,9 @@ type DataProductDraftSummary struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted" validate:"required"`
@@ -6563,8 +7533,8 @@ type DataProductDraftSummary struct {
 // The state of the data product version.
 const (
 	DataProductDraftSummaryStateAvailableConst = "available"
-	DataProductDraftSummaryStateDraftConst = "draft"
-	DataProductDraftSummaryStateRetiredConst = "retired"
+	DataProductDraftSummaryStateDraftConst     = "draft"
+	DataProductDraftSummaryStateRetiredConst   = "retired"
 )
 
 // Constants associated with the DataProductDraftSummary.Types property.
@@ -6654,6 +7624,11 @@ func UnmarshalDataProductDraftSummary(m map[string]json.RawMessage, result inter
 	err = core.UnmarshalPrimitive(m, "last_updated_at", &obj.LastUpdatedAt)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "last_updated_at-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
 		return
 	}
 	err = core.UnmarshalPrimitive(m, "is_restricted", &obj.IsRestricted)
@@ -6892,6 +7867,9 @@ type DataProductRelease struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted" validate:"required"`
@@ -6925,8 +7903,8 @@ type DataProductRelease struct {
 // The state of the data product version.
 const (
 	DataProductReleaseStateAvailableConst = "available"
-	DataProductReleaseStateDraftConst = "draft"
-	DataProductReleaseStateRetiredConst = "retired"
+	DataProductReleaseStateDraftConst     = "draft"
+	DataProductReleaseStateRetiredConst   = "retired"
 )
 
 // Constants associated with the DataProductRelease.Types property.
@@ -7018,6 +7996,11 @@ func UnmarshalDataProductRelease(m map[string]json.RawMessage, result interface{
 		err = core.SDKErrorf(err, "", "last_updated_at-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "is_restricted", &obj.IsRestricted)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "is_restricted-error", common.GetComponentInfo())
@@ -7068,178 +8051,185 @@ func UnmarshalDataProductRelease(m map[string]json.RawMessage, result interface{
 }
 
 func (*DataProductHubAPIServiceV1) NewDataProductReleasePatch(dataProductRelease *DataProductRelease) (_patch []JSONPatchOperation) {
-	if (dataProductRelease.Version != nil) {
+	if dataProductRelease.Version != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/version"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/version"),
 			Value: dataProductRelease.Version,
 		})
 	}
-	if (dataProductRelease.State != nil) {
+	if dataProductRelease.State != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/state"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/state"),
 			Value: dataProductRelease.State,
 		})
 	}
-	if (dataProductRelease.DataProduct != nil) {
+	if dataProductRelease.DataProduct != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/data_product"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/data_product"),
 			Value: dataProductRelease.DataProduct,
 		})
 	}
-	if (dataProductRelease.Name != nil) {
+	if dataProductRelease.Name != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/name"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/name"),
 			Value: dataProductRelease.Name,
 		})
 	}
-	if (dataProductRelease.Description != nil) {
+	if dataProductRelease.Description != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/description"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/description"),
 			Value: dataProductRelease.Description,
 		})
 	}
-	if (dataProductRelease.Tags != nil) {
+	if dataProductRelease.Tags != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/tags"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/tags"),
 			Value: dataProductRelease.Tags,
 		})
 	}
-	if (dataProductRelease.UseCases != nil) {
+	if dataProductRelease.UseCases != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/use_cases"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/use_cases"),
 			Value: dataProductRelease.UseCases,
 		})
 	}
-	if (dataProductRelease.Types != nil) {
+	if dataProductRelease.Types != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/types"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/types"),
 			Value: dataProductRelease.Types,
 		})
 	}
-	if (dataProductRelease.ContractTerms != nil) {
+	if dataProductRelease.ContractTerms != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/contract_terms"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/contract_terms"),
 			Value: dataProductRelease.ContractTerms,
 		})
 	}
-	if (dataProductRelease.Domain != nil) {
+	if dataProductRelease.Domain != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/domain"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/domain"),
 			Value: dataProductRelease.Domain,
 		})
 	}
-	if (dataProductRelease.PartsOut != nil) {
+	if dataProductRelease.PartsOut != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/parts_out"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/parts_out"),
 			Value: dataProductRelease.PartsOut,
 		})
 	}
-	if (dataProductRelease.Workflows != nil) {
+	if dataProductRelease.Workflows != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/workflows"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/workflows"),
 			Value: dataProductRelease.Workflows,
 		})
 	}
-	if (dataProductRelease.DataviewEnabled != nil) {
+	if dataProductRelease.DataviewEnabled != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/dataview_enabled"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/dataview_enabled"),
 			Value: dataProductRelease.DataviewEnabled,
 		})
 	}
-	if (dataProductRelease.Comments != nil) {
+	if dataProductRelease.Comments != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/comments"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/comments"),
 			Value: dataProductRelease.Comments,
 		})
 	}
-	if (dataProductRelease.AccessControl != nil) {
+	if dataProductRelease.AccessControl != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/access_control"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/access_control"),
 			Value: dataProductRelease.AccessControl,
 		})
 	}
-	if (dataProductRelease.LastUpdatedAt != nil) {
+	if dataProductRelease.LastUpdatedAt != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/last_updated_at"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/last_updated_at"),
 			Value: dataProductRelease.LastUpdatedAt,
 		})
 	}
-	if (dataProductRelease.IsRestricted != nil) {
+	if dataProductRelease.SubContainer != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/is_restricted"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/sub_container"),
+			Value: dataProductRelease.SubContainer,
+		})
+	}
+	if dataProductRelease.IsRestricted != nil {
+		_patch = append(_patch, JSONPatchOperation{
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/is_restricted"),
 			Value: dataProductRelease.IsRestricted,
 		})
 	}
-	if (dataProductRelease.ID != nil) {
+	if dataProductRelease.ID != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/id"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/id"),
 			Value: dataProductRelease.ID,
 		})
 	}
-	if (dataProductRelease.Asset != nil) {
+	if dataProductRelease.Asset != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/asset"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/asset"),
 			Value: dataProductRelease.Asset,
 		})
 	}
-	if (dataProductRelease.PublishedBy != nil) {
+	if dataProductRelease.PublishedBy != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/published_by"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/published_by"),
 			Value: dataProductRelease.PublishedBy,
 		})
 	}
-	if (dataProductRelease.PublishedAt != nil) {
+	if dataProductRelease.PublishedAt != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/published_at"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/published_at"),
 			Value: dataProductRelease.PublishedAt,
 		})
 	}
-	if (dataProductRelease.CreatedBy != nil) {
+	if dataProductRelease.CreatedBy != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/created_by"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/created_by"),
 			Value: dataProductRelease.CreatedBy,
 		})
 	}
-	if (dataProductRelease.CreatedAt != nil) {
+	if dataProductRelease.CreatedAt != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/created_at"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/created_at"),
 			Value: dataProductRelease.CreatedAt,
 		})
 	}
-	if (dataProductRelease.Properties != nil) {
+	if dataProductRelease.Properties != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/properties"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/properties"),
 			Value: dataProductRelease.Properties,
 		})
 	}
-	if (dataProductRelease.VisualizationErrors != nil) {
+	if dataProductRelease.VisualizationErrors != nil {
 		_patch = append(_patch, JSONPatchOperation{
-			Op: core.StringPtr(JSONPatchOperationOpAddConst),
-			Path: core.StringPtr("/visualization_errors"),
+			Op:    core.StringPtr(JSONPatchOperationOpAddConst),
+			Path:  core.StringPtr("/visualization_errors"),
 			Value: dataProductRelease.VisualizationErrors,
 		})
 	}
@@ -7393,6 +8383,9 @@ type DataProductReleaseSummary struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted" validate:"required"`
@@ -7408,8 +8401,8 @@ type DataProductReleaseSummary struct {
 // The state of the data product version.
 const (
 	DataProductReleaseSummaryStateAvailableConst = "available"
-	DataProductReleaseSummaryStateDraftConst = "draft"
-	DataProductReleaseSummaryStateRetiredConst = "retired"
+	DataProductReleaseSummaryStateDraftConst     = "draft"
+	DataProductReleaseSummaryStateRetiredConst   = "retired"
 )
 
 // Constants associated with the DataProductReleaseSummary.Types property.
@@ -7499,6 +8492,11 @@ func UnmarshalDataProductReleaseSummary(m map[string]json.RawMessage, result int
 	err = core.UnmarshalPrimitive(m, "last_updated_at", &obj.LastUpdatedAt)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "last_updated_at-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
 		return
 	}
 	err = core.UnmarshalPrimitive(m, "is_restricted", &obj.IsRestricted)
@@ -7701,6 +8699,9 @@ type DataProductVersionSummary struct {
 	// Timestamp of last asset update.
 	LastUpdatedAt *strfmt.DateTime `json:"last_updated_at,omitempty"`
 
+	// The identity schema for a IBM knowledge catalog container (catalog/project/space).
+	SubContainer *ContainerIdentity `json:"sub_container,omitempty"`
+
 	// Indicates whether the data product is restricted or not. A restricted data product indicates that orders of the data
 	// product requires explicit approval before data is delivered.
 	IsRestricted *bool `json:"is_restricted" validate:"required"`
@@ -7716,8 +8717,8 @@ type DataProductVersionSummary struct {
 // The state of the data product version.
 const (
 	DataProductVersionSummaryStateAvailableConst = "available"
-	DataProductVersionSummaryStateDraftConst = "draft"
-	DataProductVersionSummaryStateRetiredConst = "retired"
+	DataProductVersionSummaryStateDraftConst     = "draft"
+	DataProductVersionSummaryStateRetiredConst   = "retired"
 )
 
 // Constants associated with the DataProductVersionSummary.Types property.
@@ -7809,6 +8810,11 @@ func UnmarshalDataProductVersionSummary(m map[string]json.RawMessage, result int
 		err = core.SDKErrorf(err, "", "last_updated_at-error", common.GetComponentInfo())
 		return
 	}
+	err = core.UnmarshalModel(m, "sub_container", &obj.SubContainer, UnmarshalContainerIdentity)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "sub_container-error", common.GetComponentInfo())
+		return
+	}
 	err = core.UnmarshalPrimitive(m, "is_restricted", &obj.IsRestricted)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "is_restricted-error", common.GetComponentInfo())
@@ -7896,7 +8902,7 @@ type DeleteDataProductContractTemplateOptions struct {
 func (*DataProductHubAPIServiceV1) NewDeleteDataProductContractTemplateOptions(contractTemplateID string, containerID string) *DeleteDataProductContractTemplateOptions {
 	return &DeleteDataProductContractTemplateOptions{
 		ContractTemplateID: core.StringPtr(contractTemplateID),
-		ContainerID: core.StringPtr(containerID),
+		ContainerID:        core.StringPtr(containerID),
 	}
 }
 
@@ -7934,7 +8940,7 @@ type DeleteDataProductDraftOptions struct {
 func (*DataProductHubAPIServiceV1) NewDeleteDataProductDraftOptions(dataProductID string, draftID string) *DeleteDataProductDraftOptions {
 	return &DeleteDataProductDraftOptions{
 		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DraftID:       core.StringPtr(draftID),
 	}
 }
 
@@ -8005,10 +9011,10 @@ type DeleteDraftContractTermsDocumentOptions struct {
 // NewDeleteDraftContractTermsDocumentOptions : Instantiate DeleteDraftContractTermsDocumentOptions
 func (*DataProductHubAPIServiceV1) NewDeleteDraftContractTermsDocumentOptions(dataProductID string, draftID string, contractTermsID string, documentID string) *DeleteDraftContractTermsDocumentOptions {
 	return &DeleteDraftContractTermsDocumentOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
 		ContractTermsID: core.StringPtr(contractTermsID),
-		DocumentID: core.StringPtr(documentID),
+		DocumentID:      core.StringPtr(documentID),
 	}
 }
 
@@ -8057,7 +9063,7 @@ type DeliveryMethod struct {
 // NewDeliveryMethod : Instantiate DeliveryMethod (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewDeliveryMethod(id string, container *ContainerReference) (_model *DeliveryMethod, err error) {
 	_model = &DeliveryMethod{
-		ID: core.StringPtr(id),
+		ID:        core.StringPtr(id),
 		Container: container,
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -8219,8 +9225,30 @@ type EngineDetailsModel struct {
 	// The host of the engine defined by the data product producer.
 	EngineHost *string `json:"engine_host,omitempty"`
 
+	// The type of the engine (eg: Presto/Spark).
+	EngineType *string `json:"engine_type" validate:"required"`
+
 	// The list of associated catalogs.
 	AssociatedCatalogs []string `json:"associated_catalogs,omitempty"`
+}
+
+// Constants associated with the EngineDetailsModel.EngineType property.
+// The type of the engine (eg: Presto/Spark).
+const (
+	EngineDetailsModelEngineTypePrestoConst = "presto"
+	EngineDetailsModelEngineTypeSparkConst  = "spark"
+)
+
+// NewEngineDetailsModel : Instantiate EngineDetailsModel (Generic Model Constructor)
+func (*DataProductHubAPIServiceV1) NewEngineDetailsModel(engineType string) (_model *EngineDetailsModel, err error) {
+	_model = &EngineDetailsModel{
+		EngineType: core.StringPtr(engineType),
+	}
+	err = core.ValidateStruct(_model, "required parameters")
+	if err != nil {
+		err = core.SDKErrorf(err, "", "model-missing-required", common.GetComponentInfo())
+	}
+	return
 }
 
 // UnmarshalEngineDetailsModel unmarshals an instance of EngineDetailsModel from the specified map of raw messages.
@@ -8244,6 +9272,11 @@ func UnmarshalEngineDetailsModel(m map[string]json.RawMessage, result interface{
 	err = core.UnmarshalPrimitive(m, "engine_host", &obj.EngineHost)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "engine_host-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "engine_type", &obj.EngineType)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "engine_type-error", common.GetComponentInfo())
 		return
 	}
 	err = core.UnmarshalPrimitive(m, "associated_catalogs", &obj.AssociatedCatalogs)
@@ -8333,7 +9366,7 @@ type ErrorMessage struct {
 // NewErrorMessage : Instantiate ErrorMessage (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewErrorMessage(code string, message string) (_model *ErrorMessage, err error) {
 	_model = &ErrorMessage{
-		Code: core.StringPtr(code),
+		Code:    core.StringPtr(code),
 		Message: core.StringPtr(message),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -8378,37 +9411,37 @@ type ErrorModelResource struct {
 // Constants associated with the ErrorModelResource.Code property.
 // Error code.
 const (
-	ErrorModelResourceCodeAlreadyExistsConst = "already_exists"
-	ErrorModelResourceCodeConfigurationErrorConst = "configuration_error"
-	ErrorModelResourceCodeConflictConst = "conflict"
-	ErrorModelResourceCodeConstraintViolationConst = "constraint_violation"
-	ErrorModelResourceCodeCreateErrorConst = "create_error"
-	ErrorModelResourceCodeDataErrorConst = "data_error"
-	ErrorModelResourceCodeDatabaseErrorConst = "database_error"
-	ErrorModelResourceCodeDatabaseQueryErrorConst = "database_query_error"
-	ErrorModelResourceCodeDatabaseUsageLimitsConst = "database_usage_limits"
-	ErrorModelResourceCodeDeleteErrorConst = "delete_error"
-	ErrorModelResourceCodeDeletedConst = "deleted"
-	ErrorModelResourceCodeDependentServiceErrorConst = "dependent_service_error"
-	ErrorModelResourceCodeDoesNotExistConst = "does_not_exist"
+	ErrorModelResourceCodeAlreadyExistsConst          = "already_exists"
+	ErrorModelResourceCodeConfigurationErrorConst     = "configuration_error"
+	ErrorModelResourceCodeConflictConst               = "conflict"
+	ErrorModelResourceCodeConstraintViolationConst    = "constraint_violation"
+	ErrorModelResourceCodeCreateErrorConst            = "create_error"
+	ErrorModelResourceCodeDataErrorConst              = "data_error"
+	ErrorModelResourceCodeDatabaseErrorConst          = "database_error"
+	ErrorModelResourceCodeDatabaseQueryErrorConst     = "database_query_error"
+	ErrorModelResourceCodeDatabaseUsageLimitsConst    = "database_usage_limits"
+	ErrorModelResourceCodeDeleteErrorConst            = "delete_error"
+	ErrorModelResourceCodeDeletedConst                = "deleted"
+	ErrorModelResourceCodeDependentServiceErrorConst  = "dependent_service_error"
+	ErrorModelResourceCodeDoesNotExistConst           = "does_not_exist"
 	ErrorModelResourceCodeEntitlementEnforcementConst = "entitlement_enforcement"
-	ErrorModelResourceCodeFeatureNotEnabledConst = "feature_not_enabled"
-	ErrorModelResourceCodeFetchErrorConst = "fetch_error"
-	ErrorModelResourceCodeForbiddenConst = "forbidden"
+	ErrorModelResourceCodeFeatureNotEnabledConst      = "feature_not_enabled"
+	ErrorModelResourceCodeFetchErrorConst             = "fetch_error"
+	ErrorModelResourceCodeForbiddenConst              = "forbidden"
 	ErrorModelResourceCodeGovernancePolicyDenialConst = "governance_policy_denial"
-	ErrorModelResourceCodeInactiveUserConst = "inactive_user"
-	ErrorModelResourceCodeInvalidParameterConst = "invalid_parameter"
-	ErrorModelResourceCodeMissingAssetDetailsConst = "missing_asset_details"
-	ErrorModelResourceCodeMissingRequiredValueConst = "missing_required_value"
-	ErrorModelResourceCodeNotAuthenticatedConst = "not_authenticated"
-	ErrorModelResourceCodeNotAuthorizedConst = "not_authorized"
-	ErrorModelResourceCodeNotImplementedConst = "not_implemented"
-	ErrorModelResourceCodePatchErrorConst = "patch_error"
-	ErrorModelResourceCodeRequestBodyErrorConst = "request_body_error"
-	ErrorModelResourceCodeTooManyRequestsConst = "too_many_requests"
-	ErrorModelResourceCodeUnableToPerformConst = "unable_to_perform"
-	ErrorModelResourceCodeUnexpectedExceptionConst = "unexpected_exception"
-	ErrorModelResourceCodeUpdateErrorConst = "update_error"
+	ErrorModelResourceCodeInactiveUserConst           = "inactive_user"
+	ErrorModelResourceCodeInvalidParameterConst       = "invalid_parameter"
+	ErrorModelResourceCodeMissingAssetDetailsConst    = "missing_asset_details"
+	ErrorModelResourceCodeMissingRequiredValueConst   = "missing_required_value"
+	ErrorModelResourceCodeNotAuthenticatedConst       = "not_authenticated"
+	ErrorModelResourceCodeNotAuthorizedConst          = "not_authorized"
+	ErrorModelResourceCodeNotImplementedConst         = "not_implemented"
+	ErrorModelResourceCodePatchErrorConst             = "patch_error"
+	ErrorModelResourceCodeRequestBodyErrorConst       = "request_body_error"
+	ErrorModelResourceCodeTooManyRequestsConst        = "too_many_requests"
+	ErrorModelResourceCodeUnableToPerformConst        = "unable_to_perform"
+	ErrorModelResourceCodeUnexpectedExceptionConst    = "unexpected_exception"
+	ErrorModelResourceCodeUpdateErrorConst            = "update_error"
 )
 
 // NewErrorModelResource : Instantiate ErrorModelResource (Generic Model Constructor)
@@ -8484,7 +9517,7 @@ type GetContractTemplateOptions struct {
 func (*DataProductHubAPIServiceV1) NewGetContractTemplateOptions(contractTemplateID string, containerID string) *GetContractTemplateOptions {
 	return &GetContractTemplateOptions{
 		ContractTemplateID: core.StringPtr(contractTemplateID),
-		ContainerID: core.StringPtr(containerID),
+		ContainerID:        core.StringPtr(containerID),
 	}
 }
 
@@ -8506,6 +9539,83 @@ func (options *GetContractTemplateOptions) SetHeaders(param map[string]string) *
 	return options
 }
 
+// GetContractTermsInSpecifiedFormatOptions : The GetContractTermsInSpecifiedFormat options.
+type GetContractTermsInSpecifiedFormatOptions struct {
+	// Data product ID. Use '-' to skip specifying the data product ID explicitly.
+	DataProductID *string `json:"data_product_id" validate:"required,ne="`
+
+	// Data product draft id.
+	DraftID *string `json:"draft_id" validate:"required,ne="`
+
+	// Contract terms id.
+	ContractTermsID *string `json:"contract_terms_id" validate:"required,ne="`
+
+	// The format for returning contract terms. For example: odcs.
+	Format *string `json:"format" validate:"required"`
+
+	// The version of the format for returning contract terms. For example: 3.
+	FormatVersion *string `json:"format_version" validate:"required"`
+
+	// The type of the response: application/odcs+yaml or application/json.
+	Accept *string `json:"Accept,omitempty"`
+
+	// Allows users to set headers on API requests.
+	Headers map[string]string
+}
+
+// NewGetContractTermsInSpecifiedFormatOptions : Instantiate GetContractTermsInSpecifiedFormatOptions
+func (*DataProductHubAPIServiceV1) NewGetContractTermsInSpecifiedFormatOptions(dataProductID string, draftID string, contractTermsID string, format string, formatVersion string) *GetContractTermsInSpecifiedFormatOptions {
+	return &GetContractTermsInSpecifiedFormatOptions{
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
+		ContractTermsID: core.StringPtr(contractTermsID),
+		Format:          core.StringPtr(format),
+		FormatVersion:   core.StringPtr(formatVersion),
+	}
+}
+
+// SetDataProductID : Allow user to set DataProductID
+func (_options *GetContractTermsInSpecifiedFormatOptions) SetDataProductID(dataProductID string) *GetContractTermsInSpecifiedFormatOptions {
+	_options.DataProductID = core.StringPtr(dataProductID)
+	return _options
+}
+
+// SetDraftID : Allow user to set DraftID
+func (_options *GetContractTermsInSpecifiedFormatOptions) SetDraftID(draftID string) *GetContractTermsInSpecifiedFormatOptions {
+	_options.DraftID = core.StringPtr(draftID)
+	return _options
+}
+
+// SetContractTermsID : Allow user to set ContractTermsID
+func (_options *GetContractTermsInSpecifiedFormatOptions) SetContractTermsID(contractTermsID string) *GetContractTermsInSpecifiedFormatOptions {
+	_options.ContractTermsID = core.StringPtr(contractTermsID)
+	return _options
+}
+
+// SetFormat : Allow user to set Format
+func (_options *GetContractTermsInSpecifiedFormatOptions) SetFormat(format string) *GetContractTermsInSpecifiedFormatOptions {
+	_options.Format = core.StringPtr(format)
+	return _options
+}
+
+// SetFormatVersion : Allow user to set FormatVersion
+func (_options *GetContractTermsInSpecifiedFormatOptions) SetFormatVersion(formatVersion string) *GetContractTermsInSpecifiedFormatOptions {
+	_options.FormatVersion = core.StringPtr(formatVersion)
+	return _options
+}
+
+// SetAccept : Allow user to set Accept
+func (_options *GetContractTermsInSpecifiedFormatOptions) SetAccept(accept string) *GetContractTermsInSpecifiedFormatOptions {
+	_options.Accept = core.StringPtr(accept)
+	return _options
+}
+
+// SetHeaders : Allow user to set Headers
+func (options *GetContractTermsInSpecifiedFormatOptions) SetHeaders(param map[string]string) *GetContractTermsInSpecifiedFormatOptions {
+	options.Headers = param
+	return options
+}
+
 // GetDataProductByDomainOptions : The GetDataProductByDomain options.
 type GetDataProductByDomainOptions struct {
 	// Domain id.
@@ -8521,7 +9631,7 @@ type GetDataProductByDomainOptions struct {
 // NewGetDataProductByDomainOptions : Instantiate GetDataProductByDomainOptions
 func (*DataProductHubAPIServiceV1) NewGetDataProductByDomainOptions(domainID string, containerID string) *GetDataProductByDomainOptions {
 	return &GetDataProductByDomainOptions{
-		DomainID: core.StringPtr(domainID),
+		DomainID:    core.StringPtr(domainID),
 		ContainerID: core.StringPtr(containerID),
 	}
 }
@@ -8555,12 +9665,18 @@ type GetDataProductDraftContractTermsOptions struct {
 	// Contract terms id.
 	ContractTermsID *string `json:"contract_terms_id" validate:"required,ne="`
 
-	// The type of the response: application/odcs+yaml or application/json.
+	// The type of the response: application/json or application/odcs+yaml.
 	Accept *string `json:"Accept,omitempty"`
 
 	// Set to false to exclude external contract documents (e.g., Terms and Conditions URLs) from the response. By default,
 	// these are included.
 	IncludeContractDocuments *bool `json:"include_contract_documents,omitempty"`
+
+	// Set to true to autopopulate server information from connection details. Default is false.
+	AutopopulateServerInformation *bool `json:"autopopulate_server_information,omitempty"`
+
+	// Asset ID of the server used for autopopulating connection details.
+	ServerAssetID *string `json:"server_asset_id,omitempty"`
 
 	// Allows users to set headers on API requests.
 	Headers map[string]string
@@ -8569,8 +9685,8 @@ type GetDataProductDraftContractTermsOptions struct {
 // NewGetDataProductDraftContractTermsOptions : Instantiate GetDataProductDraftContractTermsOptions
 func (*DataProductHubAPIServiceV1) NewGetDataProductDraftContractTermsOptions(dataProductID string, draftID string, contractTermsID string) *GetDataProductDraftContractTermsOptions {
 	return &GetDataProductDraftContractTermsOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
 		ContractTermsID: core.StringPtr(contractTermsID),
 	}
 }
@@ -8605,6 +9721,18 @@ func (_options *GetDataProductDraftContractTermsOptions) SetIncludeContractDocum
 	return _options
 }
 
+// SetAutopopulateServerInformation : Allow user to set AutopopulateServerInformation
+func (_options *GetDataProductDraftContractTermsOptions) SetAutopopulateServerInformation(autopopulateServerInformation bool) *GetDataProductDraftContractTermsOptions {
+	_options.AutopopulateServerInformation = core.BoolPtr(autopopulateServerInformation)
+	return _options
+}
+
+// SetServerAssetID : Allow user to set ServerAssetID
+func (_options *GetDataProductDraftContractTermsOptions) SetServerAssetID(serverAssetID string) *GetDataProductDraftContractTermsOptions {
+	_options.ServerAssetID = core.StringPtr(serverAssetID)
+	return _options
+}
+
 // SetHeaders : Allow user to set Headers
 func (options *GetDataProductDraftContractTermsOptions) SetHeaders(param map[string]string) *GetDataProductDraftContractTermsOptions {
 	options.Headers = param
@@ -8627,7 +9755,7 @@ type GetDataProductDraftOptions struct {
 func (*DataProductHubAPIServiceV1) NewGetDataProductDraftOptions(dataProductID string, draftID string) *GetDataProductDraftOptions {
 	return &GetDataProductDraftOptions{
 		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DraftID:       core.StringPtr(draftID),
 	}
 }
 
@@ -8697,7 +9825,7 @@ type GetDataProductReleaseOptions struct {
 func (*DataProductHubAPIServiceV1) NewGetDataProductReleaseOptions(dataProductID string, releaseID string) *GetDataProductReleaseOptions {
 	return &GetDataProductReleaseOptions{
 		DataProductID: core.StringPtr(dataProductID),
-		ReleaseID: core.StringPtr(releaseID),
+		ReleaseID:     core.StringPtr(releaseID),
 	}
 }
 
@@ -8774,10 +9902,10 @@ type GetDraftContractTermsDocumentOptions struct {
 // NewGetDraftContractTermsDocumentOptions : Instantiate GetDraftContractTermsDocumentOptions
 func (*DataProductHubAPIServiceV1) NewGetDraftContractTermsDocumentOptions(dataProductID string, draftID string, contractTermsID string, documentID string) *GetDraftContractTermsDocumentOptions {
 	return &GetDraftContractTermsDocumentOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
 		ContractTermsID: core.StringPtr(contractTermsID),
-		DocumentID: core.StringPtr(documentID),
+		DocumentID:      core.StringPtr(documentID),
 	}
 }
 
@@ -8863,8 +9991,8 @@ type GetPublishedDataProductDraftContractTermsOptions struct {
 // NewGetPublishedDataProductDraftContractTermsOptions : Instantiate GetPublishedDataProductDraftContractTermsOptions
 func (*DataProductHubAPIServiceV1) NewGetPublishedDataProductDraftContractTermsOptions(dataProductID string, releaseID string, contractTermsID string) *GetPublishedDataProductDraftContractTermsOptions {
 	return &GetPublishedDataProductDraftContractTermsOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		ReleaseID: core.StringPtr(releaseID),
+		DataProductID:   core.StringPtr(dataProductID),
+		ReleaseID:       core.StringPtr(releaseID),
 		ContractTermsID: core.StringPtr(contractTermsID),
 	}
 }
@@ -8926,10 +10054,10 @@ type GetReleaseContractTermsDocumentOptions struct {
 // NewGetReleaseContractTermsDocumentOptions : Instantiate GetReleaseContractTermsDocumentOptions
 func (*DataProductHubAPIServiceV1) NewGetReleaseContractTermsDocumentOptions(dataProductID string, releaseID string, contractTermsID string, documentID string) *GetReleaseContractTermsDocumentOptions {
 	return &GetReleaseContractTermsDocumentOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		ReleaseID: core.StringPtr(releaseID),
+		DataProductID:   core.StringPtr(dataProductID),
+		ReleaseID:       core.StringPtr(releaseID),
 		ContractTermsID: core.StringPtr(contractTermsID),
-		DocumentID: core.StringPtr(documentID),
+		DocumentID:      core.StringPtr(documentID),
 	}
 }
 
@@ -8959,6 +10087,52 @@ func (_options *GetReleaseContractTermsDocumentOptions) SetDocumentID(documentID
 
 // SetHeaders : Allow user to set Headers
 func (options *GetReleaseContractTermsDocumentOptions) SetHeaders(param map[string]string) *GetReleaseContractTermsDocumentOptions {
+	options.Headers = param
+	return options
+}
+
+// GetRevokeAccessProcessStateOptions : The GetRevokeAccessProcessState options.
+type GetRevokeAccessProcessStateOptions struct {
+	// Pass the data product release version id to retrieve job runs state for that specific DPV ID.
+	ReleaseID *string `json:"release_id" validate:"required"`
+
+	// Limit the number of tracking assets in the results. The maximum is 200.
+	Limit *int64 `json:"limit,omitempty"`
+
+	// Start token for pagination.
+	Start *string `json:"start,omitempty"`
+
+	// Allows users to set headers on API requests.
+	Headers map[string]string
+}
+
+// NewGetRevokeAccessProcessStateOptions : Instantiate GetRevokeAccessProcessStateOptions
+func (*DataProductHubAPIServiceV1) NewGetRevokeAccessProcessStateOptions(releaseID string) *GetRevokeAccessProcessStateOptions {
+	return &GetRevokeAccessProcessStateOptions{
+		ReleaseID: core.StringPtr(releaseID),
+	}
+}
+
+// SetReleaseID : Allow user to set ReleaseID
+func (_options *GetRevokeAccessProcessStateOptions) SetReleaseID(releaseID string) *GetRevokeAccessProcessStateOptions {
+	_options.ReleaseID = core.StringPtr(releaseID)
+	return _options
+}
+
+// SetLimit : Allow user to set Limit
+func (_options *GetRevokeAccessProcessStateOptions) SetLimit(limit int64) *GetRevokeAccessProcessStateOptions {
+	_options.Limit = core.Int64Ptr(limit)
+	return _options
+}
+
+// SetStart : Allow user to set Start
+func (_options *GetRevokeAccessProcessStateOptions) SetStart(start string) *GetRevokeAccessProcessStateOptions {
+	_options.Start = core.StringPtr(start)
+	return _options
+}
+
+// SetHeaders : Allow user to set Headers
+func (options *GetRevokeAccessProcessStateOptions) SetHeaders(param map[string]string) *GetRevokeAccessProcessStateOptions {
 	options.Headers = param
 	return options
 }
@@ -9023,13 +10197,13 @@ type InitializeOptions struct {
 
 // Constants associated with the InitializeOptions.Include property.
 const (
-	InitializeOptionsIncludeCatalogConfigurationsConst = "catalog_configurations"
-	InitializeOptionsIncludeDataProductSamplesConst = "data_product_samples"
-	InitializeOptionsIncludeDeliveryMethodsConst = "delivery_methods"
-	InitializeOptionsIncludeDomainsMultiIndustryConst = "domains_multi_industry"
+	InitializeOptionsIncludeCatalogConfigurationsConst    = "catalog_configurations"
+	InitializeOptionsIncludeDataProductSamplesConst       = "data_product_samples"
+	InitializeOptionsIncludeDeliveryMethodsConst          = "delivery_methods"
+	InitializeOptionsIncludeDomainsMultiIndustryConst     = "domains_multi_industry"
 	InitializeOptionsIncludeFunctionalAdminUserGroupConst = "functional_admin_user_group"
-	InitializeOptionsIncludeProjectConst = "project"
-	InitializeOptionsIncludeWorkflowsConst = "workflows"
+	InitializeOptionsIncludeProjectConst                  = "project"
+	InitializeOptionsIncludeWorkflowsConst                = "workflows"
 )
 
 // NewInitializeOptions : Instantiate InitializeOptions
@@ -9088,10 +10262,10 @@ type InitializeResource struct {
 // Constants associated with the InitializeResource.Status property.
 // Status of the initialize operation.
 const (
-	InitializeResourceStatusFailedConst = "failed"
+	InitializeResourceStatusFailedConst     = "failed"
 	InitializeResourceStatusInProgressConst = "in_progress"
 	InitializeResourceStatusNotStartedConst = "not_started"
-	InitializeResourceStatusSucceededConst = "succeeded"
+	InitializeResourceStatusSucceededConst  = "succeeded"
 )
 
 // UnmarshalInitializeResource unmarshals an instance of InitializeResource from the specified map of raw messages.
@@ -9224,18 +10398,18 @@ type JSONPatchOperation struct {
 // Constants associated with the JSONPatchOperation.Op property.
 // The operation to be performed.
 const (
-	JSONPatchOperationOpAddConst = "add"
-	JSONPatchOperationOpCopyConst = "copy"
-	JSONPatchOperationOpMoveConst = "move"
-	JSONPatchOperationOpRemoveConst = "remove"
+	JSONPatchOperationOpAddConst     = "add"
+	JSONPatchOperationOpCopyConst    = "copy"
+	JSONPatchOperationOpMoveConst    = "move"
+	JSONPatchOperationOpRemoveConst  = "remove"
 	JSONPatchOperationOpReplaceConst = "replace"
-	JSONPatchOperationOpTestConst = "test"
+	JSONPatchOperationOpTestConst    = "test"
 )
 
 // NewJSONPatchOperation : Instantiate JSONPatchOperation (Generic Model Constructor)
 func (*DataProductHubAPIServiceV1) NewJSONPatchOperation(op string, path string) (_model *JSONPatchOperation, err error) {
 	_model = &JSONPatchOperation{
-		Op: core.StringPtr(op),
+		Op:   core.StringPtr(op),
 		Path: core.StringPtr(path),
 	}
 	err = core.ValidateStruct(_model, "required parameters")
@@ -9282,6 +10456,10 @@ type ListDataProductContractTemplateOptions struct {
 	// returned.
 	ContractTemplateName *string `json:"contract_template.name,omitempty"`
 
+	// Comma-separated domain IDs to filter data product contract templates. If not supplied, the data product templates
+	// within the catalog will returned.
+	DomainIds *string `json:"domain.ids,omitempty"`
+
 	// Allows users to set headers on API requests.
 	Headers map[string]string
 }
@@ -9303,6 +10481,12 @@ func (_options *ListDataProductContractTemplateOptions) SetContractTemplateName(
 	return _options
 }
 
+// SetDomainIds : Allow user to set DomainIds
+func (_options *ListDataProductContractTemplateOptions) SetDomainIds(domainIds string) *ListDataProductContractTemplateOptions {
+	_options.DomainIds = core.StringPtr(domainIds)
+	return _options
+}
+
 // SetHeaders : Allow user to set Headers
 func (options *ListDataProductContractTemplateOptions) SetHeaders(param map[string]string) *ListDataProductContractTemplateOptions {
 	options.Headers = param
@@ -9314,6 +10498,9 @@ type ListDataProductDomainsOptions struct {
 	// Container ID of the data product catalog. If not supplied, the data product catalog is looked up by using the uid of
 	// the default data product catalog.
 	ContainerID *string `json:"container.id,omitempty"`
+
+	// Include subdomains in the response.
+	IncludeSubdomains *bool `json:"include_subdomains,omitempty"`
 
 	// Allows users to set headers on API requests.
 	Headers map[string]string
@@ -9327,6 +10514,12 @@ func (*DataProductHubAPIServiceV1) NewListDataProductDomainsOptions() *ListDataP
 // SetContainerID : Allow user to set ContainerID
 func (_options *ListDataProductDomainsOptions) SetContainerID(containerID string) *ListDataProductDomainsOptions {
 	_options.ContainerID = core.StringPtr(containerID)
+	return _options
+}
+
+// SetIncludeSubdomains : Allow user to set IncludeSubdomains
+func (_options *ListDataProductDomainsOptions) SetIncludeSubdomains(includeSubdomains bool) *ListDataProductDomainsOptions {
+	_options.IncludeSubdomains = core.BoolPtr(includeSubdomains)
 	return _options
 }
 
@@ -9428,7 +10621,7 @@ type ListDataProductReleasesOptions struct {
 // Constants associated with the ListDataProductReleasesOptions.State property.
 const (
 	ListDataProductReleasesOptionsStateAvailableConst = "available"
-	ListDataProductReleasesOptionsStateRetiredConst = "retired"
+	ListDataProductReleasesOptionsStateRetiredConst   = "retired"
 )
 
 // NewListDataProductReleasesOptions : Instantiate ListDataProductReleasesOptions
@@ -9612,7 +10805,7 @@ type Overview struct {
 func (*DataProductHubAPIServiceV1) NewOverview(version string, domain *Domain) (_model *Overview, err error) {
 	_model = &Overview{
 		Version: core.StringPtr(version),
-		Domain: domain,
+		Domain:  domain,
 	}
 	err = core.ValidateStruct(_model, "required parameters")
 	if err != nil {
@@ -9696,6 +10889,9 @@ func UnmarshalPricing(m map[string]json.RawMessage, result interface{}) (err err
 type ProducerInputModel struct {
 	// Engine details as defined by the data product producer.
 	EngineDetails *EngineDetailsModel `json:"engine_details,omitempty"`
+
+	// List of engines defined by the data product producer.
+	Engines []EngineDetailsModel `json:"engines,omitempty"`
 }
 
 // UnmarshalProducerInputModel unmarshals an instance of ProducerInputModel from the specified map of raw messages.
@@ -9704,6 +10900,11 @@ func UnmarshalProducerInputModel(m map[string]json.RawMessage, result interface{
 	err = core.UnmarshalModel(m, "engine_details", &obj.EngineDetails, UnmarshalEngineDetailsModel)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "engine_details-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "engines", &obj.Engines, UnmarshalEngineDetailsModel)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "engines-error", common.GetComponentInfo())
 		return
 	}
 	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
@@ -9788,7 +10989,7 @@ type PublishDataProductDraftOptions struct {
 func (*DataProductHubAPIServiceV1) NewPublishDataProductDraftOptions(dataProductID string, draftID string) *PublishDataProductDraftOptions {
 	return &PublishDataProductDraftOptions{
 		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DraftID:       core.StringPtr(draftID),
 	}
 }
 
@@ -9886,6 +11087,9 @@ type ReplaceDataProductDraftContractTermsOptions struct {
 	// Contains the contract test status and related metadata.
 	ContractTest *ContractTest `json:"contract_test,omitempty"`
 
+	// List of server definitions.
+	Servers []ContractServer `json:"servers,omitempty"`
+
 	// Schema details of the data asset.
 	Schema []ContractSchema `json:"schema,omitempty"`
 
@@ -9896,8 +11100,8 @@ type ReplaceDataProductDraftContractTermsOptions struct {
 // NewReplaceDataProductDraftContractTermsOptions : Instantiate ReplaceDataProductDraftContractTermsOptions
 func (*DataProductHubAPIServiceV1) NewReplaceDataProductDraftContractTermsOptions(dataProductID string, draftID string, contractTermsID string) *ReplaceDataProductDraftContractTermsOptions {
 	return &ReplaceDataProductDraftContractTermsOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:   core.StringPtr(dataProductID),
+		DraftID:         core.StringPtr(draftID),
 		ContractTermsID: core.StringPtr(contractTermsID),
 	}
 }
@@ -9998,6 +11202,12 @@ func (_options *ReplaceDataProductDraftContractTermsOptions) SetContractTest(con
 	return _options
 }
 
+// SetServers : Allow user to set Servers
+func (_options *ReplaceDataProductDraftContractTermsOptions) SetServers(servers []ContractServer) *ReplaceDataProductDraftContractTermsOptions {
+	_options.Servers = servers
+	return _options
+}
+
 // SetSchema : Allow user to set Schema
 func (_options *ReplaceDataProductDraftContractTermsOptions) SetSchema(schema []ContractSchema) *ReplaceDataProductDraftContractTermsOptions {
 	_options.Schema = schema
@@ -10022,6 +11232,10 @@ type RetireDataProductReleaseOptions struct {
 	// anymore.
 	RevokeAccess *bool `json:"revoke_access,omitempty"`
 
+	// The date and time when the revoke access operation should start (ISO 8601 format, e.g., 2025-09-24T06:55:29Z). If
+	// not provided, the operation starts immediately.
+	StartAt *string `json:"start_at,omitempty"`
+
 	// Allows users to set headers on API requests.
 	Headers map[string]string
 }
@@ -10030,7 +11244,7 @@ type RetireDataProductReleaseOptions struct {
 func (*DataProductHubAPIServiceV1) NewRetireDataProductReleaseOptions(dataProductID string, releaseID string) *RetireDataProductReleaseOptions {
 	return &RetireDataProductReleaseOptions{
 		DataProductID: core.StringPtr(dataProductID),
-		ReleaseID: core.StringPtr(releaseID),
+		ReleaseID:     core.StringPtr(releaseID),
 	}
 }
 
@@ -10052,10 +11266,68 @@ func (_options *RetireDataProductReleaseOptions) SetRevokeAccess(revokeAccess bo
 	return _options
 }
 
+// SetStartAt : Allow user to set StartAt
+func (_options *RetireDataProductReleaseOptions) SetStartAt(startAt string) *RetireDataProductReleaseOptions {
+	_options.StartAt = core.StringPtr(startAt)
+	return _options
+}
+
 // SetHeaders : Allow user to set Headers
 func (options *RetireDataProductReleaseOptions) SetHeaders(param map[string]string) *RetireDataProductReleaseOptions {
 	options.Headers = param
 	return options
+}
+
+// RevokeAccessResponse : This class holds the response message from the revoke access operation.
+type RevokeAccessResponse struct {
+	// Response message of revoke access.
+	Message *string `json:"message,omitempty"`
+}
+
+// UnmarshalRevokeAccessResponse unmarshals an instance of RevokeAccessResponse from the specified map of raw messages.
+func UnmarshalRevokeAccessResponse(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(RevokeAccessResponse)
+	err = core.UnmarshalPrimitive(m, "message", &obj.Message)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "message-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
+}
+
+// RevokeAccessStateResponse : Revoke access states with pagination support.
+type RevokeAccessStateResponse struct {
+	// Holds revoke access state.
+	Results []Asset `json:"results,omitempty"`
+
+	// Total number of rows available.
+	TotalCount *int64 `json:"total_count,omitempty"`
+
+	// Pagination information for the next page of results.
+	Next *SearchAssetPaginationInfo `json:"next,omitempty"`
+}
+
+// UnmarshalRevokeAccessStateResponse unmarshals an instance of RevokeAccessStateResponse from the specified map of raw messages.
+func UnmarshalRevokeAccessStateResponse(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(RevokeAccessStateResponse)
+	err = core.UnmarshalModel(m, "results", &obj.Results, UnmarshalAsset)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "results-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "total_count", &obj.TotalCount)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "total_count-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalModel(m, "next", &obj.Next, UnmarshalSearchAssetPaginationInfo)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "next-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
 }
 
 // Roles : Represents a role associated with the contract.
@@ -10070,6 +11342,56 @@ func UnmarshalRoles(m map[string]json.RawMessage, result interface{}) (err error
 	err = core.UnmarshalPrimitive(m, "role", &obj.Role)
 	if err != nil {
 		err = core.SDKErrorf(err, "", "role-error", common.GetComponentInfo())
+		return
+	}
+	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
+	return
+}
+
+// SearchAssetPaginationInfo : Pagination information for the next page of results.
+type SearchAssetPaginationInfo struct {
+	// Search query for filtering results.
+	Query *string `json:"query,omitempty"`
+
+	// Number of items per page.
+	Limit *int64 `json:"limit,omitempty"`
+
+	// Bookmark for pagination.
+	Bookmark *string `json:"bookmark,omitempty"`
+
+	// What to include in the results.
+	Include *string `json:"include,omitempty"`
+
+	// Number of items to skip.
+	Skip *int64 `json:"skip,omitempty"`
+}
+
+// UnmarshalSearchAssetPaginationInfo unmarshals an instance of SearchAssetPaginationInfo from the specified map of raw messages.
+func UnmarshalSearchAssetPaginationInfo(m map[string]json.RawMessage, result interface{}) (err error) {
+	obj := new(SearchAssetPaginationInfo)
+	err = core.UnmarshalPrimitive(m, "query", &obj.Query)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "query-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "limit", &obj.Limit)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "limit-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "bookmark", &obj.Bookmark)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "bookmark-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "include", &obj.Include)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "include-error", common.GetComponentInfo())
+		return
+	}
+	err = core.UnmarshalPrimitive(m, "skip", &obj.Skip)
+	if err != nil {
+		err = core.SDKErrorf(err, "", "skip-error", common.GetComponentInfo())
 		return
 	}
 	reflect.ValueOf(result).Elem().Set(reflect.ValueOf(obj))
@@ -10120,8 +11442,8 @@ type UpdateDataProductContractTemplateOptions struct {
 // NewUpdateDataProductContractTemplateOptions : Instantiate UpdateDataProductContractTemplateOptions
 func (*DataProductHubAPIServiceV1) NewUpdateDataProductContractTemplateOptions(contractTemplateID string, containerID string, jsonPatchInstructions []JSONPatchOperation) *UpdateDataProductContractTemplateOptions {
 	return &UpdateDataProductContractTemplateOptions{
-		ContractTemplateID: core.StringPtr(contractTemplateID),
-		ContainerID: core.StringPtr(containerID),
+		ContractTemplateID:    core.StringPtr(contractTemplateID),
+		ContainerID:           core.StringPtr(containerID),
 		JSONPatchInstructions: jsonPatchInstructions,
 	}
 }
@@ -10168,8 +11490,8 @@ type UpdateDataProductDomainOptions struct {
 // NewUpdateDataProductDomainOptions : Instantiate UpdateDataProductDomainOptions
 func (*DataProductHubAPIServiceV1) NewUpdateDataProductDomainOptions(domainID string, containerID string, jsonPatchInstructions []JSONPatchOperation) *UpdateDataProductDomainOptions {
 	return &UpdateDataProductDomainOptions{
-		DomainID: core.StringPtr(domainID),
-		ContainerID: core.StringPtr(containerID),
+		DomainID:              core.StringPtr(domainID),
+		ContainerID:           core.StringPtr(containerID),
 		JSONPatchInstructions: jsonPatchInstructions,
 	}
 }
@@ -10219,9 +11541,9 @@ type UpdateDataProductDraftContractTermsOptions struct {
 // NewUpdateDataProductDraftContractTermsOptions : Instantiate UpdateDataProductDraftContractTermsOptions
 func (*DataProductHubAPIServiceV1) NewUpdateDataProductDraftContractTermsOptions(dataProductID string, draftID string, contractTermsID string, jsonPatchInstructions []JSONPatchOperation) *UpdateDataProductDraftContractTermsOptions {
 	return &UpdateDataProductDraftContractTermsOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
-		ContractTermsID: core.StringPtr(contractTermsID),
+		DataProductID:         core.StringPtr(dataProductID),
+		DraftID:               core.StringPtr(draftID),
+		ContractTermsID:       core.StringPtr(contractTermsID),
 		JSONPatchInstructions: jsonPatchInstructions,
 	}
 }
@@ -10274,8 +11596,8 @@ type UpdateDataProductDraftOptions struct {
 // NewUpdateDataProductDraftOptions : Instantiate UpdateDataProductDraftOptions
 func (*DataProductHubAPIServiceV1) NewUpdateDataProductDraftOptions(dataProductID string, draftID string, jsonPatchInstructions []JSONPatchOperation) *UpdateDataProductDraftOptions {
 	return &UpdateDataProductDraftOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
+		DataProductID:         core.StringPtr(dataProductID),
+		DraftID:               core.StringPtr(draftID),
 		JSONPatchInstructions: jsonPatchInstructions,
 	}
 }
@@ -10322,8 +11644,8 @@ type UpdateDataProductReleaseOptions struct {
 // NewUpdateDataProductReleaseOptions : Instantiate UpdateDataProductReleaseOptions
 func (*DataProductHubAPIServiceV1) NewUpdateDataProductReleaseOptions(dataProductID string, releaseID string, jsonPatchInstructions []JSONPatchOperation) *UpdateDataProductReleaseOptions {
 	return &UpdateDataProductReleaseOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		ReleaseID: core.StringPtr(releaseID),
+		DataProductID:         core.StringPtr(dataProductID),
+		ReleaseID:             core.StringPtr(releaseID),
 		JSONPatchInstructions: jsonPatchInstructions,
 	}
 }
@@ -10376,10 +11698,10 @@ type UpdateDraftContractTermsDocumentOptions struct {
 // NewUpdateDraftContractTermsDocumentOptions : Instantiate UpdateDraftContractTermsDocumentOptions
 func (*DataProductHubAPIServiceV1) NewUpdateDraftContractTermsDocumentOptions(dataProductID string, draftID string, contractTermsID string, documentID string, jsonPatchInstructions []JSONPatchOperation) *UpdateDraftContractTermsDocumentOptions {
 	return &UpdateDraftContractTermsDocumentOptions{
-		DataProductID: core.StringPtr(dataProductID),
-		DraftID: core.StringPtr(draftID),
-		ContractTermsID: core.StringPtr(contractTermsID),
-		DocumentID: core.StringPtr(documentID),
+		DataProductID:         core.StringPtr(dataProductID),
+		DraftID:               core.StringPtr(draftID),
+		ContractTermsID:       core.StringPtr(contractTermsID),
+		DocumentID:            core.StringPtr(documentID),
 		JSONPatchInstructions: jsonPatchInstructions,
 	}
 }
@@ -10510,13 +11832,11 @@ func UnmarshalWorkflowDefinitionReference(m map[string]json.RawMessage, result i
 	return
 }
 
-//
 // DataProductsPager can be used to simplify the use of the "ListDataProducts" method.
-//
 type DataProductsPager struct {
-	hasNext bool
-	options *ListDataProductsOptions
-	client  *DataProductHubAPIServiceV1
+	hasNext     bool
+	options     *ListDataProductsOptions
+	client      *DataProductHubAPIServiceV1
 	pageContext struct {
 		next *string
 	}
@@ -10597,13 +11917,11 @@ func (pager *DataProductsPager) GetAll() (allItems []DataProductSummary, err err
 	return
 }
 
-//
 // DataProductDraftsPager can be used to simplify the use of the "ListDataProductDrafts" method.
-//
 type DataProductDraftsPager struct {
-	hasNext bool
-	options *ListDataProductDraftsOptions
-	client  *DataProductHubAPIServiceV1
+	hasNext     bool
+	options     *ListDataProductDraftsOptions
+	client      *DataProductHubAPIServiceV1
 	pageContext struct {
 		next *string
 	}
@@ -10684,13 +12002,11 @@ func (pager *DataProductDraftsPager) GetAll() (allItems []DataProductDraftSummar
 	return
 }
 
-//
 // DataProductReleasesPager can be used to simplify the use of the "ListDataProductReleases" method.
-//
 type DataProductReleasesPager struct {
-	hasNext bool
-	options *ListDataProductReleasesOptions
-	client  *DataProductHubAPIServiceV1
+	hasNext     bool
+	options     *ListDataProductReleasesOptions
+	client      *DataProductHubAPIServiceV1
 	pageContext struct {
 		next *string
 	}

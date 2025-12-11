@@ -69,14 +69,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 		Context(`Using external config, construct service client instances`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"DATA_PRODUCT_HUB_API_SERVICE_URL": "https://dataproducthubapiservicev1/api",
+				"DATA_PRODUCT_HUB_API_SERVICE_URL":       "https://dataproducthubapiservicev1/api",
 				"DATA_PRODUCT_HUB_API_SERVICE_AUTH_TYPE": "noauth",
 			}
 
 			It(`Create service client using external config successfully`, func() {
 				SetTestEnvironment(testEnvironment)
-				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
-				})
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{})
 				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
 				Expect(serviceErr).To(BeNil())
 				ClearTestEnvironment(testEnvironment)
@@ -105,8 +104,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			})
 			It(`Create service client using external config and set url programatically successfully`, func() {
 				SetTestEnvironment(testEnvironment)
-				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
-				})
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{})
 				err := dataProductHubAPIServiceService.SetServiceURL("https://testService/api")
 				Expect(err).To(BeNil())
 				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
@@ -124,13 +122,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid Auth`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"DATA_PRODUCT_HUB_API_SERVICE_URL": "https://dataproducthubapiservicev1/api",
+				"DATA_PRODUCT_HUB_API_SERVICE_URL":       "https://dataproducthubapiservicev1/api",
 				"DATA_PRODUCT_HUB_API_SERVICE_AUTH_TYPE": "someOtherAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
-			dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
-			})
+			dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1UsingExternalConfig(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{})
 
 			It(`Instantiate service client with error`, func() {
 				Expect(dataProductHubAPIServiceService).To(BeNil())
@@ -141,7 +138,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 		Context(`Using external config, construct service client instances with error: Invalid URL`, func() {
 			// Map containing environment variables used in testing.
 			var testEnvironment = map[string]string{
-				"DATA_PRODUCT_HUB_API_SERVICE_AUTH_TYPE":   "NOAuth",
+				"DATA_PRODUCT_HUB_API_SERVICE_AUTH_TYPE": "NOAuth",
 			}
 
 			SetTestEnvironment(testEnvironment)
@@ -2093,6 +2090,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -2102,17 +2134,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -2129,6 +2185,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -2144,11 +2201,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -2210,6 +2269,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraftPrototypeModel.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraftPrototypeModel.AccessControl = assetListAccessControlModel
 				dataProductDraftPrototypeModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraftPrototypeModel.SubContainer = containerIdentityModel
 				dataProductDraftPrototypeModel.IsRestricted = core.BoolPtr(true)
 				dataProductDraftPrototypeModel.Asset = assetPrototypeModel
 
@@ -2272,7 +2332,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke CreateDataProduct successfully with retries`, func() {
@@ -2392,6 +2452,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -2401,17 +2496,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -2428,6 +2547,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -2443,11 +2563,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -2509,6 +2631,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraftPrototypeModel.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraftPrototypeModel.AccessControl = assetListAccessControlModel
 				dataProductDraftPrototypeModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraftPrototypeModel.SubContainer = containerIdentityModel
 				dataProductDraftPrototypeModel.IsRestricted = core.BoolPtr(true)
 				dataProductDraftPrototypeModel.Asset = assetPrototypeModel
 
@@ -2574,7 +2697,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke CreateDataProduct successfully`, func() {
@@ -2699,6 +2822,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -2708,17 +2866,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -2735,6 +2917,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -2750,11 +2933,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -2816,6 +3001,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraftPrototypeModel.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraftPrototypeModel.AccessControl = assetListAccessControlModel
 				dataProductDraftPrototypeModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraftPrototypeModel.SubContainer = containerIdentityModel
 				dataProductDraftPrototypeModel.IsRestricted = core.BoolPtr(true)
 				dataProductDraftPrototypeModel.Asset = assetPrototypeModel
 
@@ -2949,6 +3135,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -2958,17 +3179,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -2985,6 +3230,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -3000,11 +3246,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -3066,6 +3314,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraftPrototypeModel.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraftPrototypeModel.AccessControl = assetListAccessControlModel
 				dataProductDraftPrototypeModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraftPrototypeModel.SubContainer = containerIdentityModel
 				dataProductDraftPrototypeModel.IsRestricted = core.BoolPtr(true)
 				dataProductDraftPrototypeModel.Asset = assetPrototypeModel
 
@@ -3220,6 +3469,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -3229,17 +3513,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -3256,6 +3564,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -3271,11 +3580,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -3337,6 +3648,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraftPrototypeModel.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraftPrototypeModel.AccessControl = assetListAccessControlModel
 				dataProductDraftPrototypeModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraftPrototypeModel.SubContainer = containerIdentityModel
 				dataProductDraftPrototypeModel.IsRestricted = core.BoolPtr(true)
 				dataProductDraftPrototypeModel.Asset = assetPrototypeModel
 
@@ -3422,7 +3734,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProduct successfully with retries`, func() {
@@ -3476,7 +3788,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "name": "Name", "latest_release": {"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProduct successfully`, func() {
@@ -3873,7 +4185,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductDrafts successfully with retries`, func() {
@@ -3935,7 +4247,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "drafts": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductDrafts successfully`, func() {
@@ -4076,9 +4388,9 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					res.WriteHeader(200)
 					requestNumber++
 					if requestNumber == 1 {
-						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"schema":[{"name":"Name","description":"Description","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"}}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","associated_catalogs":["AssociatedCatalogs"]}}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"servers":[{"server":"Server","asset":{"id":"ID","name":"Name"},"connection_id":"ConnectionID","type":"Type","description":"Description","environment":"Environment","account":"Account","catalog":"Catalog","database":"Database","dataset":"Dataset","delimiter":"Delimiter","endpoint_url":"EndpointURL","format":"Format","host":"Host","location":"Location","path":"Path","port":"Port","project":"Project","region":"Region","region_name":"RegionName","schema":"Schema","service_name":"ServiceName","staging_dir":"StagingDir","stream":"Stream","warehouse":"Warehouse","roles":["Roles"],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}]}],"schema":[{"asset_id":"2b0bf220-079c-11ee-be56-0242ac120002","connection_id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","description":"Description","connection_path":"ConnectionPath","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"},"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}],"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]},"engines":[{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]}]}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","sub_container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd"},"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else if requestNumber == 2 {
-						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"schema":[{"name":"Name","description":"Description","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"}}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","associated_catalogs":["AssociatedCatalogs"]}}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"drafts":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"servers":[{"server":"Server","asset":{"id":"ID","name":"Name"},"connection_id":"ConnectionID","type":"Type","description":"Description","environment":"Environment","account":"Account","catalog":"Catalog","database":"Database","dataset":"Dataset","delimiter":"Delimiter","endpoint_url":"EndpointURL","format":"Format","host":"Host","location":"Location","path":"Path","port":"Port","project":"Project","region":"Region","region_name":"RegionName","schema":"Schema","service_name":"ServiceName","staging_dir":"StagingDir","stream":"Stream","warehouse":"Warehouse","roles":["Roles"],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}]}],"schema":[{"asset_id":"2b0bf220-079c-11ee-be56-0242ac120002","connection_id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","description":"Description","connection_path":"ConnectionPath","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"},"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}],"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]},"engines":[{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]}]}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","sub_container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd"},"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else {
 						res.WriteHeader(400)
 					}
@@ -4093,10 +4405,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
 
 				listDataProductDraftsOptionsModel := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
-					DataProductID: core.StringPtr("testString"),
+					DataProductID:    core.StringPtr("testString"),
 					AssetContainerID: core.StringPtr("testString"),
-					Version: core.StringPtr("testString"),
-					Limit: core.Int64Ptr(int64(10)),
+					Version:          core.StringPtr("testString"),
+					Limit:            core.Int64Ptr(int64(10)),
 				}
 
 				pager, err := dataProductHubAPIServiceService.NewDataProductDraftsPager(listDataProductDraftsOptionsModel)
@@ -4121,10 +4433,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
 
 				listDataProductDraftsOptionsModel := &dataproducthubapiservicev1.ListDataProductDraftsOptions{
-					DataProductID: core.StringPtr("testString"),
+					DataProductID:    core.StringPtr("testString"),
 					AssetContainerID: core.StringPtr("testString"),
-					Version: core.StringPtr("testString"),
-					Limit: core.Int64Ptr(int64(10)),
+					Version:          core.StringPtr("testString"),
+					Limit:            core.Int64Ptr(int64(10)),
 				}
 
 				pager, err := dataProductHubAPIServiceService.NewDataProductDraftsPager(listDataProductDraftsOptionsModel)
@@ -4278,6 +4590,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -4287,17 +4634,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -4314,6 +4685,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -4329,11 +4701,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -4388,6 +4762,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDraftOptionsModel.Comments = core.StringPtr("testString")
 				createDataProductDraftOptionsModel.AccessControl = assetListAccessControlModel
 				createDataProductDraftOptionsModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				createDataProductDraftOptionsModel.SubContainer = containerIdentityModel
 				createDataProductDraftOptionsModel.IsRestricted = core.BoolPtr(true)
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
@@ -4441,7 +4816,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke CreateDataProductDraft successfully with retries`, func() {
@@ -4570,6 +4945,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -4579,17 +4989,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -4606,6 +5040,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -4621,11 +5056,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -4680,6 +5117,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDraftOptionsModel.Comments = core.StringPtr("testString")
 				createDataProductDraftOptionsModel.AccessControl = assetListAccessControlModel
 				createDataProductDraftOptionsModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				createDataProductDraftOptionsModel.SubContainer = containerIdentityModel
 				createDataProductDraftOptionsModel.IsRestricted = core.BoolPtr(true)
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
@@ -4736,7 +5174,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke CreateDataProductDraft successfully`, func() {
@@ -4870,6 +5308,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -4879,17 +5352,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -4906,6 +5403,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -4921,11 +5419,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -4980,6 +5480,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDraftOptionsModel.Comments = core.StringPtr("testString")
 				createDataProductDraftOptionsModel.AccessControl = assetListAccessControlModel
 				createDataProductDraftOptionsModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				createDataProductDraftOptionsModel.SubContainer = containerIdentityModel
 				createDataProductDraftOptionsModel.IsRestricted = core.BoolPtr(true)
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
@@ -5115,6 +5616,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -5124,17 +5660,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -5151,6 +5711,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -5166,11 +5727,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -5225,6 +5788,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDraftOptionsModel.Comments = core.StringPtr("testString")
 				createDataProductDraftOptionsModel.AccessControl = assetListAccessControlModel
 				createDataProductDraftOptionsModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				createDataProductDraftOptionsModel.SubContainer = containerIdentityModel
 				createDataProductDraftOptionsModel.IsRestricted = core.BoolPtr(true)
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
@@ -5381,6 +5945,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -5390,17 +5989,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -5417,6 +6040,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -5432,11 +6056,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -5491,6 +6117,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDraftOptionsModel.Comments = core.StringPtr("testString")
 				createDataProductDraftOptionsModel.AccessControl = assetListAccessControlModel
 				createDataProductDraftOptionsModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				createDataProductDraftOptionsModel.SubContainer = containerIdentityModel
 				createDataProductDraftOptionsModel.IsRestricted = core.BoolPtr(true)
 				createDataProductDraftOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
@@ -5839,7 +6466,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductDraft successfully with retries`, func() {
@@ -5894,7 +6521,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductDraft successfully`, func() {
@@ -6150,7 +6777,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDraft successfully with retries`, func() {
@@ -6229,7 +6856,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDraft successfully`, func() {
@@ -6952,6 +7579,62 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			})
 		})
 	})
+	Describe(`GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptions *GetDataProductDraftContractTermsOptions) - Operation response error`, func() {
+		getDataProductDraftContractTermsPath := "/data_product_exchange/v1/data_products/testString/drafts/testString/contract_terms/testString"
+		Context(`Using mock server endpoint with invalid JSON response`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(getDataProductDraftContractTermsPath))
+					Expect(req.Method).To(Equal("GET"))
+					Expect(req.Header["Accept"]).ToNot(BeNil())
+					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/json")))
+					// TODO: Add check for include_contract_documents query parameter
+					// TODO: Add check for autopopulate_server_information query parameter
+					Expect(req.URL.Query()["server_asset_id"]).To(Equal([]string{"testString"}))
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(200)
+					fmt.Fprint(res, `} this is not valid json {`)
+				}))
+			})
+			It(`Invoke GetDataProductDraftContractTerms with error: Operation response processing error`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the GetDataProductDraftContractTermsOptions model
+				getDataProductDraftContractTermsOptionsModel := new(dataproducthubapiservicev1.GetDataProductDraftContractTermsOptions)
+				getDataProductDraftContractTermsOptionsModel.DataProductID = core.StringPtr("testString")
+				getDataProductDraftContractTermsOptionsModel.DraftID = core.StringPtr("testString")
+				getDataProductDraftContractTermsOptionsModel.ContractTermsID = core.StringPtr("testString")
+				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/json")
+				getDataProductDraftContractTermsOptionsModel.IncludeContractDocuments = core.BoolPtr(true)
+				getDataProductDraftContractTermsOptionsModel.AutopopulateServerInformation = core.BoolPtr(false)
+				getDataProductDraftContractTermsOptionsModel.ServerAssetID = core.StringPtr("testString")
+				getDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Expect response parsing to fail since we are receiving a text/plain response
+				result, response, operationErr := dataProductHubAPIServiceService.GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).To(BeNil())
+
+				// Enable retries and test again
+				dataProductHubAPIServiceService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIServiceService.GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+	})
 	Describe(`GetDataProductDraftContractTerms(getDataProductDraftContractTermsOptions *GetDataProductDraftContractTermsOptions)`, func() {
 		getDataProductDraftContractTermsPath := "/data_product_exchange/v1/data_products/testString/drafts/testString/contract_terms/testString"
 		Context(`Using mock server endpoint with timeout`, func() {
@@ -6964,15 +7647,17 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 
 					Expect(req.Header["Accept"]).ToNot(BeNil())
-					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/odcs+yaml")))
+					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/json")))
 					// TODO: Add check for include_contract_documents query parameter
+					// TODO: Add check for autopopulate_server_information query parameter
+					Expect(req.URL.Query()["server_asset_id"]).To(Equal([]string{"testString"}))
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
-					res.Header().Set("Content-type", "application/odcs+yaml")
+					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `This is a mock binary response.`)
+					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductDraftContractTerms successfully with retries`, func() {
@@ -6989,8 +7674,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				getDataProductDraftContractTermsOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.DraftID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.ContractTermsID = core.StringPtr("testString")
-				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/json")
 				getDataProductDraftContractTermsOptionsModel.IncludeContractDocuments = core.BoolPtr(true)
+				getDataProductDraftContractTermsOptionsModel.AutopopulateServerInformation = core.BoolPtr(false)
+				getDataProductDraftContractTermsOptionsModel.ServerAssetID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
@@ -7028,12 +7715,14 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 
 					Expect(req.Header["Accept"]).ToNot(BeNil())
-					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/odcs+yaml")))
+					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/json")))
 					// TODO: Add check for include_contract_documents query parameter
+					// TODO: Add check for autopopulate_server_information query parameter
+					Expect(req.URL.Query()["server_asset_id"]).To(Equal([]string{"testString"}))
 					// Set mock response
-					res.Header().Set("Content-type", "application/odcs+yaml")
+					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `This is a mock binary response.`)
+					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductDraftContractTerms successfully`, func() {
@@ -7055,8 +7744,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				getDataProductDraftContractTermsOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.DraftID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.ContractTermsID = core.StringPtr("testString")
-				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/json")
 				getDataProductDraftContractTermsOptionsModel.IncludeContractDocuments = core.BoolPtr(true)
+				getDataProductDraftContractTermsOptionsModel.AutopopulateServerInformation = core.BoolPtr(false)
+				getDataProductDraftContractTermsOptionsModel.ServerAssetID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
@@ -7079,8 +7770,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				getDataProductDraftContractTermsOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.DraftID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.ContractTermsID = core.StringPtr("testString")
-				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/json")
 				getDataProductDraftContractTermsOptionsModel.IncludeContractDocuments = core.BoolPtr(true)
+				getDataProductDraftContractTermsOptionsModel.AutopopulateServerInformation = core.BoolPtr(false)
+				getDataProductDraftContractTermsOptionsModel.ServerAssetID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
 				err := dataProductHubAPIServiceService.SetServiceURL("")
@@ -7124,8 +7817,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				getDataProductDraftContractTermsOptionsModel.DataProductID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.DraftID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.ContractTermsID = core.StringPtr("testString")
-				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getDataProductDraftContractTermsOptionsModel.Accept = core.StringPtr("application/json")
 				getDataProductDraftContractTermsOptionsModel.IncludeContractDocuments = core.BoolPtr(true)
+				getDataProductDraftContractTermsOptionsModel.AutopopulateServerInformation = core.BoolPtr(false)
+				getDataProductDraftContractTermsOptionsModel.ServerAssetID = core.StringPtr("testString")
 				getDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
@@ -7133,13 +7828,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
-
-				// Verify empty byte buffer.
-				Expect(result).ToNot(BeNil())
-				buffer, operationErr := io.ReadAll(result)
-				Expect(operationErr).To(BeNil())
-				Expect(buffer).ToNot(BeNil())
-				Expect(len(buffer)).To(Equal(0))
+				// Verify a nil result
+				Expect(result).To(BeNil())
 			})
 			AfterEach(func() {
 				testServer.Close()
@@ -7262,26 +7952,85 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")
+				contractAssetModel.Name = core.StringPtr("PAYMENT_TRANSACTIONS1")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("snowflake-server-01")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")
+				contractServerModel.Type = core.StringPtr("snowflake")
+				contractServerModel.Description = core.StringPtr("Snowflake analytics server")
+				contractServerModel.Environment = core.StringPtr("dev")
+				contractServerModel.Account = core.StringPtr("acc-456")
+				contractServerModel.Catalog = core.StringPtr("analytics_cat")
+				contractServerModel.Database = core.StringPtr("analytics_db")
+				contractServerModel.Dataset = core.StringPtr("customer_data")
+				contractServerModel.Delimiter = core.StringPtr(",")
+				contractServerModel.EndpointURL = core.StringPtr("https://xy12345.snowflakecomputing.com")
+				contractServerModel.Format = core.StringPtr("parquet")
+				contractServerModel.Host = core.StringPtr("xy12345.snowflakecomputing.com")
+				contractServerModel.Location = core.StringPtr("Mumbai")
+				contractServerModel.Path = core.StringPtr("/analytics/data")
+				contractServerModel.Port = core.StringPtr("443")
+				contractServerModel.Project = core.StringPtr("projectY")
+				contractServerModel.Region = core.StringPtr("ap-south-1")
+				contractServerModel.RegionName = core.StringPtr("Asia South 1")
+				contractServerModel.Schema = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				contractServerModel.ServiceName = core.StringPtr("snowflake")
+				contractServerModel.StagingDir = core.StringPtr("/snowflake/staging")
+				contractServerModel.Stream = core.StringPtr("stream_analytics")
+				contractServerModel.Warehouse = core.StringPtr("wh_xlarge")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
-				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Length = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Scale = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
+				contractSchemaPropertyTypeModel.Type = core.StringPtr("varchar")
+				contractSchemaPropertyTypeModel.Length = core.StringPtr("1024")
+				contractSchemaPropertyTypeModel.Scale = core.StringPtr("0")
+				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("true")
+				contractSchemaPropertyTypeModel.Signed = core.StringPtr("false")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
+
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
 
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
-				contractSchemaPropertyModel.Name = core.StringPtr("testString")
+				contractSchemaPropertyModel.Name = core.StringPtr("product_brand_code")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
-				contractSchemaModel.Name = core.StringPtr("testString")
+				contractSchemaModel.AssetID = core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")
+				contractSchemaModel.ConnectionID = core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")
+				contractSchemaModel.Name = core.StringPtr("000000_0-2025-06-20-20-28-52.csv")
 				contractSchemaModel.Description = core.StringPtr("testString")
-				contractSchemaModel.PhysicalType = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")
+				contractSchemaModel.PhysicalType = core.StringPtr("text/csv")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ReplaceDataProductDraftContractTermsOptions model
 				replaceDataProductDraftContractTermsOptionsModel := new(dataproducthubapiservicev1.ReplaceDataProductDraftContractTermsOptions)
@@ -7301,6 +8050,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				replaceDataProductDraftContractTermsOptionsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				replaceDataProductDraftContractTermsOptionsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				replaceDataProductDraftContractTermsOptionsModel.ContractTest = contractTestModel
+				replaceDataProductDraftContractTermsOptionsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				replaceDataProductDraftContractTermsOptionsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				replaceDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
@@ -7354,7 +8104,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}`)
+					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}`)
 				}))
 			})
 			It(`Invoke ReplaceDataProductDraftContractTerms successfully with retries`, func() {
@@ -7459,26 +8209,85 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")
+				contractAssetModel.Name = core.StringPtr("PAYMENT_TRANSACTIONS1")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("snowflake-server-01")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")
+				contractServerModel.Type = core.StringPtr("snowflake")
+				contractServerModel.Description = core.StringPtr("Snowflake analytics server")
+				contractServerModel.Environment = core.StringPtr("dev")
+				contractServerModel.Account = core.StringPtr("acc-456")
+				contractServerModel.Catalog = core.StringPtr("analytics_cat")
+				contractServerModel.Database = core.StringPtr("analytics_db")
+				contractServerModel.Dataset = core.StringPtr("customer_data")
+				contractServerModel.Delimiter = core.StringPtr(",")
+				contractServerModel.EndpointURL = core.StringPtr("https://xy12345.snowflakecomputing.com")
+				contractServerModel.Format = core.StringPtr("parquet")
+				contractServerModel.Host = core.StringPtr("xy12345.snowflakecomputing.com")
+				contractServerModel.Location = core.StringPtr("Mumbai")
+				contractServerModel.Path = core.StringPtr("/analytics/data")
+				contractServerModel.Port = core.StringPtr("443")
+				contractServerModel.Project = core.StringPtr("projectY")
+				contractServerModel.Region = core.StringPtr("ap-south-1")
+				contractServerModel.RegionName = core.StringPtr("Asia South 1")
+				contractServerModel.Schema = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				contractServerModel.ServiceName = core.StringPtr("snowflake")
+				contractServerModel.StagingDir = core.StringPtr("/snowflake/staging")
+				contractServerModel.Stream = core.StringPtr("stream_analytics")
+				contractServerModel.Warehouse = core.StringPtr("wh_xlarge")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
-				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Length = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Scale = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
+				contractSchemaPropertyTypeModel.Type = core.StringPtr("varchar")
+				contractSchemaPropertyTypeModel.Length = core.StringPtr("1024")
+				contractSchemaPropertyTypeModel.Scale = core.StringPtr("0")
+				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("true")
+				contractSchemaPropertyTypeModel.Signed = core.StringPtr("false")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
+
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
 
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
-				contractSchemaPropertyModel.Name = core.StringPtr("testString")
+				contractSchemaPropertyModel.Name = core.StringPtr("product_brand_code")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
-				contractSchemaModel.Name = core.StringPtr("testString")
+				contractSchemaModel.AssetID = core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")
+				contractSchemaModel.ConnectionID = core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")
+				contractSchemaModel.Name = core.StringPtr("000000_0-2025-06-20-20-28-52.csv")
 				contractSchemaModel.Description = core.StringPtr("testString")
-				contractSchemaModel.PhysicalType = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")
+				contractSchemaModel.PhysicalType = core.StringPtr("text/csv")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ReplaceDataProductDraftContractTermsOptions model
 				replaceDataProductDraftContractTermsOptionsModel := new(dataproducthubapiservicev1.ReplaceDataProductDraftContractTermsOptions)
@@ -7498,6 +8307,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				replaceDataProductDraftContractTermsOptionsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				replaceDataProductDraftContractTermsOptionsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				replaceDataProductDraftContractTermsOptionsModel.ContractTest = contractTestModel
+				replaceDataProductDraftContractTermsOptionsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				replaceDataProductDraftContractTermsOptionsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				replaceDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
@@ -7554,7 +8364,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}`)
+					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}`)
 				}))
 			})
 			It(`Invoke ReplaceDataProductDraftContractTerms successfully`, func() {
@@ -7664,26 +8474,85 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")
+				contractAssetModel.Name = core.StringPtr("PAYMENT_TRANSACTIONS1")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("snowflake-server-01")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")
+				contractServerModel.Type = core.StringPtr("snowflake")
+				contractServerModel.Description = core.StringPtr("Snowflake analytics server")
+				contractServerModel.Environment = core.StringPtr("dev")
+				contractServerModel.Account = core.StringPtr("acc-456")
+				contractServerModel.Catalog = core.StringPtr("analytics_cat")
+				contractServerModel.Database = core.StringPtr("analytics_db")
+				contractServerModel.Dataset = core.StringPtr("customer_data")
+				contractServerModel.Delimiter = core.StringPtr(",")
+				contractServerModel.EndpointURL = core.StringPtr("https://xy12345.snowflakecomputing.com")
+				contractServerModel.Format = core.StringPtr("parquet")
+				contractServerModel.Host = core.StringPtr("xy12345.snowflakecomputing.com")
+				contractServerModel.Location = core.StringPtr("Mumbai")
+				contractServerModel.Path = core.StringPtr("/analytics/data")
+				contractServerModel.Port = core.StringPtr("443")
+				contractServerModel.Project = core.StringPtr("projectY")
+				contractServerModel.Region = core.StringPtr("ap-south-1")
+				contractServerModel.RegionName = core.StringPtr("Asia South 1")
+				contractServerModel.Schema = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				contractServerModel.ServiceName = core.StringPtr("snowflake")
+				contractServerModel.StagingDir = core.StringPtr("/snowflake/staging")
+				contractServerModel.Stream = core.StringPtr("stream_analytics")
+				contractServerModel.Warehouse = core.StringPtr("wh_xlarge")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
-				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Length = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Scale = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
+				contractSchemaPropertyTypeModel.Type = core.StringPtr("varchar")
+				contractSchemaPropertyTypeModel.Length = core.StringPtr("1024")
+				contractSchemaPropertyTypeModel.Scale = core.StringPtr("0")
+				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("true")
+				contractSchemaPropertyTypeModel.Signed = core.StringPtr("false")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
+
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
 
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
-				contractSchemaPropertyModel.Name = core.StringPtr("testString")
+				contractSchemaPropertyModel.Name = core.StringPtr("product_brand_code")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
-				contractSchemaModel.Name = core.StringPtr("testString")
+				contractSchemaModel.AssetID = core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")
+				contractSchemaModel.ConnectionID = core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")
+				contractSchemaModel.Name = core.StringPtr("000000_0-2025-06-20-20-28-52.csv")
 				contractSchemaModel.Description = core.StringPtr("testString")
-				contractSchemaModel.PhysicalType = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")
+				contractSchemaModel.PhysicalType = core.StringPtr("text/csv")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ReplaceDataProductDraftContractTermsOptions model
 				replaceDataProductDraftContractTermsOptionsModel := new(dataproducthubapiservicev1.ReplaceDataProductDraftContractTermsOptions)
@@ -7703,6 +8572,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				replaceDataProductDraftContractTermsOptionsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				replaceDataProductDraftContractTermsOptionsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				replaceDataProductDraftContractTermsOptionsModel.ContractTest = contractTestModel
+				replaceDataProductDraftContractTermsOptionsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				replaceDataProductDraftContractTermsOptionsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				replaceDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
@@ -7814,26 +8684,85 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")
+				contractAssetModel.Name = core.StringPtr("PAYMENT_TRANSACTIONS1")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("snowflake-server-01")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")
+				contractServerModel.Type = core.StringPtr("snowflake")
+				contractServerModel.Description = core.StringPtr("Snowflake analytics server")
+				contractServerModel.Environment = core.StringPtr("dev")
+				contractServerModel.Account = core.StringPtr("acc-456")
+				contractServerModel.Catalog = core.StringPtr("analytics_cat")
+				contractServerModel.Database = core.StringPtr("analytics_db")
+				contractServerModel.Dataset = core.StringPtr("customer_data")
+				contractServerModel.Delimiter = core.StringPtr(",")
+				contractServerModel.EndpointURL = core.StringPtr("https://xy12345.snowflakecomputing.com")
+				contractServerModel.Format = core.StringPtr("parquet")
+				contractServerModel.Host = core.StringPtr("xy12345.snowflakecomputing.com")
+				contractServerModel.Location = core.StringPtr("Mumbai")
+				contractServerModel.Path = core.StringPtr("/analytics/data")
+				contractServerModel.Port = core.StringPtr("443")
+				contractServerModel.Project = core.StringPtr("projectY")
+				contractServerModel.Region = core.StringPtr("ap-south-1")
+				contractServerModel.RegionName = core.StringPtr("Asia South 1")
+				contractServerModel.Schema = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				contractServerModel.ServiceName = core.StringPtr("snowflake")
+				contractServerModel.StagingDir = core.StringPtr("/snowflake/staging")
+				contractServerModel.Stream = core.StringPtr("stream_analytics")
+				contractServerModel.Warehouse = core.StringPtr("wh_xlarge")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
-				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Length = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Scale = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
+				contractSchemaPropertyTypeModel.Type = core.StringPtr("varchar")
+				contractSchemaPropertyTypeModel.Length = core.StringPtr("1024")
+				contractSchemaPropertyTypeModel.Scale = core.StringPtr("0")
+				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("true")
+				contractSchemaPropertyTypeModel.Signed = core.StringPtr("false")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
+
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
 
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
-				contractSchemaPropertyModel.Name = core.StringPtr("testString")
+				contractSchemaPropertyModel.Name = core.StringPtr("product_brand_code")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
-				contractSchemaModel.Name = core.StringPtr("testString")
+				contractSchemaModel.AssetID = core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")
+				contractSchemaModel.ConnectionID = core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")
+				contractSchemaModel.Name = core.StringPtr("000000_0-2025-06-20-20-28-52.csv")
 				contractSchemaModel.Description = core.StringPtr("testString")
-				contractSchemaModel.PhysicalType = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")
+				contractSchemaModel.PhysicalType = core.StringPtr("text/csv")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ReplaceDataProductDraftContractTermsOptions model
 				replaceDataProductDraftContractTermsOptionsModel := new(dataproducthubapiservicev1.ReplaceDataProductDraftContractTermsOptions)
@@ -7853,6 +8782,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				replaceDataProductDraftContractTermsOptionsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				replaceDataProductDraftContractTermsOptionsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				replaceDataProductDraftContractTermsOptionsModel.ContractTest = contractTestModel
+				replaceDataProductDraftContractTermsOptionsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				replaceDataProductDraftContractTermsOptionsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				replaceDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
@@ -7985,26 +8915,85 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")
+				contractAssetModel.Name = core.StringPtr("PAYMENT_TRANSACTIONS1")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("snowflake-server-01")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")
+				contractServerModel.Type = core.StringPtr("snowflake")
+				contractServerModel.Description = core.StringPtr("Snowflake analytics server")
+				contractServerModel.Environment = core.StringPtr("dev")
+				contractServerModel.Account = core.StringPtr("acc-456")
+				contractServerModel.Catalog = core.StringPtr("analytics_cat")
+				contractServerModel.Database = core.StringPtr("analytics_db")
+				contractServerModel.Dataset = core.StringPtr("customer_data")
+				contractServerModel.Delimiter = core.StringPtr(",")
+				contractServerModel.EndpointURL = core.StringPtr("https://xy12345.snowflakecomputing.com")
+				contractServerModel.Format = core.StringPtr("parquet")
+				contractServerModel.Host = core.StringPtr("xy12345.snowflakecomputing.com")
+				contractServerModel.Location = core.StringPtr("Mumbai")
+				contractServerModel.Path = core.StringPtr("/analytics/data")
+				contractServerModel.Port = core.StringPtr("443")
+				contractServerModel.Project = core.StringPtr("projectY")
+				contractServerModel.Region = core.StringPtr("ap-south-1")
+				contractServerModel.RegionName = core.StringPtr("Asia South 1")
+				contractServerModel.Schema = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				contractServerModel.ServiceName = core.StringPtr("snowflake")
+				contractServerModel.StagingDir = core.StringPtr("/snowflake/staging")
+				contractServerModel.Stream = core.StringPtr("stream_analytics")
+				contractServerModel.Warehouse = core.StringPtr("wh_xlarge")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
-				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Length = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Scale = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
+				contractSchemaPropertyTypeModel.Type = core.StringPtr("varchar")
+				contractSchemaPropertyTypeModel.Length = core.StringPtr("1024")
+				contractSchemaPropertyTypeModel.Scale = core.StringPtr("0")
+				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("true")
+				contractSchemaPropertyTypeModel.Signed = core.StringPtr("false")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
+
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
 
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
-				contractSchemaPropertyModel.Name = core.StringPtr("testString")
+				contractSchemaPropertyModel.Name = core.StringPtr("product_brand_code")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
-				contractSchemaModel.Name = core.StringPtr("testString")
+				contractSchemaModel.AssetID = core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")
+				contractSchemaModel.ConnectionID = core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")
+				contractSchemaModel.Name = core.StringPtr("000000_0-2025-06-20-20-28-52.csv")
 				contractSchemaModel.Description = core.StringPtr("testString")
-				contractSchemaModel.PhysicalType = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")
+				contractSchemaModel.PhysicalType = core.StringPtr("text/csv")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ReplaceDataProductDraftContractTermsOptions model
 				replaceDataProductDraftContractTermsOptionsModel := new(dataproducthubapiservicev1.ReplaceDataProductDraftContractTermsOptions)
@@ -8024,6 +9013,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				replaceDataProductDraftContractTermsOptionsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				replaceDataProductDraftContractTermsOptionsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				replaceDataProductDraftContractTermsOptionsModel.ContractTest = contractTestModel
+				replaceDataProductDraftContractTermsOptionsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				replaceDataProductDraftContractTermsOptionsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				replaceDataProductDraftContractTermsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
@@ -8128,7 +9118,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}`)
+					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDraftContractTerms successfully with retries`, func() {
@@ -8208,7 +9198,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}`)
+					fmt.Fprintf(res, "%s", `{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDraftContractTerms successfully`, func() {
@@ -8334,6 +9324,205 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			})
 		})
 	})
+	Describe(`GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptions *GetContractTermsInSpecifiedFormatOptions)`, func() {
+		getContractTermsInSpecifiedFormatPath := "/data_product_exchange/v1/data_products/testString/drafts/testString/contract_terms/testString/format"
+		Context(`Using mock server endpoint with timeout`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(getContractTermsInSpecifiedFormatPath))
+					Expect(req.Method).To(Equal("GET"))
+
+					Expect(req.Header["Accept"]).ToNot(BeNil())
+					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/odcs+yaml")))
+					Expect(req.URL.Query()["format"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["format_version"]).To(Equal([]string{"testString"}))
+					// Sleep a short time to support a timeout test
+					time.Sleep(100 * time.Millisecond)
+
+					// Set mock response
+					res.Header().Set("Content-type", "application/odcs+yaml")
+					res.WriteHeader(200)
+					fmt.Fprintf(res, "%s", `This is a mock binary response.`)
+				}))
+			})
+			It(`Invoke GetContractTermsInSpecifiedFormat successfully with retries`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+				dataProductHubAPIServiceService.EnableRetries(0, 0)
+
+				// Construct an instance of the GetContractTermsInSpecifiedFormatOptions model
+				getContractTermsInSpecifiedFormatOptionsModel := new(dataproducthubapiservicev1.GetContractTermsInSpecifiedFormatOptions)
+				getContractTermsInSpecifiedFormatOptionsModel.DataProductID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.DraftID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.ContractTermsID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Format = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.FormatVersion = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getContractTermsInSpecifiedFormatOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation with a Context to test a timeout error
+				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
+				defer cancelFunc()
+				_, _, operationErr := dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormatWithContext(ctx, getContractTermsInSpecifiedFormatOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
+
+				// Disable retries and test again
+				dataProductHubAPIServiceService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).ToNot(BeNil())
+
+				// Re-test the timeout error with retries disabled
+				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
+				defer cancelFunc2()
+				_, _, operationErr = dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormatWithContext(ctx, getContractTermsInSpecifiedFormatOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+		Context(`Using mock server endpoint`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(getContractTermsInSpecifiedFormatPath))
+					Expect(req.Method).To(Equal("GET"))
+
+					Expect(req.Header["Accept"]).ToNot(BeNil())
+					Expect(req.Header["Accept"][0]).To(Equal(fmt.Sprintf("%v", "application/odcs+yaml")))
+					Expect(req.URL.Query()["format"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["format_version"]).To(Equal([]string{"testString"}))
+					// Set mock response
+					res.Header().Set("Content-type", "application/odcs+yaml")
+					res.WriteHeader(200)
+					fmt.Fprintf(res, "%s", `This is a mock binary response.`)
+				}))
+			})
+			It(`Invoke GetContractTermsInSpecifiedFormat successfully`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Invoke operation with nil options model (negative test)
+				result, response, operationErr := dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(nil)
+				Expect(operationErr).NotTo(BeNil())
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+
+				// Construct an instance of the GetContractTermsInSpecifiedFormatOptions model
+				getContractTermsInSpecifiedFormatOptionsModel := new(dataproducthubapiservicev1.GetContractTermsInSpecifiedFormatOptions)
+				getContractTermsInSpecifiedFormatOptionsModel.DataProductID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.DraftID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.ContractTermsID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Format = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.FormatVersion = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getContractTermsInSpecifiedFormatOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation with valid options model (positive test)
+				result, response, operationErr = dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).ToNot(BeNil())
+
+			})
+			It(`Invoke GetContractTermsInSpecifiedFormat with error: Operation validation and request error`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the GetContractTermsInSpecifiedFormatOptions model
+				getContractTermsInSpecifiedFormatOptionsModel := new(dataproducthubapiservicev1.GetContractTermsInSpecifiedFormatOptions)
+				getContractTermsInSpecifiedFormatOptionsModel.DataProductID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.DraftID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.ContractTermsID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Format = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.FormatVersion = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getContractTermsInSpecifiedFormatOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Invoke operation with empty URL (negative test)
+				err := dataProductHubAPIServiceService.SetServiceURL("")
+				Expect(err).To(BeNil())
+				result, response, operationErr := dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+				// Construct a second instance of the GetContractTermsInSpecifiedFormatOptions model with no property values
+				getContractTermsInSpecifiedFormatOptionsModelNew := new(dataproducthubapiservicev1.GetContractTermsInSpecifiedFormatOptions)
+				// Invoke operation with invalid model (negative test)
+				result, response, operationErr = dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptionsModelNew)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+		Context(`Using mock server endpoint with missing response body`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Set success status code with no respoonse body
+					res.WriteHeader(200)
+				}))
+			})
+			It(`Invoke GetContractTermsInSpecifiedFormat successfully`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the GetContractTermsInSpecifiedFormatOptions model
+				getContractTermsInSpecifiedFormatOptionsModel := new(dataproducthubapiservicev1.GetContractTermsInSpecifiedFormatOptions)
+				getContractTermsInSpecifiedFormatOptionsModel.DataProductID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.DraftID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.ContractTermsID = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Format = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.FormatVersion = core.StringPtr("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.Accept = core.StringPtr("application/odcs+yaml")
+				getContractTermsInSpecifiedFormatOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation
+				result, response, operationErr := dataProductHubAPIServiceService.GetContractTermsInSpecifiedFormat(getContractTermsInSpecifiedFormatOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+
+				// Verify empty byte buffer.
+				Expect(result).ToNot(BeNil())
+				buffer, operationErr := io.ReadAll(result)
+				Expect(operationErr).To(BeNil())
+				Expect(buffer).ToNot(BeNil())
+				Expect(len(buffer)).To(Equal(0))
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+	})
 	Describe(`PublishDataProductDraft(publishDataProductDraftOptions *PublishDataProductDraftOptions) - Operation response error`, func() {
 		publishDataProductDraftPath := "/data_product_exchange/v1/data_products/testString/drafts/testString/publish"
 		Context(`Using mock server endpoint with invalid JSON response`, func() {
@@ -8397,7 +9586,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke PublishDataProductDraft successfully with retries`, func() {
@@ -8452,7 +9641,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke PublishDataProductDraft successfully`, func() {
@@ -8617,7 +9806,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductRelease successfully with retries`, func() {
@@ -8674,7 +9863,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductRelease successfully`, func() {
@@ -8863,7 +10052,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductRelease successfully with retries`, func() {
@@ -8942,7 +10131,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductRelease successfully`, func() {
@@ -9473,7 +10662,6 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
-
 				// Verify empty byte buffer.
 				Expect(result).ToNot(BeNil())
 				buffer, operationErr := io.ReadAll(result)
@@ -9561,7 +10749,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductReleases successfully with retries`, func() {
@@ -9624,7 +10812,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "releases": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductReleases successfully`, func() {
@@ -9768,9 +10956,9 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					res.WriteHeader(200)
 					requestNumber++
 					if requestNumber == 1 {
-						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"schema":[{"name":"Name","description":"Description","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"}}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","associated_catalogs":["AssociatedCatalogs"]}}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"next":{"start":"1"},"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"servers":[{"server":"Server","asset":{"id":"ID","name":"Name"},"connection_id":"ConnectionID","type":"Type","description":"Description","environment":"Environment","account":"Account","catalog":"Catalog","database":"Database","dataset":"Dataset","delimiter":"Delimiter","endpoint_url":"EndpointURL","format":"Format","host":"Host","location":"Location","path":"Path","port":"Port","project":"Project","region":"Region","region_name":"RegionName","schema":"Schema","service_name":"ServiceName","staging_dir":"StagingDir","stream":"Stream","warehouse":"Warehouse","roles":["Roles"],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}]}],"schema":[{"asset_id":"2b0bf220-079c-11ee-be56-0242ac120002","connection_id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","description":"Description","connection_path":"ConnectionPath","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"},"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}],"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]},"engines":[{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]}]}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","sub_container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd"},"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else if requestNumber == 2 {
-						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"schema":[{"name":"Name","description":"Description","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"}}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","associated_catalogs":["AssociatedCatalogs"]}}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
+						fmt.Fprintf(res, "%s", `{"total_count":2,"limit":1,"releases":[{"version":"1.0.0","state":"draft","data_product":{"id":"b38df608-d34b-4d58-8136-ed25e6c6684e","release":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"},"container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"name":"My Data Product","description":"This is a description of My Data Product.","tags":["Tags"],"use_cases":[{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}],"types":["data"],"contract_terms":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"id":"ID","documents":[{"url":"URL","type":"terms_and_conditions","name":"Name","id":"2b0bf220-079c-11ee-be56-0242ac120002","attachment":{"id":"ID"},"upload_url":"UploadURL"}],"error_msg":"ErrorMsg","overview":{"api_version":"v3.0.1","kind":"DataContract","name":"Sample Data Contract","version":"0.0.0","domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"more_info":"List of links to sources that provide more details on the data contract."},"description":{"purpose":"Used for customer behavior analysis.","limitations":"Data cannot be used for marketing.","usage":"Data should be used only for analytics.","more_info":[{"type":"privacy-statement","url":"https://moreinfo.example.com"}],"custom_properties":"{\"property1\":\"value1\"}"},"organization":[{"user_id":"IBMid-691000IN4G","role":"owner"}],"roles":[{"role":"owner"}],"price":{"amount":"100.0","currency":"USD","unit":"megabyte"},"sla":[{"default_element":"Standard SLA Policy","properties":[{"property":"Uptime Guarantee","value":"99.9"}]}],"support_and_communication":[{"channel":"Email Support","url":"https://support.example.com"}],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}],"contract_test":{"status":"pass","last_tested_time":"LastTestedTime","message":"Message"},"servers":[{"server":"Server","asset":{"id":"ID","name":"Name"},"connection_id":"ConnectionID","type":"Type","description":"Description","environment":"Environment","account":"Account","catalog":"Catalog","database":"Database","dataset":"Dataset","delimiter":"Delimiter","endpoint_url":"EndpointURL","format":"Format","host":"Host","location":"Location","path":"Path","port":"Port","project":"Project","region":"Region","region_name":"RegionName","schema":"Schema","service_name":"ServiceName","staging_dir":"StagingDir","stream":"Stream","warehouse":"Warehouse","roles":["Roles"],"custom_properties":[{"key":"customPropertyKey","value":"customPropertyValue"}]}],"schema":[{"asset_id":"2b0bf220-079c-11ee-be56-0242ac120002","connection_id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","description":"Description","connection_path":"ConnectionPath","physical_type":"PhysicalType","properties":[{"name":"Name","type":{"type":"Type","length":"Length","scale":"Scale","nullable":"Nullable","signed":"Signed","native_type":"NativeType"},"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}],"quality":[{"type":"sql","description":"Description","rule":"Rule","implementation":"Implementation","engine":"Engine","must_be_less_than":"MustBeLessThan","must_be_less_or_equal_to":"MustBeLessOrEqualTo","must_be_greater_than":"MustBeGreaterThan","must_be_greater_or_equal_to":"MustBeGreaterOrEqualTo","must_be_between":["MustBeBetween"],"must_not_be_between":["MustNotBeBetween"],"must_be":"MustBe","must_not_be":"MustNotBe","name":"Name","unit":"Unit","query":"Query"}]}]}],"domain":{"id":"ID","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}},"parts_out":[{"asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"type":"data_asset"},"delivery_methods":[{"id":"09cf5fcc-cb9d-4995-a8e4-16517b25229f","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"},"getproperties":{"producer_input":{"engine_details":{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]},"engines":[{"display_name":"Iceberg Engine","engine_id":"presto767","engine_port":"34567","engine_host":"a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud","engine_type":"spark","associated_catalogs":["AssociatedCatalogs"]}]}}}]}],"workflows":{"order_access_request":{"task_assignee_users":["TaskAssigneeUsers"],"pre_approved_users":["PreApprovedUsers"],"custom_workflow_definition":{"id":"18bdbde1-918e-4ecf-aa23-6727bf319e14"}}},"dataview_enabled":false,"comments":"Comments by a producer that are provided either at the time of data product version creation or retiring","access_control":{"owner":"IBMid-696000KYV9"},"last_updated_at":"2019-01-01T12:00:00.000Z","sub_container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd"},"is_restricted":true,"id":"2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd","asset":{"id":"2b0bf220-079c-11ee-be56-0242ac120002","name":"Name","container":{"id":"d29c42eb-7100-4b7a-8257-c196dbcca1cd","type":"catalog"}}}]}`)
 					} else {
 						res.WriteHeader(400)
 					}
@@ -9785,11 +10973,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
 
 				listDataProductReleasesOptionsModel := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
-					DataProductID: core.StringPtr("testString"),
+					DataProductID:    core.StringPtr("testString"),
 					AssetContainerID: core.StringPtr("testString"),
-					State: []string{"available"},
-					Version: core.StringPtr("testString"),
-					Limit: core.Int64Ptr(int64(10)),
+					State:            []string{"available"},
+					Version:          core.StringPtr("testString"),
+					Limit:            core.Int64Ptr(int64(10)),
 				}
 
 				pager, err := dataProductHubAPIServiceService.NewDataProductReleasesPager(listDataProductReleasesOptionsModel)
@@ -9814,11 +11002,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
 
 				listDataProductReleasesOptionsModel := &dataproducthubapiservicev1.ListDataProductReleasesOptions{
-					DataProductID: core.StringPtr("testString"),
+					DataProductID:    core.StringPtr("testString"),
 					AssetContainerID: core.StringPtr("testString"),
-					State: []string{"available"},
-					Version: core.StringPtr("testString"),
-					Limit: core.Int64Ptr(int64(10)),
+					State:            []string{"available"},
+					Version:          core.StringPtr("testString"),
+					Limit:            core.Int64Ptr(int64(10)),
 				}
 
 				pager, err := dataProductHubAPIServiceService.NewDataProductReleasesPager(listDataProductReleasesOptionsModel)
@@ -9843,6 +11031,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(retireDataProductReleasePath))
 					Expect(req.Method).To(Equal("POST"))
 					// TODO: Add check for revoke_access query parameter
+					Expect(req.URL.Query()["start_at"]).To(Equal([]string{"testString"}))
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
@@ -9861,6 +11050,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.RevokeAccess = core.BoolPtr(false)
+				retireDataProductReleaseOptionsModel.StartAt = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
 				result, response, operationErr := dataProductHubAPIServiceService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
@@ -9892,13 +11082,14 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("POST"))
 
 					// TODO: Add check for revoke_access query parameter
+					Expect(req.URL.Query()["start_at"]).To(Equal([]string{"testString"}))
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke RetireDataProductRelease successfully with retries`, func() {
@@ -9915,6 +11106,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.RevokeAccess = core.BoolPtr(false)
+				retireDataProductReleaseOptionsModel.StartAt = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
@@ -9952,10 +11144,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("POST"))
 
 					// TODO: Add check for revoke_access query parameter
+					Expect(req.URL.Query()["start_at"]).To(Equal([]string{"testString"}))
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
+					fmt.Fprintf(res, "%s", `{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "published_by": "PublishedBy", "published_at": "2019-01-01T12:00:00.000Z", "created_by": "CreatedBy", "created_at": "2019-01-01T12:00:00.000Z", "properties": {"anyKey": "anyValue"}, "visualization_errors": [{"visualization": {"id": "ID", "name": "Name"}, "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "related_asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "error": {"code": "Code", "message": "Message"}}]}`)
 				}))
 			})
 			It(`Invoke RetireDataProductRelease successfully`, func() {
@@ -9977,6 +11170,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.RevokeAccess = core.BoolPtr(false)
+				retireDataProductReleaseOptionsModel.StartAt = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
@@ -9999,6 +11193,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.RevokeAccess = core.BoolPtr(false)
+				retireDataProductReleaseOptionsModel.StartAt = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
 				err := dataProductHubAPIServiceService.SetServiceURL("")
@@ -10042,10 +11237,276 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.DataProductID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.ReleaseID = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.RevokeAccess = core.BoolPtr(false)
+				retireDataProductReleaseOptionsModel.StartAt = core.StringPtr("testString")
 				retireDataProductReleaseOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
 				result, response, operationErr := dataProductHubAPIServiceService.RetireDataProductRelease(retireDataProductReleaseOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+
+				// Verify a nil result
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+	})
+	Describe(`CreateRevokeAccessProcess(createRevokeAccessProcessOptions *CreateRevokeAccessProcessOptions) - Operation response error`, func() {
+		createRevokeAccessProcessPath := "/data_product_exchange/v1/data_products/testString/releases/testString/revoke_access"
+		Context(`Using mock server endpoint with invalid JSON response`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(createRevokeAccessProcessPath))
+					Expect(req.Method).To(Equal("POST"))
+					Expect(req.Header["Content-Type"]).ToNot(BeNil())
+					Expect(req.Header["Content-Type"][0]).To(Equal(fmt.Sprintf("%v", "testString")))
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(202)
+					fmt.Fprint(res, `} this is not valid json {`)
+				}))
+			})
+			It(`Invoke CreateRevokeAccessProcess with error: Operation response processing error`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the CreateRevokeAccessProcessOptions model
+				createRevokeAccessProcessOptionsModel := new(dataproducthubapiservicev1.CreateRevokeAccessProcessOptions)
+				createRevokeAccessProcessOptionsModel.DataProductID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.ReleaseID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Body = CreateMockReader("This is a mock file.")
+				createRevokeAccessProcessOptionsModel.ContentType = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Expect response parsing to fail since we are receiving a text/plain response
+				result, response, operationErr := dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).To(BeNil())
+
+				// Enable retries and test again
+				dataProductHubAPIServiceService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+	})
+	Describe(`CreateRevokeAccessProcess(createRevokeAccessProcessOptions *CreateRevokeAccessProcessOptions)`, func() {
+		createRevokeAccessProcessPath := "/data_product_exchange/v1/data_products/testString/releases/testString/revoke_access"
+		Context(`Using mock server endpoint with timeout`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(createRevokeAccessProcessPath))
+					Expect(req.Method).To(Equal("POST"))
+
+					// For gzip-disabled operation, verify Content-Encoding is not set.
+					Expect(req.Header.Get("Content-Encoding")).To(BeEmpty())
+
+					// If there is a body, then make sure we can read it
+					bodyBuf := new(bytes.Buffer)
+					if req.Header.Get("Content-Encoding") == "gzip" {
+						body, err := core.NewGzipDecompressionReader(req.Body)
+						Expect(err).To(BeNil())
+						_, err = bodyBuf.ReadFrom(body)
+						Expect(err).To(BeNil())
+					} else {
+						_, err := bodyBuf.ReadFrom(req.Body)
+						Expect(err).To(BeNil())
+					}
+					fmt.Fprintf(GinkgoWriter, "  Request body: %s", bodyBuf.String())
+
+					Expect(req.Header["Content-Type"]).ToNot(BeNil())
+					Expect(req.Header["Content-Type"][0]).To(Equal(fmt.Sprintf("%v", "testString")))
+					// Sleep a short time to support a timeout test
+					time.Sleep(100 * time.Millisecond)
+
+					// Set mock response
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(202)
+					fmt.Fprintf(res, "%s", `{"message": "Message"}`)
+				}))
+			})
+			It(`Invoke CreateRevokeAccessProcess successfully with retries`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+				dataProductHubAPIServiceService.EnableRetries(0, 0)
+
+				// Construct an instance of the CreateRevokeAccessProcessOptions model
+				createRevokeAccessProcessOptionsModel := new(dataproducthubapiservicev1.CreateRevokeAccessProcessOptions)
+				createRevokeAccessProcessOptionsModel.DataProductID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.ReleaseID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Body = CreateMockReader("This is a mock file.")
+				createRevokeAccessProcessOptionsModel.ContentType = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation with a Context to test a timeout error
+				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
+				defer cancelFunc()
+				_, _, operationErr := dataProductHubAPIServiceService.CreateRevokeAccessProcessWithContext(ctx, createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
+
+				// Disable retries and test again
+				dataProductHubAPIServiceService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).ToNot(BeNil())
+
+				// Re-test the timeout error with retries disabled
+				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
+				defer cancelFunc2()
+				_, _, operationErr = dataProductHubAPIServiceService.CreateRevokeAccessProcessWithContext(ctx, createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+		Context(`Using mock server endpoint`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(createRevokeAccessProcessPath))
+					Expect(req.Method).To(Equal("POST"))
+
+					// For gzip-disabled operation, verify Content-Encoding is not set.
+					Expect(req.Header.Get("Content-Encoding")).To(BeEmpty())
+
+					// If there is a body, then make sure we can read it
+					bodyBuf := new(bytes.Buffer)
+					if req.Header.Get("Content-Encoding") == "gzip" {
+						body, err := core.NewGzipDecompressionReader(req.Body)
+						Expect(err).To(BeNil())
+						_, err = bodyBuf.ReadFrom(body)
+						Expect(err).To(BeNil())
+					} else {
+						_, err := bodyBuf.ReadFrom(req.Body)
+						Expect(err).To(BeNil())
+					}
+					fmt.Fprintf(GinkgoWriter, "  Request body: %s", bodyBuf.String())
+
+					Expect(req.Header["Content-Type"]).ToNot(BeNil())
+					Expect(req.Header["Content-Type"][0]).To(Equal(fmt.Sprintf("%v", "testString")))
+					// Set mock response
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(202)
+					fmt.Fprintf(res, "%s", `{"message": "Message"}`)
+				}))
+			})
+			It(`Invoke CreateRevokeAccessProcess successfully`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Invoke operation with nil options model (negative test)
+				result, response, operationErr := dataProductHubAPIServiceService.CreateRevokeAccessProcess(nil)
+				Expect(operationErr).NotTo(BeNil())
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+
+				// Construct an instance of the CreateRevokeAccessProcessOptions model
+				createRevokeAccessProcessOptionsModel := new(dataproducthubapiservicev1.CreateRevokeAccessProcessOptions)
+				createRevokeAccessProcessOptionsModel.DataProductID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.ReleaseID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Body = CreateMockReader("This is a mock file.")
+				createRevokeAccessProcessOptionsModel.ContentType = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation with valid options model (positive test)
+				result, response, operationErr = dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).ToNot(BeNil())
+
+			})
+			It(`Invoke CreateRevokeAccessProcess with error: Operation validation and request error`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the CreateRevokeAccessProcessOptions model
+				createRevokeAccessProcessOptionsModel := new(dataproducthubapiservicev1.CreateRevokeAccessProcessOptions)
+				createRevokeAccessProcessOptionsModel.DataProductID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.ReleaseID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Body = CreateMockReader("This is a mock file.")
+				createRevokeAccessProcessOptionsModel.ContentType = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Invoke operation with empty URL (negative test)
+				err := dataProductHubAPIServiceService.SetServiceURL("")
+				Expect(err).To(BeNil())
+				result, response, operationErr := dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+				// Construct a second instance of the CreateRevokeAccessProcessOptions model with no property values
+				createRevokeAccessProcessOptionsModelNew := new(dataproducthubapiservicev1.CreateRevokeAccessProcessOptions)
+				// Invoke operation with invalid model (negative test)
+				result, response, operationErr = dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModelNew)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+		Context(`Using mock server endpoint with missing response body`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Set success status code with no respoonse body
+					res.WriteHeader(202)
+				}))
+			})
+			It(`Invoke CreateRevokeAccessProcess successfully`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the CreateRevokeAccessProcessOptions model
+				createRevokeAccessProcessOptionsModel := new(dataproducthubapiservicev1.CreateRevokeAccessProcessOptions)
+				createRevokeAccessProcessOptionsModel.DataProductID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.ReleaseID = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Body = CreateMockReader("This is a mock file.")
+				createRevokeAccessProcessOptionsModel.ContentType = core.StringPtr("testString")
+				createRevokeAccessProcessOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation
+				result, response, operationErr := dataProductHubAPIServiceService.CreateRevokeAccessProcess(createRevokeAccessProcessOptionsModel)
 				Expect(operationErr).To(BeNil())
 				Expect(response).ToNot(BeNil())
 
@@ -10069,6 +11530,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					Expect(req.URL.Query()["contract_template.name"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["domain.ids"]).To(Equal([]string{"testString"}))
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
@@ -10086,6 +11548,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				listDataProductContractTemplateOptionsModel := new(dataproducthubapiservicev1.ListDataProductContractTemplateOptions)
 				listDataProductContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				listDataProductContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
 				result, response, operationErr := dataProductHubAPIServiceService.ListDataProductContractTemplate(listDataProductContractTemplateOptionsModel)
@@ -10118,13 +11581,14 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					Expect(req.URL.Query()["contract_template.name"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["domain.ids"]).To(Equal([]string{"testString"}))
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"contract_templates": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}]}`)
+					fmt.Fprintf(res, "%s", `{"contract_templates": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductContractTemplate successfully with retries`, func() {
@@ -10140,6 +11604,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				listDataProductContractTemplateOptionsModel := new(dataproducthubapiservicev1.ListDataProductContractTemplateOptions)
 				listDataProductContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				listDataProductContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
@@ -10178,10 +11643,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					Expect(req.URL.Query()["contract_template.name"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["domain.ids"]).To(Equal([]string{"testString"}))
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"contract_templates": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}]}`)
+					fmt.Fprintf(res, "%s", `{"contract_templates": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductContractTemplate successfully`, func() {
@@ -10202,6 +11668,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				listDataProductContractTemplateOptionsModel := new(dataproducthubapiservicev1.ListDataProductContractTemplateOptions)
 				listDataProductContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				listDataProductContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
@@ -10223,6 +11690,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				listDataProductContractTemplateOptionsModel := new(dataproducthubapiservicev1.ListDataProductContractTemplateOptions)
 				listDataProductContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				listDataProductContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
 				err := dataProductHubAPIServiceService.SetServiceURL("")
@@ -10258,6 +11726,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				listDataProductContractTemplateOptionsModel := new(dataproducthubapiservicev1.ListDataProductContractTemplateOptions)
 				listDataProductContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				listDataProductContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				listDataProductContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
@@ -10285,6 +11754,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("POST"))
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					Expect(req.URL.Query()["contract_template.name"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["domain.ids"]).To(Equal([]string{"testString"}))
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
 					fmt.Fprint(res, `} this is not valid json {`)
@@ -10300,7 +11770,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")
+				containerReferenceModel.ID = core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the ErrorMessage model
@@ -10329,8 +11799,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
-				domainModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
-				domainModel.Name = core.StringPtr("domain_name")
+				domainModel.ID = core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")
+				domainModel.Name = core.StringPtr("Test Domain New")
 				domainModel.Container = containerReferenceModel
 
 				// Construct an instance of the Overview model
@@ -10396,6 +11866,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -10405,17 +11910,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -10432,17 +11961,21 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the CreateContractTemplateOptions model
 				createContractTemplateOptionsModel := new(dataproducthubapiservicev1.CreateContractTemplateOptions)
 				createContractTemplateOptionsModel.Container = containerReferenceModel
 				createContractTemplateOptionsModel.ID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatorID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatedAt = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Name = core.StringPtr("Sample Data Contract Template")
 				createContractTemplateOptionsModel.Error = errorMessageModel
 				createContractTemplateOptionsModel.ContractTerms = contractTermsModel
 				createContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				createContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				createContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
 				result, response, operationErr := dataProductHubAPIServiceService.CreateContractTemplate(createContractTemplateOptionsModel)
@@ -10491,13 +12024,14 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					Expect(req.URL.Query()["contract_template.name"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["domain.ids"]).To(Equal([]string{"testString"}))
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}`)
 				}))
 			})
 			It(`Invoke CreateContractTemplate successfully with retries`, func() {
@@ -10511,7 +12045,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")
+				containerReferenceModel.ID = core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the ErrorMessage model
@@ -10540,8 +12074,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
-				domainModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
-				domainModel.Name = core.StringPtr("domain_name")
+				domainModel.ID = core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")
+				domainModel.Name = core.StringPtr("Test Domain New")
 				domainModel.Container = containerReferenceModel
 
 				// Construct an instance of the Overview model
@@ -10607,6 +12141,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -10616,17 +12185,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -10643,17 +12236,21 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the CreateContractTemplateOptions model
 				createContractTemplateOptionsModel := new(dataproducthubapiservicev1.CreateContractTemplateOptions)
 				createContractTemplateOptionsModel.Container = containerReferenceModel
 				createContractTemplateOptionsModel.ID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatorID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatedAt = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Name = core.StringPtr("Sample Data Contract Template")
 				createContractTemplateOptionsModel.Error = errorMessageModel
 				createContractTemplateOptionsModel.ContractTerms = contractTermsModel
 				createContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				createContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				createContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
@@ -10708,10 +12305,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
 					Expect(req.URL.Query()["contract_template.name"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["domain.ids"]).To(Equal([]string{"testString"}))
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}`)
 				}))
 			})
 			It(`Invoke CreateContractTemplate successfully`, func() {
@@ -10730,7 +12328,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")
+				containerReferenceModel.ID = core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the ErrorMessage model
@@ -10759,8 +12357,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
-				domainModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
-				domainModel.Name = core.StringPtr("domain_name")
+				domainModel.ID = core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")
+				domainModel.Name = core.StringPtr("Test Domain New")
 				domainModel.Container = containerReferenceModel
 
 				// Construct an instance of the Overview model
@@ -10826,6 +12424,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -10835,17 +12468,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -10862,17 +12519,21 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the CreateContractTemplateOptions model
 				createContractTemplateOptionsModel := new(dataproducthubapiservicev1.CreateContractTemplateOptions)
 				createContractTemplateOptionsModel.Container = containerReferenceModel
 				createContractTemplateOptionsModel.ID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatorID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatedAt = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Name = core.StringPtr("Sample Data Contract Template")
 				createContractTemplateOptionsModel.Error = errorMessageModel
 				createContractTemplateOptionsModel.ContractTerms = contractTermsModel
 				createContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				createContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				createContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
@@ -10892,7 +12553,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")
+				containerReferenceModel.ID = core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the ErrorMessage model
@@ -10921,8 +12582,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
-				domainModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
-				domainModel.Name = core.StringPtr("domain_name")
+				domainModel.ID = core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")
+				domainModel.Name = core.StringPtr("Test Domain New")
 				domainModel.Container = containerReferenceModel
 
 				// Construct an instance of the Overview model
@@ -10988,6 +12649,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -10997,17 +12693,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -11024,17 +12744,21 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the CreateContractTemplateOptions model
 				createContractTemplateOptionsModel := new(dataproducthubapiservicev1.CreateContractTemplateOptions)
 				createContractTemplateOptionsModel.Container = containerReferenceModel
 				createContractTemplateOptionsModel.ID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatorID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatedAt = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Name = core.StringPtr("Sample Data Contract Template")
 				createContractTemplateOptionsModel.Error = errorMessageModel
 				createContractTemplateOptionsModel.ContractTerms = contractTermsModel
 				createContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				createContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				createContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
 				err := dataProductHubAPIServiceService.SetServiceURL("")
@@ -11075,7 +12799,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
-				containerReferenceModel.ID = core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")
+				containerReferenceModel.ID = core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")
 				containerReferenceModel.Type = core.StringPtr("catalog")
 
 				// Construct an instance of the ErrorMessage model
@@ -11104,8 +12828,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
-				domainModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
-				domainModel.Name = core.StringPtr("domain_name")
+				domainModel.ID = core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")
+				domainModel.Name = core.StringPtr("Test Domain New")
 				domainModel.Container = containerReferenceModel
 
 				// Construct an instance of the Overview model
@@ -11171,6 +12895,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -11180,17 +12939,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -11207,17 +12990,21 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the CreateContractTemplateOptions model
 				createContractTemplateOptionsModel := new(dataproducthubapiservicev1.CreateContractTemplateOptions)
 				createContractTemplateOptionsModel.Container = containerReferenceModel
 				createContractTemplateOptionsModel.ID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatorID = core.StringPtr("testString")
+				createContractTemplateOptionsModel.CreatedAt = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Name = core.StringPtr("Sample Data Contract Template")
 				createContractTemplateOptionsModel.Error = errorMessageModel
 				createContractTemplateOptionsModel.ContractTerms = contractTermsModel
 				createContractTemplateOptionsModel.ContainerID = core.StringPtr("testString")
 				createContractTemplateOptionsModel.ContractTemplateName = core.StringPtr("testString")
+				createContractTemplateOptionsModel.DomainIds = core.StringPtr("testString")
 				createContractTemplateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
@@ -11298,7 +13085,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}`)
 				}))
 			})
 			It(`Invoke GetContractTemplate successfully with retries`, func() {
@@ -11354,7 +13141,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}`)
 				}))
 			})
 			It(`Invoke GetContractTemplate successfully`, func() {
@@ -11613,7 +13400,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductContractTemplate successfully with retries`, func() {
@@ -11693,7 +13480,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "id": "20aa7c97-cfcc-4d16-ae76-2ca1847ce733", "creator_id": "IBMid-123456ABC", "created_at": "2025-06-26T12:30:20.000Z", "name": "Sample Data Contract Template", "error": {"code": "Code", "message": "Message"}, "contract_terms": {"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductContractTemplate successfully`, func() {
@@ -11827,6 +13614,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.URL.EscapedPath()).To(Equal(listDataProductDomainsPath))
 					Expect(req.Method).To(Equal("GET"))
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
+					// TODO: Add check for include_subdomains query parameter
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
 					fmt.Fprint(res, `} this is not valid json {`)
@@ -11843,6 +13631,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the ListDataProductDomainsOptions model
 				listDataProductDomainsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDomainsOptions)
 				listDataProductDomainsOptionsModel.ContainerID = core.StringPtr("testString")
+				listDataProductDomainsOptionsModel.IncludeSubdomains = core.BoolPtr(true)
 				listDataProductDomainsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
 				result, response, operationErr := dataProductHubAPIServiceService.ListDataProductDomains(listDataProductDomainsOptionsModel)
@@ -11874,13 +13663,14 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
+					// TODO: Add check for include_subdomains query parameter
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"domains": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}]}`)
+					fmt.Fprintf(res, "%s", `{"domains": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductDomains successfully with retries`, func() {
@@ -11895,6 +13685,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the ListDataProductDomainsOptions model
 				listDataProductDomainsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDomainsOptions)
 				listDataProductDomainsOptionsModel.ContainerID = core.StringPtr("testString")
+				listDataProductDomainsOptionsModel.IncludeSubdomains = core.BoolPtr(true)
 				listDataProductDomainsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
@@ -11932,10 +13723,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					Expect(req.Method).To(Equal("GET"))
 
 					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
+					// TODO: Add check for include_subdomains query parameter
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"domains": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}]}`)
+					fmt.Fprintf(res, "%s", `{"domains": [{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}]}`)
 				}))
 			})
 			It(`Invoke ListDataProductDomains successfully`, func() {
@@ -11955,6 +13747,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the ListDataProductDomainsOptions model
 				listDataProductDomainsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDomainsOptions)
 				listDataProductDomainsOptionsModel.ContainerID = core.StringPtr("testString")
+				listDataProductDomainsOptionsModel.IncludeSubdomains = core.BoolPtr(true)
 				listDataProductDomainsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
@@ -11975,6 +13768,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the ListDataProductDomainsOptions model
 				listDataProductDomainsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDomainsOptions)
 				listDataProductDomainsOptionsModel.ContainerID = core.StringPtr("testString")
+				listDataProductDomainsOptionsModel.IncludeSubdomains = core.BoolPtr(true)
 				listDataProductDomainsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
 				err := dataProductHubAPIServiceService.SetServiceURL("")
@@ -12009,6 +13803,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the ListDataProductDomainsOptions model
 				listDataProductDomainsOptionsModel := new(dataproducthubapiservicev1.ListDataProductDomainsOptions)
 				listDataProductDomainsOptionsModel.ContainerID = core.StringPtr("testString")
+				listDataProductDomainsOptionsModel.IncludeSubdomains = core.BoolPtr(true)
 				listDataProductDomainsOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
@@ -12034,7 +13829,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Verify the contents of the request
 					Expect(req.URL.EscapedPath()).To(Equal(createDataProductDomainPath))
 					Expect(req.Method).To(Equal("POST"))
-					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
+					// TODO: Add check for link_to_subcontainers query parameter
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
 					fmt.Fprint(res, `} this is not valid json {`)
@@ -12085,6 +13880,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				initializeSubDomainModel.ID = core.StringPtr("testString")
 				initializeSubDomainModel.Description = core.StringPtr("New sub domain 1")
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+
 				// Construct an instance of the CreateDataProductDomainOptions model
 				createDataProductDomainOptionsModel := new(dataproducthubapiservicev1.CreateDataProductDomainOptions)
 				createDataProductDomainOptionsModel.Container = containerReferenceModel
@@ -12093,10 +13892,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDomainOptionsModel.Name = core.StringPtr("Test domain")
 				createDataProductDomainOptionsModel.Description = core.StringPtr("The sample description for new domain")
 				createDataProductDomainOptionsModel.ID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.CreatedBy = core.StringPtr("testString")
 				createDataProductDomainOptionsModel.MemberRoles = memberRolesSchemaModel
 				createDataProductDomainOptionsModel.Properties = propertiesSchemaModel
 				createDataProductDomainOptionsModel.SubDomains = []dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}
-				createDataProductDomainOptionsModel.ContainerID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.SubContainer = containerIdentityModel
+				createDataProductDomainOptionsModel.LinkToSubcontainers = core.BoolPtr(false)
 				createDataProductDomainOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Expect response parsing to fail since we are receiving a text/plain response
 				result, response, operationErr := dataProductHubAPIServiceService.CreateDataProductDomain(createDataProductDomainOptionsModel)
@@ -12143,14 +13944,14 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					}
 					fmt.Fprintf(GinkgoWriter, "  Request body: %s", bodyBuf.String())
 
-					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
+					// TODO: Add check for link_to_subcontainers query parameter
 					// Sleep a short time to support a timeout test
 					time.Sleep(100 * time.Millisecond)
 
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}`)
 				}))
 			})
 			It(`Invoke CreateDataProductDomain successfully with retries`, func() {
@@ -12199,6 +14000,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				initializeSubDomainModel.ID = core.StringPtr("testString")
 				initializeSubDomainModel.Description = core.StringPtr("New sub domain 1")
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+
 				// Construct an instance of the CreateDataProductDomainOptions model
 				createDataProductDomainOptionsModel := new(dataproducthubapiservicev1.CreateDataProductDomainOptions)
 				createDataProductDomainOptionsModel.Container = containerReferenceModel
@@ -12207,10 +14012,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDomainOptionsModel.Name = core.StringPtr("Test domain")
 				createDataProductDomainOptionsModel.Description = core.StringPtr("The sample description for new domain")
 				createDataProductDomainOptionsModel.ID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.CreatedBy = core.StringPtr("testString")
 				createDataProductDomainOptionsModel.MemberRoles = memberRolesSchemaModel
 				createDataProductDomainOptionsModel.Properties = propertiesSchemaModel
 				createDataProductDomainOptionsModel.SubDomains = []dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}
-				createDataProductDomainOptionsModel.ContainerID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.SubContainer = containerIdentityModel
+				createDataProductDomainOptionsModel.LinkToSubcontainers = core.BoolPtr(false)
 				createDataProductDomainOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with a Context to test a timeout error
@@ -12263,11 +14070,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					}
 					fmt.Fprintf(GinkgoWriter, "  Request body: %s", bodyBuf.String())
 
-					Expect(req.URL.Query()["container.id"]).To(Equal([]string{"testString"}))
+					// TODO: Add check for link_to_subcontainers query parameter
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(201)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}`)
 				}))
 			})
 			It(`Invoke CreateDataProductDomain successfully`, func() {
@@ -12321,6 +14128,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				initializeSubDomainModel.ID = core.StringPtr("testString")
 				initializeSubDomainModel.Description = core.StringPtr("New sub domain 1")
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+
 				// Construct an instance of the CreateDataProductDomainOptions model
 				createDataProductDomainOptionsModel := new(dataproducthubapiservicev1.CreateDataProductDomainOptions)
 				createDataProductDomainOptionsModel.Container = containerReferenceModel
@@ -12329,10 +14140,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDomainOptionsModel.Name = core.StringPtr("Test domain")
 				createDataProductDomainOptionsModel.Description = core.StringPtr("The sample description for new domain")
 				createDataProductDomainOptionsModel.ID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.CreatedBy = core.StringPtr("testString")
 				createDataProductDomainOptionsModel.MemberRoles = memberRolesSchemaModel
 				createDataProductDomainOptionsModel.Properties = propertiesSchemaModel
 				createDataProductDomainOptionsModel.SubDomains = []dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}
-				createDataProductDomainOptionsModel.ContainerID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.SubContainer = containerIdentityModel
+				createDataProductDomainOptionsModel.LinkToSubcontainers = core.BoolPtr(false)
 				createDataProductDomainOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation with valid options model (positive test)
@@ -12387,6 +14200,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				initializeSubDomainModel.ID = core.StringPtr("testString")
 				initializeSubDomainModel.Description = core.StringPtr("New sub domain 1")
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+
 				// Construct an instance of the CreateDataProductDomainOptions model
 				createDataProductDomainOptionsModel := new(dataproducthubapiservicev1.CreateDataProductDomainOptions)
 				createDataProductDomainOptionsModel.Container = containerReferenceModel
@@ -12395,10 +14212,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDomainOptionsModel.Name = core.StringPtr("Test domain")
 				createDataProductDomainOptionsModel.Description = core.StringPtr("The sample description for new domain")
 				createDataProductDomainOptionsModel.ID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.CreatedBy = core.StringPtr("testString")
 				createDataProductDomainOptionsModel.MemberRoles = memberRolesSchemaModel
 				createDataProductDomainOptionsModel.Properties = propertiesSchemaModel
 				createDataProductDomainOptionsModel.SubDomains = []dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}
-				createDataProductDomainOptionsModel.ContainerID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.SubContainer = containerIdentityModel
+				createDataProductDomainOptionsModel.LinkToSubcontainers = core.BoolPtr(false)
 				createDataProductDomainOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 				// Invoke operation with empty URL (negative test)
 				err := dataProductHubAPIServiceService.SetServiceURL("")
@@ -12474,6 +14293,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				initializeSubDomainModel.ID = core.StringPtr("testString")
 				initializeSubDomainModel.Description = core.StringPtr("New sub domain 1")
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+
 				// Construct an instance of the CreateDataProductDomainOptions model
 				createDataProductDomainOptionsModel := new(dataproducthubapiservicev1.CreateDataProductDomainOptions)
 				createDataProductDomainOptionsModel.Container = containerReferenceModel
@@ -12482,10 +14305,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDomainOptionsModel.Name = core.StringPtr("Test domain")
 				createDataProductDomainOptionsModel.Description = core.StringPtr("The sample description for new domain")
 				createDataProductDomainOptionsModel.ID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.CreatedBy = core.StringPtr("testString")
 				createDataProductDomainOptionsModel.MemberRoles = memberRolesSchemaModel
 				createDataProductDomainOptionsModel.Properties = propertiesSchemaModel
 				createDataProductDomainOptionsModel.SubDomains = []dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}
-				createDataProductDomainOptionsModel.ContainerID = core.StringPtr("testString")
+				createDataProductDomainOptionsModel.SubContainer = containerIdentityModel
+				createDataProductDomainOptionsModel.LinkToSubcontainers = core.BoolPtr(false)
 				createDataProductDomainOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
 
 				// Invoke operation
@@ -12830,7 +14655,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}`)
 				}))
 			})
 			It(`Invoke GetDomain successfully with retries`, func() {
@@ -12884,7 +14709,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}`)
 				}))
 			})
 			It(`Invoke GetDomain successfully`, func() {
@@ -13137,7 +14962,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDomain successfully with retries`, func() {
@@ -13217,7 +15042,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}]}`)
+					fmt.Fprintf(res, "%s", `{"container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "trace": "Trace", "errors": [{"code": "request_body_error", "message": "Message", "extra": {"id": "ID", "timestamp": "2019-01-01T12:00:00.000Z", "environment_name": "EnvironmentName", "http_status": 0, "source_cluster": 0, "source_component": 0, "transaction_id": 0}, "more_info": "MoreInfo"}], "name": "Operations", "description": "This is a description of the data product domain.", "id": "ID", "created_by": "CreatedBy", "member_roles": {"user_iam_id": "UserIamID", "roles": ["Roles"]}, "properties": {"value": "Value"}, "sub_domains": [{"name": "Operations", "id": "ID", "description": "Description"}], "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}}`)
 				}))
 			})
 			It(`Invoke UpdateDataProductDomain successfully`, func() {
@@ -13405,7 +15230,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "data_product_versions": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "data_product_versions": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductByDomain successfully with retries`, func() {
@@ -13461,7 +15286,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					// Set mock response
 					res.Header().Set("Content-type", "application/json")
 					res.WriteHeader(200)
-					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "data_product_versions": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "schema": [{"name": "Name", "description": "Description", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "associated_catalogs": ["AssociatedCatalogs"]}}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
+					fmt.Fprintf(res, "%s", `{"limit": 200, "first": {"href": "https://api.example.com/collection"}, "next": {"href": "https://api.example.com/collection?start=eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9", "start": "eyJvZmZzZXQiOjAsImRvbmUiOnRydWV9"}, "total_results": 200, "data_product_versions": [{"version": "1.0.0", "state": "draft", "data_product": {"id": "b38df608-d34b-4d58-8136-ed25e6c6684e", "release": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}, "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "name": "My Data Product", "description": "This is a description of My Data Product.", "tags": ["Tags"], "use_cases": [{"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}], "types": ["data"], "contract_terms": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "id": "ID", "documents": [{"url": "URL", "type": "terms_and_conditions", "name": "Name", "id": "2b0bf220-079c-11ee-be56-0242ac120002", "attachment": {"id": "ID"}, "upload_url": "UploadURL"}], "error_msg": "ErrorMsg", "overview": {"api_version": "v3.0.1", "kind": "DataContract", "name": "Sample Data Contract", "version": "0.0.0", "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "more_info": "List of links to sources that provide more details on the data contract."}, "description": {"purpose": "Used for customer behavior analysis.", "limitations": "Data cannot be used for marketing.", "usage": "Data should be used only for analytics.", "more_info": [{"type": "privacy-statement", "url": "https://moreinfo.example.com"}], "custom_properties": "{\"property1\":\"value1\"}"}, "organization": [{"user_id": "IBMid-691000IN4G", "role": "owner"}], "roles": [{"role": "owner"}], "price": {"amount": "100.0", "currency": "USD", "unit": "megabyte"}, "sla": [{"default_element": "Standard SLA Policy", "properties": [{"property": "Uptime Guarantee", "value": "99.9"}]}], "support_and_communication": [{"channel": "Email Support", "url": "https://support.example.com"}], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}], "contract_test": {"status": "pass", "last_tested_time": "LastTestedTime", "message": "Message"}, "servers": [{"server": "Server", "asset": {"id": "ID", "name": "Name"}, "connection_id": "ConnectionID", "type": "Type", "description": "Description", "environment": "Environment", "account": "Account", "catalog": "Catalog", "database": "Database", "dataset": "Dataset", "delimiter": "Delimiter", "endpoint_url": "EndpointURL", "format": "Format", "host": "Host", "location": "Location", "path": "Path", "port": "Port", "project": "Project", "region": "Region", "region_name": "RegionName", "schema": "Schema", "service_name": "ServiceName", "staging_dir": "StagingDir", "stream": "Stream", "warehouse": "Warehouse", "roles": ["Roles"], "custom_properties": [{"key": "customPropertyKey", "value": "customPropertyValue"}]}], "schema": [{"asset_id": "2b0bf220-079c-11ee-be56-0242ac120002", "connection_id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "description": "Description", "connection_path": "ConnectionPath", "physical_type": "PhysicalType", "properties": [{"name": "Name", "type": {"type": "Type", "length": "Length", "scale": "Scale", "nullable": "Nullable", "signed": "Signed", "native_type": "NativeType"}, "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}], "quality": [{"type": "sql", "description": "Description", "rule": "Rule", "implementation": "Implementation", "engine": "Engine", "must_be_less_than": "MustBeLessThan", "must_be_less_or_equal_to": "MustBeLessOrEqualTo", "must_be_greater_than": "MustBeGreaterThan", "must_be_greater_or_equal_to": "MustBeGreaterOrEqualTo", "must_be_between": ["MustBeBetween"], "must_not_be_between": ["MustNotBeBetween"], "must_be": "MustBe", "must_not_be": "MustNotBe", "name": "Name", "unit": "Unit", "query": "Query"}]}]}], "domain": {"id": "ID", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}, "parts_out": [{"asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "type": "data_asset"}, "delivery_methods": [{"id": "09cf5fcc-cb9d-4995-a8e4-16517b25229f", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}, "getproperties": {"producer_input": {"engine_details": {"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}, "engines": [{"display_name": "Iceberg Engine", "engine_id": "presto767", "engine_port": "34567", "engine_host": "a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud", "engine_type": "spark", "associated_catalogs": ["AssociatedCatalogs"]}]}}}]}], "workflows": {"order_access_request": {"task_assignee_users": ["TaskAssigneeUsers"], "pre_approved_users": ["PreApprovedUsers"], "custom_workflow_definition": {"id": "18bdbde1-918e-4ecf-aa23-6727bf319e14"}}}, "dataview_enabled": false, "comments": "Comments by a producer that are provided either at the time of data product version creation or retiring", "access_control": {"owner": "IBMid-696000KYV9"}, "last_updated_at": "2019-01-01T12:00:00.000Z", "sub_container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd"}, "is_restricted": true, "id": "2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd", "asset": {"id": "2b0bf220-079c-11ee-be56-0242ac120002", "name": "Name", "container": {"id": "d29c42eb-7100-4b7a-8257-c196dbcca1cd", "type": "catalog"}}}]}`)
 				}))
 			})
 			It(`Invoke GetDataProductByDomain successfully`, func() {
@@ -13987,6 +15812,237 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			})
 		})
 	})
+	Describe(`GetRevokeAccessProcessState(getRevokeAccessProcessStateOptions *GetRevokeAccessProcessStateOptions) - Operation response error`, func() {
+		getRevokeAccessProcessStatePath := "/data_product_exchange/v1/data_product_revoke_access/job_runs"
+		Context(`Using mock server endpoint with invalid JSON response`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(getRevokeAccessProcessStatePath))
+					Expect(req.Method).To(Equal("GET"))
+					Expect(req.URL.Query()["release_id"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(200))}))
+					Expect(req.URL.Query()["start"]).To(Equal([]string{"testString"}))
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(200)
+					fmt.Fprint(res, `} this is not valid json {`)
+				}))
+			})
+			It(`Invoke GetRevokeAccessProcessState with error: Operation response processing error`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the GetRevokeAccessProcessStateOptions model
+				getRevokeAccessProcessStateOptionsModel := new(dataproducthubapiservicev1.GetRevokeAccessProcessStateOptions)
+				getRevokeAccessProcessStateOptionsModel.ReleaseID = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Limit = core.Int64Ptr(int64(200))
+				getRevokeAccessProcessStateOptionsModel.Start = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Expect response parsing to fail since we are receiving a text/plain response
+				result, response, operationErr := dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).To(BeNil())
+
+				// Enable retries and test again
+				dataProductHubAPIServiceService.EnableRetries(0, 0)
+				result, response, operationErr = dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+	})
+	Describe(`GetRevokeAccessProcessState(getRevokeAccessProcessStateOptions *GetRevokeAccessProcessStateOptions)`, func() {
+		getRevokeAccessProcessStatePath := "/data_product_exchange/v1/data_product_revoke_access/job_runs"
+		Context(`Using mock server endpoint with timeout`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(getRevokeAccessProcessStatePath))
+					Expect(req.Method).To(Equal("GET"))
+
+					Expect(req.URL.Query()["release_id"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(200))}))
+					Expect(req.URL.Query()["start"]).To(Equal([]string{"testString"}))
+					// Sleep a short time to support a timeout test
+					time.Sleep(100 * time.Millisecond)
+
+					// Set mock response
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(200)
+					fmt.Fprintf(res, "%s", `{"results": [{"metadata": {"anyKey": "anyValue"}, "entity": {"anyKey": "anyValue"}}], "total_count": 42, "next": {"query": "ibm_data_product_revoke_access.state:(SCHEDULED OR FAILED)", "limit": 1, "bookmark": "MQ==", "include": "entity", "skip": 0}}`)
+				}))
+			})
+			It(`Invoke GetRevokeAccessProcessState successfully with retries`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+				dataProductHubAPIServiceService.EnableRetries(0, 0)
+
+				// Construct an instance of the GetRevokeAccessProcessStateOptions model
+				getRevokeAccessProcessStateOptionsModel := new(dataproducthubapiservicev1.GetRevokeAccessProcessStateOptions)
+				getRevokeAccessProcessStateOptionsModel.ReleaseID = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Limit = core.Int64Ptr(int64(200))
+				getRevokeAccessProcessStateOptionsModel.Start = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation with a Context to test a timeout error
+				ctx, cancelFunc := context.WithTimeout(context.Background(), 80*time.Millisecond)
+				defer cancelFunc()
+				_, _, operationErr := dataProductHubAPIServiceService.GetRevokeAccessProcessStateWithContext(ctx, getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
+
+				// Disable retries and test again
+				dataProductHubAPIServiceService.DisableRetries()
+				result, response, operationErr := dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).ToNot(BeNil())
+
+				// Re-test the timeout error with retries disabled
+				ctx, cancelFunc2 := context.WithTimeout(context.Background(), 80*time.Millisecond)
+				defer cancelFunc2()
+				_, _, operationErr = dataProductHubAPIServiceService.GetRevokeAccessProcessStateWithContext(ctx, getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring("deadline exceeded"))
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+		Context(`Using mock server endpoint`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Verify the contents of the request
+					Expect(req.URL.EscapedPath()).To(Equal(getRevokeAccessProcessStatePath))
+					Expect(req.Method).To(Equal("GET"))
+
+					Expect(req.URL.Query()["release_id"]).To(Equal([]string{"testString"}))
+					Expect(req.URL.Query()["limit"]).To(Equal([]string{fmt.Sprint(int64(200))}))
+					Expect(req.URL.Query()["start"]).To(Equal([]string{"testString"}))
+					// Set mock response
+					res.Header().Set("Content-type", "application/json")
+					res.WriteHeader(200)
+					fmt.Fprintf(res, "%s", `{"results": [{"metadata": {"anyKey": "anyValue"}, "entity": {"anyKey": "anyValue"}}], "total_count": 42, "next": {"query": "ibm_data_product_revoke_access.state:(SCHEDULED OR FAILED)", "limit": 1, "bookmark": "MQ==", "include": "entity", "skip": 0}}`)
+				}))
+			})
+			It(`Invoke GetRevokeAccessProcessState successfully`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Invoke operation with nil options model (negative test)
+				result, response, operationErr := dataProductHubAPIServiceService.GetRevokeAccessProcessState(nil)
+				Expect(operationErr).NotTo(BeNil())
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+
+				// Construct an instance of the GetRevokeAccessProcessStateOptions model
+				getRevokeAccessProcessStateOptionsModel := new(dataproducthubapiservicev1.GetRevokeAccessProcessStateOptions)
+				getRevokeAccessProcessStateOptionsModel.ReleaseID = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Limit = core.Int64Ptr(int64(200))
+				getRevokeAccessProcessStateOptionsModel.Start = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation with valid options model (positive test)
+				result, response, operationErr = dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+				Expect(result).ToNot(BeNil())
+
+			})
+			It(`Invoke GetRevokeAccessProcessState with error: Operation validation and request error`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the GetRevokeAccessProcessStateOptions model
+				getRevokeAccessProcessStateOptionsModel := new(dataproducthubapiservicev1.GetRevokeAccessProcessStateOptions)
+				getRevokeAccessProcessStateOptionsModel.ReleaseID = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Limit = core.Int64Ptr(int64(200))
+				getRevokeAccessProcessStateOptionsModel.Start = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+				// Invoke operation with empty URL (negative test)
+				err := dataProductHubAPIServiceService.SetServiceURL("")
+				Expect(err).To(BeNil())
+				result, response, operationErr := dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(operationErr.Error()).To(ContainSubstring(core.ERRORMSG_SERVICE_URL_MISSING))
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+				// Construct a second instance of the GetRevokeAccessProcessStateOptions model with no property values
+				getRevokeAccessProcessStateOptionsModelNew := new(dataproducthubapiservicev1.GetRevokeAccessProcessStateOptions)
+				// Invoke operation with invalid model (negative test)
+				result, response, operationErr = dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModelNew)
+				Expect(operationErr).ToNot(BeNil())
+				Expect(response).To(BeNil())
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+		Context(`Using mock server endpoint with missing response body`, func() {
+			BeforeEach(func() {
+				testServer = httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+					defer GinkgoRecover()
+
+					// Set success status code with no respoonse body
+					res.WriteHeader(200)
+				}))
+			})
+			It(`Invoke GetRevokeAccessProcessState successfully`, func() {
+				dataProductHubAPIServiceService, serviceErr := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
+					URL:           testServer.URL,
+					Authenticator: &core.NoAuthAuthenticator{},
+				})
+				Expect(serviceErr).To(BeNil())
+				Expect(dataProductHubAPIServiceService).ToNot(BeNil())
+
+				// Construct an instance of the GetRevokeAccessProcessStateOptions model
+				getRevokeAccessProcessStateOptionsModel := new(dataproducthubapiservicev1.GetRevokeAccessProcessStateOptions)
+				getRevokeAccessProcessStateOptionsModel.ReleaseID = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Limit = core.Int64Ptr(int64(200))
+				getRevokeAccessProcessStateOptionsModel.Start = core.StringPtr("testString")
+				getRevokeAccessProcessStateOptionsModel.Headers = map[string]string{"x-custom-header": "x-custom-value"}
+
+				// Invoke operation
+				result, response, operationErr := dataProductHubAPIServiceService.GetRevokeAccessProcessState(getRevokeAccessProcessStateOptionsModel)
+				Expect(operationErr).To(BeNil())
+				Expect(response).ToNot(BeNil())
+
+				// Verify a nil result
+				Expect(result).To(BeNil())
+			})
+			AfterEach(func() {
+				testServer.Close()
+			})
+		})
+	})
 	Describe(`Model constructor tests`, func() {
 		Context(`Using a service client instance`, func() {
 			dataProductHubAPIServiceService, _ := dataproducthubapiservicev1.NewDataProductHubAPIServiceV1(&dataproducthubapiservicev1.DataProductHubAPIServiceV1Options{
@@ -14040,9 +16096,28 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
+			It(`Invoke NewContractQualityRule successfully`, func() {
+				typeVar := "sql"
+				_model, err := dataProductHubAPIServiceService.NewContractQualityRule(typeVar)
+				Expect(_model).ToNot(BeNil())
+				Expect(err).To(BeNil())
+			})
+			It(`Invoke NewContractSchema successfully`, func() {
+				assetID := "2b0bf220-079c-11ee-be56-0242ac120002"
+				connectionID := "2b0bf220-079c-11ee-be56-0242ac120002"
+				_model, err := dataProductHubAPIServiceService.NewContractSchema(assetID, connectionID)
+				Expect(_model).ToNot(BeNil())
+				Expect(err).To(BeNil())
+			})
 			It(`Invoke NewContractSchemaProperty successfully`, func() {
 				name := "testString"
 				_model, err := dataProductHubAPIServiceService.NewContractSchemaProperty(name)
+				Expect(_model).ToNot(BeNil())
+				Expect(err).To(BeNil())
+			})
+			It(`Invoke NewContractServer successfully`, func() {
+				server := "testString"
+				_model, err := dataProductHubAPIServiceService.NewContractServer(server)
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
@@ -14168,6 +16243,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -14177,17 +16287,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTerms := new(dataproducthubapiservicev1.ContractTerms)
@@ -14204,6 +16338,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTerms.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTerms.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTerms.ContractTest = contractTestModel
+				contractTerms.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTerms.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				contractTermsPatch := dataProductHubAPIServiceService.NewContractTermsPatch(contractTerms)
@@ -14213,89 +16348,95 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					return *op.(dataproducthubapiservicev1.JSONPatchOperation).Path
 				}
 				Expect(contractTermsPatch).To(MatchAllElements(_path, Elements{
-				"/asset": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/asset")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Asset),
+					"/asset": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/asset")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Asset),
 					}),
-				"/id": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/id")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.ID),
+					"/id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/id")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.ID),
 					}),
-				"/documents": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/documents")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Documents),
+					"/documents": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/documents")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Documents),
 					}),
-				"/error_msg": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/error_msg")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.ErrorMsg),
+					"/error_msg": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/error_msg")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.ErrorMsg),
 					}),
-				"/overview": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/overview")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Overview),
+					"/overview": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/overview")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Overview),
 					}),
-				"/description": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/description")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Description),
+					"/description": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/description")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Description),
 					}),
-				"/organization": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/organization")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Organization),
+					"/organization": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/organization")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Organization),
 					}),
-				"/roles": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/roles")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Roles),
+					"/roles": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/roles")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Roles),
 					}),
-				"/price": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/price")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Price),
+					"/price": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/price")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Price),
 					}),
-				"/sla": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/sla")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.SLA),
+					"/sla": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/sla")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.SLA),
 					}),
-				"/support_and_communication": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/support_and_communication")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.SupportAndCommunication),
+					"/support_and_communication": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/support_and_communication")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.SupportAndCommunication),
 					}),
-				"/custom_properties": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/custom_properties")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.CustomProperties),
+					"/custom_properties": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/custom_properties")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.CustomProperties),
 					}),
-				"/contract_test": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/contract_test")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.ContractTest),
+					"/contract_test": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/contract_test")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.ContractTest),
 					}),
-				"/schema": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/schema")),
-					"From": BeNil(),
-					"Value": Equal(contractTerms.Schema),
+					"/servers": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/servers")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Servers),
+					}),
+					"/schema": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/schema")),
+						"From":  BeNil(),
+						"Value": Equal(contractTerms.Schema),
 					}),
 				}))
 			})
@@ -14328,41 +16469,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					return *op.(dataproducthubapiservicev1.JSONPatchOperation).Path
 				}
 				Expect(contractTermsDocumentPatch).To(MatchAllElements(_path, Elements{
-				"/url": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/url")),
-					"From": BeNil(),
-					"Value": Equal(contractTermsDocument.URL),
+					"/url": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/url")),
+						"From":  BeNil(),
+						"Value": Equal(contractTermsDocument.URL),
 					}),
-				"/type": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/type")),
-					"From": BeNil(),
-					"Value": Equal(contractTermsDocument.Type),
+					"/type": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/type")),
+						"From":  BeNil(),
+						"Value": Equal(contractTermsDocument.Type),
 					}),
-				"/name": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/name")),
-					"From": BeNil(),
-					"Value": Equal(contractTermsDocument.Name),
+					"/name": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/name")),
+						"From":  BeNil(),
+						"Value": Equal(contractTermsDocument.Name),
 					}),
-				"/id": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/id")),
-					"From": BeNil(),
-					"Value": Equal(contractTermsDocument.ID),
+					"/id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/id")),
+						"From":  BeNil(),
+						"Value": Equal(contractTermsDocument.ID),
 					}),
-				"/attachment": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/attachment")),
-					"From": BeNil(),
-					"Value": Equal(contractTermsDocument.Attachment),
+					"/attachment": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/attachment")),
+						"From":  BeNil(),
+						"Value": Equal(contractTermsDocument.Attachment),
 					}),
-				"/upload_url": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/upload_url")),
-					"From": BeNil(),
-					"Value": Equal(contractTermsDocument.UploadURL),
+					"/upload_url": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/upload_url")),
+						"From":  BeNil(),
+						"Value": Equal(contractTermsDocument.UploadURL),
 					}),
 				}))
 			})
@@ -14384,9 +16525,9 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the ContainerReference model
 				containerReferenceModel := new(dataproducthubapiservicev1.ContainerReference)
 				Expect(containerReferenceModel).ToNot(BeNil())
-				containerReferenceModel.ID = core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")
+				containerReferenceModel.ID = core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")
 				containerReferenceModel.Type = core.StringPtr("catalog")
-				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("f531f74a-01c8-4e91-8e29-b018db683c86")))
+				Expect(containerReferenceModel.ID).To(Equal(core.StringPtr("531f74a-01c8-4e91-8e29-b018db683c86")))
 				Expect(containerReferenceModel.Type).To(Equal(core.StringPtr("catalog")))
 
 				// Construct an instance of the ErrorMessage model
@@ -14432,11 +16573,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the Domain model
 				domainModel := new(dataproducthubapiservicev1.Domain)
 				Expect(domainModel).ToNot(BeNil())
-				domainModel.ID = core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")
-				domainModel.Name = core.StringPtr("domain_name")
+				domainModel.ID = core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")
+				domainModel.Name = core.StringPtr("Test Domain New")
 				domainModel.Container = containerReferenceModel
-				Expect(domainModel.ID).To(Equal(core.StringPtr("b38df608-d34b-4d58-8136-ed25e6c6684e")))
-				Expect(domainModel.Name).To(Equal(core.StringPtr("domain_name")))
+				Expect(domainModel.ID).To(Equal(core.StringPtr("0094ebe9-abc3-473b-80ea-c777ede095ea")))
+				Expect(domainModel.Name).To(Equal(core.StringPtr("Test Domain New")))
 				Expect(domainModel.Container).To(Equal(containerReferenceModel))
 
 				// Construct an instance of the Overview model
@@ -14543,6 +16684,72 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTestModel.LastTestedTime).To(Equal(core.StringPtr("testString")))
 				Expect(contractTestModel.Message).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				Expect(contractAssetModel).ToNot(BeNil())
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+				Expect(contractAssetModel.ID).To(Equal(core.StringPtr("testString")))
+				Expect(contractAssetModel.Name).To(Equal(core.StringPtr("testString")))
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				Expect(contractServerModel).ToNot(BeNil())
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+				Expect(contractServerModel.Server).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Asset).To(Equal(contractAssetModel))
+				Expect(contractServerModel.ConnectionID).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Type).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Environment).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Account).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Catalog).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Database).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Dataset).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Delimiter).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.EndpointURL).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Format).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Host).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Location).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Path).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Port).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Project).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Region).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.RegionName).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Schema).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.ServiceName).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.StagingDir).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Stream).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Warehouse).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Roles).To(Equal([]string{"testString"}))
+				Expect(contractServerModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				Expect(contractSchemaPropertyTypeModel).ToNot(BeNil())
@@ -14559,25 +16766,71 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractSchemaPropertyTypeModel.Signed).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaPropertyTypeModel.NativeType).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				Expect(contractQualityRuleModel).ToNot(BeNil())
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+				Expect(contractQualityRuleModel.Type).To(Equal(core.StringPtr("sql")))
+				Expect(contractQualityRuleModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Rule).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Implementation).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Engine).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustNotBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustNotBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Name).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Unit).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Query).To(Equal(core.StringPtr("testString")))
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				Expect(contractSchemaPropertyModel).ToNot(BeNil())
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 				Expect(contractSchemaPropertyModel.Name).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaPropertyModel.Type).To(Equal(contractSchemaPropertyTypeModel))
+				Expect(contractSchemaPropertyModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
 				Expect(contractSchemaModel).ToNot(BeNil())
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
+				Expect(contractSchemaModel.AssetID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
+				Expect(contractSchemaModel.ConnectionID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
 				Expect(contractSchemaModel.Name).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractSchemaModel.ConnectionPath).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.PhysicalType).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.Properties).To(Equal([]dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}))
+				Expect(contractSchemaModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -14595,6 +16848,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				Expect(contractTermsModel.Asset).To(Equal(assetReferenceModel))
 				Expect(contractTermsModel.ID).To(Equal(core.StringPtr("testString")))
@@ -14609,6 +16863,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTermsModel.SupportAndCommunication).To(Equal([]dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}))
 				Expect(contractTermsModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
 				Expect(contractTermsModel.ContractTest).To(Equal(contractTestModel))
+				Expect(contractTermsModel.Servers).To(Equal([]dataproducthubapiservicev1.ContractServer{*contractServerModel}))
 				Expect(contractTermsModel.Schema).To(Equal([]dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}))
 
 				// Construct an instance of the CreateContractTemplateOptions model
@@ -14616,20 +16871,26 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createContractTemplateOptionsModel := dataProductHubAPIServiceService.NewCreateContractTemplateOptions(createContractTemplateOptionsContainer)
 				createContractTemplateOptionsModel.SetContainer(containerReferenceModel)
 				createContractTemplateOptionsModel.SetID("testString")
+				createContractTemplateOptionsModel.SetCreatorID("testString")
+				createContractTemplateOptionsModel.SetCreatedAt("testString")
 				createContractTemplateOptionsModel.SetName("Sample Data Contract Template")
 				createContractTemplateOptionsModel.SetError(errorMessageModel)
 				createContractTemplateOptionsModel.SetContractTerms(contractTermsModel)
 				createContractTemplateOptionsModel.SetContainerID("testString")
 				createContractTemplateOptionsModel.SetContractTemplateName("testString")
+				createContractTemplateOptionsModel.SetDomainIds("testString")
 				createContractTemplateOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(createContractTemplateOptionsModel).ToNot(BeNil())
 				Expect(createContractTemplateOptionsModel.Container).To(Equal(containerReferenceModel))
 				Expect(createContractTemplateOptionsModel.ID).To(Equal(core.StringPtr("testString")))
+				Expect(createContractTemplateOptionsModel.CreatorID).To(Equal(core.StringPtr("testString")))
+				Expect(createContractTemplateOptionsModel.CreatedAt).To(Equal(core.StringPtr("testString")))
 				Expect(createContractTemplateOptionsModel.Name).To(Equal(core.StringPtr("Sample Data Contract Template")))
 				Expect(createContractTemplateOptionsModel.Error).To(Equal(errorMessageModel))
 				Expect(createContractTemplateOptionsModel.ContractTerms).To(Equal(contractTermsModel))
 				Expect(createContractTemplateOptionsModel.ContainerID).To(Equal(core.StringPtr("testString")))
 				Expect(createContractTemplateOptionsModel.ContractTemplateName).To(Equal(core.StringPtr("testString")))
+				Expect(createContractTemplateOptionsModel.DomainIds).To(Equal(core.StringPtr("testString")))
 				Expect(createContractTemplateOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewCreateDataAssetVisualizationOptions successfully`, func() {
@@ -14750,6 +17011,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(initializeSubDomainModel.ID).To(Equal(core.StringPtr("testString")))
 				Expect(initializeSubDomainModel.Description).To(Equal(core.StringPtr("New sub domain 1")))
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				Expect(containerIdentityModel).ToNot(BeNil())
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+				Expect(containerIdentityModel.ID).To(Equal(core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")))
+
 				// Construct an instance of the CreateDataProductDomainOptions model
 				var createDataProductDomainOptionsContainer *dataproducthubapiservicev1.ContainerReference = nil
 				createDataProductDomainOptionsModel := dataProductHubAPIServiceService.NewCreateDataProductDomainOptions(createDataProductDomainOptionsContainer)
@@ -14759,10 +17026,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDomainOptionsModel.SetName("Test domain")
 				createDataProductDomainOptionsModel.SetDescription("The sample description for new domain")
 				createDataProductDomainOptionsModel.SetID("testString")
+				createDataProductDomainOptionsModel.SetCreatedBy("testString")
 				createDataProductDomainOptionsModel.SetMemberRoles(memberRolesSchemaModel)
 				createDataProductDomainOptionsModel.SetProperties(propertiesSchemaModel)
 				createDataProductDomainOptionsModel.SetSubDomains([]dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel})
-				createDataProductDomainOptionsModel.SetContainerID("testString")
+				createDataProductDomainOptionsModel.SetSubContainer(containerIdentityModel)
+				createDataProductDomainOptionsModel.SetLinkToSubcontainers(false)
 				createDataProductDomainOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(createDataProductDomainOptionsModel).ToNot(BeNil())
 				Expect(createDataProductDomainOptionsModel.Container).To(Equal(containerReferenceModel))
@@ -14771,10 +17040,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(createDataProductDomainOptionsModel.Name).To(Equal(core.StringPtr("Test domain")))
 				Expect(createDataProductDomainOptionsModel.Description).To(Equal(core.StringPtr("The sample description for new domain")))
 				Expect(createDataProductDomainOptionsModel.ID).To(Equal(core.StringPtr("testString")))
+				Expect(createDataProductDomainOptionsModel.CreatedBy).To(Equal(core.StringPtr("testString")))
 				Expect(createDataProductDomainOptionsModel.MemberRoles).To(Equal(memberRolesSchemaModel))
 				Expect(createDataProductDomainOptionsModel.Properties).To(Equal(propertiesSchemaModel))
 				Expect(createDataProductDomainOptionsModel.SubDomains).To(Equal([]dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}))
-				Expect(createDataProductDomainOptionsModel.ContainerID).To(Equal(core.StringPtr("testString")))
+				Expect(createDataProductDomainOptionsModel.SubContainer).To(Equal(containerIdentityModel))
+				Expect(createDataProductDomainOptionsModel.LinkToSubcontainers).To(Equal(core.BoolPtr(false)))
 				Expect(createDataProductDomainOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewCreateDataProductDraftOptions successfully`, func() {
@@ -14970,6 +17241,72 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTestModel.LastTestedTime).To(Equal(core.StringPtr("testString")))
 				Expect(contractTestModel.Message).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				Expect(contractAssetModel).ToNot(BeNil())
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+				Expect(contractAssetModel.ID).To(Equal(core.StringPtr("testString")))
+				Expect(contractAssetModel.Name).To(Equal(core.StringPtr("testString")))
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				Expect(contractServerModel).ToNot(BeNil())
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+				Expect(contractServerModel.Server).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Asset).To(Equal(contractAssetModel))
+				Expect(contractServerModel.ConnectionID).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Type).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Environment).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Account).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Catalog).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Database).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Dataset).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Delimiter).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.EndpointURL).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Format).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Host).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Location).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Path).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Port).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Project).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Region).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.RegionName).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Schema).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.ServiceName).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.StagingDir).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Stream).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Warehouse).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Roles).To(Equal([]string{"testString"}))
+				Expect(contractServerModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				Expect(contractSchemaPropertyTypeModel).ToNot(BeNil())
@@ -14986,25 +17323,71 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractSchemaPropertyTypeModel.Signed).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaPropertyTypeModel.NativeType).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				Expect(contractQualityRuleModel).ToNot(BeNil())
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+				Expect(contractQualityRuleModel.Type).To(Equal(core.StringPtr("sql")))
+				Expect(contractQualityRuleModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Rule).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Implementation).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Engine).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustNotBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustNotBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Name).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Unit).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Query).To(Equal(core.StringPtr("testString")))
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				Expect(contractSchemaPropertyModel).ToNot(BeNil())
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 				Expect(contractSchemaPropertyModel.Name).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaPropertyModel.Type).To(Equal(contractSchemaPropertyTypeModel))
+				Expect(contractSchemaPropertyModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
 				Expect(contractSchemaModel).ToNot(BeNil())
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
+				Expect(contractSchemaModel.AssetID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
+				Expect(contractSchemaModel.ConnectionID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
 				Expect(contractSchemaModel.Name).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractSchemaModel.ConnectionPath).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.PhysicalType).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.Properties).To(Equal([]dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}))
+				Expect(contractSchemaModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -15022,6 +17405,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				Expect(contractTermsModel.Asset).To(Equal(assetReferenceModel))
 				Expect(contractTermsModel.ID).To(Equal(core.StringPtr("testString")))
@@ -15036,6 +17420,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTermsModel.SupportAndCommunication).To(Equal([]dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}))
 				Expect(contractTermsModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
 				Expect(contractTermsModel.ContractTest).To(Equal(contractTestModel))
+				Expect(contractTermsModel.Servers).To(Equal([]dataproducthubapiservicev1.ContractServer{*contractServerModel}))
 				Expect(contractTermsModel.Schema).To(Equal([]dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}))
 
 				// Construct an instance of the AssetPartReference model
@@ -15057,18 +17442,22 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 				Expect(engineDetailsModelModel.DisplayName).To(Equal(core.StringPtr("Iceberg Engine")))
 				Expect(engineDetailsModelModel.EngineID).To(Equal(core.StringPtr("presto767")))
 				Expect(engineDetailsModelModel.EnginePort).To(Equal(core.StringPtr("34567")))
 				Expect(engineDetailsModelModel.EngineHost).To(Equal(core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")))
+				Expect(engineDetailsModelModel.EngineType).To(Equal(core.StringPtr("spark")))
 				Expect(engineDetailsModelModel.AssociatedCatalogs).To(Equal([]string{"testString"}))
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				Expect(producerInputModelModel).ToNot(BeNil())
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 				Expect(producerInputModelModel.EngineDetails).To(Equal(engineDetailsModelModel))
+				Expect(producerInputModelModel.Engines).To(Equal([]dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}))
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -15144,6 +17533,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				createDataProductDraftOptionsModel.SetComments("testString")
 				createDataProductDraftOptionsModel.SetAccessControl(assetListAccessControlModel)
 				createDataProductDraftOptionsModel.SetLastUpdatedAt(CreateMockDateTime("2019-01-01T12:00:00.000Z"))
+				createDataProductDraftOptionsModel.SetSubContainer(containerIdentityModel)
 				createDataProductDraftOptionsModel.SetIsRestricted(true)
 				createDataProductDraftOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(createDataProductDraftOptionsModel).ToNot(BeNil())
@@ -15165,6 +17555,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(createDataProductDraftOptionsModel.Comments).To(Equal(core.StringPtr("testString")))
 				Expect(createDataProductDraftOptionsModel.AccessControl).To(Equal(assetListAccessControlModel))
 				Expect(createDataProductDraftOptionsModel.LastUpdatedAt).To(Equal(CreateMockDateTime("2019-01-01T12:00:00.000Z")))
+				Expect(createDataProductDraftOptionsModel.SubContainer).To(Equal(containerIdentityModel))
 				Expect(createDataProductDraftOptionsModel.IsRestricted).To(Equal(core.BoolPtr(true)))
 				Expect(createDataProductDraftOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
@@ -15347,6 +17738,72 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTestModel.LastTestedTime).To(Equal(core.StringPtr("testString")))
 				Expect(contractTestModel.Message).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				Expect(contractAssetModel).ToNot(BeNil())
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+				Expect(contractAssetModel.ID).To(Equal(core.StringPtr("testString")))
+				Expect(contractAssetModel.Name).To(Equal(core.StringPtr("testString")))
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				Expect(contractServerModel).ToNot(BeNil())
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+				Expect(contractServerModel.Server).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Asset).To(Equal(contractAssetModel))
+				Expect(contractServerModel.ConnectionID).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Type).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Environment).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Account).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Catalog).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Database).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Dataset).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Delimiter).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.EndpointURL).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Format).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Host).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Location).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Path).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Port).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Project).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Region).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.RegionName).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Schema).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.ServiceName).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.StagingDir).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Stream).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Warehouse).To(Equal(core.StringPtr("testString")))
+				Expect(contractServerModel.Roles).To(Equal([]string{"testString"}))
+				Expect(contractServerModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				Expect(contractSchemaPropertyTypeModel).ToNot(BeNil())
@@ -15363,25 +17820,71 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractSchemaPropertyTypeModel.Signed).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaPropertyTypeModel.NativeType).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				Expect(contractQualityRuleModel).ToNot(BeNil())
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+				Expect(contractQualityRuleModel.Type).To(Equal(core.StringPtr("sql")))
+				Expect(contractQualityRuleModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Rule).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Implementation).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Engine).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustNotBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustNotBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Name).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Unit).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Query).To(Equal(core.StringPtr("testString")))
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				Expect(contractSchemaPropertyModel).ToNot(BeNil())
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 				Expect(contractSchemaPropertyModel.Name).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaPropertyModel.Type).To(Equal(contractSchemaPropertyTypeModel))
+				Expect(contractSchemaPropertyModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
 				Expect(contractSchemaModel).ToNot(BeNil())
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
+				Expect(contractSchemaModel.AssetID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
+				Expect(contractSchemaModel.ConnectionID).To(Equal(core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")))
 				Expect(contractSchemaModel.Name).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractSchemaModel.ConnectionPath).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.PhysicalType).To(Equal(core.StringPtr("testString")))
 				Expect(contractSchemaModel.Properties).To(Equal([]dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}))
+				Expect(contractSchemaModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -15399,6 +17902,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 				Expect(contractTermsModel.Asset).To(Equal(assetReferenceModel))
 				Expect(contractTermsModel.ID).To(Equal(core.StringPtr("testString")))
@@ -15413,6 +17917,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTermsModel.SupportAndCommunication).To(Equal([]dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}))
 				Expect(contractTermsModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
 				Expect(contractTermsModel.ContractTest).To(Equal(contractTestModel))
+				Expect(contractTermsModel.Servers).To(Equal([]dataproducthubapiservicev1.ContractServer{*contractServerModel}))
 				Expect(contractTermsModel.Schema).To(Equal([]dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}))
 
 				// Construct an instance of the AssetPartReference model
@@ -15434,18 +17939,22 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 				Expect(engineDetailsModelModel.DisplayName).To(Equal(core.StringPtr("Iceberg Engine")))
 				Expect(engineDetailsModelModel.EngineID).To(Equal(core.StringPtr("presto767")))
 				Expect(engineDetailsModelModel.EnginePort).To(Equal(core.StringPtr("34567")))
 				Expect(engineDetailsModelModel.EngineHost).To(Equal(core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")))
+				Expect(engineDetailsModelModel.EngineType).To(Equal(core.StringPtr("spark")))
 				Expect(engineDetailsModelModel.AssociatedCatalogs).To(Equal([]string{"testString"}))
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				Expect(producerInputModelModel).ToNot(BeNil())
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 				Expect(producerInputModelModel.EngineDetails).To(Equal(engineDetailsModelModel))
+				Expect(producerInputModelModel.Engines).To(Equal([]dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}))
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -15532,6 +18041,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraftPrototypeModel.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraftPrototypeModel.AccessControl = assetListAccessControlModel
 				dataProductDraftPrototypeModel.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraftPrototypeModel.SubContainer = containerIdentityModel
 				dataProductDraftPrototypeModel.IsRestricted = core.BoolPtr(true)
 				dataProductDraftPrototypeModel.Asset = assetPrototypeModel
 				Expect(dataProductDraftPrototypeModel.Version).To(Equal(core.StringPtr("1.0.0")))
@@ -15550,6 +18060,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(dataProductDraftPrototypeModel.Comments).To(Equal(core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")))
 				Expect(dataProductDraftPrototypeModel.AccessControl).To(Equal(assetListAccessControlModel))
 				Expect(dataProductDraftPrototypeModel.LastUpdatedAt).To(Equal(CreateMockDateTime("2019-01-01T12:00:00.000Z")))
+				Expect(dataProductDraftPrototypeModel.SubContainer).To(Equal(containerIdentityModel))
 				Expect(dataProductDraftPrototypeModel.IsRestricted).To(Equal(core.BoolPtr(true)))
 				Expect(dataProductDraftPrototypeModel.Asset).To(Equal(assetPrototypeModel))
 
@@ -15608,6 +18119,23 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(createDraftContractTermsDocumentOptionsModel.Name).To(Equal(core.StringPtr("Terms and conditions document")))
 				Expect(createDraftContractTermsDocumentOptionsModel.URL).To(Equal(core.StringPtr("testString")))
 				Expect(createDraftContractTermsDocumentOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
+			})
+			It(`Invoke NewCreateRevokeAccessProcessOptions successfully`, func() {
+				// Construct an instance of the CreateRevokeAccessProcessOptions model
+				dataProductID := "testString"
+				releaseID := "testString"
+				createRevokeAccessProcessOptionsModel := dataProductHubAPIServiceService.NewCreateRevokeAccessProcessOptions(dataProductID, releaseID)
+				createRevokeAccessProcessOptionsModel.SetDataProductID("testString")
+				createRevokeAccessProcessOptionsModel.SetReleaseID("testString")
+				createRevokeAccessProcessOptionsModel.SetBody(CreateMockReader("This is a mock file."))
+				createRevokeAccessProcessOptionsModel.SetContentType("testString")
+				createRevokeAccessProcessOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
+				Expect(createRevokeAccessProcessOptionsModel).ToNot(BeNil())
+				Expect(createRevokeAccessProcessOptionsModel.DataProductID).To(Equal(core.StringPtr("testString")))
+				Expect(createRevokeAccessProcessOptionsModel.ReleaseID).To(Equal(core.StringPtr("testString")))
+				Expect(createRevokeAccessProcessOptionsModel.Body).To(Equal(CreateMockReader("This is a mock file.")))
+				Expect(createRevokeAccessProcessOptionsModel.ContentType).To(Equal(core.StringPtr("testString")))
+				Expect(createRevokeAccessProcessOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewCreateS3BucketOptions successfully`, func() {
 				// Construct an instance of the CreateS3BucketOptions model
@@ -15729,6 +18257,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -15738,17 +18301,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -15765,12 +18352,15 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the DataProductContractTemplate model
 				dataProductContractTemplate := new(dataproducthubapiservicev1.DataProductContractTemplate)
 				dataProductContractTemplate.Container = containerReferenceModel
 				dataProductContractTemplate.ID = core.StringPtr("20aa7c97-cfcc-4d16-ae76-2ca1847ce733")
+				dataProductContractTemplate.CreatorID = core.StringPtr("IBMid-123456ABC")
+				dataProductContractTemplate.CreatedAt = core.StringPtr("2025-06-26T12:30:20.000Z")
 				dataProductContractTemplate.Name = core.StringPtr("Sample Data Contract Template")
 				dataProductContractTemplate.Error = errorMessageModel
 				dataProductContractTemplate.ContractTerms = contractTermsModel
@@ -15782,35 +18372,47 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					return *op.(dataproducthubapiservicev1.JSONPatchOperation).Path
 				}
 				Expect(dataProductContractTemplatePatch).To(MatchAllElements(_path, Elements{
-				"/container": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/container")),
-					"From": BeNil(),
-					"Value": Equal(dataProductContractTemplate.Container),
+					"/container": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/container")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.Container),
 					}),
-				"/id": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/id")),
-					"From": BeNil(),
-					"Value": Equal(dataProductContractTemplate.ID),
+					"/id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/id")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.ID),
 					}),
-				"/name": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/name")),
-					"From": BeNil(),
-					"Value": Equal(dataProductContractTemplate.Name),
+					"/creator_id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/creator_id")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.CreatorID),
 					}),
-				"/error": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/error")),
-					"From": BeNil(),
-					"Value": Equal(dataProductContractTemplate.Error),
+					"/created_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/created_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.CreatedAt),
 					}),
-				"/contract_terms": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/contract_terms")),
-					"From": BeNil(),
-					"Value": Equal(dataProductContractTemplate.ContractTerms),
+					"/name": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/name")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.Name),
+					}),
+					"/error": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/error")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.Error),
+					}),
+					"/contract_terms": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/contract_terms")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductContractTemplate.ContractTerms),
 					}),
 				}))
 			})
@@ -15857,6 +18459,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				initializeSubDomainModel.ID = core.StringPtr("testString")
 				initializeSubDomainModel.Description = core.StringPtr("testString")
 
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
+
 				// Construct an instance of the DataProductDomain model
 				dataProductDomain := new(dataproducthubapiservicev1.DataProductDomain)
 				dataProductDomain.Container = containerReferenceModel
@@ -15865,9 +18471,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDomain.Name = core.StringPtr("Operations")
 				dataProductDomain.Description = core.StringPtr("This is a description of the data product domain.")
 				dataProductDomain.ID = core.StringPtr("testString")
+				dataProductDomain.CreatedBy = core.StringPtr("testString")
 				dataProductDomain.MemberRoles = memberRolesSchemaModel
 				dataProductDomain.Properties = propertiesSchemaModel
 				dataProductDomain.SubDomains = []dataproducthubapiservicev1.InitializeSubDomain{*initializeSubDomainModel}
+				dataProductDomain.SubContainer = containerIdentityModel
 
 				dataProductDomainPatch := dataProductHubAPIServiceService.NewDataProductDomainPatch(dataProductDomain)
 				Expect(dataProductDomainPatch).ToNot(BeNil())
@@ -15876,59 +18484,71 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					return *op.(dataproducthubapiservicev1.JSONPatchOperation).Path
 				}
 				Expect(dataProductDomainPatch).To(MatchAllElements(_path, Elements{
-				"/container": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/container")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.Container),
+					"/container": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/container")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.Container),
 					}),
-				"/trace": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/trace")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.Trace),
+					"/trace": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/trace")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.Trace),
 					}),
-				"/errors": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/errors")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.Errors),
+					"/errors": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/errors")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.Errors),
 					}),
-				"/name": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/name")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.Name),
+					"/name": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/name")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.Name),
 					}),
-				"/description": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/description")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.Description),
+					"/description": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/description")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.Description),
 					}),
-				"/id": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/id")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.ID),
+					"/id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/id")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.ID),
 					}),
-				"/member_roles": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/member_roles")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.MemberRoles),
+					"/created_by": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/created_by")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.CreatedBy),
 					}),
-				"/properties": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/properties")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.Properties),
+					"/member_roles": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/member_roles")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.MemberRoles),
 					}),
-				"/sub_domains": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/sub_domains")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDomain.SubDomains),
+					"/properties": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/properties")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.Properties),
+					}),
+					"/sub_domains": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/sub_domains")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.SubDomains),
+					}),
+					"/sub_container": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/sub_container")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDomain.SubContainer),
 					}),
 				}))
 			})
@@ -16042,6 +18662,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -16051,17 +18706,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -16078,6 +18757,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -16093,11 +18773,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -16131,6 +18813,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the AssetListAccessControl model
 				assetListAccessControlModel := new(dataproducthubapiservicev1.AssetListAccessControl)
 				assetListAccessControlModel.Owner = core.StringPtr("IBMid-696000KYV9")
+
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the Visualization model
 				visualizationModel := new(dataproducthubapiservicev1.Visualization)
@@ -16167,6 +18853,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductDraft.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductDraft.AccessControl = assetListAccessControlModel
 				dataProductDraft.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductDraft.SubContainer = containerIdentityModel
 				dataProductDraft.IsRestricted = core.BoolPtr(true)
 				dataProductDraft.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				dataProductDraft.Asset = assetReferenceModel
@@ -16184,155 +18871,161 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					return *op.(dataproducthubapiservicev1.JSONPatchOperation).Path
 				}
 				Expect(dataProductDraftPatch).To(MatchAllElements(_path, Elements{
-				"/version": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/version")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Version),
+					"/version": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/version")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Version),
 					}),
-				"/state": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/state")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.State),
+					"/state": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/state")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.State),
 					}),
-				"/data_product": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/data_product")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.DataProduct),
+					"/data_product": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/data_product")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.DataProduct),
 					}),
-				"/name": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/name")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Name),
+					"/name": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/name")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Name),
 					}),
-				"/description": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/description")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Description),
+					"/description": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/description")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Description),
 					}),
-				"/tags": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/tags")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Tags),
+					"/tags": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/tags")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Tags),
 					}),
-				"/use_cases": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/use_cases")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.UseCases),
+					"/use_cases": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/use_cases")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.UseCases),
 					}),
-				"/types": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/types")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Types),
+					"/types": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/types")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Types),
 					}),
-				"/contract_terms": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/contract_terms")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.ContractTerms),
+					"/contract_terms": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/contract_terms")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.ContractTerms),
 					}),
-				"/domain": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/domain")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Domain),
+					"/domain": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/domain")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Domain),
 					}),
-				"/parts_out": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/parts_out")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.PartsOut),
+					"/parts_out": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/parts_out")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.PartsOut),
 					}),
-				"/workflows": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/workflows")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Workflows),
+					"/workflows": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/workflows")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Workflows),
 					}),
-				"/dataview_enabled": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/dataview_enabled")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.DataviewEnabled),
+					"/dataview_enabled": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/dataview_enabled")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.DataviewEnabled),
 					}),
-				"/comments": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/comments")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Comments),
+					"/comments": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/comments")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Comments),
 					}),
-				"/access_control": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/access_control")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.AccessControl),
+					"/access_control": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/access_control")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.AccessControl),
 					}),
-				"/last_updated_at": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/last_updated_at")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.LastUpdatedAt),
+					"/last_updated_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/last_updated_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.LastUpdatedAt),
 					}),
-				"/is_restricted": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/is_restricted")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.IsRestricted),
+					"/sub_container": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/sub_container")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.SubContainer),
 					}),
-				"/id": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/id")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.ID),
+					"/is_restricted": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/is_restricted")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.IsRestricted),
 					}),
-				"/asset": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/asset")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Asset),
+					"/id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/id")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.ID),
 					}),
-				"/published_by": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/published_by")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.PublishedBy),
+					"/asset": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/asset")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Asset),
 					}),
-				"/published_at": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/published_at")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.PublishedAt),
+					"/published_by": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/published_by")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.PublishedBy),
 					}),
-				"/created_by": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/created_by")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.CreatedBy),
+					"/published_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/published_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.PublishedAt),
 					}),
-				"/created_at": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/created_at")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.CreatedAt),
+					"/created_by": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/created_by")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.CreatedBy),
 					}),
-				"/properties": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/properties")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.Properties),
+					"/created_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/created_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.CreatedAt),
 					}),
-				"/visualization_errors": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/visualization_errors")),
-					"From": BeNil(),
-					"Value": Equal(dataProductDraft.VisualizationErrors),
+					"/properties": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/properties")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.Properties),
+					}),
+					"/visualization_errors": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/visualization_errors")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductDraft.VisualizationErrors),
 					}),
 				}))
 			})
@@ -16462,6 +19155,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTestModel.LastTestedTime = core.StringPtr("testString")
 				contractTestModel.Message = core.StringPtr("testString")
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				contractAssetModel.ID = core.StringPtr("testString")
+				contractAssetModel.Name = core.StringPtr("testString")
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				contractServerModel.Server = core.StringPtr("testString")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("testString")
+				contractServerModel.Type = core.StringPtr("testString")
+				contractServerModel.Description = core.StringPtr("testString")
+				contractServerModel.Environment = core.StringPtr("testString")
+				contractServerModel.Account = core.StringPtr("testString")
+				contractServerModel.Catalog = core.StringPtr("testString")
+				contractServerModel.Database = core.StringPtr("testString")
+				contractServerModel.Dataset = core.StringPtr("testString")
+				contractServerModel.Delimiter = core.StringPtr("testString")
+				contractServerModel.EndpointURL = core.StringPtr("testString")
+				contractServerModel.Format = core.StringPtr("testString")
+				contractServerModel.Host = core.StringPtr("testString")
+				contractServerModel.Location = core.StringPtr("testString")
+				contractServerModel.Path = core.StringPtr("testString")
+				contractServerModel.Port = core.StringPtr("testString")
+				contractServerModel.Project = core.StringPtr("testString")
+				contractServerModel.Region = core.StringPtr("testString")
+				contractServerModel.RegionName = core.StringPtr("testString")
+				contractServerModel.Schema = core.StringPtr("testString")
+				contractServerModel.ServiceName = core.StringPtr("testString")
+				contractServerModel.StagingDir = core.StringPtr("testString")
+				contractServerModel.Stream = core.StringPtr("testString")
+				contractServerModel.Warehouse = core.StringPtr("testString")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
@@ -16471,17 +19199,41 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
 
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				contractSchemaPropertyModel.Name = core.StringPtr("testString")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
+				contractSchemaModel.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+				contractSchemaModel.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 				contractSchemaModel.Name = core.StringPtr("testString")
 				contractSchemaModel.Description = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("testString")
 				contractSchemaModel.PhysicalType = core.StringPtr("testString")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
 
 				// Construct an instance of the ContractTerms model
 				contractTermsModel := new(dataproducthubapiservicev1.ContractTerms)
@@ -16498,6 +19250,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				contractTermsModel.SupportAndCommunication = []dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}
 				contractTermsModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
 				contractTermsModel.ContractTest = contractTestModel
+				contractTermsModel.Servers = []dataproducthubapiservicev1.ContractServer{*contractServerModel}
 				contractTermsModel.Schema = []dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}
 
 				// Construct an instance of the AssetPartReference model
@@ -16513,11 +19266,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				engineDetailsModelModel.EngineID = core.StringPtr("presto767")
 				engineDetailsModelModel.EnginePort = core.StringPtr("34567")
 				engineDetailsModelModel.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+				engineDetailsModelModel.EngineType = core.StringPtr("spark")
 				engineDetailsModelModel.AssociatedCatalogs = []string{"testString"}
 
 				// Construct an instance of the ProducerInputModel model
 				producerInputModelModel := new(dataproducthubapiservicev1.ProducerInputModel)
 				producerInputModelModel.EngineDetails = engineDetailsModelModel
+				producerInputModelModel.Engines = []dataproducthubapiservicev1.EngineDetailsModel{*engineDetailsModelModel}
 
 				// Construct an instance of the DeliveryMethodPropertiesModel model
 				deliveryMethodPropertiesModelModel := new(dataproducthubapiservicev1.DeliveryMethodPropertiesModel)
@@ -16551,6 +19306,10 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				// Construct an instance of the AssetListAccessControl model
 				assetListAccessControlModel := new(dataproducthubapiservicev1.AssetListAccessControl)
 				assetListAccessControlModel.Owner = core.StringPtr("IBMid-696000KYV9")
+
+				// Construct an instance of the ContainerIdentity model
+				containerIdentityModel := new(dataproducthubapiservicev1.ContainerIdentity)
+				containerIdentityModel.ID = core.StringPtr("d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 
 				// Construct an instance of the Visualization model
 				visualizationModel := new(dataproducthubapiservicev1.Visualization)
@@ -16587,6 +19346,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				dataProductRelease.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 				dataProductRelease.AccessControl = assetListAccessControlModel
 				dataProductRelease.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+				dataProductRelease.SubContainer = containerIdentityModel
 				dataProductRelease.IsRestricted = core.BoolPtr(true)
 				dataProductRelease.ID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002@d29c42eb-7100-4b7a-8257-c196dbcca1cd")
 				dataProductRelease.Asset = assetReferenceModel
@@ -16604,155 +19364,161 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 					return *op.(dataproducthubapiservicev1.JSONPatchOperation).Path
 				}
 				Expect(dataProductReleasePatch).To(MatchAllElements(_path, Elements{
-				"/version": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/version")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Version),
+					"/version": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/version")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Version),
 					}),
-				"/state": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/state")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.State),
+					"/state": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/state")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.State),
 					}),
-				"/data_product": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/data_product")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.DataProduct),
+					"/data_product": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/data_product")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.DataProduct),
 					}),
-				"/name": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/name")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Name),
+					"/name": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/name")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Name),
 					}),
-				"/description": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/description")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Description),
+					"/description": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/description")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Description),
 					}),
-				"/tags": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/tags")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Tags),
+					"/tags": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/tags")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Tags),
 					}),
-				"/use_cases": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/use_cases")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.UseCases),
+					"/use_cases": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/use_cases")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.UseCases),
 					}),
-				"/types": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/types")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Types),
+					"/types": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/types")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Types),
 					}),
-				"/contract_terms": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/contract_terms")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.ContractTerms),
+					"/contract_terms": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/contract_terms")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.ContractTerms),
 					}),
-				"/domain": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/domain")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Domain),
+					"/domain": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/domain")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Domain),
 					}),
-				"/parts_out": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/parts_out")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.PartsOut),
+					"/parts_out": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/parts_out")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.PartsOut),
 					}),
-				"/workflows": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/workflows")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Workflows),
+					"/workflows": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/workflows")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Workflows),
 					}),
-				"/dataview_enabled": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/dataview_enabled")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.DataviewEnabled),
+					"/dataview_enabled": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/dataview_enabled")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.DataviewEnabled),
 					}),
-				"/comments": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/comments")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Comments),
+					"/comments": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/comments")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Comments),
 					}),
-				"/access_control": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/access_control")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.AccessControl),
+					"/access_control": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/access_control")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.AccessControl),
 					}),
-				"/last_updated_at": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/last_updated_at")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.LastUpdatedAt),
+					"/last_updated_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/last_updated_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.LastUpdatedAt),
 					}),
-				"/is_restricted": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/is_restricted")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.IsRestricted),
+					"/sub_container": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/sub_container")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.SubContainer),
 					}),
-				"/id": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/id")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.ID),
+					"/is_restricted": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/is_restricted")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.IsRestricted),
 					}),
-				"/asset": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/asset")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Asset),
+					"/id": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/id")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.ID),
 					}),
-				"/published_by": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/published_by")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.PublishedBy),
+					"/asset": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/asset")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Asset),
 					}),
-				"/published_at": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/published_at")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.PublishedAt),
+					"/published_by": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/published_by")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.PublishedBy),
 					}),
-				"/created_by": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/created_by")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.CreatedBy),
+					"/published_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/published_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.PublishedAt),
 					}),
-				"/created_at": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/created_at")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.CreatedAt),
+					"/created_by": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/created_by")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.CreatedBy),
 					}),
-				"/properties": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/properties")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.Properties),
+					"/created_at": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/created_at")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.CreatedAt),
 					}),
-				"/visualization_errors": MatchAllFields(Fields{
-					"Op": PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
-					"Path": PointTo(Equal("/visualization_errors")),
-					"From": BeNil(),
-					"Value": Equal(dataProductRelease.VisualizationErrors),
+					"/properties": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/properties")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.Properties),
+					}),
+					"/visualization_errors": MatchAllFields(Fields{
+						"Op":    PointTo(Equal(dataproducthubapiservicev1.JSONPatchOperationOpAddConst)),
+						"Path":  PointTo(Equal("/visualization_errors")),
+						"From":  BeNil(),
+						"Value": Equal(dataProductRelease.VisualizationErrors),
 					}),
 				}))
 			})
@@ -16823,6 +19589,12 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(_model).ToNot(BeNil())
 				Expect(err).To(BeNil())
 			})
+			It(`Invoke NewEngineDetailsModel successfully`, func() {
+				engineType := "spark"
+				_model, err := dataProductHubAPIServiceService.NewEngineDetailsModel(engineType)
+				Expect(_model).ToNot(BeNil())
+				Expect(err).To(BeNil())
+			})
 			It(`Invoke NewErrorMessage successfully`, func() {
 				code := "testString"
 				message := "testString"
@@ -16849,6 +19621,30 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(getContractTemplateOptionsModel.ContainerID).To(Equal(core.StringPtr("testString")))
 				Expect(getContractTemplateOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
+			It(`Invoke NewGetContractTermsInSpecifiedFormatOptions successfully`, func() {
+				// Construct an instance of the GetContractTermsInSpecifiedFormatOptions model
+				dataProductID := "testString"
+				draftID := "testString"
+				contractTermsID := "testString"
+				format := "testString"
+				formatVersion := "testString"
+				getContractTermsInSpecifiedFormatOptionsModel := dataProductHubAPIServiceService.NewGetContractTermsInSpecifiedFormatOptions(dataProductID, draftID, contractTermsID, format, formatVersion)
+				getContractTermsInSpecifiedFormatOptionsModel.SetDataProductID("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.SetDraftID("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.SetContractTermsID("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.SetFormat("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.SetFormatVersion("testString")
+				getContractTermsInSpecifiedFormatOptionsModel.SetAccept("application/odcs+yaml")
+				getContractTermsInSpecifiedFormatOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
+				Expect(getContractTermsInSpecifiedFormatOptionsModel).ToNot(BeNil())
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.DataProductID).To(Equal(core.StringPtr("testString")))
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.DraftID).To(Equal(core.StringPtr("testString")))
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.ContractTermsID).To(Equal(core.StringPtr("testString")))
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.Format).To(Equal(core.StringPtr("testString")))
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.FormatVersion).To(Equal(core.StringPtr("testString")))
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.Accept).To(Equal(core.StringPtr("application/odcs+yaml")))
+				Expect(getContractTermsInSpecifiedFormatOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
+			})
 			It(`Invoke NewGetDataProductByDomainOptions successfully`, func() {
 				// Construct an instance of the GetDataProductByDomainOptions model
 				domainID := "testString"
@@ -16871,15 +19667,19 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				getDataProductDraftContractTermsOptionsModel.SetDataProductID("testString")
 				getDataProductDraftContractTermsOptionsModel.SetDraftID("testString")
 				getDataProductDraftContractTermsOptionsModel.SetContractTermsID("testString")
-				getDataProductDraftContractTermsOptionsModel.SetAccept("application/odcs+yaml")
+				getDataProductDraftContractTermsOptionsModel.SetAccept("application/json")
 				getDataProductDraftContractTermsOptionsModel.SetIncludeContractDocuments(true)
+				getDataProductDraftContractTermsOptionsModel.SetAutopopulateServerInformation(false)
+				getDataProductDraftContractTermsOptionsModel.SetServerAssetID("testString")
 				getDataProductDraftContractTermsOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(getDataProductDraftContractTermsOptionsModel).ToNot(BeNil())
 				Expect(getDataProductDraftContractTermsOptionsModel.DataProductID).To(Equal(core.StringPtr("testString")))
 				Expect(getDataProductDraftContractTermsOptionsModel.DraftID).To(Equal(core.StringPtr("testString")))
 				Expect(getDataProductDraftContractTermsOptionsModel.ContractTermsID).To(Equal(core.StringPtr("testString")))
-				Expect(getDataProductDraftContractTermsOptionsModel.Accept).To(Equal(core.StringPtr("application/odcs+yaml")))
+				Expect(getDataProductDraftContractTermsOptionsModel.Accept).To(Equal(core.StringPtr("application/json")))
 				Expect(getDataProductDraftContractTermsOptionsModel.IncludeContractDocuments).To(Equal(core.BoolPtr(true)))
+				Expect(getDataProductDraftContractTermsOptionsModel.AutopopulateServerInformation).To(Equal(core.BoolPtr(false)))
+				Expect(getDataProductDraftContractTermsOptionsModel.ServerAssetID).To(Equal(core.StringPtr("testString")))
 				Expect(getDataProductDraftContractTermsOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewGetDataProductDraftOptions successfully`, func() {
@@ -16997,6 +19797,20 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(getReleaseContractTermsDocumentOptionsModel.DocumentID).To(Equal(core.StringPtr("testString")))
 				Expect(getReleaseContractTermsDocumentOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
+			It(`Invoke NewGetRevokeAccessProcessStateOptions successfully`, func() {
+				// Construct an instance of the GetRevokeAccessProcessStateOptions model
+				releaseID := "testString"
+				getRevokeAccessProcessStateOptionsModel := dataProductHubAPIServiceService.NewGetRevokeAccessProcessStateOptions(releaseID)
+				getRevokeAccessProcessStateOptionsModel.SetReleaseID("testString")
+				getRevokeAccessProcessStateOptionsModel.SetLimit(int64(200))
+				getRevokeAccessProcessStateOptionsModel.SetStart("testString")
+				getRevokeAccessProcessStateOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
+				Expect(getRevokeAccessProcessStateOptionsModel).ToNot(BeNil())
+				Expect(getRevokeAccessProcessStateOptionsModel.ReleaseID).To(Equal(core.StringPtr("testString")))
+				Expect(getRevokeAccessProcessStateOptionsModel.Limit).To(Equal(core.Int64Ptr(int64(200))))
+				Expect(getRevokeAccessProcessStateOptionsModel.Start).To(Equal(core.StringPtr("testString")))
+				Expect(getRevokeAccessProcessStateOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
+			})
 			It(`Invoke NewGetS3BucketValidationOptions successfully`, func() {
 				// Construct an instance of the GetS3BucketValidationOptions model
 				bucketName := "testString"
@@ -17045,19 +19859,23 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				listDataProductContractTemplateOptionsModel := dataProductHubAPIServiceService.NewListDataProductContractTemplateOptions()
 				listDataProductContractTemplateOptionsModel.SetContainerID("testString")
 				listDataProductContractTemplateOptionsModel.SetContractTemplateName("testString")
+				listDataProductContractTemplateOptionsModel.SetDomainIds("testString")
 				listDataProductContractTemplateOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(listDataProductContractTemplateOptionsModel).ToNot(BeNil())
 				Expect(listDataProductContractTemplateOptionsModel.ContainerID).To(Equal(core.StringPtr("testString")))
 				Expect(listDataProductContractTemplateOptionsModel.ContractTemplateName).To(Equal(core.StringPtr("testString")))
+				Expect(listDataProductContractTemplateOptionsModel.DomainIds).To(Equal(core.StringPtr("testString")))
 				Expect(listDataProductContractTemplateOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewListDataProductDomainsOptions successfully`, func() {
 				// Construct an instance of the ListDataProductDomainsOptions model
 				listDataProductDomainsOptionsModel := dataProductHubAPIServiceService.NewListDataProductDomainsOptions()
 				listDataProductDomainsOptionsModel.SetContainerID("testString")
+				listDataProductDomainsOptionsModel.SetIncludeSubdomains(true)
 				listDataProductDomainsOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(listDataProductDomainsOptionsModel).ToNot(BeNil())
 				Expect(listDataProductDomainsOptionsModel.ContainerID).To(Equal(core.StringPtr("testString")))
+				Expect(listDataProductDomainsOptionsModel.IncludeSubdomains).To(Equal(core.BoolPtr(true)))
 				Expect(listDataProductDomainsOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewListDataProductDraftsOptions successfully`, func() {
@@ -17345,41 +20163,153 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(contractTestModel.LastTestedTime).To(Equal(core.StringPtr("testString")))
 				Expect(contractTestModel.Message).To(Equal(core.StringPtr("testString")))
 
+				// Construct an instance of the ContractAsset model
+				contractAssetModel := new(dataproducthubapiservicev1.ContractAsset)
+				Expect(contractAssetModel).ToNot(BeNil())
+				contractAssetModel.ID = core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")
+				contractAssetModel.Name = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				Expect(contractAssetModel.ID).To(Equal(core.StringPtr("684d6aa0-9f93-4564-8a20-e354bc469857")))
+				Expect(contractAssetModel.Name).To(Equal(core.StringPtr("PAYMENT_TRANSACTIONS1")))
+
+				// Construct an instance of the ContractServer model
+				contractServerModel := new(dataproducthubapiservicev1.ContractServer)
+				Expect(contractServerModel).ToNot(BeNil())
+				contractServerModel.Server = core.StringPtr("snowflake-server-01")
+				contractServerModel.Asset = contractAssetModel
+				contractServerModel.ConnectionID = core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")
+				contractServerModel.Type = core.StringPtr("snowflake")
+				contractServerModel.Description = core.StringPtr("Snowflake analytics server")
+				contractServerModel.Environment = core.StringPtr("dev")
+				contractServerModel.Account = core.StringPtr("acc-456")
+				contractServerModel.Catalog = core.StringPtr("analytics_cat")
+				contractServerModel.Database = core.StringPtr("analytics_db")
+				contractServerModel.Dataset = core.StringPtr("customer_data")
+				contractServerModel.Delimiter = core.StringPtr(",")
+				contractServerModel.EndpointURL = core.StringPtr("https://xy12345.snowflakecomputing.com")
+				contractServerModel.Format = core.StringPtr("parquet")
+				contractServerModel.Host = core.StringPtr("xy12345.snowflakecomputing.com")
+				contractServerModel.Location = core.StringPtr("Mumbai")
+				contractServerModel.Path = core.StringPtr("/analytics/data")
+				contractServerModel.Port = core.StringPtr("443")
+				contractServerModel.Project = core.StringPtr("projectY")
+				contractServerModel.Region = core.StringPtr("ap-south-1")
+				contractServerModel.RegionName = core.StringPtr("Asia South 1")
+				contractServerModel.Schema = core.StringPtr("PAYMENT_TRANSACTIONS1")
+				contractServerModel.ServiceName = core.StringPtr("snowflake")
+				contractServerModel.StagingDir = core.StringPtr("/snowflake/staging")
+				contractServerModel.Stream = core.StringPtr("stream_analytics")
+				contractServerModel.Warehouse = core.StringPtr("wh_xlarge")
+				contractServerModel.Roles = []string{"testString"}
+				contractServerModel.CustomProperties = []dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}
+				Expect(contractServerModel.Server).To(Equal(core.StringPtr("snowflake-server-01")))
+				Expect(contractServerModel.Asset).To(Equal(contractAssetModel))
+				Expect(contractServerModel.ConnectionID).To(Equal(core.StringPtr("8d7701be-709a-49c0-ae4e-a7daeaae6def")))
+				Expect(contractServerModel.Type).To(Equal(core.StringPtr("snowflake")))
+				Expect(contractServerModel.Description).To(Equal(core.StringPtr("Snowflake analytics server")))
+				Expect(contractServerModel.Environment).To(Equal(core.StringPtr("dev")))
+				Expect(contractServerModel.Account).To(Equal(core.StringPtr("acc-456")))
+				Expect(contractServerModel.Catalog).To(Equal(core.StringPtr("analytics_cat")))
+				Expect(contractServerModel.Database).To(Equal(core.StringPtr("analytics_db")))
+				Expect(contractServerModel.Dataset).To(Equal(core.StringPtr("customer_data")))
+				Expect(contractServerModel.Delimiter).To(Equal(core.StringPtr(",")))
+				Expect(contractServerModel.EndpointURL).To(Equal(core.StringPtr("https://xy12345.snowflakecomputing.com")))
+				Expect(contractServerModel.Format).To(Equal(core.StringPtr("parquet")))
+				Expect(contractServerModel.Host).To(Equal(core.StringPtr("xy12345.snowflakecomputing.com")))
+				Expect(contractServerModel.Location).To(Equal(core.StringPtr("Mumbai")))
+				Expect(contractServerModel.Path).To(Equal(core.StringPtr("/analytics/data")))
+				Expect(contractServerModel.Port).To(Equal(core.StringPtr("443")))
+				Expect(contractServerModel.Project).To(Equal(core.StringPtr("projectY")))
+				Expect(contractServerModel.Region).To(Equal(core.StringPtr("ap-south-1")))
+				Expect(contractServerModel.RegionName).To(Equal(core.StringPtr("Asia South 1")))
+				Expect(contractServerModel.Schema).To(Equal(core.StringPtr("PAYMENT_TRANSACTIONS1")))
+				Expect(contractServerModel.ServiceName).To(Equal(core.StringPtr("snowflake")))
+				Expect(contractServerModel.StagingDir).To(Equal(core.StringPtr("/snowflake/staging")))
+				Expect(contractServerModel.Stream).To(Equal(core.StringPtr("stream_analytics")))
+				Expect(contractServerModel.Warehouse).To(Equal(core.StringPtr("wh_xlarge")))
+				Expect(contractServerModel.Roles).To(Equal([]string{"testString"}))
+				Expect(contractServerModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
+
 				// Construct an instance of the ContractSchemaPropertyType model
 				contractSchemaPropertyTypeModel := new(dataproducthubapiservicev1.ContractSchemaPropertyType)
 				Expect(contractSchemaPropertyTypeModel).ToNot(BeNil())
-				contractSchemaPropertyTypeModel.Type = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Length = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Scale = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("testString")
-				contractSchemaPropertyTypeModel.Signed = core.StringPtr("testString")
+				contractSchemaPropertyTypeModel.Type = core.StringPtr("varchar")
+				contractSchemaPropertyTypeModel.Length = core.StringPtr("1024")
+				contractSchemaPropertyTypeModel.Scale = core.StringPtr("0")
+				contractSchemaPropertyTypeModel.Nullable = core.StringPtr("true")
+				contractSchemaPropertyTypeModel.Signed = core.StringPtr("false")
 				contractSchemaPropertyTypeModel.NativeType = core.StringPtr("testString")
-				Expect(contractSchemaPropertyTypeModel.Type).To(Equal(core.StringPtr("testString")))
-				Expect(contractSchemaPropertyTypeModel.Length).To(Equal(core.StringPtr("testString")))
-				Expect(contractSchemaPropertyTypeModel.Scale).To(Equal(core.StringPtr("testString")))
-				Expect(contractSchemaPropertyTypeModel.Nullable).To(Equal(core.StringPtr("testString")))
-				Expect(contractSchemaPropertyTypeModel.Signed).To(Equal(core.StringPtr("testString")))
+				Expect(contractSchemaPropertyTypeModel.Type).To(Equal(core.StringPtr("varchar")))
+				Expect(contractSchemaPropertyTypeModel.Length).To(Equal(core.StringPtr("1024")))
+				Expect(contractSchemaPropertyTypeModel.Scale).To(Equal(core.StringPtr("0")))
+				Expect(contractSchemaPropertyTypeModel.Nullable).To(Equal(core.StringPtr("true")))
+				Expect(contractSchemaPropertyTypeModel.Signed).To(Equal(core.StringPtr("false")))
 				Expect(contractSchemaPropertyTypeModel.NativeType).To(Equal(core.StringPtr("testString")))
+
+				// Construct an instance of the ContractQualityRule model
+				contractQualityRuleModel := new(dataproducthubapiservicev1.ContractQualityRule)
+				Expect(contractQualityRuleModel).ToNot(BeNil())
+				contractQualityRuleModel.Type = core.StringPtr("sql")
+				contractQualityRuleModel.Description = core.StringPtr("testString")
+				contractQualityRuleModel.Rule = core.StringPtr("testString")
+				contractQualityRuleModel.Implementation = core.StringPtr("testString")
+				contractQualityRuleModel.Engine = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeLessOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterThan = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+				contractQualityRuleModel.MustBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustNotBeBetween = []string{"testString"}
+				contractQualityRuleModel.MustBe = core.StringPtr("testString")
+				contractQualityRuleModel.MustNotBe = core.StringPtr("testString")
+				contractQualityRuleModel.Name = core.StringPtr("testString")
+				contractQualityRuleModel.Unit = core.StringPtr("testString")
+				contractQualityRuleModel.Query = core.StringPtr("testString")
+				Expect(contractQualityRuleModel.Type).To(Equal(core.StringPtr("sql")))
+				Expect(contractQualityRuleModel.Description).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Rule).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Implementation).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Engine).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeLessOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterThan).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeGreaterOrEqualTo).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustNotBeBetween).To(Equal([]string{"testString"}))
+				Expect(contractQualityRuleModel.MustBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.MustNotBe).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Name).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Unit).To(Equal(core.StringPtr("testString")))
+				Expect(contractQualityRuleModel.Query).To(Equal(core.StringPtr("testString")))
 
 				// Construct an instance of the ContractSchemaProperty model
 				contractSchemaPropertyModel := new(dataproducthubapiservicev1.ContractSchemaProperty)
 				Expect(contractSchemaPropertyModel).ToNot(BeNil())
-				contractSchemaPropertyModel.Name = core.StringPtr("testString")
+				contractSchemaPropertyModel.Name = core.StringPtr("product_brand_code")
 				contractSchemaPropertyModel.Type = contractSchemaPropertyTypeModel
-				Expect(contractSchemaPropertyModel.Name).To(Equal(core.StringPtr("testString")))
+				contractSchemaPropertyModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
+				Expect(contractSchemaPropertyModel.Name).To(Equal(core.StringPtr("product_brand_code")))
 				Expect(contractSchemaPropertyModel.Type).To(Equal(contractSchemaPropertyTypeModel))
+				Expect(contractSchemaPropertyModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ContractSchema model
 				contractSchemaModel := new(dataproducthubapiservicev1.ContractSchema)
 				Expect(contractSchemaModel).ToNot(BeNil())
-				contractSchemaModel.Name = core.StringPtr("testString")
+				contractSchemaModel.AssetID = core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")
+				contractSchemaModel.ConnectionID = core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")
+				contractSchemaModel.Name = core.StringPtr("000000_0-2025-06-20-20-28-52.csv")
 				contractSchemaModel.Description = core.StringPtr("testString")
-				contractSchemaModel.PhysicalType = core.StringPtr("testString")
+				contractSchemaModel.ConnectionPath = core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")
+				contractSchemaModel.PhysicalType = core.StringPtr("text/csv")
 				contractSchemaModel.Properties = []dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}
-				Expect(contractSchemaModel.Name).To(Equal(core.StringPtr("testString")))
+				contractSchemaModel.Quality = []dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}
+				Expect(contractSchemaModel.AssetID).To(Equal(core.StringPtr("09ca6b40-7c89-412a-8951-ad820da709d1")))
+				Expect(contractSchemaModel.ConnectionID).To(Equal(core.StringPtr("6cc57d4d-2229-438f-91a0-2c455556422b")))
+				Expect(contractSchemaModel.Name).To(Equal(core.StringPtr("000000_0-2025-06-20-20-28-52.csv")))
 				Expect(contractSchemaModel.Description).To(Equal(core.StringPtr("testString")))
-				Expect(contractSchemaModel.PhysicalType).To(Equal(core.StringPtr("testString")))
+				Expect(contractSchemaModel.ConnectionPath).To(Equal(core.StringPtr("/dpx-test-bucket/000000_0-2025-06-20-20-28-52.csv")))
+				Expect(contractSchemaModel.PhysicalType).To(Equal(core.StringPtr("text/csv")))
 				Expect(contractSchemaModel.Properties).To(Equal([]dataproducthubapiservicev1.ContractSchemaProperty{*contractSchemaPropertyModel}))
+				Expect(contractSchemaModel.Quality).To(Equal([]dataproducthubapiservicev1.ContractQualityRule{*contractQualityRuleModel}))
 
 				// Construct an instance of the ReplaceDataProductDraftContractTermsOptions model
 				dataProductID := "testString"
@@ -17402,6 +20332,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				replaceDataProductDraftContractTermsOptionsModel.SetSupportAndCommunication([]dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel})
 				replaceDataProductDraftContractTermsOptionsModel.SetCustomProperties([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel})
 				replaceDataProductDraftContractTermsOptionsModel.SetContractTest(contractTestModel)
+				replaceDataProductDraftContractTermsOptionsModel.SetServers([]dataproducthubapiservicev1.ContractServer{*contractServerModel})
 				replaceDataProductDraftContractTermsOptionsModel.SetSchema([]dataproducthubapiservicev1.ContractSchema{*contractSchemaModel})
 				replaceDataProductDraftContractTermsOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(replaceDataProductDraftContractTermsOptionsModel).ToNot(BeNil())
@@ -17421,6 +20352,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				Expect(replaceDataProductDraftContractTermsOptionsModel.SupportAndCommunication).To(Equal([]dataproducthubapiservicev1.ContractTemplateSupportAndCommunication{*contractTemplateSupportAndCommunicationModel}))
 				Expect(replaceDataProductDraftContractTermsOptionsModel.CustomProperties).To(Equal([]dataproducthubapiservicev1.ContractTemplateCustomProperty{*contractTemplateCustomPropertyModel}))
 				Expect(replaceDataProductDraftContractTermsOptionsModel.ContractTest).To(Equal(contractTestModel))
+				Expect(replaceDataProductDraftContractTermsOptionsModel.Servers).To(Equal([]dataproducthubapiservicev1.ContractServer{*contractServerModel}))
 				Expect(replaceDataProductDraftContractTermsOptionsModel.Schema).To(Equal([]dataproducthubapiservicev1.ContractSchema{*contractSchemaModel}))
 				Expect(replaceDataProductDraftContractTermsOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
@@ -17432,11 +20364,13 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 				retireDataProductReleaseOptionsModel.SetDataProductID("testString")
 				retireDataProductReleaseOptionsModel.SetReleaseID("testString")
 				retireDataProductReleaseOptionsModel.SetRevokeAccess(false)
+				retireDataProductReleaseOptionsModel.SetStartAt("testString")
 				retireDataProductReleaseOptionsModel.SetHeaders(map[string]string{"foo": "bar"})
 				Expect(retireDataProductReleaseOptionsModel).ToNot(BeNil())
 				Expect(retireDataProductReleaseOptionsModel.DataProductID).To(Equal(core.StringPtr("testString")))
 				Expect(retireDataProductReleaseOptionsModel.ReleaseID).To(Equal(core.StringPtr("testString")))
 				Expect(retireDataProductReleaseOptionsModel.RevokeAccess).To(Equal(core.BoolPtr(false)))
+				Expect(retireDataProductReleaseOptionsModel.StartAt).To(Equal(core.StringPtr("testString")))
 				Expect(retireDataProductReleaseOptionsModel.Headers).To(Equal(map[string]string{"foo": "bar"}))
 			})
 			It(`Invoke NewUpdateDataProductContractTemplateOptions successfully`, func() {
@@ -17740,13 +20674,69 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			Expect(result).ToNot(BeNil())
 			Expect(result).To(Equal(model))
 		})
+		It(`Invoke UnmarshalContractAsset successfully`, func() {
+			// Construct an instance of the model.
+			model := new(dataproducthubapiservicev1.ContractAsset)
+			model.ID = core.StringPtr("testString")
+			model.Name = core.StringPtr("testString")
+
+			b, err := json.Marshal(model)
+			Expect(err).To(BeNil())
+
+			var raw map[string]json.RawMessage
+			err = json.Unmarshal(b, &raw)
+			Expect(err).To(BeNil())
+
+			var result *dataproducthubapiservicev1.ContractAsset
+			err = dataproducthubapiservicev1.UnmarshalContractAsset(raw, &result)
+			Expect(err).To(BeNil())
+			Expect(result).ToNot(BeNil())
+			Expect(result).To(Equal(model))
+		})
+		It(`Invoke UnmarshalContractQualityRule successfully`, func() {
+			// Construct an instance of the model.
+			model := new(dataproducthubapiservicev1.ContractQualityRule)
+			model.Type = core.StringPtr("sql")
+			model.Description = core.StringPtr("testString")
+			model.Rule = core.StringPtr("testString")
+			model.Implementation = core.StringPtr("testString")
+			model.Engine = core.StringPtr("testString")
+			model.MustBeLessThan = core.StringPtr("testString")
+			model.MustBeLessOrEqualTo = core.StringPtr("testString")
+			model.MustBeGreaterThan = core.StringPtr("testString")
+			model.MustBeGreaterOrEqualTo = core.StringPtr("testString")
+			model.MustBeBetween = []string{"testString"}
+			model.MustNotBeBetween = []string{"testString"}
+			model.MustBe = core.StringPtr("testString")
+			model.MustNotBe = core.StringPtr("testString")
+			model.Name = core.StringPtr("testString")
+			model.Unit = core.StringPtr("testString")
+			model.Query = core.StringPtr("testString")
+
+			b, err := json.Marshal(model)
+			Expect(err).To(BeNil())
+
+			var raw map[string]json.RawMessage
+			err = json.Unmarshal(b, &raw)
+			Expect(err).To(BeNil())
+
+			var result *dataproducthubapiservicev1.ContractQualityRule
+			err = dataproducthubapiservicev1.UnmarshalContractQualityRule(raw, &result)
+			Expect(err).To(BeNil())
+			Expect(result).ToNot(BeNil())
+			Expect(result).To(Equal(model))
+		})
 		It(`Invoke UnmarshalContractSchema successfully`, func() {
 			// Construct an instance of the model.
 			model := new(dataproducthubapiservicev1.ContractSchema)
+			model.AssetID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
+			model.ConnectionID = core.StringPtr("2b0bf220-079c-11ee-be56-0242ac120002")
 			model.Name = core.StringPtr("testString")
 			model.Description = core.StringPtr("testString")
+			model.ConnectionPath = core.StringPtr("testString")
 			model.PhysicalType = core.StringPtr("testString")
 			model.Properties = nil
+			model.Quality = nil
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
@@ -17766,6 +20756,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			model := new(dataproducthubapiservicev1.ContractSchemaProperty)
 			model.Name = core.StringPtr("testString")
 			model.Type = nil
+			model.Quality = nil
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
@@ -17799,6 +20790,50 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 
 			var result *dataproducthubapiservicev1.ContractSchemaPropertyType
 			err = dataproducthubapiservicev1.UnmarshalContractSchemaPropertyType(raw, &result)
+			Expect(err).To(BeNil())
+			Expect(result).ToNot(BeNil())
+			Expect(result).To(Equal(model))
+		})
+		It(`Invoke UnmarshalContractServer successfully`, func() {
+			// Construct an instance of the model.
+			model := new(dataproducthubapiservicev1.ContractServer)
+			model.Server = core.StringPtr("testString")
+			model.Asset = nil
+			model.ConnectionID = core.StringPtr("testString")
+			model.Type = core.StringPtr("testString")
+			model.Description = core.StringPtr("testString")
+			model.Environment = core.StringPtr("testString")
+			model.Account = core.StringPtr("testString")
+			model.Catalog = core.StringPtr("testString")
+			model.Database = core.StringPtr("testString")
+			model.Dataset = core.StringPtr("testString")
+			model.Delimiter = core.StringPtr("testString")
+			model.EndpointURL = core.StringPtr("testString")
+			model.Format = core.StringPtr("testString")
+			model.Host = core.StringPtr("testString")
+			model.Location = core.StringPtr("testString")
+			model.Path = core.StringPtr("testString")
+			model.Port = core.StringPtr("testString")
+			model.Project = core.StringPtr("testString")
+			model.Region = core.StringPtr("testString")
+			model.RegionName = core.StringPtr("testString")
+			model.Schema = core.StringPtr("testString")
+			model.ServiceName = core.StringPtr("testString")
+			model.StagingDir = core.StringPtr("testString")
+			model.Stream = core.StringPtr("testString")
+			model.Warehouse = core.StringPtr("testString")
+			model.Roles = []string{"testString"}
+			model.CustomProperties = nil
+
+			b, err := json.Marshal(model)
+			Expect(err).To(BeNil())
+
+			var raw map[string]json.RawMessage
+			err = json.Unmarshal(b, &raw)
+			Expect(err).To(BeNil())
+
+			var result *dataproducthubapiservicev1.ContractServer
+			err = dataproducthubapiservicev1.UnmarshalContractServer(raw, &result)
 			Expect(err).To(BeNil())
 			Expect(result).ToNot(BeNil())
 			Expect(result).To(Equal(model))
@@ -17914,6 +20949,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			model.SupportAndCommunication = nil
 			model.CustomProperties = nil
 			model.ContractTest = nil
+			model.Servers = nil
 			model.Schema = nil
 
 			b, err := json.Marshal(model)
@@ -18035,6 +21071,8 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			model := new(dataproducthubapiservicev1.DataProductContractTemplate)
 			model.Container = nil
 			model.ID = core.StringPtr("20aa7c97-cfcc-4d16-ae76-2ca1847ce733")
+			model.CreatorID = core.StringPtr("IBMid-123456ABC")
+			model.CreatedAt = core.StringPtr("2025-06-26T12:30:20.000Z")
 			model.Name = core.StringPtr("Sample Data Contract Template")
 			model.Error = nil
 			model.ContractTerms = nil
@@ -18079,9 +21117,11 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			model.Name = core.StringPtr("Operations")
 			model.Description = core.StringPtr("This is a description of the data product domain.")
 			model.ID = core.StringPtr("testString")
+			model.CreatedBy = core.StringPtr("testString")
 			model.MemberRoles = nil
 			model.Properties = nil
 			model.SubDomains = nil
+			model.SubContainer = nil
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
@@ -18115,6 +21155,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			model.Comments = core.StringPtr("Comments by a producer that are provided either at the time of data product version creation or retiring")
 			model.AccessControl = nil
 			model.LastUpdatedAt = CreateMockDateTime("2019-01-01T12:00:00.000Z")
+			model.SubContainer = nil
 			model.IsRestricted = core.BoolPtr(true)
 			model.Asset = nil
 
@@ -18312,6 +21353,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			model.EngineID = core.StringPtr("presto767")
 			model.EnginePort = core.StringPtr("34567")
 			model.EngineHost = core.StringPtr("a109e0f6-2dfc-4954-a0ff-343d70f7da7b.someId.lakehouse.appdomain.cloud")
+			model.EngineType = core.StringPtr("spark")
 			model.AssociatedCatalogs = []string{"testString"}
 
 			b, err := json.Marshal(model)
@@ -18498,6 +21540,7 @@ var _ = Describe(`DataProductHubAPIServiceV1`, func() {
 			// Construct an instance of the model.
 			model := new(dataproducthubapiservicev1.ProducerInputModel)
 			model.EngineDetails = nil
+			model.Engines = nil
 
 			b, err := json.Marshal(model)
 			Expect(err).To(BeNil())
