@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v4.1.0...v4.2.0) (2026-05-18)
+
+
+### Features
+
+* sdk 5.4 release BREAKING CHANGE: Updated to SDK version 5.4 with breaking API changes ([4185d0a](https://github.com/IBM/data-product-exchange-go-sdk/commit/4185d0a7801860ce4c65dfb136323a9395270fdd))
+
 # [4.1.0](https://github.com/IBM/data-product-exchange-go-sdk/compare/v4.0.0...v4.1.0) (2025-12-11)
 
 
