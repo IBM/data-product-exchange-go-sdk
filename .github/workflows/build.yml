@@ -13,11 +13,17 @@ on:
   workflow_dispatch:
     # Allow workflow to be triggered manually.
 
+# Default: restrict all permissions; individual jobs grant only what they need.
+permissions:
+  contents: read
+
 jobs:
   detect-secrets:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     name: detect-secrets
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout repository
@@ -42,6 +48,8 @@ jobs:
     name: build-test (go v${{ matrix.go-version }})
     needs: detect-secrets
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         go-version: ["1.24", "1.25"]
@@ -69,6 +77,8 @@ jobs:
     needs: build
     name: publish
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # required for semantic-release to create tags and releases
 
     steps:
       - name: Checkout repository
