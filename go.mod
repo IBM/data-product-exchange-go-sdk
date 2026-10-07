@@ -1,6 +1,6 @@
 module github.com/IBM/data-product-exchange-go-sdk/v4
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/IBM/go-sdk-core/v5 v5.17.4
@@ -29,11 +29,10 @@ require (
 	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/oklog/ulid/v2 v2.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	go.mongodb.org/mongo-driver v1.17.7 // indirect
 	golang.org/x/crypto v0.57.0 // indirect
-    golang.org/x/net v0.59.0 // indirect
-    golang.org/x/sys v0.48.0 // indirect
-    golang.org/x/text v0.42.0 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/text v0.42.0 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
